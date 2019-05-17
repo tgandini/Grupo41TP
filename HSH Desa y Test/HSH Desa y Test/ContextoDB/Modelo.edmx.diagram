@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="efa2dfd9af68477dbdd0b8c779be79b2" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="Modelo.admin" Width="1.5" PointX="8.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.foto" Width="1.5" PointX="12.625" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.HotSale" Width="1.5" PointX="14.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.Propiedad" Width="1.5" PointX="9.875" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.ReservaDirecta" Width="1.5" PointX="14.875" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.subasta" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.tarjeta" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.usuario" Width="1.5" PointX="5.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.usuarioParticipaEnSubasta" Width="1.5" PointX="5" PointY="2.625" IsExpanded="true" />
+        <AssociationConnector Association="Modelo.idPropiedad" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FkPropiedad" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FKUsuario" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.fk_Propiedad_Subastada" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FkPropReservaDirecta" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FkUsuarioReserva" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FKSubasta" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FK_tarjetas_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.FkPersona" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
