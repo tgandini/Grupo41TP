@@ -22,7 +22,7 @@ namespace HSH_Desa_y_Test.xUC
 
         private void Crear_Cuenta_Click(object sender, EventArgs e)
         {
-            if (usuario.validarMail(textMail.Text){
+            if (usuario.validarMail(textMail.Text)){
                 if (!usuario.existeMailEnBaseDeDatos(textMail.Text))
                 {
                     var user = new usuario(textNombre.Text, textApellido.Text, textContrasena.Text, textMail.Text, textFechaNacimiento.Text);
@@ -41,7 +41,21 @@ namespace HSH_Desa_y_Test.xUC
 
         private void Cancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result = MessageBox.Show("Seguro que desea cancelar?", "Salir", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+            else if (result == DialogResult.No)
+            {
+            }
+        }
+
+        private void textContrasena_EditValueChanged(object sender, EventArgs e)
+        {
+            textContrasena.Text = "";
+            textContrasena.Properties.PasswordChar = '*';
         }
     }
 }
