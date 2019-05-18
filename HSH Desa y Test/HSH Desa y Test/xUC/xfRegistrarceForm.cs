@@ -25,18 +25,22 @@ namespace HSH_Desa_y_Test.xUC
             if (usuario.validarMail(textMail.Text)){
                 if (!usuario.existeMailEnBaseDeDatos(textMail.Text))
                 {
-                    if (textNombre.Text != "" && textApellido.Text != "" && textContrasena.Text != "" && textMail.Text != "" && textFechaNacimiento.Text != "")
+                    if (textNombre.Text != "" && textApellido.Text != "" && textContrasena.Text != "" && textMail.Text != "" && textFechaNacimiento.Text != "" && (textNroTarjeta.Text.Length == 16) && (textFechaVencimiento.Text != "") && textCodSeguridad.Text.Length == 3)
                     {
                         if (textContrasena.Text.Length < 6)
                         {
-                            var user = new usuario(textNombre.Text, textApellido.Text, textContrasena.Text, textMail.Text, textFechaNacimiento.Text);
-                            var tarjeta = new tarjeta(textNroTarjeta.Text, DateTime.Parse(textFechaVencimiento.Text), textCodSeguridad.Text);
-                            user.tarjetas.Add(tarjeta);
-                            using (ContextoEntity conec = new ContextoEntity())
+                            if (DateTime.Parse(textFechaVencimiento.Text).Year <= (DateTime.Today.Year - 18))
                             {
-                                conec.usuarios.Add(user);
-                                conec.SaveChanges();
+                                var user = new usuario(textNombre.Text, textApellido.Text, textContrasena.Text, textMail.Text, textFechaNacimiento.Text);
+                                var tarjeta = new tarjeta(textNroTarjeta.Text, DateTime.Parse(textFechaVencimiento.Text), textCodSeguridad.Text);
+                                user.tarjetas.Add(tarjeta);
+                                using (ContextoEntity conec = new ContextoEntity())
+                                {
+                                    conec.usuarios.Add(user);
+                                    conec.SaveChanges();
+                                }
                             }
+                            else MessageBox.Show("Tiene que ser mayor de edad");
                         }
                         else MessageBox.Show("La contraseña es demasiado corta");
                     }
