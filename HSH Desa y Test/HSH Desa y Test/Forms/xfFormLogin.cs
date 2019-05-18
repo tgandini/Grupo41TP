@@ -53,13 +53,13 @@ namespace HSH_Desa_y_Test.Forms
             {
                 Sesion.user = usuario.traerDeDb(textEdit1.Text, textEdit2.Text);
             }
-            else
+            else //Quiere iniciar como admin
             {
                 Sesion.admin = admin.traerDeDb(textEdit1.Text);
             }
             
         }
-        //Quiere iniciar como admin
+        
         private void cancelarClickeado(object sender, EventArgs e)
         {
             this.Close();
