@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HSH_Desa_y_Test.ContextoDB;
+using HSH_Desa_y_Test.Forms;
+using HSH_Desa_y_Test.xUC;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +19,7 @@ namespace HSH_Desa_y_Test
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new xfFormTest());
         }
     }
 }

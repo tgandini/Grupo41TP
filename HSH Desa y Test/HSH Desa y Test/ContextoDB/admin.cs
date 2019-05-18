@@ -14,6 +14,18 @@ namespace HSH_Desa_y_Test.ContextoDB
     
     public partial class admin
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public admin()
+        {
+            this.Propiedads = new HashSet<Propiedad>();
+            this.Propiedads1 = new HashSet<Propiedad>();
+        }
+    
         public string token { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Propiedad> Propiedads { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Propiedad> Propiedads1 { get; set; }
     }
 }

@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Modelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Modelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="admins">
           <Key>
             <PropertyRef Name="token" />
           </Key>
-          <Property Name="token" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="token" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="fotos">
           <Key>
@@ -39,6 +39,10 @@
           <Property Name="tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ubicaciòn" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="habitaciones" Type="int" Nullable="false" />
+          <Property Name="adminQueDioDeAltaProp" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="fechaAlta" Type="date" Nullable="false" />
+          <Property Name="adminQueDIoDeBajaProp" Type="nvarchar" MaxLength="10" />
+          <Property Name="fechaBaja" Type="date" />
         </EntityType>
         <EntityType Name="ReservaDirecta">
           <Key>
@@ -102,6 +106,30 @@
             </Principal>
             <Dependent Role="subasta">
               <PropertyRef Name="id_propiedad_subastada" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_adminDioDeAlta">
+          <End Role="admins" Type="Self.admins" Multiplicity="1" />
+          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admins">
+              <PropertyRef Name="token" />
+            </Principal>
+            <Dependent Role="Propiedad">
+              <PropertyRef Name="adminQueDioDeAltaProp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_adminDioDeBaja">
+          <End Role="admins" Type="Self.admins" Multiplicity="0..1" />
+          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admins">
+              <PropertyRef Name="token" />
+            </Principal>
+            <Dependent Role="Propiedad">
+              <PropertyRef Name="adminQueDIoDeBajaProp" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -215,6 +243,14 @@
             <End Role="Propiedad" EntitySet="Propiedad" />
             <End Role="subasta" EntitySet="subasta" />
           </AssociationSet>
+          <AssociationSet Name="FK_adminDioDeAlta" Association="Self.FK_adminDioDeAlta">
+            <End Role="admins" EntitySet="admins" />
+            <End Role="Propiedad" EntitySet="Propiedad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_adminDioDeBaja" Association="Self.FK_adminDioDeBaja">
+            <End Role="admins" EntitySet="admins" />
+            <End Role="Propiedad" EntitySet="Propiedad" />
+          </AssociationSet>
           <AssociationSet Name="FK_tarjetas_Usuario" Association="Self.FK_tarjetas_Usuario">
             <End Role="usuario" EntitySet="usuario" />
             <End Role="tarjetas" EntitySet="tarjetas" />
@@ -248,8 +284,7 @@
             <End Role="fotos" EntitySet="fotos" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Modelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -257,7 +292,9 @@
           <Key>
             <PropertyRef Name="token" />
           </Key>
-          <Property Name="token" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="token" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Propiedads" Relationship="Modelo.FK_adminDioDeAlta" FromRole="admin" ToRole="Propiedad" />
+          <NavigationProperty Name="Propiedads1" Relationship="Modelo.FK_adminDioDeBaja" FromRole="admin" ToRole="Propiedad" />
         </EntityType>
         <EntityType Name="foto">
           <Key>
@@ -294,6 +331,12 @@
           <NavigationProperty Name="HotSales" Relationship="Self.FkPropiedad" FromRole="Propiedad" ToRole="HotSales" />
           <NavigationProperty Name="subastas" Relationship="Self.fk_Propiedad_Subastada" FromRole="Propiedad" ToRole="subasta" />
           <NavigationProperty Name="ReservaDirectas" Relationship="Self.FkPropReservaDirecta" FromRole="Propiedad" ToRole="ReservaDirecta" />
+          <Property Name="adminQueDioDeAltaProp" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="fechaAlta" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="adminQueDIoDeBajaProp" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="fechaBaja" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="admin" Relationship="Modelo.FK_adminDioDeAlta" FromRole="Propiedad" ToRole="admin" />
+          <NavigationProperty Name="admin1" Relationship="Modelo.FK_adminDioDeBaja" FromRole="Propiedad" ToRole="admin" />
         </EntityType>
         <EntityType Name="ReservaDirecta">
           <Key>
@@ -513,7 +556,39 @@
             <End Role="usuario" EntitySet="usuarios" />
             <End Role="usuarioParticipaEnSubasta" EntitySet="usuarioParticipaEnSubastas" />
           </AssociationSet>
+          <AssociationSet Name="FK_adminDioDeAlta" Association="Modelo.FK_adminDioDeAlta">
+            <End Role="admin" EntitySet="admins" />
+            <End Role="Propiedad" EntitySet="Propiedads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_adminDioDeBaja" Association="Modelo.FK_adminDioDeBaja">
+            <End Role="admin" EntitySet="admins" />
+            <End Role="Propiedad" EntitySet="Propiedads" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_adminDioDeAlta">
+          <End Type="Modelo.admin" Role="admin" Multiplicity="1" />
+          <End Type="Modelo.Propiedad" Role="Propiedad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="token" />
+            </Principal>
+            <Dependent Role="Propiedad">
+              <PropertyRef Name="adminQueDioDeAltaProp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_adminDioDeBaja">
+          <End Type="Modelo.admin" Role="admin" Multiplicity="0..1" />
+          <End Type="Modelo.Propiedad" Role="Propiedad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="token" />
+            </Principal>
+            <Dependent Role="Propiedad">
+              <PropertyRef Name="adminQueDIoDeBajaProp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -552,6 +627,10 @@
           <EntitySetMapping Name="Propiedads">
             <EntityTypeMapping TypeName="Modelo.Propiedad">
               <MappingFragment StoreEntitySet="Propiedad">
+                <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
+                <ScalarProperty Name="adminQueDIoDeBajaProp" ColumnName="adminQueDIoDeBajaProp" />
+                <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+                <ScalarProperty Name="adminQueDioDeAltaProp" ColumnName="adminQueDioDeAltaProp" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="tipo" ColumnName="tipo" />
                 <ScalarProperty Name="ubicaciòn" ColumnName="ubicaciòn" />

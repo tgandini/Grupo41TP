@@ -27,6 +27,10 @@ namespace HSH_Desa_y_Test.ContextoDB
         public string tipo { get; set; }
         public string ubicaciòn { get; set; }
         public int habitaciones { get; set; }
+        public string adminQueDioDeAltaProp { get; set; }
+        public System.DateTime fechaAlta { get; set; }
+        public string adminQueDIoDeBajaProp { get; set; }
+        public Nullable<System.DateTime> fechaBaja { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<foto> fotos { get; set; }
@@ -36,5 +40,7 @@ namespace HSH_Desa_y_Test.ContextoDB
         public virtual ICollection<subasta> subastas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ReservaDirecta> ReservaDirectas { get; set; }
+        public virtual admin admin { get; set; }
+        public virtual admin admin1 { get; set; }
     }
 }
