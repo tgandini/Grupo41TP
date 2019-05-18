@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xfRegistrarceForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -186,6 +187,7 @@
             // 
             this.pictureBox1.ImageLocation = "C:\\Users\\mauri\\Documents\\Facultad\\IS2\\Grupo41TP\\HSH Desa y Test\\HSH Desa y Test\\I" +
     "magenes\\Logos\\logo.png";
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 70);
@@ -230,6 +232,7 @@
             this.textContrasena.Name = "textContrasena";
             this.textContrasena.Size = new System.Drawing.Size(403, 22);
             this.textContrasena.TabIndex = 25;
+            this.textContrasena.Click += new System.EventHandler(this.textContrasena_EditValueChanged);
             // 
             // textNroTarjeta
             // 
