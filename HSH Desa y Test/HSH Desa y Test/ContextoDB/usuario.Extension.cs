@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,6 +47,22 @@ namespace HSH_Desa_y_Test.ContextoDB
                     }
                 }
             }
+        }
+        public Boolean validarMail(string mail)
+        {
+            var foo = new EmailAddressAttribute();
+            return (foo.IsValid(mail));
+
+        }
+
+        public Boolean existeMailEnBaseDeDatos(string mail)
+        {
+            using (ContextoEntity conec = new ContextoEntity())
+            {
+                var mailEnDB = conec.usuarios.Where(each => each.mail == mail).FirstOrDefault();
+                return mailEnDB != null;
+            }
+
         }
     }
 }
