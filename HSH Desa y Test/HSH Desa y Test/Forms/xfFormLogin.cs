@@ -23,6 +23,7 @@ namespace HSH_Desa_y_Test.Forms
 
         private void setearPorDefecto()
         {
+            this.CenterToScreen();
             radioButton1.Checked = true;
             radioButton2.Checked = false;
         }
@@ -52,11 +53,21 @@ namespace HSH_Desa_y_Test.Forms
             if (radioButton1.Checked)
             {
                 Sesion.user = usuario.traerDeDb(textEdit1.Text, textEdit2.Text);
+                if (Sesion.user != null)
+                {
+
+                }
+                
             }
             else //Quiere iniciar como admin
             {
                 Sesion.admin = admin.traerDeDb(textEdit1.Text);
+                if (Sesion.admin != null)
+                {
+
+                }
             }
+
             
         }
         
