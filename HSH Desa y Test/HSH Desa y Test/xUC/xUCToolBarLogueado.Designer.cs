@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xUCToolBarLogueado));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.CerrarSesion = new System.Windows.Forms.Button();
+            this.Admin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,12 +46,33 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // CerrarSesion
+            // 
+            this.CerrarSesion.Location = new System.Drawing.Point(771, 12);
+            this.CerrarSesion.Name = "CerrarSesion";
+            this.CerrarSesion.Size = new System.Drawing.Size(120, 43);
+            this.CerrarSesion.TabIndex = 1;
+            this.CerrarSesion.Text = "Cerrar Sesion";
+            this.CerrarSesion.UseVisualStyleBackColor = true;
+            this.CerrarSesion.Click += new System.EventHandler(this.CerrarSesion_Click);
+            // 
+            // Admin
+            // 
+            this.Admin.Location = new System.Drawing.Point(630, 12);
+            this.Admin.Name = "Admin";
+            this.Admin.Size = new System.Drawing.Size(120, 43);
+            this.Admin.TabIndex = 2;
+            this.Admin.Text = "Opciones Admin";
+            this.Admin.UseVisualStyleBackColor = true;
+            // 
             // xUCToolBarLogueado
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Admin);
+            this.Controls.Add(this.CerrarSesion);
             this.Controls.Add(this.pictureBox1);
             this.Name = "xUCToolBarLogueado";
             this.Size = new System.Drawing.Size(908, 70);
@@ -61,5 +84,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button CerrarSesion;
+        private System.Windows.Forms.Button Admin;
     }
 }
