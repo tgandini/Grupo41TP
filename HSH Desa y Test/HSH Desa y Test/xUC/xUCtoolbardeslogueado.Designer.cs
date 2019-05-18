@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xUCtoolbardeslogueado));
             this.Registrarse = new System.Windows.Forms.Button();
             this.IniciarSecion = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -59,10 +58,11 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.ErrorImage = global::HSH_Desa_y_Test.Properties.Resources.logo;
             this.pictureBox1.Image = global::HSH_Desa_y_Test.Properties.Resources.logo;
             this.pictureBox1.ImageLocation = "C:\\Users\\mauri\\Documents\\Facultad\\IS2\\Grupo41TP\\HSH Desa y Test\\HSH Desa y Test\\I" +
     "magenes\\Logos\\logo.png";
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.InitialImage = global::HSH_Desa_y_Test.Properties.Resources.logo;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
