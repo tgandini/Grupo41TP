@@ -12,9 +12,13 @@ namespace HSH_Desa_y_Test.Modelo_Expandido
         public static usuario user;
         public static admin admin;
 
-        //public bool userLogueado
-        //{
-
-        //}
+        public static bool hayUserLogueado()
+        {
+            return user != null;
+        }
+        public static bool hayAdminLogueado()
+        {
+            return admin != null;
+        }
     }
 }
