@@ -25,15 +25,23 @@ namespace HSH_Desa_y_Test.xUC
             if (usuario.validarMail(textMail.Text)){
                 if (!usuario.existeMailEnBaseDeDatos(textMail.Text))
                 {
-                    var user = new usuario(textNombre.Text, textApellido.Text, textContrasena.Text, textMail.Text, textFechaNacimiento.Text);
-                    var tarjeta = new tarjeta(textNroTarjeta.Text, DateTime.Parse(textFechaVencimiento.Text), textCodSeguridad.Text);
-                    user.tarjetas.Add(tarjeta);
-                    using (ContextoEntity conec = new ContextoEntity())
+                    if (textNombre.Text != "" && textApellido.Text != "" && textContrasena.Text != "" && textMail.Text != "" && textFechaNacimiento.Text != "")
                     {
-                        conec.usuarios.Add(user);
-                        conec.SaveChanges();
+                        if (textContrasena.Text.Length < 6)
+                        {
+                            var user = new usuario(textNombre.Text, textApellido.Text, textContrasena.Text, textMail.Text, textFechaNacimiento.Text);
+                            var tarjeta = new tarjeta(textNroTarjeta.Text, DateTime.Parse(textFechaVencimiento.Text), textCodSeguridad.Text);
+                            user.tarjetas.Add(tarjeta);
+                            using (ContextoEntity conec = new ContextoEntity())
+                            {
+                                conec.usuarios.Add(user);
+                                conec.SaveChanges();
+                            }
+                        }
+                        else MessageBox.Show("La contraseña es demasiado corta");
                     }
-                }
+                    else MessageBox.Show("Faltan completar campos");
+            }
                 else MessageBox.Show("El email ya esta en uso");
             }
             else MessageBox.Show("El formato del email es erróneo");
@@ -55,7 +63,7 @@ namespace HSH_Desa_y_Test.xUC
         private void textContrasena_EditValueChanged(object sender, EventArgs e)
         {
             textContrasena.Text = "";
-            textContrasena.Properties.PasswordChar = '*';
+            textContrasena.Properties.UseSystemPasswordChar = true;
         }
     }
 }
