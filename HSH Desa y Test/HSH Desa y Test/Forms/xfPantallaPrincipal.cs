@@ -11,11 +11,18 @@ using DevExpress.XtraEditors;
 
 namespace HSH_Desa_y_Test.Forms
 {
-    public partial class xfPantallaPrincipal : DevExpress.XtraEditors.XtraUserControl
+    public partial class xfPantallaPrincipal : DevExpress.XtraEditors.XtraForm
     {
         public xfPantallaPrincipal()
         {
             InitializeComponent();
+            this.inicializar();
+
+        }
+
+        private void inicializar()
+        {
+            this.WindowState = FormWindowState.Maximized;
         }
     }
 }
