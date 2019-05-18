@@ -185,8 +185,8 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.ImageLocation = "C:\\Users\\mauri\\Documents\\Facultad\\IS2\\Grupo41TP\\HSH Desa y Test\\HSH Desa y Test\\I" +
-    "magenes\\Logos\\logo.png";
+            this.pictureBox1.Image = global::HSH_Desa_y_Test.Properties.Resources.logo;
+            this.pictureBox1.ImageLocation = "";
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
