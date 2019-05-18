@@ -48,14 +48,14 @@ namespace HSH_Desa_y_Test.ContextoDB
                 }
             }
         }
-        public Boolean validarMail(string mail)
+        public static Boolean validarMail(string mail)
         {
             var foo = new EmailAddressAttribute();
             return (foo.IsValid(mail));
 
         }
 
-        public Boolean existeMailEnBaseDeDatos(string mail)
+        public static Boolean existeMailEnBaseDeDatos(string mail)
         {
             using (ContextoEntity conec = new ContextoEntity())
             {
