@@ -197,7 +197,7 @@
             // 
             // textNombre
             // 
-            this.textNombre.Location = new System.Drawing.Point(175, 90);
+            this.textNombre.Location = new System.Drawing.Point(174, 90);
             this.textNombre.Name = "textNombre";
             this.textNombre.Size = new System.Drawing.Size(403, 22);
             this.textNombre.TabIndex = 21;
@@ -220,8 +220,11 @@
             // 
             this.textFechaNacimiento.Location = new System.Drawing.Point(175, 207);
             this.textFechaNacimiento.Name = "textFechaNacimiento";
-            this.textFechaNacimiento.Properties.Mask.EditMask = "99/99/0000";
-            this.textFechaNacimiento.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.textFechaNacimiento.Properties.EditFormat.FormatString = "dd/mm/yyyy";
+            this.textFechaNacimiento.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.textFechaNacimiento.Properties.Mask.EditMask = "d";
+            this.textFechaNacimiento.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
+            this.textFechaNacimiento.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.textFechaNacimiento.Size = new System.Drawing.Size(403, 22);
             this.textFechaNacimiento.TabIndex = 24;
             // 
@@ -247,8 +250,11 @@
             // 
             this.textFechaVencimiento.Location = new System.Drawing.Point(175, 389);
             this.textFechaVencimiento.Name = "textFechaVencimiento";
-            this.textFechaVencimiento.Properties.Mask.EditMask = "99/00";
-            this.textFechaVencimiento.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.textFechaVencimiento.Properties.EditFormat.FormatString = "mm/yy";
+            this.textFechaVencimiento.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.textFechaVencimiento.Properties.Mask.EditMask = "mm/yy";
+            this.textFechaVencimiento.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
+            this.textFechaVencimiento.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.textFechaVencimiento.Size = new System.Drawing.Size(403, 22);
             this.textFechaVencimiento.TabIndex = 27;
             // 

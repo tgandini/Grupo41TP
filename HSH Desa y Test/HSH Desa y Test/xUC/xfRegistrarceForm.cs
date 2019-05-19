@@ -18,38 +18,50 @@ namespace HSH_Desa_y_Test.xUC
         {
             InitializeComponent();
             label1.Text = titulo;
+            this.CenterToScreen();
         }
 
         private void Crear_Cuenta_Click(object sender, EventArgs e)
         {
-            if (usuario.validarMail(textMail.Text)){
+            if (usuario.validarMail(textMail.Text))
+            {
                 if (!usuario.existeMailEnBaseDeDatos(textMail.Text))
                 {
-                    if (textNombre.Text != "" && textApellido.Text != "" && textContrasena.Text != "" && textMail.Text != "" && textFechaNacimiento.Text != "" && (textNroTarjeta.Text.Length == 16) && (textFechaVencimiento.Text != "") && textCodSeguridad.Text.Length == 3)
+                    if ((textNombre.Text.Length > 0) && (textApellido.Text.Length > 0) && (textContrasena.Text.Length > 0) && (textMail.Text.Length > 0) && (textFechaNacimiento.Text.Length > 0))
                     {
-                        if (textContrasena.Text.Length < 6)
+                        if ((tarjeta.sacarGuiones(textNroTarjeta.Text).Length == 16) && (textFechaVencimiento.Text.Length > 0) && (textCodSeguridad.Text.Length == 3))
                         {
-                            if (DateTime.Parse(textFechaVencimiento.Text).Year <= (DateTime.Today.Year - 18))
+
+                            if (textContrasena.Text.Length >= 6)
                             {
-                                var user = new usuario(textNombre.Text, textApellido.Text, textContrasena.Text, textMail.Text, textFechaNacimiento.Text);
-                                var tarjeta = new tarjeta(textNroTarjeta.Text, DateTime.Parse(textFechaVencimiento.Text), textCodSeguridad.Text);
-                                user.tarjetas.Add(tarjeta);
-                                using (ContextoEntity conec = new ContextoEntity())
+                                if (DateTime.Parse(textFechaNacimiento.Text).Year <= (DateTime.Today.Year - 18))
                                 {
-                                    conec.usuarios.Add(user);
-                                    conec.SaveChanges();
+                                    string st = string.Concat("01/", textFechaVencimiento.Text);
+                                    var user = new usuario(textNombre.Text, textApellido.Text, textContrasena.Text, textMail.Text, textFechaNacimiento.Text);
+                                    var tarjeta = new tarjeta(textNroTarjeta.Text, DateTime.Parse(st), textCodSeguridad.Text);
+                                    user.tarjetas.Add(tarjeta);
+                                    using (ContextoEntity conec = new ContextoEntity())
+                                    {
+                                        conec.usuarios.Add(user);
+                                        conec.SaveChanges();
+                                    }
+                                    string pt = string.Concat("Se creo la cuenta de usuario para: ", textMail.Text);
+                                    MessageBox.Show(pt);
+                                    this.Close();
                                 }
+                                else MessageBox.Show("Tiene que ser mayor de edad");
                             }
-                            else MessageBox.Show("Tiene que ser mayor de edad");
+                            else MessageBox.Show("La contraseña es demasiado corta");
                         }
-                        else MessageBox.Show("La contraseña es demasiado corta");
+                        else  MessageBox.Show("Faltan completar campos tarjeta"); 
                     }
                     else MessageBox.Show("Faltan completar campos");
+                    }
+                    else MessageBox.Show("El email ya esta en uso");
+                }
+                else MessageBox.Show("El formato del email es erróneo");
             }
-                else MessageBox.Show("El email ya esta en uso");
-            }
-            else MessageBox.Show("El formato del email es erróneo");
-        }
+        
 
         private void Cancelar_Click(object sender, EventArgs e)
         {

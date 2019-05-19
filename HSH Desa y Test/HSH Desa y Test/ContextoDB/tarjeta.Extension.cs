@@ -11,9 +11,13 @@ namespace HSH_Desa_y_Test.ContextoDB
         public tarjeta(string pNumeroTarjeta,DateTime pFechaVenc, string pCodigoSeguridad)
         {
             this.id = int.MaxValue;
-            this.numero = pNumeroTarjeta.Replace("-",string.Empty);
+            this.numero = tarjeta.sacarGuiones(pNumeroTarjeta);
             this.vencimiento = pFechaVenc;
             this.codigoSeguridad = pCodigoSeguridad;
+        }
+        public static string sacarGuiones(string numConGuiones)
+        {
+            return numConGuiones.Replace("-", string.Empty);
         }
     }
 }
