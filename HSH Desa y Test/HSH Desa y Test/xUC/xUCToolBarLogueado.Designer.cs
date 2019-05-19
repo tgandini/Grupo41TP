@@ -65,6 +65,7 @@
             this.Admin.TabIndex = 2;
             this.Admin.Text = "Opciones Admin";
             this.Admin.UseVisualStyleBackColor = true;
+            this.Admin.Click += new System.EventHandler(this.Admin_Click);
             // 
             // labelUserLogueado
             // 

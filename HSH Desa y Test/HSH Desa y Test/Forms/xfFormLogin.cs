@@ -60,6 +60,7 @@ namespace HSH_Desa_y_Test.Forms
                 Sesion.user = usuario.traerDeDb(textEdit1.Text, textEdit2.Text);
                 if (Sesion.user != null)
                 {
+                    Sesion.admin = null;
                     Sesion.getVistaPrincipal().renderizarConUsuario();
                     this.Close();
                 }
@@ -74,6 +75,8 @@ namespace HSH_Desa_y_Test.Forms
                 Sesion.admin = admin.traerDeDb(textEdit1.Text);
                 if (Sesion.admin != null)
                 {
+                    Sesion.user = null;
+                    Sesion.getVistaPrincipal().renderizarConAdmin();
                     this.Close();
                 }
             }

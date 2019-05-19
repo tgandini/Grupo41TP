@@ -26,14 +26,12 @@ namespace HSH_Desa_y_Test.xUC
             if (Sesion.admin != null) Admin.Visible = true;
             else Admin.Visible = false;
             if (Sesion.user != null)
-            {
-                labelUserLogueado.Visible = true;
+            {                
                 labelUserLogueado.Text = labelUserLogueado.Text + Sesion.user.nombre + " " + Sesion.user.apellido;
             }
             else
-            {
-                labelUserLogueado.Visible = false;
-                labelUserLogueado.Text = "Usuario Logueado: ";
+            {                
+                labelUserLogueado.Text = "Usuario Logueado: Administrador";
             }
         }
 
@@ -44,11 +42,16 @@ namespace HSH_Desa_y_Test.xUC
             if (result == DialogResult.Yes)
             {
                 Sesion.user = null;
-                //Hacer logica para volver a la pantalla inicio
+                Sesion.getVistaPrincipal().instanciarSinUsuarioLogueado();
             }
             else if (result == DialogResult.No)
             {
             }
+
+        }
+
+        private void Admin_Click(object sender, EventArgs e)
+        {
 
         }
     }

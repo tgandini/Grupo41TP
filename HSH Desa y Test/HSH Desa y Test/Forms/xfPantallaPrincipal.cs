@@ -50,6 +50,15 @@ namespace HSH_Desa_y_Test.Forms
             this.layoutControlItem1.EndInit();
             
         }
+
+        internal void renderizarConAdmin()
+        {
+            this.layoutControlItem1.BeginInit();
+            var controlQueEstabaEnPanel = this.layoutControlItem1.Control;
+            this.layoutControlItem1.Control = new xUCToolBarLogueado(true);
+            controlQueEstabaEnPanel.Parent = null;
+            this.layoutControlItem1.EndInit();
+        }
     }
     
 }
