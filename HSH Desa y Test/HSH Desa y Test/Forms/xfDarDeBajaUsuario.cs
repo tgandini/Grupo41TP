@@ -24,8 +24,8 @@ namespace HSH_Desa_y_Test.Forms
             usuarioBindingSource.DataSource = llenarTablaConUsuarios();
             gridControl1.DataSource = usuarioBindingSource;
             gridControl1.Update();
-            
-            
+            this.CenterToScreen();
+
         }
 
     private List<usuario> llenarTablaConUsuarios()
@@ -38,14 +38,24 @@ namespace HSH_Desa_y_Test.Forms
         private void DarDeBaja_Click(object sender, EventArgs e)
         {
             usuario usuarioSeleccionado = (usuario) gridView1.GetFocusedRow();
-            using (ContextoEntity conec = new ContextoEntity())
+            string st = string.Concat("Seguro que desea Borrar al usuario ", usuarioSeleccionado.mail, "?");
+            DialogResult result = MessageBox.Show(st, "Salir", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
             {
-                var usuarioaborrar = conec.usuarios.Where(p => p.mail == usuarioSeleccionado.mail).First();
-                conec.tarjetas.RemoveRange(usuarioaborrar.tarjetas);
-                conec.usuarios.Remove(usuarioaborrar);
-                conec.SaveChanges();
-                gridControl1.Update();
+                using (ContextoEntity conec = new ContextoEntity())
+                {
+                    var usuarioaborrar = conec.usuarios.Where(p => p.mail == usuarioSeleccionado.mail).First();
+                    conec.tarjetas.RemoveRange(usuarioaborrar.tarjetas);
+                    conec.usuarios.Remove(usuarioaborrar);
+                    conec.SaveChanges();
+                    gridControl1.Update();
+                }
             }
+            else if (result == DialogResult.No)
+            {
+            }
+           
 
         }
     }
