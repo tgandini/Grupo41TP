@@ -15,6 +15,11 @@ namespace HSH_Desa_y_Test.ContextoDB
             this.vencimiento = pFechaVenc;
             this.codigoSeguridad = pCodigoSeguridad;
         }
+        public tarjeta()
+        {
+            
+        }
+
         public static string sacarGuiones(string numConGuiones)
         {
             return numConGuiones.Replace("-", string.Empty);
