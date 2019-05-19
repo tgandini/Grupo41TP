@@ -32,6 +32,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.CerrarSesion = new System.Windows.Forms.Button();
             this.Admin = new System.Windows.Forms.Button();
+            this.labelUserLogueado = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,12 +66,21 @@
             this.Admin.Text = "Opciones Admin";
             this.Admin.UseVisualStyleBackColor = true;
             // 
+            // labelUserLogueado
+            // 
+            this.labelUserLogueado.Location = new System.Drawing.Point(119, 27);
+            this.labelUserLogueado.Name = "labelUserLogueado";
+            this.labelUserLogueado.Size = new System.Drawing.Size(93, 13);
+            this.labelUserLogueado.TabIndex = 3;
+            this.labelUserLogueado.Text = "Usuario Logueado: ";
+            // 
             // xUCToolBarLogueado
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelUserLogueado);
             this.Controls.Add(this.Admin);
             this.Controls.Add(this.CerrarSesion);
             this.Controls.Add(this.pictureBox1);
@@ -78,6 +88,7 @@
             this.Size = new System.Drawing.Size(908, 70);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -86,5 +97,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button CerrarSesion;
         private System.Windows.Forms.Button Admin;
+        private DevExpress.XtraEditors.LabelControl labelUserLogueado;
     }
 }

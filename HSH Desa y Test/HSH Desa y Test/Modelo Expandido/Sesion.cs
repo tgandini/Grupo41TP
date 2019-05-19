@@ -1,4 +1,5 @@
 ﻿using HSH_Desa_y_Test.ContextoDB;
+using HSH_Desa_y_Test.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace HSH_Desa_y_Test.Modelo_Expandido
     {
         public static usuario user;
         public static admin admin;
+        private static xfPantallaPrincipal vistaPrincipal;
 
         public static bool hayUserLogueado()
         {
@@ -19,6 +21,15 @@ namespace HSH_Desa_y_Test.Modelo_Expandido
         public static bool hayAdminLogueado()
         {
             return admin != null;
+        }
+        public static void guardarPantallaPrincipal(xfPantallaPrincipal vistaPorParámetro)
+        {
+            vistaPrincipal = vistaPorParámetro;
+
+        }
+        public static xfPantallaPrincipal getVistaPrincipal()
+        {
+            return vistaPrincipal;
         }
     }
 }

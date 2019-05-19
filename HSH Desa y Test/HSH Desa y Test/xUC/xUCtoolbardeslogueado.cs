@@ -19,14 +19,17 @@ namespace HSH_Desa_y_Test.xUC
             InitializeComponent();
         }
 
+
+
         private void button2_Click(object sender, EventArgs e)
         {
             new xfFormLogin().ShowDialog();
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            new xfRegistrarceForm("Registrar Usuario").ShowDialog();
         }
     }
 }
