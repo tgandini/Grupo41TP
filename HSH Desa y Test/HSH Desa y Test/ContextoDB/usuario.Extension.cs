@@ -20,6 +20,7 @@ namespace HSH_Desa_y_Test.ContextoDB
             this.premium = false;
             this.token = 2;
             this.tarjetas = new List<tarjeta>();
+            this.usuarioParticipaEnSubastas = new List<usuarioParticipaEnSubasta>();
 
         }
 

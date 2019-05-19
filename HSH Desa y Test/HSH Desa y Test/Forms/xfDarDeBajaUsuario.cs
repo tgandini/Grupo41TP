@@ -20,8 +20,8 @@ namespace HSH_Desa_y_Test.Forms
             
         {
             InitializeComponent();
-            var listaUsuarios = llenarTablaConUsuarios();
             usuarioBindingSource.DataSource = llenarTablaConUsuarios();
+            if (usuarioBindingSource.Count < 1) simpleButton1.Enabled = false;
             gridControl1.DataSource = usuarioBindingSource;
             gridControl1.Update();
             this.CenterToScreen();
@@ -46,11 +46,16 @@ namespace HSH_Desa_y_Test.Forms
                 using (ContextoEntity conec = new ContextoEntity())
                 {
                     var usuarioaborrar = conec.usuarios.Where(p => p.mail == usuarioSeleccionado.mail).First();
+                    conec.usuarioParticipaEnSubastas.RemoveRange(usuarioaborrar.usuarioParticipaEnSubastas);
                     conec.tarjetas.RemoveRange(usuarioaborrar.tarjetas);
                     conec.usuarios.Remove(usuarioaborrar);
                     conec.SaveChanges();
-                    gridControl1.Update();
                 }
+                usuarioBindingSource.DataSource = llenarTablaConUsuarios();
+                if (usuarioBindingSource.Count < 1) simpleButton1.Enabled = false;
+                gridControl1.DataSource = usuarioBindingSource;
+                gridControl1.Update();
+
             }
             else if (result == DialogResult.No)
             {
