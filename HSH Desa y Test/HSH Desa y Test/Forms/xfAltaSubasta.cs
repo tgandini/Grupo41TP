@@ -12,9 +12,9 @@ using HSH_Desa_y_Test.ContextoDB;
 
 namespace HSH_Desa_y_Test.Forms
 {
-    public static List<Propiedad> propie = new List<Propiedad>();
     public partial class xfAltaSubasta : DevExpress.XtraEditors.XtraForm
     {
+        private List<Propiedad> propie;        
         public xfAltaSubasta()
         {
             InitializeComponent();
@@ -29,7 +29,16 @@ namespace HSH_Desa_y_Test.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-           subasta nuevaSubasta = new subasta(comboBox1.AccessibilityObject.Value, (int)numericUpDown1.Value, maskedTextBox1.AccessibilityObject.Value, DateTime.Parse(maskedTextBox2.AccessibilityObject.Value));
+            Propiedad st = encontrarCual(comboBox1.AccessibilityObject.Value);
+            if (st != null)
+            {
+                DialogResult m = MessageBox.Show("Desea crear la subasta?","Crear Subasta", MessageBoxButtons.YesNo);
+                if (m == DialogResult.Yes)
+                {
+                    subasta nuevaSubasta = new subasta(st, (int)numericUpDown1.Value, maskedTextBox1.AccessibilityObject.Value, DateTime.Parse(maskedTextBox2.AccessibilityObject.Value));
+                }       
+            }
+            else MessageBox.Show("La propiedad elegida es errónea");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,6 +54,14 @@ namespace HSH_Desa_y_Test.Forms
             }
         }
 
-        private Propiedad encontrarCual
+        private Propiedad encontrarCual(string st)
+        {
+            foreach (Propiedad casa in propie)
+            {
+                if (casa.id == int.Parse(st))                
+                    return casa;                
+            }
+            return null;
+        }
     }
 }
