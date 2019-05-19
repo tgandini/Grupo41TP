@@ -37,8 +37,8 @@ namespace HSH_Desa_y_Test.Forms
         {
             radioButton1.Checked = true;
             radioButton2.Checked = false;
-            layoutControlItem3.Text = "Nombre usuario:";
-            layoutControlItem4.ContentVisible = true;
+            layoutControlItem4.Text = "Nombre usuario:";
+            layoutControlItem3.ContentVisible = true;
             
         }
 
@@ -47,8 +47,9 @@ namespace HSH_Desa_y_Test.Forms
         {
             radioButton1.Checked = false;
             radioButton2.Checked = true;
-            layoutControlItem3.Text = "Token de admin:";
-            layoutControlItem4.ContentVisible = false;
+            layoutControlItem4.Text = "Token de admin:";
+            layoutControlItem3.ContentVisible = false;
+           
         }
 
         private void okClickeado(object sender, EventArgs e)
@@ -72,7 +73,7 @@ namespace HSH_Desa_y_Test.Forms
             }
             else //Quiere iniciar como admin
             {
-                Sesion.admin = admin.traerDeDb(textEdit1.Text);
+                Sesion.admin = admin.traerDeDb(textEdit2.Text);
                 if (Sesion.admin != null)
                 {
                     Sesion.user = null;
