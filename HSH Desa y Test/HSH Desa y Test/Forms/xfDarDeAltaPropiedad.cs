@@ -35,15 +35,26 @@ namespace HSH_Desa_y_Test.Forms
                     string pt = string.Concat("Se creo la propiedad con ubicacion: ", textUbicacion.Text);
                     MessageBox.Show(pt);
                     Sesion.vistaPrincipalDeAdmin.ocultarFormsderivados();
+
+                    this.limpiarCampos();
+
                 }
                 else MessageBox.Show("La cantidad de habitaciones no es valida");
             }
             else MessageBox.Show("Faltan completar campos");
         }
 
+        private void limpiarCampos()
+        {
+            this.textHabitaciones.Text = "";
+            this.textTipo.Text = "";
+            this.textUbicacion.Text = "";
+        }
+
         private void cancelarButton1_Click(object sender, EventArgs e)
         {
             Sesion.vistaPrincipalDeAdmin.ocultarFormsderivados();
+            this.limpiarCampos();
         }
     }
 }

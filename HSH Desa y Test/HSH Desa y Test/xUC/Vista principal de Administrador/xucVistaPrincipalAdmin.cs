@@ -33,6 +33,7 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
 
         internal void ocultarFormsderivados()
         {
+            
             this.xfDarDeAltaPropiedad1.Visible = false;
         }
     }
