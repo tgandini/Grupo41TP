@@ -15,7 +15,7 @@ namespace HSH_Desa_y_Test.xUC
 {
     public partial class xUCToolBarLogueado : DevExpress.XtraEditors.XtraUserControl
     {
-        Boolean esAdmin;
+
         public xUCToolBarLogueado()
         {
             InitializeComponent();

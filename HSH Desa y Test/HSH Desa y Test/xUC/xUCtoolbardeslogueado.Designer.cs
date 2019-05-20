@@ -70,16 +70,18 @@
             // 
             // xUCtoolbardeslogueado
             // 
-            this.Appearance.BackColor = System.Drawing.Color.White;
+            this.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.IniciarSecion);
             this.Controls.Add(this.Registrarse);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "xUCtoolbardeslogueado";
-            this.Size = new System.Drawing.Size(908, 70);
+            this.Size = new System.Drawing.Size(894, 73);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
