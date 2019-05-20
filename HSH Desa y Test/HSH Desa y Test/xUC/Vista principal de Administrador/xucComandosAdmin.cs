@@ -16,6 +16,7 @@ namespace HSH_Desa_y_Test.xUC
     {
         public xucComandosAdmin()
         {
+            //asd
             InitializeComponent();
         }
 
