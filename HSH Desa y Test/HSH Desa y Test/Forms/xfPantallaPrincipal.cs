@@ -36,19 +36,24 @@ namespace HSH_Desa_y_Test.Forms
 
         public void instanciarSinUsuarioLogueado()
         {
+            
             this.xUCToolBarLogueado1.Visible = false;
             this.xUCToolBarLogueado1.SendToBack();
             this.xUCtoolbardeslogueado1.Visible = true;
             this.xUCToolBarLogueado1.BringToFront();
+            this.xucVistaPrincipalAdmin1.Visible = false;
         }
 
         internal void renderizarConUsuario()
         {
+          
             this.xUCtoolbardeslogueado1.Visible = false;
             this.xUCToolBarLogueado1.SendToBack();
             this.xUCToolBarLogueado1.CargarLabelConUsuario();
             this.xUCToolBarLogueado1.Visible = true;
             this.xUCToolBarLogueado1.BringToFront();
+            this.xucVistaPrincipalAdmin1.SendToBack();
+            this.xucVistaPrincipalAdmin1.Visible = false;
         }
 
         internal void renderizarConAdmin()
