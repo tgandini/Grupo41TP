@@ -28,47 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.xUCtoolbardeslogueado1 = new HSH_Desa_y_Test.xUC.xUCtoolbardeslogueado();
+            this.xUCToolBarLogueado1 = new HSH_Desa_y_Test.xUC.xUCToolBarLogueado();
+            this.xucVistaPrincipalAdmin1 = new HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador.xucVistaPrincipalAdmin();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // layoutControl1
+            // panelControl1
             // 
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(988, 453);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
+            this.panelControl1.Controls.Add(this.xucVistaPrincipalAdmin1);
+            this.panelControl1.Controls.Add(this.xUCtoolbardeslogueado1);
+            this.panelControl1.Controls.Add(this.xUCToolBarLogueado1);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1014, 736);
+            this.panelControl1.TabIndex = 0;
             // 
-            // Root
+            // xUCtoolbardeslogueado1
             // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(988, 453);
-            this.Root.TextVisible = false;
+            this.xUCtoolbardeslogueado1.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.xUCtoolbardeslogueado1.Appearance.Options.UseBackColor = true;
+            this.xUCtoolbardeslogueado1.AutoSize = true;
+            this.xUCtoolbardeslogueado1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.xUCtoolbardeslogueado1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.xUCtoolbardeslogueado1.Location = new System.Drawing.Point(2, 2);
+            this.xUCtoolbardeslogueado1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.xUCtoolbardeslogueado1.Name = "xUCtoolbardeslogueado1";
+            this.xUCtoolbardeslogueado1.Size = new System.Drawing.Size(1010, 73);
+            this.xUCtoolbardeslogueado1.TabIndex = 0;
+            // 
+            // xUCToolBarLogueado1
+            // 
+            this.xUCToolBarLogueado1.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.xUCToolBarLogueado1.Appearance.Options.UseBackColor = true;
+            this.xUCToolBarLogueado1.AutoSize = true;
+            this.xUCToolBarLogueado1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.xUCToolBarLogueado1.Location = new System.Drawing.Point(2, 2);
+            this.xUCToolBarLogueado1.Name = "xUCToolBarLogueado1";
+            this.xUCToolBarLogueado1.Size = new System.Drawing.Size(894, 73);
+            this.xUCToolBarLogueado1.TabIndex = 1;
+            this.xUCToolBarLogueado1.Visible = false;
+            // 
+            // xucVistaPrincipalAdmin1
+            // 
+            this.xucVistaPrincipalAdmin1.Location = new System.Drawing.Point(2, 80);
+            this.xucVistaPrincipalAdmin1.Name = "xucVistaPrincipalAdmin1";
+            this.xucVistaPrincipalAdmin1.Size = new System.Drawing.Size(1000, 644);
+            this.xucVistaPrincipalAdmin1.TabIndex = 2;
             // 
             // xfPantallaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(988, 453);
-            this.Controls.Add(this.layoutControl1);
+            this.ClientSize = new System.Drawing.Size(1014, 736);
+            this.Controls.Add(this.panelControl1);
             this.Name = "xfPantallaPrincipal";
             this.Text = "Home Switch Home";
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private xUC.xUCtoolbardeslogueado xUCtoolbardeslogueado1;
+        private xUC.xUCToolBarLogueado xUCToolBarLogueado1;
+        private xUC.Vista_principal_de_Administrador.xucVistaPrincipalAdmin xucVistaPrincipalAdmin1;
     }
 }

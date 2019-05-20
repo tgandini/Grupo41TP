@@ -35,6 +35,23 @@ namespace HSH_Desa_y_Test.xUC
             }
         }
 
+
+
+        #region Cargar labels
+
+        internal void CargarLabelConUsuario()
+        {
+            this.labelUserLogueado.Text = string.Format("Usuario logueado: {0}", Sesion.user.mail);
+        }
+
+        internal void CargarLabelConAdmin()
+        {
+            this.labelUserLogueado.Text = string.Format("Logueado como Administrador");
+        }
+        #endregion
+
+
+        #region eventos de click
         private void CerrarSesion_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Seguro que desea cerrar Sesion?", "Salir", MessageBoxButtons.YesNo);
@@ -54,5 +71,8 @@ namespace HSH_Desa_y_Test.xUC
         {
 
         }
+        #endregion
+
+
     }
 }
