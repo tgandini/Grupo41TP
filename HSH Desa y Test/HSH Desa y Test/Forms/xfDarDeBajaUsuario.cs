@@ -16,7 +16,7 @@ namespace HSH_Desa_y_Test.Forms
 {
     public partial class xfDarDeBajaUsuario : DevExpress.XtraEditors.XtraForm
     {
-       
+        ContextoEntity conec = new ContextoEntity();
         public xfDarDeBajaUsuario()
             
         {
@@ -31,11 +31,8 @@ namespace HSH_Desa_y_Test.Forms
         }
 
     private List<usuario> llenarTablaConUsuarios()
-    {
-            using (ContextoEntity conec = new ContextoEntity())
-            {
+    {           
                 return conec.usuarios.ToList();
-            }
         }
 
         private void DarDeBaja_Click(object sender, EventArgs e)
@@ -44,15 +41,12 @@ namespace HSH_Desa_y_Test.Forms
             string st = string.Concat("Seguro que desea Borrar al usuario ", usuarioSeleccionado.mail, "?");
             DialogResult result = MessageBox.Show(st, "Salir", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
-            {
-                using (ContextoEntity conec = new ContextoEntity())
-                {
+            {               
                     var usuarioaborrar = conec.usuarios.Where(p => p.mail == usuarioSeleccionado.mail).First();
                     conec.usuarioParticipaEnSubastas.RemoveRange(usuarioaborrar.usuarioParticipaEnSubastas);
                     conec.tarjetas.RemoveRange(usuarioaborrar.tarjetas);
                     conec.usuarios.Remove(usuarioaborrar);
                     conec.SaveChanges();
-                }
                 /*usuarioBindingSource.DataSource = llenarTablaConUsuarios();
                 if (usuarioBindingSource.Count < 1) simpleButton1.Enabled = false;
                 gridControl1.DataSource = usuarioBindingSource;
@@ -91,13 +85,10 @@ namespace HSH_Desa_y_Test.Forms
             if (m == DialogResult.Yes)
             {
                 usuario usuarioSeleccionado = (usuario)gridView1.GetFocusedRow();
-                using (ContextoEntity conec = new ContextoEntity())
-                {
                     var usuarioaborrar = conec.usuarios.Where(p => p.mail == usuarioSeleccionado.mail).First();
                     DbEntityEntry<usuario> ee = conec.Entry(usuarioaborrar);
                     ee.CurrentValues.SetValues(usuarioSeleccionado);
-                    conec.SaveChanges();
-                }
+                    conec.SaveChanges();                
                 /*usuarioBindingSource.DataSource = llenarTablaConUsuarios();
                 if (usuarioBindingSource.Count < 1) simpleButton1.Enabled = false;
                 gridControl1.DataSource = usuarioBindingSource;
