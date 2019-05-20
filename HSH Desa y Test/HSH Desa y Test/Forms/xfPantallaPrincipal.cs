@@ -26,54 +26,46 @@ namespace HSH_Desa_y_Test.Forms
         private void inicializar()
         {
             this.WindowState = FormWindowState.Maximized;
-            Sesion.guardarPantallaPrincipal(this);
-
+            Sesion.guardarPantallaPrincipal(this);     
             this.instanciarSinUsuarioLogueado();
+            //Desactivo y mando para atrás las vistas de user logueado y admin
+            this.xucVistaPrincipalAdmin1.Visible = false;
+            this.xucVistaPrincipalAdmin1.SendToBack();
         }
 
-        //public void instanciarConUsuario()
-        //{
-        //    this.layoutControlItem1.Control = new xUCToolBarLogueado(false);
-        //}
+
         public void instanciarSinUsuarioLogueado()
         {
-            //    this.layoutControlItem1.BeginInit();
-            //    var controlQueEstabaEnPanel = this.layoutControlItem1.Control;
-            //    this.layoutControlItem1.Control = new xUCtoolbardeslogueado();
-            //    controlQueEstabaEnPanel.Parent = null;
-            //    this.layoutControlItem1.EndInit();
-
-
+            this.xUCToolBarLogueado1.Visible = false;
+            this.xUCToolBarLogueado1.SendToBack();
+            this.xUCtoolbardeslogueado1.Visible = true;
+            this.xUCToolBarLogueado1.BringToFront();
         }
 
         internal void renderizarConUsuario()
         {
-            //this.layoutControlItem1.BeginInit();
-            //var controlQueEstabaEnPanel = this.layoutControlItem1.Control;
-            //this.layoutControlItem1.Control = new xUCToolBarLogueado(false);
-            //controlQueEstabaEnPanel.Parent = null;
-            //this.layoutControlItem1.EndInit();
-            //(LayoutControlItem )layoutControl1.Controls
-            //LayoutControlItem asd = (LayoutControlItem)layoutControl1.Items.FindByName("Barra Toolbar");
-            //asd.Control = new xUCToolBarLogueado();
+            this.xUCtoolbardeslogueado1.Visible = false;
+            this.xUCToolBarLogueado1.SendToBack();
+            this.xUCToolBarLogueado1.CargarLabelConUsuario();
+            this.xUCToolBarLogueado1.Visible = true;
+            this.xUCToolBarLogueado1.BringToFront();
         }
 
         internal void renderizarConAdmin()
         {
-            //    this.layoutControlItem1.BeginInit();
-            //    var controlQueEstabaEnPanel = this.layoutControlItem1.Control;
-            //    this.layoutControlItem1.Control = new xUCToolBarLogueado(true);
-            //    controlQueEstabaEnPanel.Parent = null;
-            //    this.layoutControlItem1.EndInit();
-            //layoutControl1.BeginInit();
-            //LayoutControlItem asd = (LayoutControlItem)layoutControl1.Items.FindByName("Barra Toolbar");
-            //asd.Control = new xUCToolBarLogueado(true);
-            //layoutControl1.EndInit();
-            //LayoutControlItem layoutSinLoguear = layoutControl1.Root.AddItem();
-            //layoutSinLoguear.Name = "Barra Toolbarasd";
-            //layoutSinLoguear.Control = new xUCToolBarLogueado(true);
-  
 
+            //Escondo la toolbar de user deslogueado
+            this.xUCtoolbardeslogueado1.Visible = false;
+            this.xUCToolBarLogueado1.SendToBack();
+
+            //Configuro la toolbar de User Logueado y la traigo al frente
+            this.xUCToolBarLogueado1.CargarLabelConAdmin();
+            this.xUCToolBarLogueado1.Visible = true;
+            this.xUCToolBarLogueado1.BringToFront();
+
+            //traigo al frente la vista principal del administrador
+            this.xucVistaPrincipalAdmin1.Visible = true;
+            this.xucVistaPrincipalAdmin1.BringToFront();
         }
     }
     

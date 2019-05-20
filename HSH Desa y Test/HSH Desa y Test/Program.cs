@@ -19,7 +19,7 @@ namespace HSH_Desa_y_Test
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new xfFormTest());
+            Application.Run(new xfPantallaPrincipal());
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using HSH_Desa_y_Test.Modelo_Expandido;
 
 namespace HSH_Desa_y_Test.xUC
 {
@@ -16,6 +17,11 @@ namespace HSH_Desa_y_Test.xUC
         public xucComandosAdmin()
         {
             InitializeComponent();
+        }
+
+        private void btnAltaPropiedad_Click(object sender, EventArgs e)
+        {
+            Sesion.vistaPrincipalDeAdmin.renderizarAltaPropiedad();
         }
     }
 }

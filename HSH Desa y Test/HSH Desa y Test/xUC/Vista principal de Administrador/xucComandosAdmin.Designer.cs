@@ -124,6 +124,7 @@
             this.btnAltaPropiedad.StyleController = this.dataLayoutControl1;
             this.btnAltaPropiedad.TabIndex = 4;
             this.btnAltaPropiedad.Text = "Alta de Propiedad";
+            this.btnAltaPropiedad.Click += new System.EventHandler(this.btnAltaPropiedad_Click);
             // 
             // Root
             // 
