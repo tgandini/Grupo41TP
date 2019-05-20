@@ -36,6 +36,7 @@ namespace HSH_Desa_y_Test.Forms
                 if (m == DialogResult.Yes)
                 {
                     subasta nuevaSubasta = new subasta(st, (int)numericUpDown1.Value, maskedTextBox1.AccessibilityObject.Value, DateTime.Parse(maskedTextBox2.AccessibilityObject.Value));
+                    nuevaSubasta.crear();
                 }       
             }
             else MessageBox.Show("La propiedad elegida es errónea");

@@ -20,10 +20,11 @@ namespace HSH_Desa_y_Test.Forms
             
         {
             InitializeComponent();
-            usuarioBindingSource.DataSource = llenarTablaConUsuarios();
+            /*usuarioBindingSource.DataSource = llenarTablaConUsuarios();
             if (usuarioBindingSource.Count < 1) simpleButton1.Enabled = false;
             gridControl1.DataSource = usuarioBindingSource;
-            gridControl1.Update();
+            gridControl1.Update();*/
+            simpleButton2.Enabled = false;
             this.CenterToScreen();
 
         }
@@ -40,7 +41,6 @@ namespace HSH_Desa_y_Test.Forms
             usuario usuarioSeleccionado = (usuario) gridView1.GetFocusedRow();
             string st = string.Concat("Seguro que desea Borrar al usuario ", usuarioSeleccionado.mail, "?");
             DialogResult result = MessageBox.Show(st, "Salir", MessageBoxButtons.YesNo);
-
             if (result == DialogResult.Yes)
             {
                 using (ContextoEntity conec = new ContextoEntity())
@@ -51,9 +51,9 @@ namespace HSH_Desa_y_Test.Forms
                     conec.usuarios.Remove(usuarioaborrar);
                     conec.SaveChanges();
                 }
-                usuarioBindingSource.DataSource = llenarTablaConUsuarios();
+                /*usuarioBindingSource.DataSource = llenarTablaConUsuarios();
                 if (usuarioBindingSource.Count < 1) simpleButton1.Enabled = false;
-                gridControl1.DataSource = usuarioBindingSource;
+                gridControl1.DataSource = usuarioBindingSource;*/
                 gridControl1.Update();
 
             }
@@ -62,6 +62,41 @@ namespace HSH_Desa_y_Test.Forms
             }
            
 
+        }
+
+        private void checkEdit1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkEdit1.Checked)
+            {
+                gridView1.OptionsBehavior.Editable = true;
+                simpleButton2.Enabled = true;
+                hSH_DesaYTestDataSet.usuario.AcceptChanges();
+            }
+            else
+            {
+                gridView1.OptionsBehavior.Editable = false;
+                simpleButton2.Enabled = false;
+            }
+        }
+
+        private void xfDarDeBajaUsuario_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'hSH_DesaYTestDataSet.usuario' table. You can move, or remove it, as needed.
+            this.usuarioTableAdapter.Fill(this.hSH_DesaYTestDataSet.usuario);
+
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            DialogResult m = MessageBox.Show("Desea crear la subasta?", "Crear Subasta", MessageBoxButtons.YesNo);
+            if (m == DialogResult.Yes)
+            {
+                gridView1.PostEditor();
+                gridControl1.FocusedView.PostEditor();
+                gridControl1.FocusedView.UpdateCurrentRow();
+                gridView1.UpdateCurrentRow();
+                hSH_DesaYTestDataSet.usuario.AcceptChanges();
+            }
         }
     }
 }
