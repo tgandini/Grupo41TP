@@ -12,7 +12,8 @@ namespace HSH_Desa_y_Test.Modelo_Expandido
     {
         public static usuario user;
         public static admin admin;
-        private static xfPantallaPrincipal vistaPrincipal;
+        public static xfPantallaPrincipal vistaPrincipal;
+        public static xUC.Vista_principal_de_Administrador.xucVistaPrincipalAdmin vistaPrincipalDeAdmin;
 
         public static bool hayUserLogueado()
         {

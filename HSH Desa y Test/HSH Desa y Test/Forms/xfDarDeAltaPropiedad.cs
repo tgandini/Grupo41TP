@@ -13,12 +13,11 @@ using HSH_Desa_y_Test.Modelo_Expandido;
 
 namespace HSH_Desa_y_Test.Forms
 {
-    public partial class xfDarDeAltaPropiedad : DevExpress.XtraEditors.XtraForm
+    public partial class xfDarDeAltaPropiedad : DevExpress.XtraEditors.XtraUserControl
     {
         public xfDarDeAltaPropiedad()
         {
             InitializeComponent();
-            this.CenterToScreen();
         }
 
         private void crearButton2_Click(object sender, EventArgs e)
@@ -35,7 +34,7 @@ namespace HSH_Desa_y_Test.Forms
                     }
                     string pt = string.Concat("Se creo la propiedad con ubicacion: ", textUbicacion.Text);
                     MessageBox.Show(pt);
-                    this.Close();
+                    Sesion.vistaPrincipalDeAdmin.ocultarFormsderivados();
                 }
                 else MessageBox.Show("La cantidad de habitaciones no es valida");
             }
@@ -44,7 +43,7 @@ namespace HSH_Desa_y_Test.Forms
 
         private void cancelarButton1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Sesion.vistaPrincipalDeAdmin.ocultarFormsderivados();
         }
     }
 }
