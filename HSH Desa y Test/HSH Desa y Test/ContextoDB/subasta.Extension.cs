@@ -22,5 +22,13 @@ namespace HSH_Desa_y_Test.ContextoDB
                 conexion.subastas.Add(this);
             }
         }
+
+        public void crear()
+        {
+            using (ContextoEntity conec = new ContextoEntity())
+            {
+                conec.subastas.Add(this);
+            }
+        }
     }
 }
