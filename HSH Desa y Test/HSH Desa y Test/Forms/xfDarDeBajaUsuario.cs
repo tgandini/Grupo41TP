@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.Entity;
 using HSH_Desa_y_Test.ContextoDB;
+using System.Data.Entity.Infrastructure;
 
 namespace HSH_Desa_y_Test.Forms
 {
@@ -24,13 +25,15 @@ namespace HSH_Desa_y_Test.Forms
             if (usuarioBindingSource.Count < 1) simpleButton1.Enabled = false;           
             gridControl1.Update();
             simpleButton2.Enabled = false;
+            gridView1.OptionsBehavior.Editable = false;
             this.CenterToScreen();
 
         }
 
     private List<usuario> llenarTablaConUsuarios()
     {
-            using(ContextoEntity conec = new ContextoEntity()) { 
+            using (ContextoEntity conec = new ContextoEntity())
+            {
                 return conec.usuarios.ToList();
             }
         }
@@ -52,8 +55,8 @@ namespace HSH_Desa_y_Test.Forms
                 }
                 /*usuarioBindingSource.DataSource = llenarTablaConUsuarios();
                 if (usuarioBindingSource.Count < 1) simpleButton1.Enabled = false;
-                gridControl1.DataSource = usuarioBindingSource;*/
-                gridControl1.Update();
+                gridControl1.DataSource = usuarioBindingSource;
+                gridControl1.Update();*/
 
             }
           
@@ -87,11 +90,19 @@ namespace HSH_Desa_y_Test.Forms
             DialogResult m = MessageBox.Show("Modificar al usuario?", "Modificar Usuario", MessageBoxButtons.YesNo);
             if (m == DialogResult.Yes)
             {
-                gridView1.PostEditor();
-                gridView1.UpdateCurrentRow();
-                gridControl1.FocusedView.PostEditor();
-                gridControl1.FocusedView.UpdateCurrentRow();
-           }
+                usuario usuarioSeleccionado = (usuario)gridView1.GetFocusedRow();
+                using (ContextoEntity conec = new ContextoEntity())
+                {
+                    var usuarioaborrar = conec.usuarios.Where(p => p.mail == usuarioSeleccionado.mail).First();
+                    DbEntityEntry<usuario> ee = conec.Entry(usuarioaborrar);
+                    ee.CurrentValues.SetValues(usuarioSeleccionado);
+                    conec.SaveChanges();
+                }
+                /*usuarioBindingSource.DataSource = llenarTablaConUsuarios();
+                if (usuarioBindingSource.Count < 1) simpleButton1.Enabled = false;
+                gridControl1.DataSource = usuarioBindingSource;
+                gridControl1.Update();*/
+            }
         }
     }
 }
