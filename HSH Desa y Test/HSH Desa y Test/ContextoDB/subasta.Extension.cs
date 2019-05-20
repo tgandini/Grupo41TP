@@ -17,10 +17,6 @@ namespace HSH_Desa_y_Test.ContextoDB
             this.fecha_fin = fechaInicio.AddDays(3);
             this.id = int.MaxValue;
             propiedad.subastas.Add(this);
-            using (ContextoEntity conexion = new ContextoEntity())
-            {
-                conexion.subastas.Add(this);
-            }
         }
 
         public void crear()
