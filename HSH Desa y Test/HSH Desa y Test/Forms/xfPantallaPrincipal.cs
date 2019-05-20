@@ -42,9 +42,6 @@ namespace HSH_Desa_y_Test.Forms
             //    this.layoutControlItem1.Control = new xUCtoolbardeslogueado();
             //    controlQueEstabaEnPanel.Parent = null;
             //    this.layoutControlItem1.EndInit();
-            var toolbarDeslogueado = new xUCtoolbardeslogueado();
-            toolbarDeslogueado.Name = "toolbar";
-            panelControl1.Controls.Add(toolbarDeslogueado);
 
 
         }
@@ -75,12 +72,7 @@ namespace HSH_Desa_y_Test.Forms
             //LayoutControlItem layoutSinLoguear = layoutControl1.Root.AddItem();
             //layoutSinLoguear.Name = "Barra Toolbarasd";
             //layoutSinLoguear.Control = new xUCToolBarLogueado(true);
-            var toolbarLog = new xUCToolBarLogueado();
-            toolbarLog.Name = "toolbarLog";
-            //panelControl1.Controls.Add(toolbarLog);
-            panelControl1.Refresh();
-            panelControl1.Update();
-
+  
 
         }
     }

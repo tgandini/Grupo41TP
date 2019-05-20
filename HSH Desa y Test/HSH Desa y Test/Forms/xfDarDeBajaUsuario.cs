@@ -20,10 +20,9 @@ namespace HSH_Desa_y_Test.Forms
             
         {
             InitializeComponent();
-            /*usuarioBindingSource.DataSource = llenarTablaConUsuarios();
-            if (usuarioBindingSource.Count < 1) simpleButton1.Enabled = false;
-            gridControl1.DataSource = usuarioBindingSource;
-            gridControl1.Update();*/
+            usuarioBindingSource.DataSource = llenarTablaConUsuarios();
+            if (usuarioBindingSource.Count < 1) simpleButton1.Enabled = false;           
+            gridControl1.Update();
             simpleButton2.Enabled = false;
             this.CenterToScreen();
 
@@ -57,10 +56,7 @@ namespace HSH_Desa_y_Test.Forms
                 gridControl1.Update();
 
             }
-            else if (result == DialogResult.No)
-            {
-            }
-           
+          
 
         }
 
@@ -88,14 +84,13 @@ namespace HSH_Desa_y_Test.Forms
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            DialogResult m = MessageBox.Show("Desea crear la subasta?", "Crear Subasta", MessageBoxButtons.YesNo);
+            DialogResult m = MessageBox.Show("Modificar al usuario?", "Modificar Usuario", MessageBoxButtons.YesNo);
             if (m == DialogResult.Yes)
             {
                 gridView1.PostEditor();
                 gridView1.UpdateCurrentRow();
                 gridControl1.FocusedView.PostEditor();
                 gridControl1.FocusedView.UpdateCurrentRow();
-                usuarioTableAdapter.Update(gridView1.GetFocusedDataRow());
            }
         }
     }

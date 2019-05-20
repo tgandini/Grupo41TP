@@ -48,6 +48,7 @@ namespace HSH_Desa_y_Test.xUC
                 foreach (foto fotito in listaDeFotos) imageSlider1.Images.Add(System.Drawing.Image.FromStream(new MemoryStream( fotito.foto1))); 
                                
             }
-        }   
+        }
+
     }
 }
