@@ -79,12 +79,12 @@ namespace HSH_Desa_y_Test.Forms
             }
         }
 
-        private void xfDarDeBajaUsuario_Load(object sender, EventArgs e)
+    /*    private void xfDarDeBajaUsuario_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'hSH_DesaYTestDataSet.usuario' table. You can move, or remove it, as needed.
             this.usuarioTableAdapter.Fill(this.hSH_DesaYTestDataSet.usuario);
 
-        }
+        }*/
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
