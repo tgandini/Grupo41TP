@@ -69,8 +69,8 @@ namespace HSH_Desa_y_Test.Forms
             if(checkEdit1.Checked)
             {
                 gridView1.OptionsBehavior.Editable = true;
+                gridView1.Columns.ColumnByFieldName("mail").OptionsColumn.AllowEdit = false;
                 simpleButton2.Enabled = true;
-                hSH_DesaYTestDataSet.usuario.AcceptChanges();
             }
             else
             {
@@ -92,11 +92,11 @@ namespace HSH_Desa_y_Test.Forms
             if (m == DialogResult.Yes)
             {
                 gridView1.PostEditor();
+                gridView1.UpdateCurrentRow();
                 gridControl1.FocusedView.PostEditor();
                 gridControl1.FocusedView.UpdateCurrentRow();
-                gridView1.UpdateCurrentRow();
-                hSH_DesaYTestDataSet.usuario.AcceptChanges();
-            }
+                usuarioTableAdapter.Update(gridView1.GetFocusedDataRow());
+           }
         }
     }
 }

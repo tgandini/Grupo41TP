@@ -120,6 +120,7 @@
             this.colmail.FieldName = "mail";
             this.colmail.MinWidth = 25;
             this.colmail.Name = "colmail";
+            this.colmail.OptionsColumn.AllowEdit = false;
             this.colmail.Visible = true;
             this.colmail.VisibleIndex = 2;
             this.colmail.Width = 94;
