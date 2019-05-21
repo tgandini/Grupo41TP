@@ -1,1 +1,3 @@
-﻿
+﻿ <connectionStrings>
+    <add name="ContextoEntity" connectionString="metadata=res://*/ContextoDB.Modelo.csdl|res://*/ContextoDB.Modelo.ssdl|res://*/ContextoDB.Modelo.msl;provider=System.Data.SqlClient;provider connection string='data source=PORTATIL-TOMY\SQLEXPRESS;initial catalog=&quot;HSH DesaYTest&quot;;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework'" providerName="System.Data.EntityClient" />
+  </connectionStrings>
