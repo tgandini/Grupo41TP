@@ -70,7 +70,7 @@
             // 
             // usuarioBindingSource
             // 
-            this.usuarioBindingSource.DataSource = typeof(HSH_Desa_y_Test.ContextoDB.usuario);
+            this.usuarioBindingSource.DataSource = typeof(ContextoDB.usuario);
             // 
             // gridView1
             // 

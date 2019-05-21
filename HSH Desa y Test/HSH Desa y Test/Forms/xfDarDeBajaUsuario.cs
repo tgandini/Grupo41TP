@@ -14,31 +14,38 @@ using System.Data.Entity.Infrastructure;
 
 namespace HSH_Desa_y_Test.Forms
 {
-    public partial class xfDarDeBajaUsuario : DevExpress.XtraEditors.XtraForm
+    public partial class xfDarDeBajaUsuario : DevExpress.XtraEditors.XtraUserControl
     {
-        ContextoEntity conec = new ContextoEntity();
+        private ContextoEntity conec = new ContextoEntity();
         public xfDarDeBajaUsuario()
             
         {
             InitializeComponent();
+            
+
+        }
+
+        public void inicializar()
+        {
+            usuarioBindingSource.SuspendBinding();
             usuarioBindingSource.DataSource = llenarTablaConUsuarios();
             if (usuarioBindingSource.Count < 1)
             {
                 simpleButton1.Enabled = false;
                 checkEdit1.Enabled = false;
-            }       
+            }
             gridControl1.Update();
             simpleButton2.Enabled = false;
             gridView1.OptionsBehavior.Editable = false;
             label2.Visible = false;
-            this.CenterToScreen();
-
         }
 
         private List<usuario> llenarTablaConUsuarios()
-          {           
+          {
+
                 return conec.usuarios.ToList();
-          }
+           
+            }
 
         private void DarDeBaja_Click(object sender, EventArgs e)
         {
@@ -46,12 +53,14 @@ namespace HSH_Desa_y_Test.Forms
             string st = string.Concat("Seguro que desea Borrar al usuario ", usuarioSeleccionado.mail, "?");
             DialogResult result = MessageBox.Show(st, "Salir", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
-            {               
-                var usuarioaborrar = conec.usuarios.Where(p => p.mail == usuarioSeleccionado.mail).First();
-                conec.usuarioParticipaEnSubastas.RemoveRange(usuarioaborrar.usuarioParticipaEnSubastas);
-                conec.tarjetas.RemoveRange(usuarioaborrar.tarjetas);
-                conec.usuarios.Remove(usuarioaborrar);
-                conec.SaveChanges();
+            {
+               
+                    var usuarioaborrar = conec.usuarios.Where(p => p.mail == usuarioSeleccionado.mail).First();
+                    conec.usuarioParticipaEnSubastas.RemoveRange(usuarioaborrar.usuarioParticipaEnSubastas);
+                    conec.tarjetas.RemoveRange(usuarioaborrar.tarjetas);
+                    conec.usuarios.Remove(usuarioaborrar);
+                    conec.SaveChanges();
+                
                 usuarioBindingSource.DataSource = llenarTablaConUsuarios();
                 gridControl1.Update();
                 if (usuarioBindingSource.Count < 1)
@@ -87,10 +96,12 @@ namespace HSH_Desa_y_Test.Forms
             if (m == DialogResult.Yes)
             {
                 usuario usuarioSeleccionado = (usuario)gridView1.GetFocusedRow();
+                
                     var usuarioaborrar = conec.usuarios.Where(p => p.mail == usuarioSeleccionado.mail).First();
                     DbEntityEntry<usuario> ee = conec.Entry(usuarioaborrar);
                     ee.CurrentValues.SetValues(usuarioSeleccionado);
-                    conec.SaveChanges();                
+                    conec.SaveChanges();
+                
             }
         }
     }

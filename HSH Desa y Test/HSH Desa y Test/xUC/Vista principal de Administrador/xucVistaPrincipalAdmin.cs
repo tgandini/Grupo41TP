@@ -24,8 +24,8 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
         {
             Sesion.vistaPrincipalDeAdmin = this;
             this.ocultarFormsderivados();
-            this.xfDarDeBajaPropiedad1.inicializar();
-            
+            this.xfDarDeBajaPropiedad2.inicializar();
+            this.xfDarDeBajaUsuario1.inicializar();
         }
 
         internal void renderizarAltaPropiedad()
@@ -38,18 +38,21 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
         internal void renderizarModificacionYBajaPropiedad()
         {
             this.ocultarFormsderivados();
-            this.xfDarDeBajaPropiedad1.Visible = true;
-            this.xfDarDeBajaPropiedad1.BringToFront();
+            this.xfDarDeBajaPropiedad2.Visible = true;
+            this.xfDarDeBajaPropiedad2.BringToFront();
         }
 
         internal void renderizarAltaUsuario()
         {
             this.ocultarFormsderivados();
+
         }
 
         internal void renderizarModificacionYBajaUsuario()
         {
             this.ocultarFormsderivados();
+            this.xfDarDeBajaUsuario1.Visible = true;
+            this.xfDarDeBajaUsuario1.BringToFront();
         }
 
         internal void ocultarFormsderivados()
