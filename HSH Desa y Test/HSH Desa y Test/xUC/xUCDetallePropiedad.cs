@@ -15,13 +15,18 @@ namespace HSH_Desa_y_Test.xUC
 {
     public partial class xUCDetallePropiedad : DevExpress.XtraEditors.XtraUserControl
     {
+
+        public xUCDetallePropiedad()
+        {
+            InitializeComponent();
+        }
         public xUCDetallePropiedad(int? idPropiedad)
         {
             InitializeComponent();
             inicializar(idPropiedad);
         }
 
-        private void inicializar(int? idPropiedad)
+        public void inicializar(int? idPropiedad)
         {
             Random random = new Random();
 
@@ -49,6 +54,8 @@ namespace HSH_Desa_y_Test.xUC
                                
             }
         }
+
+
 
     }
 }

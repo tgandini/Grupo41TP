@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.bindingPropiedad = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colEditar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -36,7 +38,9 @@
             this.colubicaciòn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colhabitaciones = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.xUCDetallePropiedad1 = new HSH_Desa_y_Test.xUC.xUCDetallePropiedad();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingPropiedad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
@@ -44,14 +48,14 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.DataSource = typeof(HSH_Desa_y_Test.ContextoDB.Propiedad);
+            this.gridControl1.DataSource = this.bindingPropiedad;
             this.gridControl1.Location = new System.Drawing.Point(4, 4);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1,
             this.repositoryItemButtonEdit2});
-            this.gridControl1.Size = new System.Drawing.Size(682, 586);
+            this.gridControl1.Size = new System.Drawing.Size(485, 586);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -65,6 +69,7 @@
             this.colhabitaciones});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
             // colEditar
             // 
@@ -112,14 +117,23 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             // 
+            // xUCDetallePropiedad1
+            // 
+            this.xUCDetallePropiedad1.Location = new System.Drawing.Point(495, 33);
+            this.xUCDetallePropiedad1.Name = "xUCDetallePropiedad1";
+            this.xUCDetallePropiedad1.Size = new System.Drawing.Size(497, 339);
+            this.xUCDetallePropiedad1.TabIndex = 1;
+            // 
             // xucListadoPropiedadesYEditar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.xUCDetallePropiedad1);
             this.Controls.Add(this.gridControl1);
             this.Name = "xucListadoPropiedadesYEditar";
             this.Size = new System.Drawing.Size(1004, 593);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingPropiedad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
@@ -137,5 +151,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colubicaciòn;
         private DevExpress.XtraGrid.Columns.GridColumn colhabitaciones;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
+        private System.Windows.Forms.BindingSource bindingPropiedad;
+        private xUCDetallePropiedad xUCDetallePropiedad1;
     }
 }
