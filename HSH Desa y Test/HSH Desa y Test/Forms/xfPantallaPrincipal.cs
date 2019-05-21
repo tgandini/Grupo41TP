@@ -19,7 +19,8 @@ namespace HSH_Desa_y_Test.Forms
         public xfPantallaPrincipal()
         {
             InitializeComponent();
-            this.inicializar();           
+            this.inicializar();
+            this.xucListadoPropiedadesYEditar1.CargarDatos();      
 
         }
 
@@ -67,6 +68,9 @@ namespace HSH_Desa_y_Test.Forms
             this.xUCToolBarLogueado1.Visible = true;
             this.xUCToolBarLogueado1.BringToFront();
 
+            //traigo el futuro panel de user logueado
+            this.xucListadoPropiedadesYEditar1.Visible = true;
+            this.xucListadoPropiedadesYEditar1.BringToFront();
         }
 
         internal void renderizarConAdmin()
