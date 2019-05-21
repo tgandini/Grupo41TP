@@ -39,7 +39,7 @@ namespace HSH_Desa_y_Test.xUC
                 }
                 else //Tenemos ID de propiedad, vamos a buscar los datos de esa subasta
                 {
-                    muestra = conexion.subastas.Where(p => p.id == idsubasta).First();
+                    muestra = conexion.subastas.Where(p => p.id == idsubasta & p.fecha_inicio < DateTime.Today).First();
                 }
                
                 //Busca los datos para mostrar en los label

@@ -34,6 +34,7 @@ namespace HSH_Desa_y_Test.Forms
             listBoxControl1.DataSource = null;
             listBoxControl1.Enabled = false;
             this.CenterToScreen();
+            this.xtraOpenFileDialog1.InitialDirectory = "^Pictures";
             this.CloseBox = false;
         }
 

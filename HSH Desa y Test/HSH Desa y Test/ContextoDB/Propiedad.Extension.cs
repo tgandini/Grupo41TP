@@ -18,5 +18,16 @@ namespace HSH_Desa_y_Test.ContextoDB
             this.id = int.MaxValue;
             this.fotos = new List<foto>();
         }
+
+
+        public static bool existeDireccion(string ubi)
+        {
+            using (ContextoEntity conec = new ContextoEntity())
+            {
+                var mailEnDB = conec.Propiedads.Where(each => each.ubicaciòn == ubi).FirstOrDefault();
+                return mailEnDB != null;
+            }
+
+        }
     }
 }
