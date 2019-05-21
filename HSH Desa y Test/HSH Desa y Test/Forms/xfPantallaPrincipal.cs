@@ -36,24 +36,36 @@ namespace HSH_Desa_y_Test.Forms
 
         public void instanciarSinUsuarioLogueado()
         {
-            
+            this.desactivarTodosLosControlesDePanel();
+            //mando el toolbar de logueado atrás
             this.xUCToolBarLogueado1.Visible = false;
             this.xUCToolBarLogueado1.SendToBack();
+
+            //traigo el toolbar de deslogueado
             this.xUCtoolbardeslogueado1.Visible = true;
             this.xUCToolBarLogueado1.BringToFront();
-            this.xucVistaPrincipalAdmin1.Visible = false;
+        }
+
+        private void desactivarTodosLosControlesDePanel()
+        {
+            foreach (Control c in this.panelControl1.Controls)
+            {
+                c.Visible = false;
+                c.SendToBack();
+            }
         }
 
         internal void renderizarConUsuario()
         {
-          
+          // oculto y mando para atrás la toolbar de deslogueado
             this.xUCtoolbardeslogueado1.Visible = false;
             this.xUCToolBarLogueado1.SendToBack();
+
+            //cargo con datos la toolbar de logueado y la traigo al frente
             this.xUCToolBarLogueado1.CargarLabelConUsuario();
             this.xUCToolBarLogueado1.Visible = true;
             this.xUCToolBarLogueado1.BringToFront();
-            this.xucVistaPrincipalAdmin1.SendToBack();
-            this.xucVistaPrincipalAdmin1.Visible = false;
+
         }
 
         internal void renderizarConAdmin()

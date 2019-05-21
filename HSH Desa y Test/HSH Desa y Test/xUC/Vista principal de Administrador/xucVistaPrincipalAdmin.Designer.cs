@@ -31,12 +31,14 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.xfDarDeAltaPropiedad1 = new HSH_Desa_y_Test.Forms.xfDarDeAltaPropiedad();
             this.xucComandosAdmin1 = new HSH_Desa_y_Test.xUC.xucComandosAdmin();
+            this.xfDarDeBajaPropiedad1 = new HSH_Desa_y_Test.Forms.xfDarDeBajaPropiedad();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.xfDarDeBajaPropiedad1);
             this.panelControl1.Controls.Add(this.xfDarDeAltaPropiedad1);
             this.panelControl1.Location = new System.Drawing.Point(3, 67);
             this.panelControl1.Name = "panelControl1";
@@ -62,6 +64,17 @@
             this.xucComandosAdmin1.Size = new System.Drawing.Size(1007, 58);
             this.xucComandosAdmin1.TabIndex = 0;
             // 
+            // xfDarDeBajaPropiedad1
+            // 
+            this.xfDarDeBajaPropiedad1.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.xfDarDeBajaPropiedad1.Appearance.Options.UseBorderColor = true;
+            this.xfDarDeBajaPropiedad1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.xfDarDeBajaPropiedad1.Location = new System.Drawing.Point(127, 20);
+            this.xfDarDeBajaPropiedad1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.xfDarDeBajaPropiedad1.Name = "xfDarDeBajaPropiedad1";
+            this.xfDarDeBajaPropiedad1.Size = new System.Drawing.Size(749, 415);
+            this.xfDarDeBajaPropiedad1.TabIndex = 1;
+            // 
             // xucVistaPrincipalAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -81,5 +94,6 @@
         private xucComandosAdmin xucComandosAdmin1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private Forms.xfDarDeAltaPropiedad xfDarDeAltaPropiedad1;
+        private Forms.xfDarDeBajaPropiedad xfDarDeBajaPropiedad1;
     }
 }

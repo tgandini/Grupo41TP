@@ -111,6 +111,7 @@
             this.simpleButton1.StyleController = this.dataLayoutControl1;
             this.simpleButton1.TabIndex = 5;
             this.simpleButton1.Text = "Listar Propiedades para Modificar o Borrar";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // btnAltaPropiedad
             // 
