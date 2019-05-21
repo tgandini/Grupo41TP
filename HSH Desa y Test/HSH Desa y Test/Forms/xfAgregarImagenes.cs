@@ -21,7 +21,11 @@ namespace HSH_Desa_y_Test.Forms
     public partial class xfAgregarImagenes : DevExpress.XtraEditors.XtraForm
     {
         private List<string> ruta = new List<string>();
-        List<byte[]> fot = new List<byte[]>();
+        private List<byte[]> fot = new List<byte[]>(); 
+        public List<byte[]> Fot
+        {
+            get { return this.fot; }
+        }
         public xfAgregarImagenes()
         {
             InitializeComponent();
@@ -29,6 +33,7 @@ namespace HSH_Desa_y_Test.Forms
             agregarButton.Enabled = false;
             listBoxControl1.DataSource = null;
             listBoxControl1.Enabled = false;
+            this.CenterToScreen();
             this.CloseBox = false;
         }
 

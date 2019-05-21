@@ -15,17 +15,18 @@ namespace HSH_Desa_y_Test.Forms
 {
     public partial class xfDarDeAltaPropiedad : DevExpress.XtraEditors.XtraUserControl
     {
-        private List<byte[]> fotito=null;
+        private List<byte[]> fotito= new List<byte[]>();
         private Propiedad casa;
         public xfDarDeAltaPropiedad()
         {
             InitializeComponent();
+            inicializar();
         }
 
         public void inicializar()
         {
             casa = null;
-            agregarFotosButton.Enabled = false;
+            label5.Visible = false;
         }
 
         private void crearButton2_Click(object sender, EventArgs e)
@@ -67,6 +68,7 @@ namespace HSH_Desa_y_Test.Forms
             this.textHabitaciones.Text = "";
             this.textTipo.Text = "";
             this.textUbicacion.Text = "";
+            fotito.Clear();
         }
 
         private void cancelarButton1_Click(object sender, EventArgs e)
@@ -80,9 +82,13 @@ namespace HSH_Desa_y_Test.Forms
             using (xfAgregarImagenes agreg = new xfAgregarImagenes())
                 {
                     agreg.ShowDialog();
-                    fotito.AddRange(agreg.GetMyResult());
+                    fotito.AddRange(agreg.Fot);
                 }
-            if (fotito != null) label5.Text = string.Concat("Se eligieron ",fotito.Count," fotos");
+            if (fotito != null)
+            {
+                label5.Text = string.Concat("Se eligieron ", fotito.Count, " fotos");
+                label5.Visible = true;
+            }
         }
     }
 }
