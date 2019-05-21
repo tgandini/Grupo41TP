@@ -33,17 +33,20 @@ namespace HSH_Desa_y_Test.xUC
 
             using (ContextoEntity conexion = new ContextoEntity())
             {
+                Propiedad[] pro;
                 Propiedad casa;
                 if (idPropiedad == null || idPropiedad < 0) //Se usa para traer las fotos de una propiedad random
                 {
-                    casa = conexion.Propiedads.Where(p => p.id == random.Next(0, conexion.Propiedads.Count() - 1)).First();
+                    //casa = conexion.Propiedads.Where(p => p.id == random.Next(0, conexion.Propiedads.Count() - 1)).First();
+                    pro = conexion.Propiedads.ToArray();
+                    casa = pro[random.Next(0, pro.Length - 1)];
                 }
                 else //Tenemos ID de propiedad, vamos a buscar los datos de esa propiedad
                 {
                     casa = conexion.Propiedads.Where(p => p.id == idPropiedad).First();
                 }
                 var listaDeFotos = conexion.fotos.Where(p => p.idPropiedad == idPropiedad).ToList();
-
+                
                 //Seteo los label a cada cosa
                 label4.Text = casa.tipo;
                 label5.Text = casa.ubicaciòn;

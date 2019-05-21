@@ -24,9 +24,6 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
         {
             Sesion.vistaPrincipalDeAdmin = this;
             this.ocultarFormsderivados();
-            this.xfDarDeBajaPropiedad2.inicializar();
-            this.xfDarDeBajaUsuario1.inicializar();
-            this.xfRegistrarceForm1.SetearTexto("Dar de alta");
         }
 
         internal void renderizarAltaPropiedad()
@@ -39,6 +36,7 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
         internal void renderizarModificacionYBajaPropiedad()
         {
             this.ocultarFormsderivados();
+            this.xfDarDeBajaPropiedad2.inicializar();
             this.xfDarDeBajaPropiedad2.Visible = true;
             this.xfDarDeBajaPropiedad2.BringToFront();
         }
@@ -46,6 +44,7 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
         internal void renderizarAltaUsuario()
         {
             this.ocultarFormsderivados();
+            this.xfRegistrarceForm1.SetearTexto("Dar de alta");
             this.xfRegistrarceForm1.Visible = true;
             this.xfRegistrarceForm1.BringToFront();
 
@@ -54,6 +53,7 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
         internal void renderizarModificacionYBajaUsuario()
         {
             this.ocultarFormsderivados();
+            this.xfDarDeBajaUsuario1.inicializar();
             this.xfDarDeBajaUsuario1.Visible = true;
             this.xfDarDeBajaUsuario1.BringToFront();
         }

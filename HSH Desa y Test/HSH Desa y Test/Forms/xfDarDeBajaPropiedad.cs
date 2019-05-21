@@ -33,8 +33,6 @@ namespace HSH_Desa_y_Test.Forms
                 simpleButton1.Enabled = false;
                 checkEdit1.Enabled = false;
                 noHayPropiedades.Visible = true;
-                agregarFotoButton.Enabled = false;
-                eliminarFotoButton.Enabled = false;
             }
             else noHayPropiedades.Visible = false;
             gridControl1.Update();
@@ -42,14 +40,15 @@ namespace HSH_Desa_y_Test.Forms
             gridView1.OptionsBehavior.Editable = false;
             label2.Visible = false;
             label3.Visible = false;
+            agregarFotoButton.Enabled = false;
+            eliminarFotoButton.Enabled = false;
+            fotito = null;
         }
 
         private List<Propiedad> llenarTablaConPropiedades()
         {
-            using (ContextoEntity conec = new ContextoEntity())
-            {
+           
                 return conec.Propiedads.ToList();
-            }
 
         }
 
@@ -122,7 +121,7 @@ namespace HSH_Desa_y_Test.Forms
             using (xfAgregarImagenes agreg = new xfAgregarImagenes())
             {
                 agreg.ShowDialog();
-                fotito.AddRange(agreg.GetMyResult());
+                fotito=agreg.GetMyResult();
             }
             if (fotito != null) label3.Visible = true;
         }
