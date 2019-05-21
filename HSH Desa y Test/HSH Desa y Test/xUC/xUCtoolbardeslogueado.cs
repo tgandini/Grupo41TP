@@ -29,7 +29,14 @@ namespace HSH_Desa_y_Test.xUC
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new xfRegistrarceForm("Registrar Usuario").ShowDialog();
+            var formLogin = new xfmContenedorRegistrarUsuario("Registrarse");
+            formLogin.Show();
+
+        }
+
+        private void clickEnAcerca(object sender, EventArgs e)
+        {
+            new xfPantallaContacto().ShowDialog();
         }
     }
 }

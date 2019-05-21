@@ -21,5 +21,7 @@ namespace HSH_Desa_y_Test.ContextoDB
         public string idPersona { get; set; }
     
         public virtual usuario usuario { get; set; }
+
+
     }
 }

@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using HSH_Desa_y_Test.ContextoDB;
+using HSH_Desa_y_Test.Modelo_Expandido;
 
 namespace HSH_Desa_y_Test.xUC
 {
-    public partial class xfRegistrarceForm : DevExpress.XtraEditors.XtraForm
+    public partial class xfRegistrarceForm : DevExpress.XtraEditors.XtraUserControl
     {
-        public xfRegistrarceForm(string titulo)
+        
+        public xfRegistrarceForm()
         {
             InitializeComponent();
-            label1.Text = titulo;
-            this.CenterToScreen();
         }
 
         private void Crear_Cuenta_Click(object sender, EventArgs e)
@@ -31,37 +31,43 @@ namespace HSH_Desa_y_Test.xUC
                     {
                         if ((tarjeta.sacarGuiones(textNroTarjeta.Text).Length == 16) && (textFechaVencimiento.Text.Length > 0) && (textCodSeguridad.Text.Length == 3))
                         {
-
-                            if (textContrasena.Text.Length >= 6)
+                            if (tarjeta.ValidarFechaVencimiento(textFechaVencimiento.Text))
                             {
-                                if (DateTime.Parse(textFechaNacimiento.Text).Year <= (DateTime.Today.Year - 18))
+                                if (textContrasena.Text.Length >= 6)
                                 {
-                                    string st = string.Concat("01/", textFechaVencimiento.Text);
-                                    var user = new usuario(textNombre.Text, textApellido.Text, textContrasena.Text, textMail.Text, textFechaNacimiento.Text);
-                                    var tarjeta = new tarjeta(textNroTarjeta.Text, DateTime.Parse(st), textCodSeguridad.Text);
-                                    user.tarjetas.Add(tarjeta);
-                                    using (ContextoEntity conec = new ContextoEntity())
+                                    var edad = DateTime.Today.Year - DateTime.Parse(textFechaNacimiento.Text).Year;
+                                    if (DateTime.Parse(textFechaNacimiento.Text).Date > DateTime.Today.AddYears(-edad)) edad--;
+                                    if (edad >= 18)
                                     {
-                                        conec.usuarios.Add(user);
-                                        conec.SaveChanges();
+                                        string st = string.Concat("01/", textFechaVencimiento.Text);
+                                        var user = new usuario(textNombre.Text, textApellido.Text, textContrasena.Text, textMail.Text, textFechaNacimiento.Text);
+                                        var tarjeta = new tarjeta(textNroTarjeta.Text, DateTime.Parse(st), textCodSeguridad.Text);
+                                        user.tarjetas.Add(tarjeta);
+                                        using (ContextoEntity conec = new ContextoEntity())
+                                        {
+                                            conec.usuarios.Add(user);
+                                            conec.SaveChanges();
+                                        }
+                                        string pt = string.Concat("Se creo la cuenta de usuario para: ", textMail.Text);
+                                        MessageBox.Show(pt);
+                                        Sesion.vistaPrincipalDeAdmin.ocultarFormsderivados();
+                                        if (Sesion.contenedorRegistrarUsuario != null) Sesion.contenedorRegistrarUsuario.Close();
                                     }
-                                    string pt = string.Concat("Se creo la cuenta de usuario para: ", textMail.Text);
-                                    MessageBox.Show(pt);
-                                    this.Close();
+                                    else MessageBox.Show("Tiene que ser mayor de edad");
                                 }
-                                else MessageBox.Show("Tiene que ser mayor de edad");
+                                else MessageBox.Show("La contraseña es demasiado corta");
                             }
-                            else MessageBox.Show("La contraseña es demasiado corta");
+                            else MessageBox.Show("La tarjeta ya venció");
                         }
-                        else  MessageBox.Show("Faltan completar campos tarjeta"); 
+                        else MessageBox.Show("Faltan completar campos tarjeta");
                     }
                     else MessageBox.Show("Faltan completar campos");
-                    }
-                    else MessageBox.Show("El email ya esta en uso");
                 }
-                else MessageBox.Show("El formato del email es erróneo");
+                else MessageBox.Show("El email ya esta en uso");
             }
-        
+            else MessageBox.Show("El formato del email es erróneo");
+        }
+
 
         private void Cancelar_Click(object sender, EventArgs e)
         {
@@ -69,7 +75,8 @@ namespace HSH_Desa_y_Test.xUC
 
             if (result == DialogResult.Yes)
             {
-                this.Close();
+                Sesion.vistaPrincipalDeAdmin.ocultarFormsderivados();
+                if (Sesion.contenedorRegistrarUsuario != null) Sesion.contenedorRegistrarUsuario.Close();
             }
             else if (result == DialogResult.No)
             {
@@ -80,6 +87,11 @@ namespace HSH_Desa_y_Test.xUC
         {
             textContrasena.Text = "";
             textContrasena.Properties.UseSystemPasswordChar = true;
+        }        
+        public void SetearTexto(string textoParam)
+        {
+            this.label1.Text = textoParam;
+            this.Crear_Cuenta.Text = textoParam;
         }
     }
 }

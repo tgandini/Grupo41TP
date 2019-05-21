@@ -74,8 +74,12 @@ namespace HSH_Desa_y_Test.xUC
         {
 
         }
+
         #endregion
 
-
+        private void ClickAcercaNosotros(object sender, EventArgs e)
+        {
+            new xfPantallaContacto().ShowDialog();
+        }
     }
 }
