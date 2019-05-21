@@ -29,15 +29,17 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.xucVistaPrincipalAdmin1 = new HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador.xucVistaPrincipalAdmin();
             this.xUCtoolbardeslogueado1 = new HSH_Desa_y_Test.xUC.xUCtoolbardeslogueado();
             this.xUCToolBarLogueado1 = new HSH_Desa_y_Test.xUC.xUCToolBarLogueado();
-            this.xucVistaPrincipalAdmin1 = new HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador.xucVistaPrincipalAdmin();
+            this.xucListadoPropiedadesYEditar1 = new HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador.xucListadoPropiedadesYEditar();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.xucListadoPropiedadesYEditar1);
             this.panelControl1.Controls.Add(this.xucVistaPrincipalAdmin1);
             this.panelControl1.Controls.Add(this.xUCtoolbardeslogueado1);
             this.panelControl1.Controls.Add(this.xUCToolBarLogueado1);
@@ -46,6 +48,13 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1014, 736);
             this.panelControl1.TabIndex = 0;
+            // 
+            // xucVistaPrincipalAdmin1
+            // 
+            this.xucVistaPrincipalAdmin1.Location = new System.Drawing.Point(2, 80);
+            this.xucVistaPrincipalAdmin1.Name = "xucVistaPrincipalAdmin1";
+            this.xucVistaPrincipalAdmin1.Size = new System.Drawing.Size(1000, 644);
+            this.xucVistaPrincipalAdmin1.TabIndex = 2;
             // 
             // xUCtoolbardeslogueado1
             // 
@@ -68,16 +77,16 @@
             this.xUCToolBarLogueado1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.xUCToolBarLogueado1.Location = new System.Drawing.Point(2, 2);
             this.xUCToolBarLogueado1.Name = "xUCToolBarLogueado1";
-            this.xUCToolBarLogueado1.Size = new System.Drawing.Size(894, 73);
+            this.xUCToolBarLogueado1.Size = new System.Drawing.Size(914, 73);
             this.xUCToolBarLogueado1.TabIndex = 1;
             this.xUCToolBarLogueado1.Visible = false;
             // 
-            // xucVistaPrincipalAdmin1
+            // xucListadoPropiedadesYEditar1
             // 
-            this.xucVistaPrincipalAdmin1.Location = new System.Drawing.Point(2, 80);
-            this.xucVistaPrincipalAdmin1.Name = "xucVistaPrincipalAdmin1";
-            this.xucVistaPrincipalAdmin1.Size = new System.Drawing.Size(1000, 644);
-            this.xucVistaPrincipalAdmin1.TabIndex = 2;
+            this.xucListadoPropiedadesYEditar1.Location = new System.Drawing.Point(6, 149);
+            this.xucListadoPropiedadesYEditar1.Name = "xucListadoPropiedadesYEditar1";
+            this.xucListadoPropiedadesYEditar1.Size = new System.Drawing.Size(1004, 593);
+            this.xucListadoPropiedadesYEditar1.TabIndex = 3;
             // 
             // xfPantallaPrincipal
             // 
@@ -100,5 +109,6 @@
         private xUC.xUCtoolbardeslogueado xUCtoolbardeslogueado1;
         private xUC.xUCToolBarLogueado xUCToolBarLogueado1;
         private xUC.Vista_principal_de_Administrador.xucVistaPrincipalAdmin xucVistaPrincipalAdmin1;
+        private xUC.Vista_principal_de_Administrador.xucListadoPropiedadesYEditar xucListadoPropiedadesYEditar1;
     }
 }
