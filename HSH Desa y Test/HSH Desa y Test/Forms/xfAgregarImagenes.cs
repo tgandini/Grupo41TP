@@ -75,7 +75,7 @@ namespace HSH_Desa_y_Test.Forms
             {
                 foreach (string st in ruta)
                 {
-                    byte[] bt = (byte[])(new ImageConverter()).ConvertFrom(Image.FromFile(st));
+                    byte[] bt = (byte[])(new ImageConverter()).ConvertTo(Image.FromFile(st),typeof(byte[]));
                     fot.Add(bt);
                 }
                 MessageBox.Show("Se agregaron las fotos");
