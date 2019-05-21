@@ -15,9 +15,17 @@ namespace HSH_Desa_y_Test.Forms
 {
     public partial class xfDarDeAltaPropiedad : DevExpress.XtraEditors.XtraUserControl
     {
+        private List<byte[]> fotito=null;
+        private Propiedad casa;
         public xfDarDeAltaPropiedad()
         {
             InitializeComponent();
+        }
+
+        public void inicializar()
+        {
+            casa = null;
+            agregarFotosButton.Enabled = false;
         }
 
         private void crearButton2_Click(object sender, EventArgs e)
@@ -26,9 +34,19 @@ namespace HSH_Desa_y_Test.Forms
             {
                 if (int.Parse(textHabitaciones.Text) >= 0)
                 {
-                    var casa = new Propiedad(textTipo.Text, textUbicacion.Text, int.Parse(textHabitaciones.Text), Sesion.admin.token, DateTime.Today);
+                    casa = new Propiedad(textTipo.Text, textUbicacion.Text, int.Parse(textHabitaciones.Text), Sesion.admin.token, DateTime.Today);
+                    if (fotito != null)
+                    {
+                        foreach (byte[] b in fotito)
+                        {
+                            foto ima = new foto(casa.id, b);
+                            casa.fotos.Add(ima);
+                        }
+                    }
+                    else casa.fotos = null;
                     using (ContextoEntity conec = new ContextoEntity())
                     {
+                        if(casa.fotos!=null) conec.fotos.AddRange(casa.fotos);
                         conec.Propiedads.Add(casa);
                         conec.SaveChanges();
                     }
@@ -55,6 +73,16 @@ namespace HSH_Desa_y_Test.Forms
         {
             Sesion.vistaPrincipalDeAdmin.ocultarFormsderivados();
             this.limpiarCampos();
+        }
+
+        private void agregarFotosButton_Click(object sender, EventArgs e)
+        {
+            using (xfAgregarImagenes agreg = new xfAgregarImagenes())
+                {
+                    agreg.ShowDialog();
+                    fotito.AddRange(agreg.GetMyResult());
+                }
+            if (fotito != null) label5.Text = string.Concat("Se eligieron ",fotito.Count," fotos");
         }
     }
 }

@@ -16,6 +16,7 @@ namespace HSH_Desa_y_Test.ContextoDB
             this.adminQueDioDeAltaProp = adminQueDioDeAlta;
             this.fechaAlta = fechaAltaProp;
             this.id = int.MaxValue;
+            this.fotos = new List<foto>();
         }
     }
 }

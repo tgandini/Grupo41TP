@@ -29,5 +29,15 @@ namespace HSH_Desa_y_Test.xUC
         {
             Sesion.vistaPrincipalDeAdmin.renderizarModificacionYBajaPropiedad();
         }
+
+        private void altaUsuarioButton_Click(object sender, EventArgs e)
+        {
+            Sesion.vistaPrincipalDeAdmin.renderizarAltaUsuario();
+        }
+
+        private void modificarBajaButton_Click(object sender, EventArgs e)
+        {
+            Sesion.vistaPrincipalDeAdmin.renderizarModificacionYBajaUsuario();
+        }
     }
 }

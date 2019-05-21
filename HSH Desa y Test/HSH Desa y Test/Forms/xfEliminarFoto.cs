@@ -87,12 +87,16 @@ namespace HSH_Desa_y_Test.Forms
 
         private void eliminarButton_Click(object sender, EventArgs e)
         {
-            BaseCheckedListBoxControl.CheckedItemCollection f = checkedListBoxControl1.CheckedItems;
-            foreach(foto fot in f)
+            DialogResult m = MessageBox.Show("Quiere borrar las fotos?", "Borrar", MessageBoxButtons.YesNo);
+            if (m == DialogResult.Yes)
             {
-                using (ContextoEntity conec = new ContextoEntity())
+                BaseCheckedListBoxControl.CheckedItemCollection f = checkedListBoxControl1.CheckedItems;
+                foreach (foto fot in f)
                 {
-                    conec.fotos.Remove(fot);
+                    using (ContextoEntity conec = new ContextoEntity())
+                    {
+                        conec.fotos.Remove(fot);
+                    }
                 }
             }
         }

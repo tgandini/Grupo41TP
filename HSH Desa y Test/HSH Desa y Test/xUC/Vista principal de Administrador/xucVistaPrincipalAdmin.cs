@@ -30,14 +30,26 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
 
         internal void renderizarAltaPropiedad()
         {
+            this.ocultarFormsderivados();
             this.xfDarDeAltaPropiedad1.Visible = true;
             this.xfDarDeAltaPropiedad1.BringToFront();
         }
 
         internal void renderizarModificacionYBajaPropiedad()
         {
+            this.ocultarFormsderivados();
             this.xfDarDeBajaPropiedad1.Visible = true;
             this.xfDarDeBajaPropiedad1.BringToFront();
+        }
+
+        internal void renderizarAltaUsuario()
+        {
+            this.ocultarFormsderivados();
+        }
+
+        internal void renderizarModificacionYBajaUsuario()
+        {
+            this.ocultarFormsderivados();
         }
 
         internal void ocultarFormsderivados()

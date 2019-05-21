@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xucComandosAdmin));
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.modificarBajaButton = new DevExpress.XtraEditors.SimpleButton();
+            this.altaUsuarioButton = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnAltaPropiedad = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -58,45 +58,50 @@
             // 
             // dataLayoutControl1
             // 
-            this.dataLayoutControl1.Controls.Add(this.simpleButton3);
-            this.dataLayoutControl1.Controls.Add(this.simpleButton2);
+            this.dataLayoutControl1.Controls.Add(this.modificarBajaButton);
+            this.dataLayoutControl1.Controls.Add(this.altaUsuarioButton);
             this.dataLayoutControl1.Controls.Add(this.simpleButton1);
             this.dataLayoutControl1.Controls.Add(this.btnAltaPropiedad);
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.dataLayoutControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(994, 58);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(1160, 71);
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
-            // simpleButton3
+            // modificarBajaButton
             // 
-            this.simpleButton3.Appearance.Options.UseTextOptions = true;
-            this.simpleButton3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.simpleButton3.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.simpleButton3.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.simpleButton3.Location = new System.Drawing.Point(505, 2);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(143, 54);
-            this.simpleButton3.StyleController = this.dataLayoutControl1;
-            this.simpleButton3.TabIndex = 7;
-            this.simpleButton3.Text = "Listar Usuarios para Modificar o Borrar";
+            this.modificarBajaButton.Appearance.Options.UseTextOptions = true;
+            this.modificarBajaButton.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.modificarBajaButton.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.modificarBajaButton.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.modificarBajaButton.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
+            this.modificarBajaButton.Location = new System.Drawing.Point(588, 2);
+            this.modificarBajaButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.modificarBajaButton.Name = "modificarBajaButton";
+            this.modificarBajaButton.Size = new System.Drawing.Size(167, 67);
+            this.modificarBajaButton.StyleController = this.dataLayoutControl1;
+            this.modificarBajaButton.TabIndex = 7;
+            this.modificarBajaButton.Text = "Listar Usuarios para Modificar o Borrar";
+            this.modificarBajaButton.Click += new System.EventHandler(this.modificarBajaButton_Click);
             // 
-            // simpleButton2
+            // altaUsuarioButton
             // 
-            this.simpleButton2.Appearance.Options.UseTextOptions = true;
-            this.simpleButton2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.simpleButton2.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.simpleButton2.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(340, 2);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(142, 54);
-            this.simpleButton2.StyleController = this.dataLayoutControl1;
-            this.simpleButton2.TabIndex = 6;
-            this.simpleButton2.Text = "Alta de Usuario";
+            this.altaUsuarioButton.Appearance.Options.UseTextOptions = true;
+            this.altaUsuarioButton.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.altaUsuarioButton.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.altaUsuarioButton.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.altaUsuarioButton.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.altaUsuarioButton.Location = new System.Drawing.Point(396, 2);
+            this.altaUsuarioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.altaUsuarioButton.Name = "altaUsuarioButton";
+            this.altaUsuarioButton.Size = new System.Drawing.Size(166, 67);
+            this.altaUsuarioButton.StyleController = this.dataLayoutControl1;
+            this.altaUsuarioButton.TabIndex = 6;
+            this.altaUsuarioButton.Text = "Alta de Usuario";
+            this.altaUsuarioButton.Click += new System.EventHandler(this.altaUsuarioButton_Click);
             // 
             // simpleButton1
             // 
@@ -105,9 +110,10 @@
             this.simpleButton1.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.simpleButton1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(171, 2);
+            this.simpleButton1.Location = new System.Drawing.Point(199, 2);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(146, 54);
+            this.simpleButton1.Size = new System.Drawing.Size(171, 67);
             this.simpleButton1.StyleController = this.dataLayoutControl1;
             this.simpleButton1.TabIndex = 5;
             this.simpleButton1.Text = "Listar Propiedades para Modificar o Borrar";
@@ -120,8 +126,9 @@
             this.btnAltaPropiedad.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.btnAltaPropiedad.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAltaPropiedad.ImageOptions.Image")));
             this.btnAltaPropiedad.Location = new System.Drawing.Point(2, 2);
+            this.btnAltaPropiedad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAltaPropiedad.Name = "btnAltaPropiedad";
-            this.btnAltaPropiedad.Size = new System.Drawing.Size(146, 54);
+            this.btnAltaPropiedad.Size = new System.Drawing.Size(171, 67);
             this.btnAltaPropiedad.StyleController = this.dataLayoutControl1;
             this.btnAltaPropiedad.TabIndex = 4;
             this.btnAltaPropiedad.Text = "Alta de Propiedad";
@@ -142,17 +149,17 @@
             this.layoutControlItem4});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.Root.Size = new System.Drawing.Size(994, 58);
+            this.Root.Size = new System.Drawing.Size(1160, 71);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.btnAltaPropiedad;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.MaxSize = new System.Drawing.Size(150, 58);
-            this.layoutControlItem1.MinSize = new System.Drawing.Size(150, 58);
+            this.layoutControlItem1.MaxSize = new System.Drawing.Size(175, 71);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(175, 71);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(150, 58);
+            this.layoutControlItem1.Size = new System.Drawing.Size(175, 71);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
@@ -160,11 +167,11 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.simpleButton1;
-            this.layoutControlItem2.Location = new System.Drawing.Point(169, 0);
-            this.layoutControlItem2.MaxSize = new System.Drawing.Size(150, 58);
-            this.layoutControlItem2.MinSize = new System.Drawing.Size(150, 58);
+            this.layoutControlItem2.Location = new System.Drawing.Point(197, 0);
+            this.layoutControlItem2.MaxSize = new System.Drawing.Size(175, 71);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(175, 71);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(150, 58);
+            this.layoutControlItem2.Size = new System.Drawing.Size(175, 71);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
@@ -172,40 +179,40 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(650, 0);
-            this.emptySpaceItem1.MinSize = new System.Drawing.Size(104, 24);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(757, 0);
+            this.emptySpaceItem1.MinSize = new System.Drawing.Size(121, 30);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(344, 58);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(403, 71);
             this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(150, 0);
-            this.emptySpaceItem2.MaxSize = new System.Drawing.Size(19, 58);
-            this.emptySpaceItem2.MinSize = new System.Drawing.Size(19, 58);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(175, 0);
+            this.emptySpaceItem2.MaxSize = new System.Drawing.Size(22, 71);
+            this.emptySpaceItem2.MinSize = new System.Drawing.Size(22, 71);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(19, 58);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(22, 71);
             this.emptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(319, 0);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(372, 0);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(19, 58);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(22, 71);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.simpleButton2;
-            this.layoutControlItem3.Location = new System.Drawing.Point(338, 0);
-            this.layoutControlItem3.MaxSize = new System.Drawing.Size(146, 58);
-            this.layoutControlItem3.MinSize = new System.Drawing.Size(146, 58);
+            this.layoutControlItem3.Control = this.altaUsuarioButton;
+            this.layoutControlItem3.Location = new System.Drawing.Point(394, 0);
+            this.layoutControlItem3.MaxSize = new System.Drawing.Size(170, 71);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(170, 71);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(146, 58);
+            this.layoutControlItem3.Size = new System.Drawing.Size(170, 71);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.Text = "Alta usuario";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
@@ -214,33 +221,34 @@
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(484, 0);
-            this.emptySpaceItem4.MaxSize = new System.Drawing.Size(19, 58);
-            this.emptySpaceItem4.MinSize = new System.Drawing.Size(19, 58);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(564, 0);
+            this.emptySpaceItem4.MaxSize = new System.Drawing.Size(22, 71);
+            this.emptySpaceItem4.MinSize = new System.Drawing.Size(22, 71);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(19, 58);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(22, 71);
             this.emptySpaceItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.Control = this.simpleButton3;
-            this.layoutControlItem4.Location = new System.Drawing.Point(503, 0);
-            this.layoutControlItem4.MaxSize = new System.Drawing.Size(147, 58);
-            this.layoutControlItem4.MinSize = new System.Drawing.Size(147, 58);
+            this.layoutControlItem4.Control = this.modificarBajaButton;
+            this.layoutControlItem4.Location = new System.Drawing.Point(586, 0);
+            this.layoutControlItem4.MaxSize = new System.Drawing.Size(171, 71);
+            this.layoutControlItem4.MinSize = new System.Drawing.Size(171, 71);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(147, 58);
+            this.layoutControlItem4.Size = new System.Drawing.Size(171, 71);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // xucComandosAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dataLayoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "xucComandosAdmin";
-            this.Size = new System.Drawing.Size(994, 58);
+            this.Size = new System.Drawing.Size(1160, 71);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
@@ -267,8 +275,8 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton modificarBajaButton;
+        private DevExpress.XtraEditors.SimpleButton altaUsuarioButton;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;

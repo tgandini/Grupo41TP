@@ -21,19 +21,20 @@ namespace HSH_Desa_y_Test.Forms
     public partial class xfAgregarImagenes : DevExpress.XtraEditors.XtraForm
     {
         private List<string> ruta = new List<string>();
-        Propiedad casa2;
-        public xfAgregarImagenes(Propiedad casa)
+        List<byte[]> fot = new List<byte[]>();
+        public xfAgregarImagenes()
         {
             InitializeComponent();
             xtraOpenFileDialog1.Multiselect = true;
             agregarButton.Enabled = false;
             listBoxControl1.DataSource = null;
             listBoxControl1.Enabled = false;
-            casa2 = casa;
+            this.CloseBox = false;
         }
 
         private void cancelarButton_Click(object sender, EventArgs e)
         {
+            fot = null;
             this.Close();
         }
 
@@ -75,12 +76,15 @@ namespace HSH_Desa_y_Test.Forms
                 foreach (string st in ruta)
                 {
                     byte[] bt = (byte[])(new ImageConverter()).ConvertFrom(Image.FromFile(st));
-                    foto fo = new foto(casa2.id, bt);
-                    casa2.fotos.Add(fo);
+                    fot.Add(bt);
                 }
                 MessageBox.Show("Se agregaron las fotos");
                 this.Close();
             }
+        }
+         public List<byte[]> GetMyResult()
+        {
+            return fot;
         }
     }
 }

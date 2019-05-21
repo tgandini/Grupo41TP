@@ -17,9 +17,9 @@ namespace HSH_Desa_y_Test.Forms
 {
     public partial class xfDarDeBajaPropiedad : DevExpress.XtraEditors.XtraUserControl
     {
-       
 
-
+        ContextoEntity conec = new ContextoEntity();
+        private List<byte[]> fotito=null;
         public xfDarDeBajaPropiedad()
         {
             InitializeComponent();
@@ -32,11 +32,16 @@ namespace HSH_Desa_y_Test.Forms
             {
                 simpleButton1.Enabled = false;
                 checkEdit1.Enabled = false;
+                noHayPropiedades.Visible = true;
+                agregarFotoButton.Enabled = false;
+                eliminarFotoButton.Enabled = false;
             }
+            else noHayPropiedades.Visible = false;
             gridControl1.Update();
             simpleButton2.Enabled = false;
             gridView1.OptionsBehavior.Editable = false;
             label2.Visible = false;
+            label3.Visible = false;
         }
 
         private List<Propiedad> llenarTablaConPropiedades()
@@ -50,30 +55,20 @@ namespace HSH_Desa_y_Test.Forms
 
         private void DarDeBaja_Click(object sender, EventArgs e)
         {
-            
             Propiedad propiedadSeleccionado = (Propiedad)gridView1.GetFocusedRow();
             string st = string.Concat("Seguro que desea Borrar la propiedad ", propiedadSeleccionado.id, "?");
             DialogResult result = MessageBox.Show(st, "Salir", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                using (ContextoEntity conec = new ContextoEntity())
-                {
-                    var propiedadaborrar = conec.Propiedads.Where(p => p.id == propiedadSeleccionado.id).First();
-                    conec.Propiedads.Remove(propiedadaborrar);
-                    conec.SaveChanges();
-                    bindingSource1.DataSource = llenarTablaConPropiedades();
-                    gridControl1.Update();
-                    if (bindingSource1.Count < 1)
-                    {
-                        gridView1.OptionsBehavior.Editable = false;
-                        simpleButton2.Enabled = false;
-                        label2.Visible = false;
-                        checkEdit1.Enabled = false;
-                    }
-                }
+                var propiedadaborrar = conec.Propiedads.Where(p => p.id == propiedadSeleccionado.id).First();
+                conec.Propiedads.Remove(propiedadaborrar);
+                conec.SaveChanges();
+                bindingSource1.DataSource = llenarTablaConPropiedades();
+                gridControl1.Update();
+                inicializar();
             }
-            Sesion.vistaPrincipalDeAdmin.ocultarFormsderivados();
         }
+        //Sesion.vistaPrincipalDeAdmin.ocultarFormsderivados();
 
         private void checkEdit1_CheckedChanged(object sender, EventArgs e)
         {
@@ -83,12 +78,18 @@ namespace HSH_Desa_y_Test.Forms
                 gridView1.Columns.ColumnByFieldName("id").OptionsColumn.AllowEdit = false;
                 simpleButton2.Enabled = true;
                 label2.Visible = true;
+                agregarFotoButton.Enabled = true;
+                eliminarFotoButton.Enabled = true;
             }
             else
             {
                 gridView1.OptionsBehavior.Editable = false;
                 simpleButton2.Enabled = false;
                 label2.Visible = false;
+                agregarFotoButton.Enabled = false;
+                eliminarFotoButton.Enabled = false;
+                label3.Visible = false;
+                fotito = null;
             }
         }
 
@@ -97,16 +98,39 @@ namespace HSH_Desa_y_Test.Forms
             DialogResult m = MessageBox.Show("Modificar la propiedad?", "Modificar Propiedad", MessageBoxButtons.YesNo);
             if (m == DialogResult.Yes)
             {
-                using (ContextoEntity conec = new ContextoEntity())
+                Propiedad propiedadSeleccionado = (Propiedad)gridView1.GetFocusedRow();
+                var propiedadaborrar = conec.Propiedads.Where(p => p.id == propiedadSeleccionado.id).First();
+                if (fotito != null)
                 {
-                    Propiedad propiedadSeleccionado = (Propiedad)gridView1.GetFocusedRow();
-                    var propiedadaborrar = conec.Propiedads.Where(p => p.id == propiedadSeleccionado.id).First();
-                    DbEntityEntry<Propiedad> ee = conec.Entry(propiedadaborrar);
-                    ee.CurrentValues.SetValues(propiedadSeleccionado);
-                    conec.SaveChanges();
+                    foreach (byte[] b in fotito)
+                    {
+                        foto ima = new foto(propiedadaborrar.id, b);
+                        conec.fotos.Add(ima);
+                    }
                 }
+                fotito = null;
+                label3.Visible = false;
+                DbEntityEntry<Propiedad> ee = conec.Entry(propiedadaborrar);
+                ee.CurrentValues.SetValues(propiedadSeleccionado);
+                conec.SaveChanges();
             }
-            Modelo_Expandido.Sesion.vistaPrincipalDeAdmin.ocultarFormsderivados();
+            //Modelo_Expandido.Sesion.vistaPrincipalDeAdmin.ocultarFormsderivados();
+        }
+
+        private void agregarFotoButton_Click(object sender, EventArgs e)
+        {
+            using (xfAgregarImagenes agreg = new xfAgregarImagenes())
+            {
+                agreg.ShowDialog();
+                fotito.AddRange(agreg.GetMyResult());
+            }
+            if (fotito != null) label3.Visible = true;
+        }
+
+        private void eliminarFotoButton_Click(object sender, EventArgs e)
+        {
+            Propiedad propiedadSeleccionado = (Propiedad)gridView1.GetFocusedRow();
+            xfEliminarFoto el = new xfEliminarFoto(propiedadSeleccionado.id);
         }
     }
 }
