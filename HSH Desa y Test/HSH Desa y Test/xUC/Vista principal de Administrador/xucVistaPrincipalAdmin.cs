@@ -23,12 +23,21 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
         private void inicializar()
         {
             Sesion.vistaPrincipalDeAdmin = this;
+            this.ocultarFormsderivados();
+            this.xfDarDeBajaPropiedad1.inicializar();
+            
         }
 
         internal void renderizarAltaPropiedad()
         {
             this.xfDarDeAltaPropiedad1.Visible = true;
             this.xfDarDeAltaPropiedad1.BringToFront();
+        }
+
+        internal void renderizarModificacionYBajaPropiedad()
+        {
+            this.xfDarDeBajaPropiedad1.Visible = true;
+            this.xfDarDeBajaPropiedad1.BringToFront();
         }
 
         internal void ocultarFormsderivados()

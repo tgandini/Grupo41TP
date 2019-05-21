@@ -24,5 +24,10 @@ namespace HSH_Desa_y_Test.xUC
         {
             Sesion.vistaPrincipalDeAdmin.renderizarAltaPropiedad();
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            Sesion.vistaPrincipalDeAdmin.renderizarModificacionYBajaPropiedad();
+        }
     }
 }

@@ -176,7 +176,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "xfDarDeBajaPropiedad";
             this.Size = new System.Drawing.Size(749, 415);
-            this.Load += new System.EventHandler(this.ucCargó);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
