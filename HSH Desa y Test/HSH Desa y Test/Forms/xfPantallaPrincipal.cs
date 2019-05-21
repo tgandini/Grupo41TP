@@ -31,6 +31,7 @@ namespace HSH_Desa_y_Test.Forms
             //Desactivo y mando para atrás las vistas de user logueado y admin
             this.xucVistaPrincipalAdmin1.Visible = false;
             this.xucVistaPrincipalAdmin1.SendToBack();
+            this.xucVistaPrincipalAdmin1.inicializar();
         }
 
 

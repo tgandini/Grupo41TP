@@ -16,6 +16,7 @@ namespace HSH_Desa_y_Test.Forms
         public xfPantallaContacto()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)

@@ -33,6 +33,7 @@
             this.CerrarSesion = new System.Windows.Forms.Button();
             this.Admin = new System.Windows.Forms.Button();
             this.labelUserLogueado = new DevExpress.XtraEditors.LabelControl();
+            this.anchorAcercaDeNosotros = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             // 
             // CerrarSesion
             // 
-            this.CerrarSesion.Location = new System.Drawing.Point(771, 12);
+            this.CerrarSesion.Location = new System.Drawing.Point(791, 27);
             this.CerrarSesion.Name = "CerrarSesion";
             this.CerrarSesion.Size = new System.Drawing.Size(120, 43);
             this.CerrarSesion.TabIndex = 1;
@@ -59,7 +60,7 @@
             // 
             // Admin
             // 
-            this.Admin.Location = new System.Drawing.Point(630, 12);
+            this.Admin.Location = new System.Drawing.Point(639, 27);
             this.Admin.Name = "Admin";
             this.Admin.Size = new System.Drawing.Size(120, 43);
             this.Admin.TabIndex = 2;
@@ -75,20 +76,34 @@
             this.labelUserLogueado.TabIndex = 3;
             this.labelUserLogueado.Text = "Usuario Logueado: ";
             // 
+            // anchorAcercaDeNosotros
+            // 
+            this.anchorAcercaDeNosotros.AutoSize = true;
+            this.anchorAcercaDeNosotros.Location = new System.Drawing.Point(720, 0);
+            this.anchorAcercaDeNosotros.Name = "anchorAcercaDeNosotros";
+            this.anchorAcercaDeNosotros.Size = new System.Drawing.Size(100, 13);
+            this.anchorAcercaDeNosotros.TabIndex = 4;
+            this.anchorAcercaDeNosotros.TabStop = true;
+            this.anchorAcercaDeNosotros.Text = "Acerca de nosotros";
+            this.anchorAcercaDeNosotros.Click += new System.EventHandler(this.ClickAcercaNosotros);
+            // 
             // xUCToolBarLogueado
             // 
-            this.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.Appearance.BackColor = System.Drawing.Color.White;
+            this.Appearance.BorderColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
+            this.Appearance.Options.UseBorderColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Controls.Add(this.anchorAcercaDeNosotros);
             this.Controls.Add(this.labelUserLogueado);
             this.Controls.Add(this.Admin);
             this.Controls.Add(this.CerrarSesion);
             this.Controls.Add(this.pictureBox1);
             this.Name = "xUCToolBarLogueado";
-            this.Size = new System.Drawing.Size(894, 73);
+            this.Size = new System.Drawing.Size(914, 73);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -101,5 +116,6 @@
         private System.Windows.Forms.Button CerrarSesion;
         private System.Windows.Forms.Button Admin;
         private DevExpress.XtraEditors.LabelControl labelUserLogueado;
+        private System.Windows.Forms.LinkLabel anchorAcercaDeNosotros;
     }
 }

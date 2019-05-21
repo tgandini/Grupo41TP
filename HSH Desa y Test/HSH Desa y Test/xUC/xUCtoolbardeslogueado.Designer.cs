@@ -32,12 +32,13 @@
             this.Registrarse = new System.Windows.Forms.Button();
             this.IniciarSecion = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.anchorAcercaDeNosotros = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Registrarse
             // 
-            this.Registrarse.Location = new System.Drawing.Point(771, 12);
+            this.Registrarse.Location = new System.Drawing.Point(791, 27);
             this.Registrarse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Registrarse.Name = "Registrarse";
             this.Registrarse.Size = new System.Drawing.Size(120, 43);
@@ -48,7 +49,7 @@
             // 
             // IniciarSecion
             // 
-            this.IniciarSecion.Location = new System.Drawing.Point(630, 12);
+            this.IniciarSecion.Location = new System.Drawing.Point(639, 27);
             this.IniciarSecion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.IniciarSecion.Name = "IniciarSecion";
             this.IniciarSecion.Size = new System.Drawing.Size(120, 43);
@@ -68,22 +69,35 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // anchorAcercaDeNosotros
+            // 
+            this.anchorAcercaDeNosotros.AutoSize = true;
+            this.anchorAcercaDeNosotros.Location = new System.Drawing.Point(720, 0);
+            this.anchorAcercaDeNosotros.Name = "anchorAcercaDeNosotros";
+            this.anchorAcercaDeNosotros.Size = new System.Drawing.Size(100, 13);
+            this.anchorAcercaDeNosotros.TabIndex = 3;
+            this.anchorAcercaDeNosotros.TabStop = true;
+            this.anchorAcercaDeNosotros.Text = "Acerca de nosotros";
+            this.anchorAcercaDeNosotros.Click += new System.EventHandler(this.clickEnAcerca);
+            // 
             // xUCtoolbardeslogueado
             // 
-            this.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Controls.Add(this.anchorAcercaDeNosotros);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.IniciarSecion);
             this.Controls.Add(this.Registrarse);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "xUCtoolbardeslogueado";
-            this.Size = new System.Drawing.Size(894, 73);
+            this.Size = new System.Drawing.Size(914, 73);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -92,5 +106,6 @@
         private System.Windows.Forms.Button Registrarse;
         private System.Windows.Forms.Button IniciarSecion;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.LinkLabel anchorAcercaDeNosotros;
     }
 }

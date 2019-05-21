@@ -11,7 +11,6 @@ using DevExpress.XtraEditors;
 using HSH_Desa_y_Test.ContextoDB;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity;
-using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
 
