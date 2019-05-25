@@ -252,7 +252,7 @@
             this.textFechaVencimiento.Name = "textFechaVencimiento";
             this.textFechaVencimiento.Properties.EditFormat.FormatString = "mm/yy";
             this.textFechaVencimiento.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.textFechaVencimiento.Properties.Mask.EditMask = "mm/yy";
+            this.textFechaVencimiento.Properties.Mask.EditMask = "mm/yyyy";
             this.textFechaVencimiento.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
             this.textFechaVencimiento.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.textFechaVencimiento.Size = new System.Drawing.Size(403, 22);
@@ -271,7 +271,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 570);
             this.Controls.Add(this.textCodSeguridad);
             this.Controls.Add(this.textFechaVencimiento);
             this.Controls.Add(this.textNroTarjeta);
@@ -294,6 +293,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "xfRegistrarceForm";
+            this.Size = new System.Drawing.Size(590, 570);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textNombre.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textApellido.Properties)).EndInit();

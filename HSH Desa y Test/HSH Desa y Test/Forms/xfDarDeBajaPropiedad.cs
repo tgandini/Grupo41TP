@@ -60,6 +60,8 @@ namespace HSH_Desa_y_Test.Forms
             if (result == DialogResult.Yes)
             {
                 var propiedadaborrar = conec.Propiedads.Where(p => p.id == propiedadSeleccionado.id).First();
+                var fotito = conec.fotos.Where(p => p.idPropiedad == propiedadaborrar.id).ToList();
+                conec.fotos.RemoveRange(fotito);
                 conec.Propiedads.Remove(propiedadaborrar);
                 conec.SaveChanges();
                 bindingSource1.DataSource = llenarTablaConPropiedades();
@@ -129,7 +131,9 @@ namespace HSH_Desa_y_Test.Forms
         private void eliminarFotoButton_Click(object sender, EventArgs e)
         {
             Propiedad propiedadSeleccionado = (Propiedad)gridView1.GetFocusedRow();
-            xfEliminarFoto el = new xfEliminarFoto(propiedadSeleccionado.id);
+            xfEliminarFoto el = new xfEliminarFoto();
+            el.inicializar(propiedadSeleccionado.id);
+            el.ShowDialog();
         }
     }
 }

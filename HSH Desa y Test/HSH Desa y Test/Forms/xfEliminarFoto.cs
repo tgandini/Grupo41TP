@@ -17,13 +17,13 @@ namespace HSH_Desa_y_Test.Forms
 {
     public partial class xfEliminarFoto : DevExpress.XtraEditors.XtraForm
     {
-        public xfEliminarFoto(int idenPropiedad)
+        public xfEliminarFoto()
         {
             InitializeComponent();
-            inicializar(idenPropiedad);
+
         }
 
-        private void inicializar(int idenPropiedad)
+        public void inicializar(int idenPropiedad)
         {
             if (idenPropiedad > 0)
              {
@@ -47,14 +47,9 @@ namespace HSH_Desa_y_Test.Forms
         {
             using (ContextoEntity conec = new ContextoEntity())
             {
-                if (idenPropiedad <= conec.Propiedads.Count())
-                {
+                
                     return conec.fotos.Where(p => p.idPropiedad == idenPropiedad).ToList();
-                }
-                else
-                {
-                    return null;
-                }
+               
             }
         }
 

@@ -20,7 +20,7 @@ namespace HSH_Desa_y_Test.Forms
         {
             InitializeComponent();
             this.inicializar();
-            this.xucListadoPropiedadesYEditar1.CargarDatos();      
+                  
 
         }
 
@@ -69,6 +69,7 @@ namespace HSH_Desa_y_Test.Forms
             this.xUCToolBarLogueado1.BringToFront();
 
             //traigo el futuro panel de user logueado
+            this.xucListadoPropiedadesYEditar1.CargarDatos();
             this.xucListadoPropiedadesYEditar1.Visible = true;
             this.xucListadoPropiedadesYEditar1.BringToFront();
         }

@@ -53,7 +53,8 @@ namespace HSH_Desa_y_Test.xUC
                 label6.Text = casa.habitaciones.ToString();
 
                // En esta línea iteramos sobre cada foto, creando un stream de bytes y convirtiéndolo a Image, para agregarlo a la lista de fotos q se van a ver en el slider
-                foreach (foto fotito in listaDeFotos) imageSlider1.Images.Add(System.Drawing.Image.FromStream(new MemoryStream( fotito.foto1))); 
+                foreach (foto fotito in listaDeFotos) imageSlider1.Images.Add(System.Drawing.Image.FromStream(new MemoryStream( fotito.foto1)));
+                imageSlider1.SlideNext();
                                
             }
         }
