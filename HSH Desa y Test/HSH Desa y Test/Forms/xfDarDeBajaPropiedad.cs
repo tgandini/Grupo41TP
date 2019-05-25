@@ -42,6 +42,7 @@ namespace HSH_Desa_y_Test.Forms
             label3.Visible = false;
             agregarFotoButton.Enabled = false;
             eliminarFotoButton.Enabled = false;
+            checkEdit1.EditValue = false;
             fotito = null;
         }
 
@@ -56,20 +57,64 @@ namespace HSH_Desa_y_Test.Forms
         {
             Propiedad propiedadSeleccionado = (Propiedad)gridView1.GetFocusedRow();
             string st = string.Concat("Seguro que desea Borrar la propiedad ", propiedadSeleccionado.id, "?");
-            DialogResult result = MessageBox.Show(st, "Salir", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            DialogResult result = MessageBox.Show(st, "Salir", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
             {
+                bool b; bool r;
                 var propiedadaborrar = conec.Propiedads.Where(p => p.id == propiedadSeleccionado.id).First();
                 var fotito = conec.fotos.Where(p => p.idPropiedad == propiedadaborrar.id).ToList();
-                conec.fotos.RemoveRange(fotito);
-                conec.Propiedads.Remove(propiedadaborrar);
-                conec.SaveChanges();
-                bindingSource1.DataSource = llenarTablaConPropiedades();
-                gridControl1.Update();
-                inicializar();
+                if (tieneReserva(propiedadaborrar.id))
+                {
+                    if (tieneSubasta(propiedadaborrar.id))
+                    {
+                        conec.fotos.RemoveRange(fotito);
+                        conec.Propiedads.Remove(propiedadaborrar);
+                        conec.SaveChanges();
+                        bindingSource1.DataSource = llenarTablaConPropiedades();
+                        gridControl1.Update();
+                        inicializar();
+                    }
+                }
             }
         }
-        //Sesion.vistaPrincipalDeAdmin.ocultarFormsderivados();
+
+        private bool tieneSubasta(int idenPropiedad)
+        {
+            var subi = conec.subastas.Where(p => p.id_propiedad_subastada == idenPropiedad).ToList();
+            if (subi.Count > 0)
+            {
+             
+                    DialogResult result = MessageBox.Show("Tiene subastas activas, desea darla de baja de todas formas?", "Borrar", MessageBoxButtons.OKCancel);
+                    if (result == DialogResult.OK)
+                    {
+                        conec.subastas.RemoveRange(subi);
+                        conec.SaveChanges();
+                        return true;
+                    }
+                   else return false;
+                }
+            return true;
+        }
+
+        private bool tieneReserva(int idenPropiedad)
+        {
+            
+            var subi = conec.ReservaDirectas.Where(p => p.idPropiedad == idenPropiedad).ToList();
+            if (subi.Count > 0)
+            {
+              
+                    DialogResult result = MessageBox.Show("Tiene reservas pendientes, desea darla de baja de todas formas?", "Borrar", MessageBoxButtons.OKCancel);
+                    if (result == DialogResult.OK)
+                    {
+                        conec.ReservaDirectas.RemoveRange(subi);
+                        conec.SaveChanges();
+                        return true;
+                    }
+                   else return false;
+                
+            }
+            return true;
+        }
 
         private void checkEdit1_CheckedChanged(object sender, EventArgs e)
         {
@@ -96,8 +141,8 @@ namespace HSH_Desa_y_Test.Forms
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            DialogResult m = MessageBox.Show("Modificar la propiedad?", "Modificar Propiedad", MessageBoxButtons.YesNo);
-            if (m == DialogResult.Yes)
+            DialogResult m = MessageBox.Show("Modificar la propiedad?", "Modificar Propiedad", MessageBoxButtons.OKCancel);
+            if (m == DialogResult.OK)
             {
                 Propiedad propiedadSeleccionado = (Propiedad)gridView1.GetFocusedRow();
                 var propiedadaborrar = conec.Propiedads.Where(p => p.id == propiedadSeleccionado.id).First();
@@ -115,7 +160,7 @@ namespace HSH_Desa_y_Test.Forms
                 ee.CurrentValues.SetValues(propiedadSeleccionado);
                 conec.SaveChanges();
             }
-            //Modelo_Expandido.Sesion.vistaPrincipalDeAdmin.ocultarFormsderivados();
+   
         }
 
         private void agregarFotoButton_Click(object sender, EventArgs e)

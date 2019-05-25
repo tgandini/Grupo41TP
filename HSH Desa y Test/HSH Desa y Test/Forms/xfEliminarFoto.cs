@@ -20,7 +20,6 @@ namespace HSH_Desa_y_Test.Forms
         public xfEliminarFoto()
         {
             InitializeComponent();
-
         }
 
         public void inicializar(int idenPropiedad)
@@ -85,13 +84,20 @@ namespace HSH_Desa_y_Test.Forms
             if (m == DialogResult.Yes)
             {
                 BaseCheckedListBoxControl.CheckedItemCollection f = checkedListBoxControl1.CheckedItems;
-                foreach (foto fot in f)
+                if (f != null)
                 {
-                    using (ContextoEntity conec = new ContextoEntity())
+                    foreach (foto fot in f)
                     {
-                        conec.fotos.Remove(fot);
+                        using (ContextoEntity conec = new ContextoEntity())
+                        {
+                            var fotoborrar = conec.fotos.Where(p => p.id == fot.id).First();
+                           conec.fotos.Remove(fotoborrar);
+                            conec.SaveChanges();
+                        }
                     }
+                    
                 }
+                this.Close();
             }
         }
     }
