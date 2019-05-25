@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.xucListadoPropiedadesYEditar1 = new HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador.xucListadoPropiedadesYEditar();
             this.xucVistaPrincipalAdmin1 = new HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador.xucVistaPrincipalAdmin();
             this.xUCtoolbardeslogueado1 = new HSH_Desa_y_Test.xUC.xUCtoolbardeslogueado();
             this.xUCToolBarLogueado1 = new HSH_Desa_y_Test.xUC.xUCToolBarLogueado();
-            this.xucListadoPropiedadesYEditar1 = new HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador.xucListadoPropiedadesYEditar();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
@@ -46,8 +46,15 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1014, 736);
+            this.panelControl1.Size = new System.Drawing.Size(1284, 736);
             this.panelControl1.TabIndex = 0;
+            // 
+            // xucListadoPropiedadesYEditar1
+            // 
+            this.xucListadoPropiedadesYEditar1.Location = new System.Drawing.Point(6, 149);
+            this.xucListadoPropiedadesYEditar1.Name = "xucListadoPropiedadesYEditar1";
+            this.xucListadoPropiedadesYEditar1.Size = new System.Drawing.Size(1266, 593);
+            this.xucListadoPropiedadesYEditar1.TabIndex = 3;
             // 
             // xucVistaPrincipalAdmin1
             // 
@@ -66,7 +73,7 @@
             this.xUCtoolbardeslogueado1.Location = new System.Drawing.Point(2, 2);
             this.xUCtoolbardeslogueado1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xUCtoolbardeslogueado1.Name = "xUCtoolbardeslogueado1";
-            this.xUCtoolbardeslogueado1.Size = new System.Drawing.Size(1010, 73);
+            this.xUCtoolbardeslogueado1.Size = new System.Drawing.Size(1280, 73);
             this.xUCtoolbardeslogueado1.TabIndex = 0;
             // 
             // xUCToolBarLogueado1
@@ -81,18 +88,11 @@
             this.xUCToolBarLogueado1.TabIndex = 1;
             this.xUCToolBarLogueado1.Visible = false;
             // 
-            // xucListadoPropiedadesYEditar1
-            // 
-            this.xucListadoPropiedadesYEditar1.Location = new System.Drawing.Point(6, 149);
-            this.xucListadoPropiedadesYEditar1.Name = "xucListadoPropiedadesYEditar1";
-            this.xucListadoPropiedadesYEditar1.Size = new System.Drawing.Size(1004, 593);
-            this.xucListadoPropiedadesYEditar1.TabIndex = 3;
-            // 
             // xfPantallaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1014, 736);
+            this.ClientSize = new System.Drawing.Size(1284, 736);
             this.Controls.Add(this.panelControl1);
             this.Name = "xfPantallaPrincipal";
             this.Text = "Home Switch Home";
