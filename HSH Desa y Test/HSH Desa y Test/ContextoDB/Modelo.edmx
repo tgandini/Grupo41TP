@@ -43,6 +43,8 @@
           <Property Name="fechaAlta" Type="date" Nullable="false" />
           <Property Name="adminQueDIoDeBajaProp" Type="nvarchar" MaxLength="10" />
           <Property Name="fechaBaja" Type="date" />
+          <Property Name="ciudad" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="ReservaDirecta">
           <Key>
@@ -106,30 +108,6 @@
             </Principal>
             <Dependent Role="subasta">
               <PropertyRef Name="id_propiedad_subastada" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_adminDioDeAlta">
-          <End Role="admins" Type="Self.admins" Multiplicity="1" />
-          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="admins">
-              <PropertyRef Name="token" />
-            </Principal>
-            <Dependent Role="Propiedad">
-              <PropertyRef Name="adminQueDioDeAltaProp" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_adminDioDeBaja">
-          <End Role="admins" Type="Self.admins" Multiplicity="0..1" />
-          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="admins">
-              <PropertyRef Name="token" />
-            </Principal>
-            <Dependent Role="Propiedad">
-              <PropertyRef Name="adminQueDIoDeBajaProp" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -243,14 +221,6 @@
             <End Role="Propiedad" EntitySet="Propiedad" />
             <End Role="subasta" EntitySet="subasta" />
           </AssociationSet>
-          <AssociationSet Name="FK_adminDioDeAlta" Association="Self.FK_adminDioDeAlta">
-            <End Role="admins" EntitySet="admins" />
-            <End Role="Propiedad" EntitySet="Propiedad" />
-          </AssociationSet>
-          <AssociationSet Name="FK_adminDioDeBaja" Association="Self.FK_adminDioDeBaja">
-            <End Role="admins" EntitySet="admins" />
-            <End Role="Propiedad" EntitySet="Propiedad" />
-          </AssociationSet>
           <AssociationSet Name="FK_tarjetas_Usuario" Association="Self.FK_tarjetas_Usuario">
             <End Role="usuario" EntitySet="usuario" />
             <End Role="tarjetas" EntitySet="tarjetas" />
@@ -337,6 +307,8 @@
           <Property Name="fechaBaja" Type="DateTime" Precision="0" />
           <NavigationProperty Name="admin" Relationship="Modelo.FK_adminDioDeAlta" FromRole="Propiedad" ToRole="admin" />
           <NavigationProperty Name="admin1" Relationship="Modelo.FK_adminDioDeBaja" FromRole="Propiedad" ToRole="admin" />
+          <Property Name="ciudad" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ReservaDirecta">
           <Key>
@@ -627,6 +599,8 @@
           <EntitySetMapping Name="Propiedads">
             <EntityTypeMapping TypeName="Modelo.Propiedad">
               <MappingFragment StoreEntitySet="Propiedad">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
                 <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
                 <ScalarProperty Name="adminQueDIoDeBajaProp" ColumnName="adminQueDIoDeBajaProp" />
                 <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
