@@ -31,11 +31,12 @@ namespace HSH_Desa_y_Test.Forms
 
         private void crearButton2_Click(object sender, EventArgs e)
         {
-            if((textHabitaciones.Text.Length > 0) && (textTipo.Text.Length >0) && (textUbicacion.Text.Length > 0))
+            
+            if((textHabitaciones.Text.Length > 0) && (textTipo.Text.Length >0) && (textUbicacion.Text.Length > 0)&& (boxNombre.Text.Length > 0)&& boxCiudad.Text.Length>0)
             {
                 if (int.Parse(textHabitaciones.Text) >= 0)
-                { 
-                    casa = new Propiedad(textTipo.Text, textUbicacion.Text, int.Parse(textHabitaciones.Text), Sesion.admin.token, DateTime.Today);
+                {
+                    casa = new Propiedad(boxNombre.Text,boxCiudad.Text, textTipo.Text, textUbicacion.Text, int.Parse(textHabitaciones.Text), Sesion.admin.token, DateTime.Today);
                     if (fotito != null)
                     {
                         foreach (byte[] b in fotito)
@@ -45,17 +46,13 @@ namespace HSH_Desa_y_Test.Forms
                         }
                     }
                     else casa.fotos = null;
-                    using (ContextoEntity conec = new ContextoEntity())
+                    if (casa.guardarAltaEnBD())
                     {
-                        if(casa.fotos!=null) conec.fotos.AddRange(casa.fotos);
-                        if(!Propiedad.existeDireccion(casa.ubicaciòn))conec.Propiedads.Add(casa);
-                        conec.SaveChanges();
-                    }
-                    string pt = string.Concat("Se creo la propiedad con ubicacion: ", textUbicacion.Text);
-                    MessageBox.Show(pt);
-                    Sesion.vistaPrincipalDeAdmin.ocultarFormsderivados();
+                        MessageBox.Show("Se dio de alta a la propiedad con éxito");
+                        Sesion.vistaPrincipalDeAdmin.ocultarFormsderivados();
+                        this.limpiarCampos();
+                    }                  
 
-                    this.limpiarCampos();
 
                 }
                 else MessageBox.Show("La cantidad de habitaciones no es valida");
@@ -65,16 +62,24 @@ namespace HSH_Desa_y_Test.Forms
 
         private void limpiarCampos()
         {
+            this.boxNombre.Text = "";
+            this.boxCiudad.Text = "";
             this.textHabitaciones.Text = "";
             this.textTipo.Text = "";
             this.textUbicacion.Text = "";
             fotito = null;
+            label5.Text = null;
         }
 
         private void cancelarButton1_Click(object sender, EventArgs e)
         {
-            Sesion.vistaPrincipalDeAdmin.ocultarFormsderivados();
-            this.limpiarCampos();
+            DialogResult dialogResult = MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar alta de propiedad", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Sesion.vistaPrincipalDeAdmin.ocultarFormsderivados();
+                this.limpiarCampos();
+            }
+
         }
 
         private void agregarFotosButton_Click(object sender, EventArgs e)

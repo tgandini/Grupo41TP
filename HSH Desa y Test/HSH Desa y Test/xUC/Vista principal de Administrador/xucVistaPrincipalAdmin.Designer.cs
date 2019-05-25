@@ -29,25 +29,34 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.xfRegistrarceForm1 = new HSH_Desa_y_Test.xUC.xfRegistrarceForm();
             this.xfDarDeBajaUsuario1 = new HSH_Desa_y_Test.Forms.xfDarDeBajaUsuario();
             this.xfDarDeBajaPropiedad2 = new HSH_Desa_y_Test.Forms.xfDarDeBajaPropiedad();
             this.xfDarDeAltaPropiedad1 = new HSH_Desa_y_Test.Forms.xfDarDeAltaPropiedad();
             this.xucComandosAdmin1 = new HSH_Desa_y_Test.xUC.xucComandosAdmin();
-            this.xfRegistrarceForm1 = new HSH_Desa_y_Test.xUC.xfRegistrarceForm();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.xfRegistrarceForm1);
-            this.panelControl1.Controls.Add(this.xfDarDeBajaUsuario1);
-            this.panelControl1.Controls.Add(this.xfDarDeBajaPropiedad2);
             this.panelControl1.Controls.Add(this.xfDarDeAltaPropiedad1);
+            this.panelControl1.Controls.Add(this.xfDarDeBajaUsuario1);
+            this.panelControl1.Controls.Add(this.xfRegistrarceForm1);
+            this.panelControl1.Controls.Add(this.xfDarDeBajaPropiedad2);
             this.panelControl1.Location = new System.Drawing.Point(3, 67);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1004, 593);
             this.panelControl1.TabIndex = 1;
+            // 
+            // xfRegistrarceForm1
+            // 
+            this.xfRegistrarceForm1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.xfRegistrarceForm1.Location = new System.Drawing.Point(273, 20);
+            this.xfRegistrarceForm1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.xfRegistrarceForm1.Name = "xfRegistrarceForm1";
+            this.xfRegistrarceForm1.Size = new System.Drawing.Size(506, 463);
+            this.xfRegistrarceForm1.TabIndex = 4;
             // 
             // xfDarDeBajaUsuario1
             // 
@@ -81,7 +90,7 @@
             this.xfDarDeAltaPropiedad1.Location = new System.Drawing.Point(290, 20);
             this.xfDarDeAltaPropiedad1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xfDarDeAltaPropiedad1.Name = "xfDarDeAltaPropiedad1";
-            this.xfDarDeAltaPropiedad1.Size = new System.Drawing.Size(506, 337);
+            this.xfDarDeAltaPropiedad1.Size = new System.Drawing.Size(506, 496);
             this.xfDarDeAltaPropiedad1.TabIndex = 0;
             this.xfDarDeAltaPropiedad1.Visible = false;
             // 
@@ -92,15 +101,6 @@
             this.xucComandosAdmin1.Name = "xucComandosAdmin1";
             this.xucComandosAdmin1.Size = new System.Drawing.Size(1007, 58);
             this.xucComandosAdmin1.TabIndex = 0;
-            // 
-            // xfRegistrarceForm1
-            // 
-            this.xfRegistrarceForm1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xfRegistrarceForm1.Location = new System.Drawing.Point(273, 20);
-            this.xfRegistrarceForm1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.xfRegistrarceForm1.Name = "xfRegistrarceForm1";
-            this.xfRegistrarceForm1.Size = new System.Drawing.Size(506, 463);
-            this.xfRegistrarceForm1.TabIndex = 4;
             // 
             // xucVistaPrincipalAdmin
             // 

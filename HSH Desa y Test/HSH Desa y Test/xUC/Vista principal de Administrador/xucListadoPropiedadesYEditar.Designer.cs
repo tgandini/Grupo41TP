@@ -29,62 +29,83 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.bindingPropiedad = new System.Windows.Forms.BindingSource(this.components);
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colEditar = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.coltipo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colubicaciòn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colhabitaciones = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.xUCDetallePropiedad1 = new HSH_Desa_y_Test.xUC.xUCDetallePropiedad();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colciudad = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colubicaciòn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coltipo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colhabitaciones = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bindingPropiedad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // xUCDetallePropiedad1
+            // 
+            this.xUCDetallePropiedad1.Location = new System.Drawing.Point(495, 33);
+            this.xUCDetallePropiedad1.Name = "xUCDetallePropiedad1";
+            this.xUCDetallePropiedad1.Size = new System.Drawing.Size(690, 339);
+            this.xUCDetallePropiedad1.TabIndex = 1;
             // 
             // gridControl1
             // 
-            this.gridControl1.DataSource = this.bindingPropiedad;
             this.gridControl1.Location = new System.Drawing.Point(4, 4);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemButtonEdit1,
-            this.repositoryItemButtonEdit2});
-            this.gridControl1.Size = new System.Drawing.Size(485, 586);
-            this.gridControl1.TabIndex = 0;
+            this.gridControl1.Size = new System.Drawing.Size(485, 525);
+            this.gridControl1.TabIndex = 2;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colEditar,
-            this.coltipo,
+            this.colnombre,
+            this.colciudad,
             this.colubicaciòn,
+            this.coltipo,
             this.colhabitaciones});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsFind.AlwaysVisible = true;
+            this.gridView1.OptionsFind.FindDelay = 300;
+            this.gridView1.OptionsFind.FindMode = DevExpress.XtraEditors.FindMode.Always;
+            this.gridView1.OptionsFind.FindNullPrompt = "Introduzca para filtar";
+            this.gridView1.OptionsFind.ShowCloseButton = false;
+            this.gridView1.OptionsFind.ShowFindButton = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
-            // colEditar
+            // colnombre
             // 
-            this.colEditar.Caption = "Editar Propiedad";
-            this.colEditar.ColumnEdit = this.repositoryItemButtonEdit2;
-            this.colEditar.Name = "colEditar";
-            this.colEditar.Visible = true;
-            this.colEditar.VisibleIndex = 3;
+            this.colnombre.Caption = "Nombre Propiedad";
+            this.colnombre.FieldName = "nombre";
+            this.colnombre.Name = "colnombre";
+            this.colnombre.Visible = true;
+            this.colnombre.VisibleIndex = 0;
+            this.colnombre.Width = 107;
             // 
-            // repositoryItemButtonEdit2
+            // colciudad
             // 
-            this.repositoryItemButtonEdit2.AutoHeight = false;
-            this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
+            this.colciudad.Caption = "Ciudad";
+            this.colciudad.FieldName = "ciudad";
+            this.colciudad.Name = "colciudad";
+            this.colciudad.Visible = true;
+            this.colciudad.VisibleIndex = 1;
+            this.colciudad.Width = 89;
+            // 
+            // colubicaciòn
+            // 
+            this.colubicaciòn.Caption = "Ubicación";
+            this.colubicaciòn.FieldName = "ubicaciòn";
+            this.colubicaciòn.Name = "colubicaciòn";
+            this.colubicaciòn.Visible = true;
+            this.colubicaciòn.VisibleIndex = 2;
+            this.colubicaciòn.Width = 89;
             // 
             // coltipo
             // 
@@ -92,66 +113,42 @@
             this.coltipo.FieldName = "tipo";
             this.coltipo.Name = "coltipo";
             this.coltipo.Visible = true;
-            this.coltipo.VisibleIndex = 0;
-            // 
-            // colubicaciòn
-            // 
-            this.colubicaciòn.Caption = "Ubicación de Propiedad";
-            this.colubicaciòn.FieldName = "ubicaciòn";
-            this.colubicaciòn.Name = "colubicaciòn";
-            this.colubicaciòn.Visible = true;
-            this.colubicaciòn.VisibleIndex = 1;
+            this.coltipo.VisibleIndex = 3;
+            this.coltipo.Width = 138;
             // 
             // colhabitaciones
             // 
-            this.colhabitaciones.Caption = "Habitaciones";
+            this.colhabitaciones.Caption = "Hab";
             this.colhabitaciones.FieldName = "habitaciones";
             this.colhabitaciones.Name = "colhabitaciones";
             this.colhabitaciones.Visible = true;
-            this.colhabitaciones.VisibleIndex = 2;
-            // 
-            // repositoryItemButtonEdit1
-            // 
-            this.repositoryItemButtonEdit1.AutoHeight = false;
-            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
-            // 
-            // xUCDetallePropiedad1
-            // 
-            this.xUCDetallePropiedad1.Location = new System.Drawing.Point(495, 33);
-            this.xUCDetallePropiedad1.Name = "xUCDetallePropiedad1";
-            this.xUCDetallePropiedad1.Size = new System.Drawing.Size(497, 339);
-            this.xUCDetallePropiedad1.TabIndex = 1;
+            this.colhabitaciones.VisibleIndex = 4;
+            this.colhabitaciones.Width = 44;
             // 
             // xucListadoPropiedadesYEditar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.xUCDetallePropiedad1);
             this.Controls.Add(this.gridControl1);
+            this.Controls.Add(this.xUCDetallePropiedad1);
             this.Name = "xucListadoPropiedadesYEditar";
-            this.Size = new System.Drawing.Size(1004, 593);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            this.Size = new System.Drawing.Size(1182, 593);
             ((System.ComponentModel.ISupportInitialize)(this.bindingPropiedad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colEditar;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit2;
-        private DevExpress.XtraGrid.Columns.GridColumn coltipo;
-        private DevExpress.XtraGrid.Columns.GridColumn colubicaciòn;
-        private DevExpress.XtraGrid.Columns.GridColumn colhabitaciones;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
         private System.Windows.Forms.BindingSource bindingPropiedad;
         private xUCDetallePropiedad xUCDetallePropiedad1;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn colnombre;
+        private DevExpress.XtraGrid.Columns.GridColumn colciudad;
+        private DevExpress.XtraGrid.Columns.GridColumn colubicaciòn;
+        private DevExpress.XtraGrid.Columns.GridColumn coltipo;
+        private DevExpress.XtraGrid.Columns.GridColumn colhabitaciones;
     }
 }
