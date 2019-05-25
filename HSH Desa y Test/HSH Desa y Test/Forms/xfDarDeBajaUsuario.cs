@@ -51,12 +51,12 @@ namespace HSH_Desa_y_Test.Forms
         {
             usuario usuarioSeleccionado = (usuario) gridView1.GetFocusedRow();
             string st = string.Concat("Seguro que desea Borrar al usuario ", usuarioSeleccionado.mail, "?");
-            DialogResult result = MessageBox.Show(st, "Salir", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            DialogResult result = MessageBox.Show(st, "Salir",MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
             {
                
                     var usuarioaborrar = conec.usuarios.Where(p => p.mail == usuarioSeleccionado.mail).First();
-                    conec.usuarioParticipaEnSubastas.RemoveRange(usuarioaborrar.usuarioParticipaEnSubastas);
+                    //conec.usuarioParticipaEnSubastas.RemoveRange(usuarioaborrar.usuarioParticipaEnSubastas);
                     conec.tarjetas.RemoveRange(usuarioaborrar.tarjetas);
                     conec.usuarios.Remove(usuarioaborrar);
                     conec.SaveChanges();

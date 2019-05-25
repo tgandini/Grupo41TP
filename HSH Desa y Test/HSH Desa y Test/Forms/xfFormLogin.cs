@@ -37,7 +37,7 @@ namespace HSH_Desa_y_Test.Forms
         {
             radioButton1.Checked = true;
             radioButton2.Checked = false;
-            layoutControlItem3.Text = "Nombre usuario:";
+            layoutControlItem4.Text = "Contraseña:";
             layoutControlItem3.ContentVisible = true;
             
         }
