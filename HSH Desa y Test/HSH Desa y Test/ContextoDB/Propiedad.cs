@@ -31,6 +31,8 @@ namespace HSH_Desa_y_Test.ContextoDB
         public System.DateTime fechaAlta { get; set; }
         public string adminQueDIoDeBajaProp { get; set; }
         public Nullable<System.DateTime> fechaBaja { get; set; }
+        public string ciudad { get; set; }
+        public string nombre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<foto> fotos { get; set; }
