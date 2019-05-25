@@ -35,6 +35,7 @@ namespace HSH_Desa_y_Test.Forms
                 checkedListBoxControl1.DisplayMember = "id";
                 eliminarButton.Enabled = false;
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                this.Show();
             }
             else
             {
