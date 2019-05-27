@@ -107,7 +107,7 @@
             // 
             this.aceptarButton.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.aceptarButton.Appearance.Options.UseFont = true;
-            this.aceptarButton.Location = new System.Drawing.Point(845, 419);
+            this.aceptarButton.Location = new System.Drawing.Point(882, 356);
             this.aceptarButton.Name = "aceptarButton";
             this.aceptarButton.Size = new System.Drawing.Size(160, 67);
             this.aceptarButton.TabIndex = 10;
@@ -202,7 +202,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "xUCCerrarSubasta";
-            this.Size = new System.Drawing.Size(1124, 561);
+            this.Size = new System.Drawing.Size(1124, 435);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subastaSource)).EndInit();

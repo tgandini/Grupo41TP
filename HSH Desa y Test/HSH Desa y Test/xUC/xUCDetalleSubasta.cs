@@ -17,15 +17,15 @@ namespace HSH_Desa_y_Test.xUC
 {
     public partial class xUCDetalleSubasta : DevExpress.XtraEditors.XtraUserControl
     {
-        private decimal usuar;
+        private usuarioParticipaEnSubasta usuar;
         private subasta muestra;
-        public xUCDetalleSubasta(int? idsubasta)
+        public xUCDetalleSubasta()
         {
             InitializeComponent();
-            inicializar(idsubasta);
+
         }
 
-        private void inicializar(int? idsubasta)
+        public void inicializar(int? idsubasta)
         {
             Random random = new Random();
             pujarButton.Enabled = false;
@@ -43,27 +43,31 @@ namespace HSH_Desa_y_Test.xUC
                 }
                
                 //Busca los datos para mostrar en los label
-                var casa = conexion.Propiedads.Where(p => p.id == muestra.id_propiedad_subastada).First().ubicaciòn;
-                usuar = conexion.usuarioParticipaEnSubastas.Where(p => p.idSubasta == muestra.id).First().monto;
+                var casa = conexion.Propiedads.Where(p => p.id == muestra.id_propiedad_subastada).First();
+                usuar = conexion.usuarioParticipaEnSubastas.Where(p => p.idSubasta == muestra.id).LastOrDefault();
 
                 //Seteo los label a cada cosa
-                ubicacionPropiedad.Text = casa;
-                ultimaPuja.Text = usuar.ToString();
+                nombreLabel.Text = casa.nombre;
+                ciudadLabel.Text = casa.ciudad;
+                ubicacionPropiedad.Text = casa.ubicaciòn;
+                if (usuar != null) ultimaPuja.Text = usuar.monto.ToString();
+                else ultimaPuja.Text = muestra.monto_inicial.ToString();
                 semanaSubastadaConAño.Text = string.Concat("Semana ", muestra.semana_de_subasta);
             }
         }
 
         private void pujarButton_Click(object sender, EventArgs e)
         {
-            if ((textNuevaPuja.Text.Length > 0) && (decimal.Parse(textNuevaPuja.Text) > usuar))
+            if ((textNuevaPuja.Text.Length > 0) && (decimal.Parse(textNuevaPuja.Text) > decimal.Parse(ultimaPuja.Text)) && (usuar.usuario.token > 0))
             {
                 DialogResult result = MessageBox.Show("Confirma la puja?", "Puja", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                    usuarioParticipaEnSubasta nuevapuja = new usuarioParticipaEnSubasta(usuar, Sesion.user.mail, muestra.id);
+                    usuarioParticipaEnSubasta nuevapuja = new usuarioParticipaEnSubasta(decimal.Parse(textNuevaPuja.Text), Sesion.user.mail, muestra.id);
                     nuevapuja.crear();
-                    usuar = decimal.Parse(textNuevaPuja.Text);
-                    ultimaPuja.Text = usuar.ToString();
+                    ultimaPuja.Text = textNuevaPuja.Text;
+                    textNuevaPuja.Text = "";
+                    pujarButton.Enabled = false;
                 }
             }
             else MessageBox.Show("Debe ingresar un monto valido");
@@ -71,7 +75,7 @@ namespace HSH_Desa_y_Test.xUC
 
         private void textNuevaPuja_EditValueChanged(object sender, EventArgs e)
         {
-            if ((textNuevaPuja.Text.Length > 0) && (decimal.Parse(textNuevaPuja.Text) > usuar))
+            if ((textNuevaPuja.Text.Length > 0) && (decimal.Parse(textNuevaPuja.Text) > decimal.Parse(ultimaPuja.Text)))
             {
                 pujarButton.Enabled = true;
             }

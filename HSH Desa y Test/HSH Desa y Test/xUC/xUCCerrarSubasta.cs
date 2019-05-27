@@ -97,10 +97,11 @@ namespace HSH_Desa_y_Test.xUC
             if (m == DialogResult.Yes)
             {
                 s = (subasta)gridView1.GetFocusedRow();
+                s.fecha_fin = DateTime.Today;
                 using (ContextoEntity conec = new ContextoEntity())
                 {
-                    DbEntityEntry<subasta> ee = conec.Entry(s);
-                    s.fecha_fin = DateTime.Today;
+                    var su = conec.subastas.Where(p => p.id == s.id).First();
+                    DbEntityEntry<subasta> ee = conec.Entry(su);
                     ee.CurrentValues.SetValues(s);
                     conec.SaveChanges();
                 }
