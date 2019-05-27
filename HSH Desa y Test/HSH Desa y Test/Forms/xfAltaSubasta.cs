@@ -26,10 +26,10 @@ namespace HSH_Desa_y_Test.Forms
         public void inicializar()
         {
             propie = llenarConPropiedades();
-            List<int> iden = new List<int>();
+            List<string> iden = new List<string>();
             foreach (Propiedad casa in propie)
             {
-                iden.Add(casa.id);
+                iden.Add(string.Format("{0}, ubicada en Ciudad: {1}, dirección:{2}", casa.nombre, casa.ciudad, casa.ubicaciòn));
             }
             comboBox1.DataSource = iden;
         }
@@ -78,7 +78,7 @@ namespace HSH_Desa_y_Test.Forms
         {
             foreach (Propiedad casa in propie)
             {
-                if (casa.id == int.Parse(st))                
+                if (casa.nombre == st)                
                     return casa;                
             }
             return null;
