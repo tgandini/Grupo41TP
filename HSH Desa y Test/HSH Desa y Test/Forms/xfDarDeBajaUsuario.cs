@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using System.Data.Entity;
 using HSH_Desa_y_Test.ContextoDB;
 using System.Data.Entity.Infrastructure;
+using HSH_Desa_y_Test.Modelo_Expandido;
 
 namespace HSH_Desa_y_Test.Forms
 {
@@ -32,12 +33,11 @@ namespace HSH_Desa_y_Test.Forms
             if (usuarioBindingSource.Count < 1)
             {
                 simpleButton1.Enabled = false;
-                checkEdit1.Enabled = false;
+                simpleButton2.Enabled = false;
             }
             gridControl1.Update();
-            simpleButton2.Enabled = false;
+            simpleButton2.Enabled = true;
             gridView1.OptionsBehavior.Editable = false;
-            label2.Visible = false;
         }
 
         private List<usuario> llenarTablaConUsuarios()
@@ -67,42 +67,15 @@ namespace HSH_Desa_y_Test.Forms
                 {
                     gridView1.OptionsBehavior.Editable = false;
                     simpleButton2.Enabled = false;
-                    label2.Visible = false;
-                    checkEdit1.Enabled = false;
                 }
             } 
         }
 
-        private void checkEdit1_CheckedChanged(object sender, EventArgs e)
-        {
-            if((checkEdit1.Checked) && (usuarioBindingSource.Count >= 1))
-                {
-                gridView1.OptionsBehavior.Editable = true;
-                gridView1.Columns.ColumnByFieldName("mail").OptionsColumn.AllowEdit = false;
-                simpleButton2.Enabled = true;
-                label2.Visible = true;
-            }
-            else
-            {
-                gridView1.OptionsBehavior.Editable = false;
-                simpleButton2.Enabled = false;
-                label2.Visible = false;
-            }
-        }
-
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            DialogResult m = MessageBox.Show("Modificar al usuario?", "Modificar Usuario", MessageBoxButtons.YesNo);
-            if (m == DialogResult.Yes)
-            {
-                usuario usuarioSeleccionado = (usuario)gridView1.GetFocusedRow();
-                
-                    var usuarioaborrar = conec.usuarios.Where(p => p.mail == usuarioSeleccionado.mail).First();
-                    DbEntityEntry<usuario> ee = conec.Entry(usuarioaborrar);
-                    ee.CurrentValues.SetValues(usuarioSeleccionado);
-                    conec.SaveChanges();
-                
-            }
+            usuario usuarioAModificar = (usuario)gridView1.GetFocusedRow();
+            xUC.xUCModificarDatosUsuario modificarUsuario = new xUC.xUCModificarDatosUsuario(usuarioAModificar.mail);
+            modificarUsuario.Show();
         }
     }
 }
