@@ -46,7 +46,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.label1.Location = new System.Drawing.Point(153, 15);
+            this.label1.Location = new System.Drawing.Point(258, 15);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label1.Size = new System.Drawing.Size(223, 29);
@@ -70,12 +70,12 @@
             this.comboBox1.Location = new System.Drawing.Point(141, 98);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(184, 24);
+            this.comboBox1.Size = new System.Drawing.Size(523, 24);
             this.comboBox1.TabIndex = 2;
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(141, 164);
+            this.numericUpDown1.Location = new System.Drawing.Point(297, 166);
             this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             52,
@@ -88,7 +88,7 @@
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(184, 23);
+            this.numericUpDown1.Size = new System.Drawing.Size(224, 23);
             this.numericUpDown1.TabIndex = 3;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
@@ -102,18 +102,18 @@
             this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(41, 166);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 18);
+            this.label3.Size = new System.Drawing.Size(136, 18);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Semana";
+            this.label3.Text = "Semana a Subastar";
             // 
             // maskedTextBox1
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(141, 231);
+            this.maskedTextBox1.Location = new System.Drawing.Point(297, 234);
             this.maskedTextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.maskedTextBox1.Mask = "#####.##";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.PromptChar = '0';
-            this.maskedTextBox1.Size = new System.Drawing.Size(184, 23);
+            this.maskedTextBox1.Size = new System.Drawing.Size(224, 23);
             this.maskedTextBox1.TabIndex = 5;
             // 
             // label4
@@ -128,11 +128,11 @@
             // 
             // maskedTextBox2
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(141, 294);
+            this.maskedTextBox2.Location = new System.Drawing.Point(297, 295);
             this.maskedTextBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.maskedTextBox2.Mask = "00/00/0000 00:00";
             this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(184, 23);
+            this.maskedTextBox2.Size = new System.Drawing.Size(224, 23);
             this.maskedTextBox2.TabIndex = 7;
             this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
             // 
@@ -141,16 +141,16 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(41, 298);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 17);
+            this.label5.Size = new System.Drawing.Size(170, 17);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Fecha de inicio";
+            this.label5.Text = "Fecha de Inicio de Subasta";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(394, 404);
+            this.button1.Location = new System.Drawing.Point(577, 392);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 28);
+            this.button1.Size = new System.Drawing.Size(97, 40);
             this.button1.TabIndex = 9;
             this.button1.Text = "Cancelar";
             this.button1.UseVisualStyleBackColor = true;
@@ -158,10 +158,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(290, 404);
+            this.button2.Location = new System.Drawing.Point(381, 392);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 28);
+            this.button2.Size = new System.Drawing.Size(100, 40);
             this.button2.TabIndex = 10;
             this.button2.Text = "Aceptar";
             this.button2.UseVisualStyleBackColor = true;
@@ -184,7 +184,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "xfAltaSubasta";
-            this.Size = new System.Drawing.Size(502, 447);
+            this.Size = new System.Drawing.Size(816, 447);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
