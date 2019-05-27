@@ -37,15 +37,16 @@
             this.xfRegistrarceForm1.Location = new System.Drawing.Point(0, 0);
             this.xfRegistrarceForm1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xfRegistrarceForm1.Name = "xfRegistrarceForm1";
-            this.xfRegistrarceForm1.Size = new System.Drawing.Size(496, 431);
+            this.xfRegistrarceForm1.Size = new System.Drawing.Size(597, 554);
             this.xfRegistrarceForm1.TabIndex = 0;
             // 
             // xfmContenedorRegistrarUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 431);
+            this.ClientSize = new System.Drawing.Size(597, 554);
             this.Controls.Add(this.xfRegistrarceForm1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "xfmContenedorRegistrarUsuario";
             this.Text = "xfmContenedorRegistrarUsuario";
             this.ResumeLayout(false);
