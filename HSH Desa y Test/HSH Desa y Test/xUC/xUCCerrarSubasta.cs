@@ -41,8 +41,7 @@ namespace HSH_Desa_y_Test.xUC
             iden = new List<subasta>();
             foreach (subasta s in subi)
             {
-                DateTime n = s.fecha_fin;
-                n.AddDays(3);
+                DateTime n = s.fecha_fin.AddDays(3);
                 if (n < DateTime.Today)
                 {
                     iden.Add(s);
