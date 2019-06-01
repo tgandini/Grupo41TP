@@ -43,10 +43,12 @@ namespace HSH_Desa_y_Test.Forms
 
         private List<usuario> llenarTablaConUsuarios()
           {
-
-                return conec.usuarios.ToList();
-           
+            using (ContextoEntity nuevaConec = new ContextoEntity())
+            {
+                return nuevaConec.usuarios.ToList();
             }
+
+        }
 
         private void DarDeBaja_Click(object sender, EventArgs e)
         {
@@ -75,10 +77,7 @@ namespace HSH_Desa_y_Test.Forms
 
         public void vuelveDeModificar()
         {
-            usuarioBindingSource.DataSource = llenarTablaConUsuarios();
-            gridControl1.Update();
-            
-
+            this.inicializar();
             if (usuarioBindingSource.Count < 1)
             {
                 gridView1.OptionsBehavior.Editable = false;

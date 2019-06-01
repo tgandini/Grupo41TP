@@ -67,12 +67,12 @@ namespace HSH_Desa_y_Test.xUC
                         MessageBox.Show("El mail no es valido.", "Mail invalido");
                         return;
                     }
-                    DbEntityEntry<usuario> entityEntry = conexion.Entry(conexion.usuarios.Where(p => p.mail == usuarioAModificar.mail).First());
-                    entityEntry.CurrentValues.SetValues(usuarioAModificar);
+                    conexion.Entry(usuarioAModificar).State = System.Data.Entity.EntityState.Modified;
                     conexion.SaveChanges();
-                    Sesion.vistaPrincipalDeAdmin.vuelveDeModificar();
-                    this.Close();
                 }
+                Sesion.vistaPrincipalDeAdmin.vuelveDeModificar();
+                    this.Close();
+                
             }
             else if (result == DialogResult.No)
             {
