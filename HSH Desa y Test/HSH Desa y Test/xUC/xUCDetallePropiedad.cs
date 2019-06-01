@@ -46,7 +46,7 @@ namespace HSH_Desa_y_Test.xUC
                 {
                     casa = conexion.Propiedads.Where(p => p.id == idPropiedad).First();
                 }
-                var listaDeFotos = conexion.fotos.Where(p => p.idPropiedad == idPropiedad).ToList();
+                var listaDeFotos = conexion.fotos.Where(p => p.idPropiedad == casa.id).ToList();
 
                 //Seteo los label a cada cosa
                 groupBox1.Text = String.Format("Detalles de la propiedad con nombre: {0}", casa.nombre);
