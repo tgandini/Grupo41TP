@@ -30,22 +30,27 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tipo = new System.Windows.Forms.Label();
             this.habitaciones = new System.Windows.Forms.Label();
             this.pais = new System.Windows.Forms.Label();
             this.prov = new System.Windows.Forms.Label();
             this.ciudad = new System.Windows.Forms.Label();
             this.nombre = new System.Windows.Forms.Label();
-            this.tipo = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.cantHabitaciones = new System.Windows.Forms.NumericUpDown();
-            this.cancelar = new System.Windows.Forms.Button();
-            this.modificar = new System.Windows.Forms.Button();
+            this.fotoBox = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.eliminarFotoButton = new DevExpress.XtraEditors.SimpleButton();
+            this.agregarFotoButton = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cantHabitaciones)).BeginInit();
+            this.fotoBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -70,6 +75,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(127, 401);
             this.panel2.TabIndex = 6;
+            // 
+            // tipo
+            // 
+            this.tipo.AutoSize = true;
+            this.tipo.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tipo.Location = new System.Drawing.Point(22, 290);
+            this.tipo.Name = "tipo";
+            this.tipo.Size = new System.Drawing.Size(41, 19);
+            this.tipo.TabIndex = 6;
+            this.tipo.Text = "Tipo";
             // 
             // habitaciones
             // 
@@ -121,16 +136,6 @@
             this.nombre.TabIndex = 1;
             this.nombre.Text = "Nombre";
             // 
-            // tipo
-            // 
-            this.tipo.AutoSize = true;
-            this.tipo.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tipo.Location = new System.Drawing.Point(22, 290);
-            this.tipo.Name = "tipo";
-            this.tipo.Size = new System.Drawing.Size(41, 19);
-            this.tipo.TabIndex = 6;
-            this.tipo.Text = "Tipo";
-            // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -180,33 +185,77 @@
             this.cantHabitaciones.TabIndex = 13;
             this.cantHabitaciones.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // cancelar
+            // fotoBox
             // 
-            this.cancelar.Location = new System.Drawing.Point(257, 504);
-            this.cancelar.Name = "cancelar";
-            this.cancelar.Size = new System.Drawing.Size(89, 38);
-            this.cancelar.TabIndex = 15;
-            this.cancelar.Text = "Cancelar";
-            this.cancelar.UseVisualStyleBackColor = true;
-            this.cancelar.Click += new System.EventHandler(this.cancelar_Click);
+            this.fotoBox.Controls.Add(this.label3);
+            this.fotoBox.Controls.Add(this.eliminarFotoButton);
+            this.fotoBox.Controls.Add(this.agregarFotoButton);
+            this.fotoBox.Location = new System.Drawing.Point(534, 140);
+            this.fotoBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.fotoBox.Name = "fotoBox";
+            this.fotoBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.fotoBox.Size = new System.Drawing.Size(138, 245);
+            this.fotoBox.TabIndex = 39;
+            this.fotoBox.TabStop = false;
+            this.fotoBox.Text = "Fotos";
             // 
-            // modificar
+            // label3
             // 
-            this.modificar.Location = new System.Drawing.Point(129, 504);
-            this.modificar.Name = "modificar";
-            this.modificar.Size = new System.Drawing.Size(88, 38);
-            this.modificar.TabIndex = 14;
-            this.modificar.Text = "Modificar";
-            this.modificar.UseVisualStyleBackColor = true;
-            this.modificar.Click += new System.EventHandler(this.modificar_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 96);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 26);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Fotos esperando \r\npara agregar";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // eliminarFotoButton
+            // 
+            this.eliminarFotoButton.Location = new System.Drawing.Point(5, 151);
+            this.eliminarFotoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eliminarFotoButton.Name = "eliminarFotoButton";
+            this.eliminarFotoButton.Size = new System.Drawing.Size(128, 42);
+            this.eliminarFotoButton.TabIndex = 1;
+            this.eliminarFotoButton.Text = "Eliminar";
+            // 
+            // agregarFotoButton
+            // 
+            this.agregarFotoButton.Location = new System.Drawing.Point(5, 44);
+            this.agregarFotoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.agregarFotoButton.Name = "agregarFotoButton";
+            this.agregarFotoButton.Size = new System.Drawing.Size(128, 42);
+            this.agregarFotoButton.TabIndex = 0;
+            this.agregarFotoButton.Text = "Agregar";
+            this.agregarFotoButton.Click += new System.EventHandler(this.agregarFotoButton_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(193, 504);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(128, 42);
+            this.simpleButton1.TabIndex = 3;
+            this.simpleButton1.Text = "Modificar";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Location = new System.Drawing.Point(371, 504);
+            this.simpleButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(128, 42);
+            this.simpleButton2.TabIndex = 40;
+            this.simpleButton2.Text = "Cancelar";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // xfModificarPropiedad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(474, 554);
-            this.Controls.Add(this.cancelar);
-            this.Controls.Add(this.modificar);
+            this.ClientSize = new System.Drawing.Size(714, 554);
+            this.Controls.Add(this.simpleButton2);
+            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.fotoBox);
             this.Controls.Add(this.cantHabitaciones);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
@@ -220,6 +269,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cantHabitaciones)).EndInit();
+            this.fotoBox.ResumeLayout(false);
+            this.fotoBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,7 +292,11 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.NumericUpDown cantHabitaciones;
-        private System.Windows.Forms.Button cancelar;
-        private System.Windows.Forms.Button modificar;
+        private System.Windows.Forms.GroupBox fotoBox;
+        private System.Windows.Forms.Label label3;
+        private DevExpress.XtraEditors.SimpleButton eliminarFotoButton;
+        private DevExpress.XtraEditors.SimpleButton agregarFotoButton;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
 }

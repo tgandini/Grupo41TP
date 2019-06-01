@@ -15,6 +15,7 @@ namespace HSH_Desa_y_Test.Forms
     public partial class xfModificarPropiedad : DevExpress.XtraEditors.XtraForm
     {
         Propiedad propiedadAModificar = null;
+        private List<byte[]> foto = null;
 
         public xfModificarPropiedad()
         {
@@ -41,7 +42,7 @@ namespace HSH_Desa_y_Test.Forms
             }
         }
 
-        private void modificar_Click(object sender, EventArgs e)
+        private void simpleButton1_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Seguro que desea modificar los datos de la propiedad?", "Cambio de Datos de Propiedad", MessageBoxButtons.YesNo);
 
@@ -55,9 +56,21 @@ namespace HSH_Desa_y_Test.Forms
             }
         }
 
-        private void cancelar_Click(object sender, EventArgs e)
+        private void simpleButton2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void agregarFotoButton_Click(object sender, EventArgs e)
+        {
+            using (xfAgregarImagenes agreg = new xfAgregarImagenes())
+            {
+                agreg.ShowDialog();
+                foto = agreg.GetMyResult();
+            }
+            if (foto != null) label3.Visible = true;
+        }
+
+
     }
 }
