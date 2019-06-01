@@ -31,10 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.label2 = new System.Windows.Forms.Label();
             this.noHayPropiedades = new System.Windows.Forms.Label();
             this.fotoBox = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,13 +43,12 @@
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colciudad = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colubicaciòn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltipo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colhabitaciones = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coladminQueDioDeAltaProp = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfechaAlta = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colhabitaciones = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colubicaciòn = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             this.fotoBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -66,18 +63,6 @@
             this.label1.Size = new System.Drawing.Size(278, 33);
             this.label1.TabIndex = 1;
             this.label1.Text = "Modificacion y Baja";
-            // 
-            // checkEdit1
-            // 
-            this.checkEdit1.Location = new System.Drawing.Point(455, 306);
-            this.checkEdit1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.checkEdit1.Properties.Appearance.Options.UseFont = true;
-            this.checkEdit1.Properties.Caption = "Habilitar Modificacion";
-            this.checkEdit1.Size = new System.Drawing.Size(175, 19);
-            this.checkEdit1.TabIndex = 33;
-            this.checkEdit1.CheckedChanged += new System.EventHandler(this.checkEdit1_CheckedChanged);
             // 
             // simpleButton2
             // 
@@ -102,16 +87,6 @@
             this.simpleButton1.TabIndex = 35;
             this.simpleButton1.Text = "Dar de Baja";
             this.simpleButton1.Click += new System.EventHandler(this.DarDeBaja_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 7F);
-            this.label2.Location = new System.Drawing.Point(471, 326);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(216, 24);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "Modifique una propiedad y gaurde los cambios\r\nantes de continuar modificando";
             // 
             // noHayPropiedades
             // 
@@ -226,6 +201,14 @@
             this.colciudad.Visible = true;
             this.colciudad.VisibleIndex = 3;
             // 
+            // colubicaciòn
+            // 
+            this.colubicaciòn.Caption = "Ubicación";
+            this.colubicaciòn.FieldName = "ubicaciòn";
+            this.colubicaciòn.Name = "colubicaciòn";
+            this.colubicaciòn.Visible = true;
+            this.colubicaciòn.VisibleIndex = 2;
+            // 
             // coltipo
             // 
             this.coltipo.Caption = "Tipo";
@@ -233,6 +216,14 @@
             this.coltipo.Name = "coltipo";
             this.coltipo.Visible = true;
             this.coltipo.VisibleIndex = 5;
+            // 
+            // colhabitaciones
+            // 
+            this.colhabitaciones.Caption = "Habitaciones";
+            this.colhabitaciones.FieldName = "habitaciones";
+            this.colhabitaciones.Name = "colhabitaciones";
+            this.colhabitaciones.Visible = true;
+            this.colhabitaciones.VisibleIndex = 4;
             // 
             // coladminQueDioDeAltaProp
             // 
@@ -250,22 +241,6 @@
             this.colfechaAlta.Visible = true;
             this.colfechaAlta.VisibleIndex = 7;
             // 
-            // colhabitaciones
-            // 
-            this.colhabitaciones.Caption = "Habitaciones";
-            this.colhabitaciones.FieldName = "habitaciones";
-            this.colhabitaciones.Name = "colhabitaciones";
-            this.colhabitaciones.Visible = true;
-            this.colhabitaciones.VisibleIndex = 4;
-            // 
-            // colubicaciòn
-            // 
-            this.colubicaciòn.Caption = "Ubicación";
-            this.colubicaciòn.FieldName = "ubicaciòn";
-            this.colubicaciòn.Name = "colubicaciòn";
-            this.colubicaciòn.Visible = true;
-            this.colubicaciòn.VisibleIndex = 2;
-            // 
             // xfDarDeBajaPropiedad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -273,16 +248,13 @@
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.fotoBox);
             this.Controls.Add(this.noHayPropiedades);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.simpleButton2);
-            this.Controls.Add(this.checkEdit1);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "xfDarDeBajaPropiedad";
             this.Size = new System.Drawing.Size(883, 415);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             this.fotoBox.ResumeLayout(false);
             this.fotoBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -294,10 +266,8 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Label noHayPropiedades;
         private System.Windows.Forms.GroupBox fotoBox;

@@ -30,13 +30,16 @@ namespace HSH_Desa_y_Test.Forms
         {
             usuarioBindingSource.SuspendBinding();
             usuarioBindingSource.DataSource = llenarTablaConUsuarios();
+            noHayUsuarios.Visible = false;
             if (usuarioBindingSource.Count < 1)
             {
+                noHayUsuarios.Visible = true;
                 simpleButton1.Enabled = false;
                 simpleButton2.Enabled = false;
             }
             gridControl1.Update();
             simpleButton2.Enabled = true;
+            simpleButton1.Enabled = true;
             gridView1.OptionsBehavior.Editable = false;
         }
 
@@ -68,9 +71,12 @@ namespace HSH_Desa_y_Test.Forms
                 gridControl1.Update();
                 if (usuarioBindingSource.Count < 1)
                 {
+                    noHayUsuarios.Visible = true;
                     gridView1.OptionsBehavior.Editable = false;
                     simpleButton1.Enabled = false;
                     simpleButton2.Enabled = false;
+                } else {
+                    noHayUsuarios.Visible = false;
                 }
             } 
         }
@@ -81,8 +87,12 @@ namespace HSH_Desa_y_Test.Forms
             if (usuarioBindingSource.Count < 1)
             {
                 gridView1.OptionsBehavior.Editable = false;
+                noHayUsuarios.Visible = true;
                 simpleButton1.Enabled = false;
                 simpleButton2.Enabled = false;
+            } else
+            {
+                noHayUsuarios.Visible = false;
             }
         }
 
