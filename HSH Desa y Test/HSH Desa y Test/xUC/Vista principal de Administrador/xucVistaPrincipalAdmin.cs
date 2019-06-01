@@ -68,5 +68,10 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
             }
             
         }
+
+        internal void vuelveDeModificar()
+        {
+            this.xfDarDeBajaUsuario1.vuelveDeModificar();
+        }
     }
 }

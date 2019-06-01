@@ -40,6 +40,7 @@ namespace HSH_Desa_y_Test.Forms
             gridView1.OptionsBehavior.Editable = false;
         }
 
+
         private List<usuario> llenarTablaConUsuarios()
           {
 
@@ -66,9 +67,24 @@ namespace HSH_Desa_y_Test.Forms
                 if (usuarioBindingSource.Count < 1)
                 {
                     gridView1.OptionsBehavior.Editable = false;
+                    simpleButton1.Enabled = false;
                     simpleButton2.Enabled = false;
                 }
             } 
+        }
+
+        public void vuelveDeModificar()
+        {
+            usuarioBindingSource.DataSource = llenarTablaConUsuarios();
+            gridControl1.Update();
+            
+
+            if (usuarioBindingSource.Count < 1)
+            {
+                gridView1.OptionsBehavior.Editable = false;
+                simpleButton1.Enabled = false;
+                simpleButton2.Enabled = false;
+            }
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)

@@ -11,13 +11,13 @@ using DevExpress.XtraEditors;
 using HSH_Desa_y_Test.ContextoDB;
 using HSH_Desa_y_Test.Modelo_Expandido;
 using System.Data.Entity.Infrastructure;
+using HSH_Desa_y_Test.Forms;
 
 namespace HSH_Desa_y_Test.xUC
 {
     public partial class xUCModificarDatosUsuario : DevExpress.XtraEditors.XtraForm
     {
         usuario usuarioAModificar = null;
-        string mailOriginal;
 
         public xUCModificarDatosUsuario(string mailUsuario)
         {
@@ -30,7 +30,6 @@ namespace HSH_Desa_y_Test.xUC
             using (ContextoEntity conexion = new ContextoEntity())
             {
                 usuarioAModificar = conexion.usuarios.Where(p => p.mail == mailUsuario).First();
-                mailOriginal = mailUsuario;
                 nombre.Text = usuarioAModificar.nombre;
                 ape.Text = usuarioAModificar.apellido;
                 mail.Text = usuarioAModificar.mail;
@@ -53,11 +52,6 @@ namespace HSH_Desa_y_Test.xUC
 
                 using (ContextoEntity conexion = new ContextoEntity())
                 {
-                    if (usuarioAModificar.mail != mailOriginal && usuario.existeMailEnBaseDeDatos(usuarioAModificar.mail))
-                    {
-                        MessageBox.Show("Otro usuario ya se encuentra registrado con esa direccion de correo.", "Email ya registrado");
-                        return;
-                    }
                     if (DateTime.Compare(usuarioAModificar.fecha_nacimiento.AddYears(18), DateTime.Today) > 0)
                     {
                         MessageBox.Show("El usuario no puede ser menor de edad.", "Error en Fecha Nacimiento");
@@ -73,9 +67,11 @@ namespace HSH_Desa_y_Test.xUC
                         MessageBox.Show("El mail no es valido.", "Mail invalido");
                         return;
                     }
-                    DbEntityEntry<usuario> entityEntry = conexion.Entry(conexion.usuarios.Where(p => p.mail == mailOriginal).First());
+                    DbEntityEntry<usuario> entityEntry = conexion.Entry(conexion.usuarios.Where(p => p.mail == usuarioAModificar.mail).First());
                     entityEntry.CurrentValues.SetValues(usuarioAModificar);
                     conexion.SaveChanges();
+                    Sesion.vistaPrincipalDeAdmin.vuelveDeModificar();
+                    this.Close();
                 }
             }
             else if (result == DialogResult.No)
@@ -83,6 +79,11 @@ namespace HSH_Desa_y_Test.xUC
                 this.Close();
             }
 
+        }
+
+        private void cancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

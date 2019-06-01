@@ -36,11 +36,11 @@
             this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colapellido = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmail = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colfecha_nacimiento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colpremium = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.colfecha_nacimiento = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
@@ -101,6 +101,13 @@
             this.colmail.Visible = true;
             this.colmail.VisibleIndex = 2;
             // 
+            // colfecha_nacimiento
+            // 
+            this.colfecha_nacimiento.FieldName = "fecha_nacimiento";
+            this.colfecha_nacimiento.Name = "colfecha_nacimiento";
+            this.colfecha_nacimiento.Visible = true;
+            this.colfecha_nacimiento.VisibleIndex = 3;
+            // 
             // colpremium
             // 
             this.colpremium.FieldName = "premium";
@@ -143,13 +150,6 @@
             this.simpleButton2.TabIndex = 31;
             this.simpleButton2.Text = "Modificar Informacion";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
-            // 
-            // colfecha_nacimiento
-            // 
-            this.colfecha_nacimiento.FieldName = "fecha_nacimiento";
-            this.colfecha_nacimiento.Name = "colfecha_nacimiento";
-            this.colfecha_nacimiento.Visible = true;
-            this.colfecha_nacimiento.VisibleIndex = 3;
             // 
             // xfDarDeBajaUsuario
             // 

@@ -33,5 +33,9 @@ namespace HSH_Desa_y_Test.Modelo_Expandido
         {
             return vistaPrincipal;
         }
+        public static xUC.Vista_principal_de_Administrador.xucVistaPrincipalAdmin getVistaPrincipalDeAdmin()
+        {
+            return vistaPrincipalDeAdmin;
+        }
     }
 }
