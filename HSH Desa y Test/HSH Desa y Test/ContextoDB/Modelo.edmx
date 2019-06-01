@@ -114,30 +114,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_adminDioDeAlta">
-          <End Role="admins" Type="Self.admins" Multiplicity="1" />
-          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="admins">
-              <PropertyRef Name="token" />
-            </Principal>
-            <Dependent Role="Propiedad">
-              <PropertyRef Name="adminQueDioDeAltaProp" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_adminDioDeBaja">
-          <End Role="admins" Type="Self.admins" Multiplicity="0..1" />
-          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="admins">
-              <PropertyRef Name="token" />
-            </Principal>
-            <Dependent Role="Propiedad">
-              <PropertyRef Name="adminQueDIoDeBajaProp" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_tarjetas_Usuario">
           <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
           <End Role="tarjetas" Type="Self.tarjetas" Multiplicity="*" />
@@ -247,14 +223,6 @@
           <AssociationSet Name="fk Propiedad Subastada" Association="Self.fk Propiedad Subastada">
             <End Role="Propiedad" EntitySet="Propiedad" />
             <End Role="subasta" EntitySet="subasta" />
-          </AssociationSet>
-          <AssociationSet Name="FK_adminDioDeAlta" Association="Self.FK_adminDioDeAlta">
-            <End Role="admins" EntitySet="admins" />
-            <End Role="Propiedad" EntitySet="Propiedad" />
-          </AssociationSet>
-          <AssociationSet Name="FK_adminDioDeBaja" Association="Self.FK_adminDioDeBaja">
-            <End Role="admins" EntitySet="admins" />
-            <End Role="Propiedad" EntitySet="Propiedad" />
           </AssociationSet>
           <AssociationSet Name="FK_tarjetas_Usuario" Association="Self.FK_tarjetas_Usuario">
             <End Role="usuario" EntitySet="usuario" />
