@@ -19,7 +19,7 @@ namespace HSH_Desa_y_Test.Forms
     {
 
         ContextoEntity conec = new ContextoEntity();
-        private List<byte[]> fotito=null;
+        private List<byte[]> foto=null;
         public xfDarDeBajaPropiedad()
         {
             InitializeComponent();
@@ -56,7 +56,7 @@ namespace HSH_Desa_y_Test.Forms
                 agregarFotoButton.Enabled = false;
                 eliminarFotoButton.Enabled = false;
                 label3.Visible = false;
-                fotito = null;
+                foto = null;
             }
         }
 
@@ -72,7 +72,6 @@ namespace HSH_Desa_y_Test.Forms
             DialogResult result = MessageBox.Show(st, "Salir", MessageBoxButtons.OKCancel);
             if (result == DialogResult.OK)
             {
-                bool b; bool r;
                 var propiedadaborrar = conec.Propiedads.Where(p => p.id == propiedadSeleccionado.id).First();
                 var fotito = conec.fotos.Where(p => p.idPropiedad == propiedadaborrar.id).ToList();
                 if (tieneReserva(propiedadaborrar.id))
@@ -140,9 +139,9 @@ namespace HSH_Desa_y_Test.Forms
             using (xfAgregarImagenes agreg = new xfAgregarImagenes())
             {
                 agreg.ShowDialog();
-                fotito=agreg.GetMyResult();
+                foto = agreg.GetMyResult();
             }
-            if (fotito != null) label3.Visible = true;
+            if (foto != null) label3.Visible = true;
         }
 
         private void eliminarFotoButton_Click(object sender, EventArgs e)

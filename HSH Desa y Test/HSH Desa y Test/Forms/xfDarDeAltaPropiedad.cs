@@ -32,11 +32,12 @@ namespace HSH_Desa_y_Test.Forms
         private void crearButton2_Click(object sender, EventArgs e)
         {
             
-            if((textHabitaciones.Text.Length > 0) && (textTipo.Text.Length >0) && (textUbicacion.Text.Length > 0)&& (boxNombre.Text.Length > 0)&& boxCiudad.Text.Length>0)
+            if((boxProvincia.Text.Length > 0) && (textTipo.Text.Length >0) && (textUbicacion.Text.Length > 0)&& (boxNombre.Text.Length > 0)&& (boxCiudad.Text.Length>0) && (boxPais.Text.Length > 0))
             {
-                if (int.Parse(textHabitaciones.Text) >= 0)
+                if (decimal.Parse(boxMonto.Text) > 0)
                 {
-                    casa = new Propiedad(boxNombre.Text,boxCiudad.Text, textTipo.Text, textUbicacion.Text, int.Parse(textHabitaciones.Text), Sesion.admin.token, DateTime.Today);
+                    casa = new Propiedad(boxNombre.Text, boxCiudad.Text, boxProvincia.Text, boxPais.Text,
+                        textTipo.Text, textUbicacion.Text, decimal.ToInt32(cantHabitaciones.Value), decimal.Parse(boxMonto.Text), Sesion.admin.token, DateTime.Today);
                     if (fotito != null)
                     {
                         foreach (byte[] b in fotito)
@@ -51,11 +52,8 @@ namespace HSH_Desa_y_Test.Forms
                         MessageBox.Show("Se dio de alta a la propiedad con éxito");
                         Sesion.vistaPrincipalDeAdmin.ocultarFormsderivados();
                         this.limpiarCampos();
-                    }                  
-
-
-                }
-                else MessageBox.Show("La cantidad de habitaciones no es valida");
+                    }
+                } else MessageBox.Show("El monto no puede ser negativo");
             }
             else MessageBox.Show("Faltan completar campos");
         }
@@ -64,9 +62,13 @@ namespace HSH_Desa_y_Test.Forms
         {
             this.boxNombre.Text = "";
             this.boxCiudad.Text = "";
-            this.textHabitaciones.Text = "";
+            this.cantHabitaciones.Value = 0;
             this.textTipo.Text = "";
             this.textUbicacion.Text = "";
+            this.boxMonto.Text = "0,00";
+            this.boxPais.Text = "";
+            this.boxProvincia.Text = "";
+
             fotito = null;
             label5.Text = null;
         }

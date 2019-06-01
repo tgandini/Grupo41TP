@@ -33,9 +33,9 @@ namespace HSH_Desa_y_Test.ContextoDB
         public Nullable<System.DateTime> fechaBaja { get; set; }
         public string ciudad { get; set; }
         public string nombre { get; set; }
-        public string provincia { get; set; }
         public string pais { get; set; }
         public decimal montoReserva { get; set; }
+        public string provincia { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<foto> fotos { get; set; }
