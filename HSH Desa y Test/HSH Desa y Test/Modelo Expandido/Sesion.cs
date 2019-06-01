@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado_y_Deslogueado;
 
 namespace HSH_Desa_y_Test.Modelo_Expandido
 {
@@ -15,6 +16,7 @@ namespace HSH_Desa_y_Test.Modelo_Expandido
         public static xfPantallaPrincipal vistaPrincipal;
         public static xUC.Vista_principal_de_Administrador.xucVistaPrincipalAdmin vistaPrincipalDeAdmin;
         public static xfmContenedorRegistrarUsuario contenedorRegistrarUsuario;
+        public static xucVistaPrincipalUsuario vistaPrincipalUserLogueado;
 
         public static bool hayUserLogueado()
         {

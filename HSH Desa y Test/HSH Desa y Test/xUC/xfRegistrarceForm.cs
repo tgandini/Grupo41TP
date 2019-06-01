@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using HSH_Desa_y_Test.ContextoDB;
 using HSH_Desa_y_Test.Modelo_Expandido;
+using System.Globalization;
 
 namespace HSH_Desa_y_Test.xUC
 {
@@ -39,9 +40,8 @@ namespace HSH_Desa_y_Test.xUC
                                     if (DateTime.Parse(textFechaNacimiento.Text).Date > DateTime.Today.AddYears(-edad)) edad--;
                                     if (edad >= 18)
                                     {
-                                        string st = string.Concat("01/", textFechaVencimiento.Text);
                                         var user = new usuario(textNombre.Text, textApellido.Text, textContrasena.Text, textMail.Text, textFechaNacimiento.Text);
-                                        var tarjeta = new tarjeta(textNroTarjeta.Text, DateTime.Parse(st), textCodSeguridad.Text);
+                                        var tarjeta = new tarjeta(textNroTarjeta.Text, DateTime.ParseExact(textFechaVencimiento.Text,"MM/yy", new CultureInfo("es-AR")), textCodSeguridad.Text);
                                         user.tarjetas.Add(tarjeta);
                                         using (ContextoEntity conec = new ContextoEntity())
                                         {

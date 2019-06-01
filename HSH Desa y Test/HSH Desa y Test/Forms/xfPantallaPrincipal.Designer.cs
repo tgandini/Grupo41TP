@@ -29,32 +29,27 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.xucListadoPropiedadesYEditar1 = new HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador.xucListadoPropiedadesYEditar();
             this.xucVistaPrincipalAdmin1 = new HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador.xucVistaPrincipalAdmin();
             this.xUCtoolbardeslogueado1 = new HSH_Desa_y_Test.xUC.xUCtoolbardeslogueado();
             this.xUCToolBarLogueado1 = new HSH_Desa_y_Test.xUC.xUCToolBarLogueado();
+            this.xucVistaPrincipalUsuario1 = new HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado_y_Deslogueado.xucVistaPrincipalUsuario();
+            this.xucVistaPrincipalDeslogueado1 = new HSH_Desa_y_Test.xUC.Vista_principal_de_Deslogueado.xucVistaPrincipalDeslogueado();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.xucListadoPropiedadesYEditar1);
+            this.panelControl1.Controls.Add(this.xucVistaPrincipalDeslogueado1);
             this.panelControl1.Controls.Add(this.xucVistaPrincipalAdmin1);
             this.panelControl1.Controls.Add(this.xUCtoolbardeslogueado1);
             this.panelControl1.Controls.Add(this.xUCToolBarLogueado1);
+            this.panelControl1.Controls.Add(this.xucVistaPrincipalUsuario1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1284, 736);
+            this.panelControl1.Size = new System.Drawing.Size(1284, 756);
             this.panelControl1.TabIndex = 0;
-            // 
-            // xucListadoPropiedadesYEditar1
-            // 
-            this.xucListadoPropiedadesYEditar1.Location = new System.Drawing.Point(6, 149);
-            this.xucListadoPropiedadesYEditar1.Name = "xucListadoPropiedadesYEditar1";
-            this.xucListadoPropiedadesYEditar1.Size = new System.Drawing.Size(1266, 593);
-            this.xucListadoPropiedadesYEditar1.TabIndex = 3;
             // 
             // xucVistaPrincipalAdmin1
             // 
@@ -88,11 +83,27 @@
             this.xUCToolBarLogueado1.TabIndex = 1;
             this.xUCToolBarLogueado1.Visible = false;
             // 
+            // xucVistaPrincipalUsuario1
+            // 
+            this.xucVistaPrincipalUsuario1.Location = new System.Drawing.Point(2, 80);
+            this.xucVistaPrincipalUsuario1.Name = "xucVistaPrincipalUsuario1";
+            this.xucVistaPrincipalUsuario1.Size = new System.Drawing.Size(1241, 671);
+            this.xucVistaPrincipalUsuario1.TabIndex = 3;
+            // 
+            // xucVistaPrincipalDeslogueado1
+            // 
+            this.xucVistaPrincipalDeslogueado1.AutoSize = true;
+            this.xucVistaPrincipalDeslogueado1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.xucVistaPrincipalDeslogueado1.Location = new System.Drawing.Point(6, 82);
+            this.xucVistaPrincipalDeslogueado1.Name = "xucVistaPrincipalDeslogueado1";
+            this.xucVistaPrincipalDeslogueado1.Size = new System.Drawing.Size(831, 601);
+            this.xucVistaPrincipalDeslogueado1.TabIndex = 4;
+            // 
             // xfPantallaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 736);
+            this.ClientSize = new System.Drawing.Size(1284, 756);
             this.Controls.Add(this.panelControl1);
             this.Name = "xfPantallaPrincipal";
             this.Text = "Home Switch Home";
@@ -109,6 +120,7 @@
         private xUC.xUCtoolbardeslogueado xUCtoolbardeslogueado1;
         private xUC.xUCToolBarLogueado xUCToolBarLogueado1;
         private xUC.Vista_principal_de_Administrador.xucVistaPrincipalAdmin xucVistaPrincipalAdmin1;
-        private xUC.Vista_principal_de_Administrador.xucListadoPropiedadesYEditar xucListadoPropiedadesYEditar1;
+        private xUC.Vista_Principal_de_usuario_Logueado_y_Deslogueado.xucVistaPrincipalUsuario xucVistaPrincipalUsuario1;
+        private xUC.Vista_principal_de_Deslogueado.xucVistaPrincipalDeslogueado xucVistaPrincipalDeslogueado1;
     }
 }

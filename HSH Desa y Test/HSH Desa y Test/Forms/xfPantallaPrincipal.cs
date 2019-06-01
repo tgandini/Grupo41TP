@@ -29,10 +29,16 @@ namespace HSH_Desa_y_Test.Forms
             this.WindowState = FormWindowState.Maximized;
             Sesion.guardarPantallaPrincipal(this);     
             this.instanciarSinUsuarioLogueado();
-            //Desactivo y mando para atrás las vistas de user logueado y admin
+            //Desactivo y mando para atrás las vistas de  admin
             this.xucVistaPrincipalAdmin1.Visible = false;
             this.xucVistaPrincipalAdmin1.SendToBack();
             this.xucVistaPrincipalAdmin1.inicializar();
+
+            //Desactivo y mando para atrás las vistas de user Logueado
+            this.xucVistaPrincipalUsuario1.Visible = false;
+            this.xucVistaPrincipalUsuario1.SendToBack();
+            this.xucVistaPrincipalUsuario1.inicializar();
+
         }
 
 
@@ -46,6 +52,12 @@ namespace HSH_Desa_y_Test.Forms
             //traigo el toolbar de deslogueado
             this.xUCtoolbardeslogueado1.Visible = true;
             this.xUCToolBarLogueado1.BringToFront();
+
+            //traigo al frente la vista de Usuario Deslogueado
+            this.xucVistaPrincipalDeslogueado1.Visible = true;
+            this.xucVistaPrincipalDeslogueado1.BringToFront();
+            this.xucVistaPrincipalDeslogueado1.inicializar();
+
         }
 
         private void desactivarTodosLosControlesDePanel()
@@ -68,10 +80,10 @@ namespace HSH_Desa_y_Test.Forms
             this.xUCToolBarLogueado1.Visible = true;
             this.xUCToolBarLogueado1.BringToFront();
 
-            //traigo el futuro panel de user logueado
-            this.xucListadoPropiedadesYEditar1.CargarDatos();
-            this.xucListadoPropiedadesYEditar1.Visible = true;
-            this.xucListadoPropiedadesYEditar1.BringToFront();
+            //traigo al frente la vista principal del User Logueado
+            this.xucVistaPrincipalUsuario1.Visible = true;
+            this.xucVistaPrincipalUsuario1.BringToFront();
+
         }
 
         internal void renderizarConAdmin()
