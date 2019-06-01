@@ -62,11 +62,6 @@ namespace HSH_Desa_y_Test.xUC
                         MessageBox.Show("Ningun campo puede estar vacio.", "Campo vacio");
                         return;
                     }
-                    if (!usuario.validarMail(usuarioAModificar.mail))
-                    {
-                        MessageBox.Show("El mail no es valido.", "Mail invalido");
-                        return;
-                    }
                     conexion.Entry(usuarioAModificar).State = System.Data.Entity.EntityState.Modified;
                     conexion.SaveChanges();
                 }

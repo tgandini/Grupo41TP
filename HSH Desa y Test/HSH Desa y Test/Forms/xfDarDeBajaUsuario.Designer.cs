@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.noHayUsuarios = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
@@ -151,10 +152,22 @@
             this.simpleButton2.Text = "Modificar Informacion";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
+            // noHayUsuarios
+            // 
+            this.noHayUsuarios.AutoSize = true;
+            this.noHayUsuarios.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Bold);
+            this.noHayUsuarios.ForeColor = System.Drawing.Color.Red;
+            this.noHayUsuarios.Location = new System.Drawing.Point(69, 322);
+            this.noHayUsuarios.Name = "noHayUsuarios";
+            this.noHayUsuarios.Size = new System.Drawing.Size(210, 18);
+            this.noHayUsuarios.TabIndex = 38;
+            this.noHayUsuarios.Text = "No hay usuarios guardados";
+            // 
             // xfDarDeBajaUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.noHayUsuarios);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.simpleButton1);
@@ -184,5 +197,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colpremium;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraGrid.Columns.GridColumn colfecha_nacimiento;
+        private System.Windows.Forms.Label noHayUsuarios;
     }
 }

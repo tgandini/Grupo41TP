@@ -29,38 +29,40 @@ namespace HSH_Desa_y_Test.Forms
             // Call the LoadAsync method to asynchronously get the data for the given DbSet from the database.
             dbContext.Propiedads.LoadAsync().ContinueWith(loadTask =>
             {
-    // Bind data to control when loading complete
-    gridControl1.DataSource = dbContext.Propiedads.Local.ToBindingList();
+            // Bind data to control when loading complete
+            gridControl1.DataSource = dbContext.Propiedads.Local.ToBindingList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         public void inicializar()
         {
             bindingSource1.DataSource = llenarTablaConPropiedades();
-            if (bindingSource1.Count < 1)
+            gridView1.OptionsBehavior.Editable = false;
+
+            if (bindingSource1.Count >= 1)
             {
-                simpleButton1.Enabled = false;
-                checkEdit1.Enabled = false;
+                noHayPropiedades.Visible = false;
+                gridView1.Columns.ColumnByFieldName("id").OptionsColumn.AllowEdit = false;
+                simpleButton2.Enabled = true;
+                simpleButton1.Enabled = true;
+                agregarFotoButton.Enabled = true;
+                eliminarFotoButton.Enabled = true;
+            }
+            else
+            {
                 noHayPropiedades.Visible = true;
                 simpleButton1.Enabled = false;
+                simpleButton2.Enabled = false;
+                agregarFotoButton.Enabled = false;
+                eliminarFotoButton.Enabled = false;
+                label3.Visible = false;
+                fotito = null;
             }
-            else noHayPropiedades.Visible = false;
-            gridControl1.Update();
-            simpleButton2.Enabled = false;
-            gridView1.OptionsBehavior.Editable = false;
-            label2.Visible = false;
-            label3.Visible = false;
-            agregarFotoButton.Enabled = false;
-            eliminarFotoButton.Enabled = false;
-            checkEdit1.EditValue = false;
-            fotito = null;
         }
 
         private List<Propiedad> llenarTablaConPropiedades()
-        {
-           
+        {       
                 return conec.Propiedads.ToList();
-
         }
 
         private void DarDeBaja_Click(object sender, EventArgs e)
@@ -126,51 +128,11 @@ namespace HSH_Desa_y_Test.Forms
             return true;
         }
 
-        private void checkEdit1_CheckedChanged(object sender, EventArgs e)
-        {
-            if ((checkEdit1.Checked) && (bindingSource1.Count >= 1)&& (Propiedad)gridView1.GetFocusedRow() != null)
-            {
-                gridView1.OptionsBehavior.Editable = true;
-                gridView1.Columns.ColumnByFieldName("id").OptionsColumn.AllowEdit = false;
-                simpleButton2.Enabled = true;
-                label2.Visible = true;
-                agregarFotoButton.Enabled = true;
-                eliminarFotoButton.Enabled = true;
-            }
-            else
-            {
-                gridView1.OptionsBehavior.Editable = false;
-                simpleButton2.Enabled = false;
-                label2.Visible = false;
-                agregarFotoButton.Enabled = false;
-                eliminarFotoButton.Enabled = false;
-                label3.Visible = false;
-                fotito = null;
-            }
-        }
-
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            DialogResult m = MessageBox.Show("Modificar la propiedad?", "Modificar Propiedad", MessageBoxButtons.OKCancel);
-            if (m == DialogResult.OK)
-            {
-                Propiedad propiedadSeleccionado = (Propiedad)gridView1.GetFocusedRow();
-                var propiedadaborrar = conec.Propiedads.Where(p => p.id == propiedadSeleccionado.id).First();
-                if (fotito != null)
-                {
-                    foreach (byte[] b in fotito)
-                    {
-                        foto ima = new foto(propiedadaborrar.id, b);
-                        conec.fotos.Add(ima);
-                    }
-                }
-                fotito = null;
-                label3.Visible = false;
-                DbEntityEntry<Propiedad> ee = conec.Entry(propiedadaborrar);
-                ee.CurrentValues.SetValues(propiedadSeleccionado);
-                conec.SaveChanges();
-            }
-   
+                Propiedad propiedadSeleccionada = (Propiedad)gridView1.GetFocusedRow();
+                xfModificarPropiedad modificarPropiedad = new xfModificarPropiedad(propiedadSeleccionada.id);
+                modificarPropiedad.Show(); 
         }
 
         private void agregarFotoButton_Click(object sender, EventArgs e)
@@ -192,7 +154,6 @@ namespace HSH_Desa_y_Test.Forms
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            checkEdit1_CheckedChanged(this, new EventArgs());
             if ((Propiedad)gridView1.GetFocusedRow() != null) simpleButton1.Enabled = true;
             else simpleButton1.Enabled = false;
         }
