@@ -34,8 +34,8 @@ namespace HSH_Desa_y_Test.Forms
                 propiedadAModificar = conexion.Propiedads.Where(p => p.id == idPropiedad).First();
                 nombre.Text = propiedadAModificar.nombre;
                 ciudad.Text = propiedadAModificar.ciudad;
-               // prov.Text = propiedadAModificar;
-                //pais.Text =  ;
+                prov.Text = propiedadAModificar.provincia;
+                pais.Text =  propiedadAModificar.pais;
                 tipo.Text = propiedadAModificar.tipo;
                 cantHabitaciones.Value = propiedadAModificar.habitaciones;
             }
