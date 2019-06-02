@@ -10,13 +10,16 @@ namespace HSH_Desa_y_Test.ContextoDB
 {
     public partial class Propiedad
     {
-        public Propiedad(string nombreProp, string ciudadProp, string tipoProp, string ubicacionProp, int cantHabitaciones, string adminQueDioDeAlta, DateTime fechaAltaProp)
+        public Propiedad(string nombreProp, string ciudadProp, string provinciaProp, string paisProp, string tipoProp, string ubicacionProp, int cantHabitaciones,decimal montoReserva,string adminQueDioDeAlta, DateTime fechaAltaProp)
         {
             this.nombre = nombreProp;
             this.ciudad = ciudadProp;
+            this.provincia = provinciaProp;
+            this.pais = paisProp;
             this.tipo = tipoProp;
             this.ubicaciòn = ubicacionProp;
             this.habitaciones = cantHabitaciones;
+            this.montoReserva = montoReserva;
             this.adminQueDioDeAltaProp = adminQueDioDeAlta;
             this.fechaAlta = fechaAltaProp;
             this.id = int.MaxValue;
