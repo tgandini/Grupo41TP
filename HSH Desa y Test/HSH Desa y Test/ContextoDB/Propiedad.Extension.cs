@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HSH_Desa_y_Test.Modelo_Expandido;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -61,5 +62,17 @@ namespace HSH_Desa_y_Test.ContextoDB
             }
 
         }
+        internal bool estaLibre(int semana, int año)
+        {
+            using (ContextoEntity conec = new ContextoEntity())
+            {
+                if (conec.subastas.Any(p => p.id_propiedad_subastada == this.id && p.fecha_inicio == Semanizador.LunesDeSemana(año, semana))) return false;
+                if (conec.HotSales.Any(p => p.idPropiedad == this.id && p.fechaInicio == Semanizador.LunesDeSemana(año, semana))) return false;
+                if (conec.ReservaDirectas.Any(p => p.idPropiedad == this.id && p.fechaReservada == Semanizador.LunesDeSemana(año, semana))) return false;
+                else return true;
+            }
+        }
+
+
     }
 }

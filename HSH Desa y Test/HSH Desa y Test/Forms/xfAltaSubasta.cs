@@ -20,6 +20,7 @@ namespace HSH_Desa_y_Test.Forms
         public xfAltaSubasta()
         {
             InitializeComponent();
+            this.inicializar();
            
         }
 
@@ -45,11 +46,11 @@ namespace HSH_Desa_y_Test.Forms
                     if (DateTime.Parse(maskedTextBox2.Text) >= (DateTime.Now))
                     {
                         DateTime fechaSemana;
-                        if (Semanizador.getSemanaDelAño(DateTime.Now) > int.Parse(maskedTextBox1.Text)) fechaSemana = Semanizador.LunesDeSemana(DateTime.Now.Year + 1, int.Parse(maskedTextBox1.Text));
+                        if (Semanizador.getSemanaDelAño(DateTime.Now) > int.Parse(numericUpDown1.Value.ToString())) fechaSemana = Semanizador.LunesDeSemana(DateTime.Now.Year + 1, int.Parse(numericUpDown1.Value.ToString()));
                         else fechaSemana = Semanizador.LunesDeSemana(DateTime.Now.Year, int.Parse(maskedTextBox1.Text));
                         if (fechaSemana > DateTime.Parse(maskedTextBox2.Text).AddMonths(6))
                         {
-                            subasta nuevaSubasta = new subasta(st, (int)numericUpDown1.Value, maskedTextBox1.AccessibilityObject.Value, DateTime.Parse(maskedTextBox2.AccessibilityObject.Value));
+                            subasta nuevaSubasta = new subasta((int)numericUpDown1.Value, maskedTextBox1.AccessibilityObject.Value, DateTime.Parse(maskedTextBox2.AccessibilityObject.Value));
                             nuevaSubasta.crear();
                         }
                         else MessageBox.Show("La semana elegida debe superar en 6 meses la fecha de inicio");
@@ -76,9 +77,10 @@ namespace HSH_Desa_y_Test.Forms
 
         private Propiedad encontrarCual(string st)
         {
+            var nombreTrimmeado = st.Substring(0,st.IndexOf(","));
             foreach (Propiedad casa in propie)
             {
-                if (casa.nombre == st)                
+                if (casa.nombre == nombreTrimmeado)                
                     return casa;                
             }
             return null;

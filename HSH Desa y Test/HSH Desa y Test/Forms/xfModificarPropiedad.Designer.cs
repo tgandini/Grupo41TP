@@ -56,9 +56,9 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(14, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(450, 54);
+            this.label1.Size = new System.Drawing.Size(525, 66);
             this.label1.TabIndex = 1;
             this.label1.Text = "Modificar Datos de Propiedad";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -71,18 +71,19 @@
             this.panel2.Controls.Add(this.prov);
             this.panel2.Controls.Add(this.ciudad);
             this.panel2.Controls.Add(this.nombre);
-            this.panel2.Location = new System.Drawing.Point(18, 76);
+            this.panel2.Location = new System.Drawing.Point(21, 94);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(127, 401);
+            this.panel2.Size = new System.Drawing.Size(148, 494);
             this.panel2.TabIndex = 6;
             // 
             // tipo
             // 
             this.tipo.AutoSize = true;
             this.tipo.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tipo.Location = new System.Drawing.Point(22, 290);
+            this.tipo.Location = new System.Drawing.Point(26, 357);
             this.tipo.Name = "tipo";
-            this.tipo.Size = new System.Drawing.Size(41, 19);
+            this.tipo.Size = new System.Drawing.Size(49, 24);
             this.tipo.TabIndex = 6;
             this.tipo.Text = "Tipo";
             // 
@@ -90,9 +91,9 @@
             // 
             this.habitaciones.AutoSize = true;
             this.habitaciones.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.habitaciones.Location = new System.Drawing.Point(22, 353);
+            this.habitaciones.Location = new System.Drawing.Point(26, 434);
             this.habitaciones.Name = "habitaciones";
-            this.habitaciones.Size = new System.Drawing.Size(98, 19);
+            this.habitaciones.Size = new System.Drawing.Size(125, 24);
             this.habitaciones.TabIndex = 5;
             this.habitaciones.Text = "Habitaciones";
             // 
@@ -100,9 +101,9 @@
             // 
             this.pais.AutoSize = true;
             this.pais.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pais.Location = new System.Drawing.Point(22, 219);
+            this.pais.Location = new System.Drawing.Point(26, 270);
             this.pais.Name = "pais";
-            this.pais.Size = new System.Drawing.Size(37, 19);
+            this.pais.Size = new System.Drawing.Size(46, 24);
             this.pais.TabIndex = 4;
             this.pais.Text = "Pais";
             // 
@@ -110,9 +111,9 @@
             // 
             this.prov.AutoSize = true;
             this.prov.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prov.Location = new System.Drawing.Point(22, 158);
+            this.prov.Location = new System.Drawing.Point(26, 194);
             this.prov.Name = "prov";
-            this.prov.Size = new System.Drawing.Size(73, 19);
+            this.prov.Size = new System.Drawing.Size(90, 24);
             this.prov.TabIndex = 3;
             this.prov.Text = "Provincia";
             // 
@@ -120,9 +121,9 @@
             // 
             this.ciudad.AutoSize = true;
             this.ciudad.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ciudad.Location = new System.Drawing.Point(22, 93);
+            this.ciudad.Location = new System.Drawing.Point(26, 114);
             this.ciudad.Name = "ciudad";
-            this.ciudad.Size = new System.Drawing.Size(58, 19);
+            this.ciudad.Size = new System.Drawing.Size(71, 24);
             this.ciudad.TabIndex = 2;
             this.ciudad.Text = "Ciudad";
             // 
@@ -130,58 +131,64 @@
             // 
             this.nombre.AutoSize = true;
             this.nombre.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombre.Location = new System.Drawing.Point(22, 28);
+            this.nombre.Location = new System.Drawing.Point(26, 34);
             this.nombre.Name = "nombre";
-            this.nombre.Size = new System.Drawing.Size(66, 19);
+            this.nombre.Size = new System.Drawing.Size(80, 24);
             this.nombre.TabIndex = 1;
             this.nombre.Text = "Nombre";
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(173, 102);
+            this.textBox1.Location = new System.Drawing.Point(202, 126);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(289, 22);
+            this.textBox1.Size = new System.Drawing.Size(336, 26);
             this.textBox1.TabIndex = 7;
             // 
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(173, 364);
+            this.textBox3.Location = new System.Drawing.Point(202, 448);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(289, 22);
+            this.textBox3.Size = new System.Drawing.Size(336, 26);
             this.textBox3.TabIndex = 9;
             // 
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(173, 293);
+            this.textBox4.Location = new System.Drawing.Point(202, 361);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(289, 22);
+            this.textBox4.Size = new System.Drawing.Size(336, 26);
             this.textBox4.TabIndex = 10;
             // 
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(173, 232);
+            this.textBox5.Location = new System.Drawing.Point(202, 286);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(289, 22);
+            this.textBox5.Size = new System.Drawing.Size(336, 26);
             this.textBox5.TabIndex = 11;
             // 
             // textBox6
             // 
             this.textBox6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(173, 167);
+            this.textBox6.Location = new System.Drawing.Point(202, 206);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(289, 22);
+            this.textBox6.Size = new System.Drawing.Size(336, 26);
             this.textBox6.TabIndex = 12;
             // 
             // cantHabitaciones
             // 
             this.cantHabitaciones.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cantHabitaciones.Location = new System.Drawing.Point(173, 427);
+            this.cantHabitaciones.Location = new System.Drawing.Point(202, 526);
+            this.cantHabitaciones.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cantHabitaciones.Name = "cantHabitaciones";
-            this.cantHabitaciones.Size = new System.Drawing.Size(289, 22);
+            this.cantHabitaciones.Size = new System.Drawing.Size(337, 26);
             this.cantHabitaciones.TabIndex = 13;
             this.cantHabitaciones.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -190,11 +197,11 @@
             this.fotoBox.Controls.Add(this.label3);
             this.fotoBox.Controls.Add(this.eliminarFotoButton);
             this.fotoBox.Controls.Add(this.agregarFotoButton);
-            this.fotoBox.Location = new System.Drawing.Point(534, 140);
+            this.fotoBox.Location = new System.Drawing.Point(623, 172);
             this.fotoBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fotoBox.Name = "fotoBox";
             this.fotoBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.fotoBox.Size = new System.Drawing.Size(138, 245);
+            this.fotoBox.Size = new System.Drawing.Size(161, 302);
             this.fotoBox.TabIndex = 39;
             this.fotoBox.TabStop = false;
             this.fotoBox.Text = "Fotos";
@@ -202,57 +209,57 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 96);
+            this.label3.Location = new System.Drawing.Point(28, 118);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 26);
+            this.label3.Size = new System.Drawing.Size(114, 34);
             this.label3.TabIndex = 2;
             this.label3.Text = "Fotos esperando \r\npara agregar";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // eliminarFotoButton
             // 
-            this.eliminarFotoButton.Location = new System.Drawing.Point(5, 151);
+            this.eliminarFotoButton.Location = new System.Drawing.Point(6, 186);
             this.eliminarFotoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.eliminarFotoButton.Name = "eliminarFotoButton";
-            this.eliminarFotoButton.Size = new System.Drawing.Size(128, 42);
+            this.eliminarFotoButton.Size = new System.Drawing.Size(149, 52);
             this.eliminarFotoButton.TabIndex = 1;
             this.eliminarFotoButton.Text = "Eliminar";
             // 
             // agregarFotoButton
             // 
-            this.agregarFotoButton.Location = new System.Drawing.Point(5, 44);
+            this.agregarFotoButton.Location = new System.Drawing.Point(6, 54);
             this.agregarFotoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.agregarFotoButton.Name = "agregarFotoButton";
-            this.agregarFotoButton.Size = new System.Drawing.Size(128, 42);
+            this.agregarFotoButton.Size = new System.Drawing.Size(149, 52);
             this.agregarFotoButton.TabIndex = 0;
             this.agregarFotoButton.Text = "Agregar";
             this.agregarFotoButton.Click += new System.EventHandler(this.agregarFotoButton_Click);
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(193, 504);
+            this.simpleButton1.Location = new System.Drawing.Point(225, 620);
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(128, 42);
+            this.simpleButton1.Size = new System.Drawing.Size(149, 52);
             this.simpleButton1.TabIndex = 3;
             this.simpleButton1.Text = "Modificar";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(371, 504);
+            this.simpleButton2.Location = new System.Drawing.Point(433, 620);
             this.simpleButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(128, 42);
+            this.simpleButton2.Size = new System.Drawing.Size(149, 52);
             this.simpleButton2.TabIndex = 40;
             this.simpleButton2.Text = "Cancelar";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // xfModificarPropiedad
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 554);
+            this.ClientSize = new System.Drawing.Size(833, 682);
             this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.fotoBox);
@@ -264,6 +271,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "xfModificarPropiedad";
             this.Text = "Modificar Propiedad";
             this.panel2.ResumeLayout(false);
