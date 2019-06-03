@@ -45,6 +45,7 @@
             this.agregarTarjetaButton = new DevExpress.XtraEditors.SimpleButton();
             this.eliminarTarjetaButton = new DevExpress.XtraEditors.SimpleButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -174,6 +175,7 @@
             this.modificarPerfilButton.Size = new System.Drawing.Size(157, 65);
             this.modificarPerfilButton.TabIndex = 13;
             this.modificarPerfilButton.Text = "Modificar Informacion\r\ndel Perfil";
+            this.modificarPerfilButton.Click += new System.EventHandler(this.modificarPerfilButton_Click);
             // 
             // modificarTarjetaButton
             // 
@@ -182,6 +184,7 @@
             this.modificarTarjetaButton.Size = new System.Drawing.Size(142, 65);
             this.modificarTarjetaButton.TabIndex = 14;
             this.modificarTarjetaButton.Text = "Modificar Informacion\r\nde Tarjeta";
+            this.modificarTarjetaButton.Click += new System.EventHandler(this.modificarTarjetaButton_Click);
             // 
             // agregarTarjetaButton
             // 
@@ -190,6 +193,7 @@
             this.agregarTarjetaButton.Size = new System.Drawing.Size(115, 65);
             this.agregarTarjetaButton.TabIndex = 15;
             this.agregarTarjetaButton.Text = "Agregar Forma\r\nde Pago";
+            this.agregarTarjetaButton.Click += new System.EventHandler(this.agregarTarjetaButton_Click);
             // 
             // eliminarTarjetaButton
             // 
@@ -198,6 +202,7 @@
             this.eliminarTarjetaButton.Size = new System.Drawing.Size(116, 65);
             this.eliminarTarjetaButton.TabIndex = 16;
             this.eliminarTarjetaButton.Text = "Eliminar Tarjeta";
+            this.eliminarTarjetaButton.Click += new System.EventHandler(this.eliminarTarjetaButton_Click);
             // 
             // comboBox1
             // 
@@ -208,10 +213,21 @@
             this.comboBox1.Size = new System.Drawing.Size(251, 27);
             this.comboBox1.TabIndex = 17;
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.Location = new System.Drawing.Point(599, 52);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(146, 56);
+            this.simpleButton1.TabIndex = 18;
+            this.simpleButton1.Text = "¡Quiero ser Premium!";
+            // 
             // xUCPerfilDeUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.eliminarTarjetaButton);
             this.Controls.Add(this.agregarTarjetaButton);
@@ -255,5 +271,6 @@
         private DevExpress.XtraEditors.SimpleButton agregarTarjetaButton;
         private DevExpress.XtraEditors.SimpleButton eliminarTarjetaButton;
         private System.Windows.Forms.ComboBox comboBox1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

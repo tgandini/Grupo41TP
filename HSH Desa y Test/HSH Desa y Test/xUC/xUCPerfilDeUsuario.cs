@@ -10,11 +10,13 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using HSH_Desa_y_Test.ContextoDB;
 using HSH_Desa_y_Test.Modelo_Expandido;
+using HSH_Desa_y_Test.Forms;
 
 namespace HSH_Desa_y_Test.xUC
 {
     public partial class xUCPerfilDeUsuario : DevExpress.XtraEditors.XtraUserControl
     {
+        List<tarjeta> tar;
         public xUCPerfilDeUsuario()
         {
             InitializeComponent();
@@ -27,15 +29,16 @@ namespace HSH_Desa_y_Test.xUC
             mailControl.Text = Sesion.user.mail;
             fechaNacimientoControl.Text = Sesion.user.fecha_nacimiento.ToString();
             tokenControl.Text = Sesion.user.token.ToString();
-            List<tarjeta> tar = llenarConTarjetas(Sesion.user.mail);
-            if (tar != null)
+            tar = llenarConTarjetas(Sesion.user.mail);
+            List<string> numT = new List<string>();
+            foreach (tarjeta num in tar)
             {
-                List<string> numT = new List<string>();
-                foreach (tarjeta num in tar)
-                {
-                    numT.Add(num.numero);
-                }
-                comboBox1.DataSource = numT;
+                numT.Add(num.numero);
+            }
+            comboBox1.DataSource = numT;
+            if(tar.Count > 1)
+            {
+                eliminarTarjetaButton.Enabled = false;
             }
         }
 
@@ -47,6 +50,43 @@ namespace HSH_Desa_y_Test.xUC
                 return conec.tarjetas.Where(p => p.idPersona == idenUsuario).ToList();
 
             }
+        }
+
+        private void modificarPerfilButton_Click(object sender, EventArgs e)
+        {
+            usuario usuarioAModificar = Sesion.user;
+            xUC.xUCModificarDatosUsuario modificarUsuario = new xUC.xUCModificarDatosUsuario(usuarioAModificar.mail);
+            modificarUsuario.Show();
+        }
+
+        private void eliminarTarjetaButton_Click(object sender, EventArgs e)
+        {
+            if (tar.Count > 1)
+            {
+                DialogResult result = MessageBox.Show("Quiere eliminar la tarjeta?", "Eliminar", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK)
+                {
+                    using (ContextoEntity conec = new ContextoEntity())
+                    {
+                        conec.tarjetas.Remove(tar.Find(p => p.numero == comboBox1.SelectedText));
+                    }
+                }
+            }
+            else MessageBox.Show("No se elimino debido a que solo tiene asociada una tarjeta");
+        }
+
+        private void agregarTarjetaButton_Click(object sender, EventArgs e)
+        {
+            xfCambiarDatosTarjeta m = new xfCambiarDatosTarjeta();
+            m.agregarInicializar();
+            m.Show();
+        }
+
+        private void modificarTarjetaButton_Click(object sender, EventArgs e)
+        {
+            xfCambiarDatosTarjeta m = new xfCambiarDatosTarjeta();
+            m.modificarInicializar(tar.Find(p => p.numero == comboBox1.SelectedText));
+            m.Show();
         }
     }
 }
