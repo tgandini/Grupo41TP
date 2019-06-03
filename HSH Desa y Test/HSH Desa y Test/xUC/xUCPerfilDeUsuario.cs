@@ -36,10 +36,8 @@ namespace HSH_Desa_y_Test.xUC
                 numT.Add(num.numero);
             }
             comboBox1.DataSource = numT;
-            if(tar.Count > 1)
-            {
-                eliminarTarjetaButton.Enabled = false;
-            }
+            if(tar.Count > 1) eliminarTarjetaButton.Enabled = false;
+            else eliminarTarjetaButton.Enabled = true;
         }
 
         private List<tarjeta> llenarConTarjetas(string idenUsuario)
@@ -57,6 +55,7 @@ namespace HSH_Desa_y_Test.xUC
             usuario usuarioAModificar = Sesion.user;
             xUC.xUCModificarDatosUsuario modificarUsuario = new xUC.xUCModificarDatosUsuario(usuarioAModificar.mail);
             modificarUsuario.Show();
+            this.inicializar();
         }
 
         private void eliminarTarjetaButton_Click(object sender, EventArgs e)
@@ -69,7 +68,9 @@ namespace HSH_Desa_y_Test.xUC
                     using (ContextoEntity conec = new ContextoEntity())
                     {
                         conec.tarjetas.Remove(tar.Find(p => p.numero == comboBox1.SelectedText));
+                        conec.SaveChanges();
                     }
+                    this.inicializar();
                 }
             }
             else MessageBox.Show("No se elimino debido a que solo tiene asociada una tarjeta");
@@ -80,6 +81,7 @@ namespace HSH_Desa_y_Test.xUC
             xfCambiarDatosTarjeta m = new xfCambiarDatosTarjeta();
             m.agregarInicializar();
             m.Show();
+            this.inicializar();
         }
 
         private void modificarTarjetaButton_Click(object sender, EventArgs e)
@@ -87,6 +89,7 @@ namespace HSH_Desa_y_Test.xUC
             xfCambiarDatosTarjeta m = new xfCambiarDatosTarjeta();
             m.modificarInicializar(tar.Find(p => p.numero == comboBox1.SelectedText));
             m.Show();
+            this.inicializar();
         }
     }
 }
