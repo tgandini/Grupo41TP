@@ -114,15 +114,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_tarjetas_Usuario">
-          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
-          <End Role="tarjetas" Type="Self.tarjetas" Multiplicity="*" />
+        <Association Name="FK_adminDioDeAlta">
+          <End Role="admins" Type="Self.admins" Multiplicity="1" />
+          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="usuario">
-              <PropertyRef Name="mail" />
+            <Principal Role="admins">
+              <PropertyRef Name="token" />
             </Principal>
-            <Dependent Role="tarjetas">
-              <PropertyRef Name="idPersona" />
+            <Dependent Role="Propiedad">
+              <PropertyRef Name="adminQueDioDeAltaProp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_adminDioDeBaja">
+          <End Role="admins" Type="Self.admins" Multiplicity="0..1" />
+          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admins">
+              <PropertyRef Name="token" />
+            </Principal>
+            <Dependent Role="Propiedad">
+              <PropertyRef Name="adminQueDIoDeBajaProp" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -135,18 +147,6 @@
             </Principal>
             <Dependent Role="usuarioParticipaEnSubasta">
               <PropertyRef Name="idPersona" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FkPropiedad">
-          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="1" />
-          <End Role="HotSales" Type="Self.HotSales" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Propiedad">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="HotSales">
-              <PropertyRef Name="idPropiedad" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -174,42 +174,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FKUsuario">
-          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
-          <End Role="HotSales" Type="Self.HotSales" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuario">
-              <PropertyRef Name="mail" />
-            </Principal>
-            <Dependent Role="HotSales">
-              <PropertyRef Name="idUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FkUsuarioReserva">
-          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
-          <End Role="ReservaDirecta" Type="Self.ReservaDirecta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuario">
-              <PropertyRef Name="mail" />
-            </Principal>
-            <Dependent Role="ReservaDirecta">
-              <PropertyRef Name="idUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="idPropiedad">
-          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="1" />
-          <End Role="fotos" Type="Self.fotos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Propiedad">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="fotos">
-              <PropertyRef Name="idPropiedad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="ModeloStoreContainer">
           <EntitySet Name="admins" EntityType="Self.admins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="fotos" EntityType="Self.fotos" Schema="dbo" store:Type="Tables" />
@@ -224,17 +188,17 @@
             <End Role="Propiedad" EntitySet="Propiedad" />
             <End Role="subasta" EntitySet="subasta" />
           </AssociationSet>
-          <AssociationSet Name="FK_tarjetas_Usuario" Association="Self.FK_tarjetas_Usuario">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="tarjetas" EntitySet="tarjetas" />
+          <AssociationSet Name="FK_adminDioDeAlta" Association="Self.FK_adminDioDeAlta">
+            <End Role="admins" EntitySet="admins" />
+            <End Role="Propiedad" EntitySet="Propiedad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_adminDioDeBaja" Association="Self.FK_adminDioDeBaja">
+            <End Role="admins" EntitySet="admins" />
+            <End Role="Propiedad" EntitySet="Propiedad" />
           </AssociationSet>
           <AssociationSet Name="FkPersona" Association="Self.FkPersona">
             <End Role="usuario" EntitySet="usuario" />
             <End Role="usuarioParticipaEnSubasta" EntitySet="usuarioParticipaEnSubasta" />
-          </AssociationSet>
-          <AssociationSet Name="FkPropiedad" Association="Self.FkPropiedad">
-            <End Role="Propiedad" EntitySet="Propiedad" />
-            <End Role="HotSales" EntitySet="HotSales" />
           </AssociationSet>
           <AssociationSet Name="FkPropReservaDirecta" Association="Self.FkPropReservaDirecta">
             <End Role="Propiedad" EntitySet="Propiedad" />
@@ -243,18 +207,6 @@
           <AssociationSet Name="FKSubasta" Association="Self.FKSubasta">
             <End Role="subasta" EntitySet="subasta" />
             <End Role="usuarioParticipaEnSubasta" EntitySet="usuarioParticipaEnSubasta" />
-          </AssociationSet>
-          <AssociationSet Name="FKUsuario" Association="Self.FKUsuario">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="HotSales" EntitySet="HotSales" />
-          </AssociationSet>
-          <AssociationSet Name="FkUsuarioReserva" Association="Self.FkUsuarioReserva">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="ReservaDirecta" EntitySet="ReservaDirecta" />
-          </AssociationSet>
-          <AssociationSet Name="idPropiedad" Association="Self.idPropiedad">
-            <End Role="Propiedad" EntitySet="Propiedad" />
-            <End Role="fotos" EntitySet="fotos" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>

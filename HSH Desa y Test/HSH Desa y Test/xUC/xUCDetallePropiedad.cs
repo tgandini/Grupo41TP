@@ -40,7 +40,9 @@ namespace HSH_Desa_y_Test.xUC
                 {
                     //casa = conexion.Propiedads.Where(p => p.id == random.Next(0, conexion.Propiedads.Count() - 1)).First();
                     pro = conexion.Propiedads.ToArray();
-                    casa = pro[random.Next(0, pro.Length - 1)];
+                    if (pro.Count() > 0) casa = pro[random.Next(0, pro.Length - 1)];
+                    else casa = new Propiedad();
+
                 }
                 else //Tenemos ID de propiedad, vamos a buscar los datos de esa propiedad
                 {
