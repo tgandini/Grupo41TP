@@ -222,6 +222,7 @@
             this.simpleButton1.Size = new System.Drawing.Size(146, 56);
             this.simpleButton1.TabIndex = 18;
             this.simpleButton1.Text = "¡Quiero ser Premium!";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // xUCPerfilDeUsuario
             // 

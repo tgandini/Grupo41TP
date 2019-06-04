@@ -117,9 +117,11 @@
             this.fechaVencimientoBox.Name = "fechaVencimientoBox";
             this.fechaVencimientoBox.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.7F);
             this.fechaVencimientoBox.Properties.Appearance.Options.UseFont = true;
-            this.fechaVencimientoBox.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
-            this.fechaVencimientoBox.Properties.Mask.EditMask = "mm/yy";
+            this.fechaVencimientoBox.Properties.EditFormat.FormatString = "mm/yy";
+            this.fechaVencimientoBox.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.fechaVencimientoBox.Properties.Mask.EditMask = "MM/yy";
             this.fechaVencimientoBox.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
+            this.fechaVencimientoBox.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.fechaVencimientoBox.Size = new System.Drawing.Size(272, 26);
             this.fechaVencimientoBox.TabIndex = 10;
             // 

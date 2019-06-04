@@ -24,10 +24,11 @@ namespace HSH_Desa_y_Test.xUC
 
         public void inicializar()
         {
+            if (!Sesion.hayUserLogueado()) Sesion.user = new usuario();
             nombreControl.Text = Sesion.user.nombre;
             apellidoControl.Text = Sesion.user.apellido;
             mailControl.Text = Sesion.user.mail;
-            fechaNacimientoControl.Text = Sesion.user.fecha_nacimiento.ToString();
+            fechaNacimientoControl.Text = Sesion.user.fecha_nacimiento.Date.ToString("dd/MM/yyyy");
             tokenControl.Text = Sesion.user.token.ToString();
             tar = llenarConTarjetas(Sesion.user.mail);
             List<string> numT = new List<string>();
@@ -36,7 +37,7 @@ namespace HSH_Desa_y_Test.xUC
                 numT.Add(num.numero);
             }
             comboBox1.DataSource = numT;
-            if(tar.Count > 1) eliminarTarjetaButton.Enabled = false;
+            if(tar.Count < 1) eliminarTarjetaButton.Enabled = false;
             else eliminarTarjetaButton.Enabled = true;
         }
 
@@ -55,12 +56,11 @@ namespace HSH_Desa_y_Test.xUC
             usuario usuarioAModificar = Sesion.user;
             xUC.xUCModificarDatosUsuario modificarUsuario = new xUC.xUCModificarDatosUsuario(usuarioAModificar.mail);
             modificarUsuario.Show();
-            this.inicializar();
         }
 
         private void eliminarTarjetaButton_Click(object sender, EventArgs e)
         {
-            if (tar.Count > 1)
+            if (tar.Count < 1)
             {
                 DialogResult result = MessageBox.Show("Quiere eliminar la tarjeta?", "Eliminar", MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)
@@ -81,15 +81,19 @@ namespace HSH_Desa_y_Test.xUC
             xfCambiarDatosTarjeta m = new xfCambiarDatosTarjeta();
             m.agregarInicializar();
             m.Show();
-            this.inicializar();
         }
 
         private void modificarTarjetaButton_Click(object sender, EventArgs e)
         {
             xfCambiarDatosTarjeta m = new xfCambiarDatosTarjeta();
-            m.modificarInicializar(tar.Find(p => p.numero == comboBox1.SelectedText));
+            m.modificarInicializar(tar.Find(p => p.numero == comboBox1.SelectedValue.ToString()));
             m.Show();
-            this.inicializar();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            xfQuieroSerPremium q = new xfQuieroSerPremium();
+            q.Show();
         }
     }
 }

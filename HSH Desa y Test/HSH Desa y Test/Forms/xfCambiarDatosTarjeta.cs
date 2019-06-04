@@ -35,7 +35,7 @@ namespace HSH_Desa_y_Test.Forms
             tt = tar;
             tituloControl.Text = "Modificar Tarjeta";
             nroTarjetaBox.Text = tar.numero;
-            fechaVencimientoBox.Text = tar.vencimiento.ToString();
+            fechaVencimientoBox.Text = tar.vencimiento.Date.ToString("MM/yy");
             codSeguridadBox.Text = tar.codigoSeguridad;
         }
 
@@ -66,6 +66,7 @@ namespace HSH_Desa_y_Test.Forms
                                     conec.SaveChanges();
                                 }
                                 MessageBox.Show("Se modifico la tarjeta");
+                                Sesion.vistaPrincipalUserLogueado.inicializarPerfil();
                                 this.Close();
                             }
                         }
@@ -77,6 +78,7 @@ namespace HSH_Desa_y_Test.Forms
                                 conec.SaveChanges();
                             }
                             MessageBox.Show("Se agrego la tarjeta");
+                            Sesion.vistaPrincipalUserLogueado.inicializarPerfil();
                             this.Close();
                         }
                     }
