@@ -104,9 +104,9 @@
             this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.Location = new System.Drawing.Point(86, 327);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(50, 19);
+            this.labelControl6.Size = new System.Drawing.Size(150, 19);
             this.labelControl6.TabIndex = 5;
-            this.labelControl6.Text = "Token:";
+            this.labelControl6.Text = "Creditos Disponibles:";
             // 
             // nombreControl
             // 

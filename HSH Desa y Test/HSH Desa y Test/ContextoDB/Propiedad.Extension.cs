@@ -66,13 +66,52 @@ namespace HSH_Desa_y_Test.ContextoDB
         {
             using (ContextoEntity conec = new ContextoEntity())
             {
-                if (conec.subastas.Any(p => p.id_propiedad_subastada == this.id && p.fecha_inicio == Semanizador.LunesDeSemana(año, semana))) return false;
-                if (conec.HotSales.Any(p => p.idPropiedad == this.id && p.fechaInicio == Semanizador.LunesDeSemana(año, semana))) return false;
+                if (conec.subastas.Any(p => p.id_propiedad_subastada == this.id && Semanizador.semanaSegunFechaInicio(p.fecha_inicio,p.semana_de_subasta) == Semanizador.LunesDeSemana(año, semana))) return false;
+                if (conec.HotSales.Any(p => p.idPropiedad == this.id && Semanizador.semanaSegunFechaInicio(p.fechaInicio, p.semanaReservada) == Semanizador.LunesDeSemana(año, semana))) return false;
                 if (conec.ReservaDirectas.Any(p => p.idPropiedad == this.id && p.fechaReservada == Semanizador.LunesDeSemana(año, semana))) return false;
                 else return true;
             }
         }
 
-
+        public List<string> semanasDisponibles()
+        {
+            int primeraSemana = Semanizador.getSemanaDelAño(DateTime.Now.AddMonths(6));
+            int ultimaSemana = Semanizador.getSemanaDelAño(DateTime.Now.AddMonths(12));
+            List<string> st = new List<string>();
+            int i;
+            if (primeraSemana >= ultimaSemana)
+            {
+                for (i = primeraSemana; i <= 52; i++)
+                {
+                    if (this.estaLibre(i, DateTime.Now.Year))
+                        st.Add(string.Concat("Semana ", i, " de ", DateTime.Now.Year));
+                }
+                for (i = 1; i <= ultimaSemana; i++)
+                {
+                    if (this.estaLibre(i, DateTime.Now.Year + 1))
+                        st.Add(string.Concat("Semana ", i, " de ", DateTime.Now.Year + 1));
+                }
+            }
+            else
+            {
+                if (Semanizador.getSemanaDelAño(DateTime.Now) < primeraSemana)
+                {
+                    for (i = primeraSemana; i <= ultimaSemana; i++)
+                    {
+                        if (this.estaLibre(i, DateTime.Now.Year))
+                            st.Add(string.Concat("Semana ", i, " de ", DateTime.Now.Year));
+                    }
+                }
+                else
+                {
+                    for (i = primeraSemana; i <= ultimaSemana; i++)
+                    {
+                        if (this.estaLibre(i, DateTime.Now.Year + 1))
+                            st.Add(string.Concat("Semana ", i, " de ", DateTime.Now.Year + 1));
+                    }
+                }
+            }
+            return st;
+        }
     }
 }
