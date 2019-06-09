@@ -34,6 +34,7 @@ namespace HSH_Desa_y_Test.xUC
                 ape.Text = usuarioAModificar.apellido;
                 mail.Text = usuarioAModificar.mail;
                 nac.Text = usuarioAModificar.fecha_nacimiento.ToString("dd/MM/yyyy");
+                reg.Text = usuarioAModificar.fecha_registro.ToString("dd/MM/yyyy");
                 premium.Checked = usuarioAModificar.premium;
             }
         }

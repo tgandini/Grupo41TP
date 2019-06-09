@@ -31,12 +31,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.registro = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.reg = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.mail = new System.Windows.Forms.Label();
             this.nac = new System.Windows.Forms.MaskedTextBox();
             this.nombre = new System.Windows.Forms.TextBox();
@@ -69,6 +72,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.registro);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
@@ -79,11 +83,21 @@
             this.panel2.Size = new System.Drawing.Size(164, 343);
             this.panel2.TabIndex = 5;
             // 
+            // registro
+            // 
+            this.registro.AutoSize = true;
+            this.registro.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registro.Location = new System.Drawing.Point(22, 244);
+            this.registro.Name = "registro";
+            this.registro.Size = new System.Drawing.Size(134, 19);
+            this.registro.TabIndex = 6;
+            this.registro.Text = "Fecha de Registro";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(22, 289);
+            this.label6.Location = new System.Drawing.Point(22, 292);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 19);
             this.label6.TabIndex = 5;
@@ -93,7 +107,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(22, 220);
+            this.label5.Location = new System.Drawing.Point(22, 192);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(133, 19);
             this.label5.TabIndex = 4;
@@ -103,7 +117,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(22, 158);
+            this.label4.Location = new System.Drawing.Point(22, 140);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 19);
             this.label4.TabIndex = 3;
@@ -113,7 +127,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(22, 96);
+            this.label3.Location = new System.Drawing.Point(22, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 19);
             this.label3.TabIndex = 2;
@@ -131,6 +145,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.reg);
+            this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.mail);
             this.panel3.Controls.Add(this.nac);
             this.panel3.Controls.Add(this.nombre);
@@ -141,9 +157,26 @@
             this.panel3.Size = new System.Drawing.Size(235, 343);
             this.panel3.TabIndex = 6;
             // 
+            // reg
+            // 
+            this.reg.Location = new System.Drawing.Point(23, 244);
+            this.reg.Name = "reg";
+            this.reg.Size = new System.Drawing.Size(190, 23);
+            this.reg.TabIndex = 13;
+            this.reg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(22, 234);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(0, 19);
+            this.label8.TabIndex = 12;
+            // 
             // mail
             // 
-            this.mail.Location = new System.Drawing.Point(23, 163);
+            this.mail.Location = new System.Drawing.Point(23, 136);
             this.mail.Name = "mail";
             this.mail.Size = new System.Drawing.Size(190, 23);
             this.mail.TabIndex = 11;
@@ -151,7 +184,7 @@
             // 
             // nac
             // 
-            this.nac.Location = new System.Drawing.Point(26, 218);
+            this.nac.Location = new System.Drawing.Point(26, 190);
             this.nac.Mask = "00/00/0000";
             this.nac.Name = "nac";
             this.nac.Size = new System.Drawing.Size(187, 21);
@@ -167,7 +200,7 @@
             // 
             // ape
             // 
-            this.ape.Location = new System.Drawing.Point(26, 94);
+            this.ape.Location = new System.Drawing.Point(26, 84);
             this.ape.Name = "ape";
             this.ape.Size = new System.Drawing.Size(187, 21);
             this.ape.TabIndex = 8;
@@ -175,7 +208,7 @@
             // premium
             // 
             this.premium.AutoSize = true;
-            this.premium.Location = new System.Drawing.Point(112, 294);
+            this.premium.Location = new System.Drawing.Point(112, 297);
             this.premium.Name = "premium";
             this.premium.Size = new System.Drawing.Size(15, 14);
             this.premium.TabIndex = 5;
@@ -239,5 +272,8 @@
         private System.Windows.Forms.Button modificar;
         private System.Windows.Forms.Button cancelar;
         private System.Windows.Forms.Label mail;
+        private System.Windows.Forms.Label registro;
+        private System.Windows.Forms.Label reg;
+        private System.Windows.Forms.Label label8;
     }
 }
