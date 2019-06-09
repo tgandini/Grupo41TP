@@ -23,5 +23,10 @@ namespace HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado_y_Deslogueado
         {
             Sesion.vistaPrincipalUserLogueado.renderizarListaPropiedades();
         }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            Sesion.vistaPrincipalUserLogueado.renderizarPerfilDeUsuario();
+        }
     }
 }

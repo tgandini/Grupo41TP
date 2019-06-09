@@ -37,26 +37,11 @@ namespace HSH_Desa_y_Test.xUC
         public void inicializar()
         {
             this.limpiar();
-            subi = llenarConSubasta();
+            subi = subasta.llenarConSubasta();
             iden = new List<subasta>();
             foreach (subasta s in subi)
             {
-                DateTime n = s.fecha_fin.AddDays(3);
-                if (n < DateTime.Today)
-                {
-                    iden.Add(s);
-                }
-                else
-                {
-                    subasta su = s;
-                    using (ContextoEntity conec = new ContextoEntity())
-                    {
-                        su.fecha_fin = DateTime.Today;
-                        DbEntityEntry<subasta> ee = conec.Entry(s);
-                        ee.CurrentValues.SetValues(su);
-                        conec.SaveChanges();
-                    }
-                }
+                if(s.estaActiva()) iden.Add(s);
             }
             subastaSource.DataSource = iden;
             gridControl1.DataSource = subastaSource.DataSource;
@@ -64,13 +49,7 @@ namespace HSH_Desa_y_Test.xUC
             gridView1.OptionsBehavior.Editable = false;
         }
 
-        private List<subasta> llenarConSubasta()
-        {
-            using (ContextoEntity conec = new ContextoEntity())
-            {
-                return conec.subastas.ToList();
-            }
-        }
+        
 
         private void subastaBox_SelectedIndexChanged(object sender, EventArgs e)
         {

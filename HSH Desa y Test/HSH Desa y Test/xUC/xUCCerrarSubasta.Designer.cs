@@ -124,6 +124,7 @@
             this.gridControl1.TabIndex = 12;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gridControl1.Enter += new System.EventHandler(this.subastaBox_SelectedIndexChanged);
             // 
             // gridView1
             // 
@@ -133,6 +134,7 @@
             this.colsemana_de_subasta});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             // 
             // colfecha_inicio
             // 

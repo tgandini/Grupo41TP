@@ -58,6 +58,14 @@ namespace HSH_Desa_y_Test.Modelo_Expandido
             return Semanizador.LunesDeSemana(year, weekOfYear + 1);
         }
 
+        public static DateTime semanaSegunFechaInicio(DateTime fechaInicio, int sem)
+        {
+            DateTime fechaSemana;
+            if (Semanizador.getSemanaDelAño(fechaInicio) > sem) fechaSemana = Semanizador.LunesDeSemana(fechaInicio.Year + 1, sem);
+            else fechaSemana = Semanizador.LunesDeSemana(fechaInicio.Year, sem);
+            return fechaSemana;
+        }
+
     }
 
 }

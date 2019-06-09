@@ -36,8 +36,7 @@ namespace HSH_Desa_y_Test.Forms
             {
                 if (decimal.Parse(boxMonto.Text) > 0)
                 {
-                    casa = new Propiedad(boxNombre.Text, boxCiudad.Text, boxProvincia.Text, boxPais.Text,
-                        textTipo.Text, textUbicacion.Text, decimal.ToInt32(cantHabitaciones.Value), decimal.Parse(boxMonto.Text), Sesion.admin.token, DateTime.Today);
+                    casa = new Propiedad(boxNombre.Text, boxCiudad.Text, boxProvincia.Text, boxPais.Text, textTipo.Text, textUbicacion.Text, decimal.ToInt32(cantHabitaciones.Value), decimal.Parse(boxMonto.Text), Sesion.admin.token, DateTime.Today);
                     if (fotito != null)
                     {
                         foreach (byte[] b in fotito)

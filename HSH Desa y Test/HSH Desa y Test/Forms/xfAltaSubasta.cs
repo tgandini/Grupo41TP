@@ -44,15 +44,18 @@ namespace HSH_Desa_y_Test.Forms
                 {
                     if (DateTime.Parse(maskedTextBox2.Text) >= (DateTime.Now))
                     {
-                        DateTime fechaSemana;
-                        if (Semanizador.getSemanaDelAño(DateTime.Now) > int.Parse(maskedTextBox1.Text)) fechaSemana = Semanizador.LunesDeSemana(DateTime.Now.Year + 1, int.Parse(maskedTextBox1.Text));
-                        else fechaSemana = Semanizador.LunesDeSemana(DateTime.Now.Year, int.Parse(maskedTextBox1.Text));
-                        if (fechaSemana > DateTime.Parse(maskedTextBox2.Text).AddMonths(6))
+                        DateTime fechaSemana = Semanizador.semanaSegunFechaInicio(DateTime.Now, int.Parse(numericUpDown1.Value.ToString()));                      
+                        if (st.estaLibre(decimal.ToInt32(numericUpDown1.Value), fechaSemana.Year))
                         {
-                            subasta nuevaSubasta = new subasta(st, (int)numericUpDown1.Value, maskedTextBox1.AccessibilityObject.Value, DateTime.Parse(maskedTextBox2.AccessibilityObject.Value));
-                            nuevaSubasta.crear();
+                            if (fechaSemana > DateTime.Parse(maskedTextBox2.Text).AddMonths(6))
+                            {
+                                subasta nuevaSubasta = new subasta((int)numericUpDown1.Value, maskedTextBox1.AccessibilityObject.Value, DateTime.Parse(maskedTextBox2.AccessibilityObject.Value));
+                                nuevaSubasta.crear();
+                                this.inicializar();
+                            }
+                            else MessageBox.Show("La semana elegida debe superar en 6 meses la fecha de inicio");
                         }
-                        else MessageBox.Show("La semana elegida debe superar en 6 meses la fecha de inicio");
+                        else MessageBox.Show("La semana elegida no se encuentra disponible");
                     }
                     else MessageBox.Show("La fecha de inicio es incorrecta");
                 }       
@@ -76,9 +79,10 @@ namespace HSH_Desa_y_Test.Forms
 
         private Propiedad encontrarCual(string st)
         {
+            var nombreTrimmeado = st.Substring(0,st.IndexOf(","));
             foreach (Propiedad casa in propie)
             {
-                if (casa.nombre == st)                
+                if (casa.nombre == nombreTrimmeado)                
                     return casa;                
             }
             return null;
