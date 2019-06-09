@@ -62,7 +62,13 @@ namespace HSH_Desa_y_Test.xUC
                 {
                     foreach (foto fotito in listaDeFotos) imageSlider1.Images.Add(System.Drawing.Image.FromStream(new MemoryStream(fotito.foto1)));
                     imageSlider1.SlideFirst();
-                } 
+                }
+                if (Sesion.user != null)
+                {
+                    this.xUCOperacionesPropiedadesUsuarioLogueado1.inicializar(casa);
+                    this.xUCOperacionesPropiedadesUsuarioLogueado1.Visible = true;
+                }
+                else this.xUCOperacionesPropiedadesUsuarioLogueado1.Visible = false;
             }
         }
     }

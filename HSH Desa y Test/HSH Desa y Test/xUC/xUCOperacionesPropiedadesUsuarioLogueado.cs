@@ -40,8 +40,8 @@ namespace HSH_Desa_y_Test.xUC
                 reservaDirectaComboBox.Visible = false;
                 reservaDirectaLabel.Visible = false;
                 reservaDirectaButton.Enabled = false;
-                precioReservaDirectaLabel.Enabled = false;
-                montoReservaDirectaLabel.Enabled = false;
+                precioReservaDirectaLabel.Visible = false;
+                montoReservaDirectaLabel.Visible = false;
             }
             var sub = subasta.llenarConSubasta(pro.id);
             if (sub != null)

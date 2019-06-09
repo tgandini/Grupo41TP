@@ -45,17 +45,20 @@
             // 
             // xUCDetallePropiedad1
             // 
-            this.xUCDetallePropiedad1.Location = new System.Drawing.Point(495, 33);
+            this.xUCDetallePropiedad1.Location = new System.Drawing.Point(577, 41);
+            this.xUCDetallePropiedad1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.xUCDetallePropiedad1.Name = "xUCDetallePropiedad1";
-            this.xUCDetallePropiedad1.Size = new System.Drawing.Size(690, 339);
+            this.xUCDetallePropiedad1.Size = new System.Drawing.Size(805, 514);
             this.xUCDetallePropiedad1.TabIndex = 1;
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(4, 4);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gridControl1.Location = new System.Drawing.Point(5, 5);
             this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(485, 525);
+            this.gridControl1.Size = new System.Drawing.Size(566, 646);
             this.gridControl1.TabIndex = 2;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -68,6 +71,7 @@
             this.colubicaciòn,
             this.coltipo,
             this.colhabitaciones});
+            this.gridView1.DetailHeight = 431;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -84,55 +88,62 @@
             // 
             this.colnombre.Caption = "Nombre Propiedad";
             this.colnombre.FieldName = "nombre";
+            this.colnombre.MinWidth = 23;
             this.colnombre.Name = "colnombre";
             this.colnombre.Visible = true;
             this.colnombre.VisibleIndex = 0;
-            this.colnombre.Width = 107;
+            this.colnombre.Width = 125;
             // 
             // colciudad
             // 
             this.colciudad.Caption = "Ciudad";
             this.colciudad.FieldName = "ciudad";
+            this.colciudad.MinWidth = 23;
             this.colciudad.Name = "colciudad";
             this.colciudad.Visible = true;
             this.colciudad.VisibleIndex = 1;
-            this.colciudad.Width = 89;
+            this.colciudad.Width = 104;
             // 
             // colubicaciòn
             // 
             this.colubicaciòn.Caption = "Ubicación";
             this.colubicaciòn.FieldName = "ubicaciòn";
+            this.colubicaciòn.MinWidth = 23;
             this.colubicaciòn.Name = "colubicaciòn";
             this.colubicaciòn.Visible = true;
             this.colubicaciòn.VisibleIndex = 2;
-            this.colubicaciòn.Width = 89;
+            this.colubicaciòn.Width = 104;
             // 
             // coltipo
             // 
             this.coltipo.Caption = "Tipo Propiedad";
             this.coltipo.FieldName = "tipo";
+            this.coltipo.MinWidth = 23;
             this.coltipo.Name = "coltipo";
             this.coltipo.Visible = true;
             this.coltipo.VisibleIndex = 3;
-            this.coltipo.Width = 138;
+            this.coltipo.Width = 161;
             // 
             // colhabitaciones
             // 
             this.colhabitaciones.Caption = "Hab";
             this.colhabitaciones.FieldName = "habitaciones";
+            this.colhabitaciones.MinWidth = 23;
             this.colhabitaciones.Name = "colhabitaciones";
             this.colhabitaciones.Visible = true;
             this.colhabitaciones.VisibleIndex = 4;
-            this.colhabitaciones.Width = 44;
+            this.colhabitaciones.Width = 51;
             // 
             // xucListadoPropiedadesYEditar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.xUCDetallePropiedad1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "xucListadoPropiedadesYEditar";
-            this.Size = new System.Drawing.Size(1182, 593);
+            this.Size = new System.Drawing.Size(1379, 730);
+            this.Load += new System.EventHandler(this.xucListadoPropiedadesYEditar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingPropiedad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
