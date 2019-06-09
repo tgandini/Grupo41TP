@@ -33,12 +33,18 @@ namespace HSH_Desa_y_Test.Forms
             using (ContextoEntity conexion = new ContextoEntity())
             {
                 propiedadAModificar = conexion.Propiedads.Where(p => p.id == idPropiedad).First();
-                nombre.Text = propiedadAModificar.nombre;
-                ciudad.Text = propiedadAModificar.ciudad;
-                prov.Text = propiedadAModificar.provincia;
-                pais.Text =  propiedadAModificar.pais;
-                tipo.Text = propiedadAModificar.tipo;
+
+                nombreBox.Text = propiedadAModificar.nombre;
+                ubicacionBox.Text = propiedadAModificar.ubicaciòn;
+                ciudadBox.Text = propiedadAModificar.ciudad;
+                ubicacionBox.Text = propiedadAModificar.ubicaciòn;
+                provinciaBox.Text = propiedadAModificar.provincia;
+                paisBox.Text =  propiedadAModificar.pais;
+                tipoBox.Text = propiedadAModificar.tipo;
                 cantHabitaciones.Value = propiedadAModificar.habitaciones;
+                boxMonto.Text = propiedadAModificar.montoReserva.ToString();
+                label3.Visible = false;
+
             }
         }
 
@@ -48,7 +54,31 @@ namespace HSH_Desa_y_Test.Forms
 
             if (result == DialogResult.Yes)
             {
+                propiedadAModificar.nombre = nombreBox.Text;
+                propiedadAModificar.ubicaciòn = ubicacionBox.Text;
+                propiedadAModificar.ciudad = ciudadBox.Text;
+                propiedadAModificar.provincia = provinciaBox.Text;
+                propiedadAModificar.pais = paisBox.Text;
+                propiedadAModificar.tipo = tipoBox.Text;
+                propiedadAModificar.montoReserva = decimal.Parse(boxMonto.Text);
+                propiedadAModificar.habitaciones = decimal.ToInt32(cantHabitaciones.Value);
 
+                using (ContextoEntity conexion = new ContextoEntity())
+                {
+                    if(conexion.Propiedads.Any(p => mismaDir(p,propiedadAModificar)))
+                    {
+                        MessageBox.Show("La propiedad no puede tener una direccion completa (ubicacion + ciudad + provincia + pais) identica a una ya agregada.");
+                        return;
+                    }
+                    if (propiedadAModificar.nombre == "" || propiedadAModificar.ubicaciòn == "" || propiedadAModificar.ciudad == "" ||
+                        propiedadAModificar.provincia == "" || propiedadAModificar.pais == "" || propiedadAModificar.tipo == "") {
+
+                        MessageBox.Show("Ningun campo puede estar vacio.");
+                        return;
+                    }
+                    conexion.Entry(propiedadAModificar).State = System.Data.Entity.EntityState.Modified;
+                    conexion.SaveChanges();
+                }
             }
             else if (result == DialogResult.No)
             {
@@ -63,12 +93,24 @@ namespace HSH_Desa_y_Test.Forms
 
         private void agregarFotoButton_Click(object sender, EventArgs e)
         {
-            using (xfAgregarImagenes agreg = new xfAgregarImagenes())
+            using (xfAgregarImagenes agregarImagenes = new xfAgregarImagenes())
             {
-                agreg.ShowDialog();
-                foto = agreg.GetMyResult();
+                agregarImagenes.ShowDialog();
+                foto = agregarImagenes.GetMyResult();
             }
             if (foto != null) label3.Visible = true;
+        }
+
+        private bool mismaDir(Propiedad p1, Propiedad p2)
+        {
+            bool misma = false;
+            if (p1.id != p2.id)
+                if (p1.ubicaciòn == p2.ubicaciòn)
+                    if (p1.ciudad == p2.ciudad)
+                        if (p1.provincia == p2.provincia)
+                            if (p1.pais == p2.pais)
+                                misma = true;
+            return misma;
         }
 
 
