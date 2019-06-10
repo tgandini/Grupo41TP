@@ -56,8 +56,12 @@ namespace HSH_Desa_y_Test.Forms
         }
 
         private List<Propiedad> llenarTablaConPropiedades()
-        {       
+        {
+            using (ContextoEntity conec = new ContextoEntity())
+            {
                 return conec.Propiedads.ToList();
+
+            }
         }
 
         private void DarDeBaja_Click(object sender, EventArgs e)

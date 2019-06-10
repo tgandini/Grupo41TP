@@ -39,5 +39,10 @@ namespace HSH_Desa_y_Test.xUC
         {
             Sesion.vistaPrincipalDeAdmin.renderizarModificacionYBajaUsuario();
         }
+
+        private void crearSubastaBtn_Click(object sender, EventArgs e)
+        {
+            Sesion.vistaPrincipalDeAdmin.renderizarAltaSubasta();
+        }
     }
 }

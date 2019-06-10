@@ -25,13 +25,27 @@ namespace HSH_Desa_y_Test.Forms
 
         public void inicializar()
         {
+            
             propie = llenarConPropiedades();
             List<string> iden = new List<string>();
+            iden.Clear();
             foreach (Propiedad casa in propie)
             {
                 iden.Add(string.Format("{0}, ubicada en Ciudad: {1}, dirección:{2}", casa.nombre, casa.ciudad, casa.ubicaciòn));
             }
             comboBox1.DataSource = iden;
+
+
+            //Checkeamos q no haya datos en el combobox de año
+            if (comboBox2.Items.Count == 0)
+            {
+                for (int i = 0; i <= 2; i++)
+                {
+                    comboBox2.Items.Add(DateTime.Today.Year + i);
+                }
+                comboBox2.SelectedIndex = 0;
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -79,7 +93,7 @@ namespace HSH_Desa_y_Test.Forms
 
         private Propiedad encontrarCual(string st)
         {
-            var nombreTrimmeado = st.Substring(0,st.IndexOf(","));
+            var nombreTrimmeado = st.Substring(0,st.IndexOf(",")) ?? string.Empty;
             foreach (Propiedad casa in propie)
             {
                 if (casa.nombre == nombreTrimmeado)                
