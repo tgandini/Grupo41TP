@@ -64,13 +64,7 @@ namespace HSH_Desa_y_Test.ContextoDB
         }
         internal bool estaLibre(int semana, int año)
         {
-            using (ContextoEntity conec = new ContextoEntity())
-            {
-                if (conec.subastas.Any(p => p.id_propiedad_subastada == this.id && Semanizador.semanaSegunFechaInicio(p.fecha_inicio,p.semana_de_subasta) == Semanizador.LunesDeSemana(año, semana))) return false;
-                if (conec.HotSales.Any(p => p.idPropiedad == this.id && Semanizador.semanaSegunFechaInicio(p.fechaInicio, p.semanaReservada) == Semanizador.LunesDeSemana(año, semana))) return false;
-                if (conec.ReservaDirectas.Any(p => p.idPropiedad == this.id && p.fechaReservada == Semanizador.LunesDeSemana(año, semana))) return false;
-                else return true;
-            }
+            return true;
         }
 
         public List<string> semanasDisponibles()

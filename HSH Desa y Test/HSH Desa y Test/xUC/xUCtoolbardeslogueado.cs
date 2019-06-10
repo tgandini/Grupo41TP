@@ -23,7 +23,7 @@ namespace HSH_Desa_y_Test.xUC
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new xfFormLogin().ShowDialog();
+          new xfFormLogin().ShowDialog();
            
         }
 
