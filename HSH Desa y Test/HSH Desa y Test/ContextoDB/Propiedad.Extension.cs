@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Entity;
 
 namespace HSH_Desa_y_Test.ContextoDB
 {
@@ -64,6 +65,32 @@ namespace HSH_Desa_y_Test.ContextoDB
         }
         internal bool estaLibre(int semana, int año)
         {
+            Propiedad propDeDb;
+            using (ContextoEntity conec = new ContextoEntity())
+            {
+                propDeDb = conec.Propiedads
+                    .Include(a => a.ReservaDirectas)
+                    .Include(a => a.HotSales)
+                    .Include(a => a.subastas)
+                    .Where(p => p.id == this.id).FirstOrDefault();
+            }
+            DateTime diaParaCheckear = Semanizador.LunesDeSemana(año, semana);
+            if (propDeDb.ReservaDirectas.Any(p=> p.fechaReservada == diaParaCheckear))
+            {
+                //MessageBox.Show("Existe una reserva directa para la semana indicada");
+                return false;
+            }
+            else if (propDeDb.subastas.Any(p=> p.semana_de_subasta==semana))
+            {
+                //MessageBox.Show("Existe una subasta para la semana indicada");
+                return false;
+            }
+            else if (propDeDb.HotSales.Any(p=> p.semanaReservada == semana))
+            {
+                //MessageBox.Show("Existe ya un hotsale para la semana indicada");
+                return false;
+            }
+
             return true;
         }
 
@@ -106,6 +133,22 @@ namespace HSH_Desa_y_Test.ContextoDB
                 }
             }
             return st;
+        }
+        public bool actualizarPropiedadEnBd()
+        {
+            try
+            {
+                using (ContextoEntity conexion = new ContextoEntity())
+                {
+                    conexion.Entry<Propiedad>(this).State= EntityState.Modified;
+                    conexion.SaveChanges();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

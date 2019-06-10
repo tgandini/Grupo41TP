@@ -92,6 +92,7 @@
           <Property Name="fecha nacimiento" Type="date" Nullable="false" />
           <Property Name="premium" Type="bit" Nullable="false" />
           <Property Name="token" Type="int" Nullable="false" />
+          <Property Name="fecha registro" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="usuarioParticipaEnSubasta">
           <Key>
@@ -320,6 +321,7 @@
           <NavigationProperty Name="ReservaDirectas" Relationship="Self.FkUsuarioReserva" FromRole="usuario" ToRole="ReservaDirecta" />
           <NavigationProperty Name="tarjetas" Relationship="Self.FK_tarjetas_Usuario" FromRole="usuario" ToRole="tarjetas" />
           <NavigationProperty Name="usuarioParticipaEnSubastas" Relationship="Self.FkPersona" FromRole="usuario" ToRole="usuarioParticipaEnSubasta" />
+          <Property Name="fecha_registro" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <EntityType Name="usuarioParticipaEnSubasta">
           <Key>
@@ -611,6 +613,7 @@
           <EntitySetMapping Name="usuarios">
             <EntityTypeMapping TypeName="Modelo.usuario">
               <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha registro" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="apellido" ColumnName="apellido" />
                 <ScalarProperty Name="contraseña" ColumnName="contraseña" />

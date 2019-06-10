@@ -11,6 +11,8 @@ using DevExpress.XtraEditors;
 using HSH_Desa_y_Test.ContextoDB;
 using System.Globalization;
 using HSH_Desa_y_Test.Modelo_Expandido;
+using System.Data.Entity;
+
 
 namespace HSH_Desa_y_Test.Forms
 {
@@ -58,14 +60,17 @@ namespace HSH_Desa_y_Test.Forms
                 {
                     if (DateTime.Parse(maskedTextBox2.Text) >= (DateTime.Now))
                     {
-                        DateTime fechaSemana = Semanizador.semanaSegunFechaInicio(DateTime.Now, int.Parse(numericUpDown1.Value.ToString()));                      
+                        DateTime fechaSemana = Semanizador.semanaSegunFechaInicio( DateTime.Now, int.Parse(numericUpDown1.Value.ToString()));                      
                         if (st.estaLibre(decimal.ToInt32(numericUpDown1.Value), fechaSemana.Year))
                         {
                             if (fechaSemana > DateTime.Parse(maskedTextBox2.Text).AddMonths(6))
                             {
                                 subasta nuevaSubasta = new subasta((int)numericUpDown1.Value, maskedTextBox1.AccessibilityObject.Value, DateTime.Parse(maskedTextBox2.AccessibilityObject.Value));
-                                nuevaSubasta.crear();
+                                st.subastas.Add(nuevaSubasta);
+                                st.actualizarPropiedadEnBd();
+                                
                                 this.inicializar();
+                                MessageBox.Show("Todo OK!!!");
                             }
                             else MessageBox.Show("La semana elegida debe superar en 6 meses la fecha de inicio");
                         }
@@ -87,7 +92,11 @@ namespace HSH_Desa_y_Test.Forms
         {
             using (ContextoEntity conec = new ContextoEntity())
             {
-                return conec.Propiedads.ToList();
+                return conec.Propiedads
+                    .Include(p=> p.subastas)
+                    .Include(p=> p.HotSales)
+                    .Include(p=>p.ReservaDirectas)
+                    .ToList();
             }
         }
 

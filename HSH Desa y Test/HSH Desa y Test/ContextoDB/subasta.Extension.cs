@@ -15,7 +15,7 @@ namespace HSH_Desa_y_Test.ContextoDB
             this.monto_inicial = Convert.ToDecimal(monto);
             this.fecha_inicio = fechaInicio;
             this.fecha_fin = fechaInicio.AddDays(3);
-            this.id = int.MaxValue;
+
         }
 
         public void crear()
@@ -23,6 +23,7 @@ namespace HSH_Desa_y_Test.ContextoDB
             using (ContextoEntity conec = new ContextoEntity())
             {
                 conec.subastas.Add(this);
+                conec.SaveChanges();
             }
         }
 

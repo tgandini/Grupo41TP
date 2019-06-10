@@ -30,6 +30,7 @@ namespace HSH_Desa_y_Test.ContextoDB
         public System.DateTime fecha_nacimiento { get; set; }
         public bool premium { get; set; }
         public int token { get; set; }
+        public System.DateTime fecha_registro { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HotSale> HotSales { get; set; }

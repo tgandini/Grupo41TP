@@ -18,5 +18,9 @@ namespace HSH_Desa_y_Test.ContextoDB
             this.semanaReservada = semana;
             this.fechaReservada = Semanizador.semanaSegunFechaInicio(DateTime.Now, semana);
         }
+        public ReservaDirecta()
+        {
+
+        }
     }
 }
