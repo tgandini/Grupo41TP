@@ -43,17 +43,12 @@ namespace HSH_Desa_y_Test.Forms
                 gridView1.Columns.ColumnByFieldName("id").OptionsColumn.AllowEdit = false;
                 simpleButton2.Enabled = true;
                 simpleButton1.Enabled = true;
-                agregarFotoButton.Enabled = true;
-                eliminarFotoButton.Enabled = true;
             }
             else
             {
                 noHayPropiedades.Visible = true;
                 simpleButton1.Enabled = false;
                 simpleButton2.Enabled = false;
-                agregarFotoButton.Enabled = false;
-                eliminarFotoButton.Enabled = false;
-                label3.Visible = false;
                 foto = null;
             }
         }
@@ -143,27 +138,16 @@ namespace HSH_Desa_y_Test.Forms
                 modificarPropiedad.Show(); 
         }
 
-        private void agregarFotoButton_Click(object sender, EventArgs e)
-        {
-            using (xfAgregarImagenes agreg = new xfAgregarImagenes())
-            {
-                agreg.ShowDialog();
-                foto = agreg.GetMyResult();
-            }
-            if (foto != null) label3.Visible = true;
-        }
-
-        private void eliminarFotoButton_Click(object sender, EventArgs e)
-        {
-            Propiedad propiedadSeleccionado = (Propiedad)gridView1.GetFocusedRow();
-            xfEliminarFoto el = new xfEliminarFoto();
-            el.inicializar(propiedadSeleccionado.id);
-        }
-
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             if ((Propiedad)gridView1.GetFocusedRow() != null) simpleButton1.Enabled = true;
             else simpleButton1.Enabled = false;
+        }
+
+        public void vuelveDeModificar()
+        {
+            gridControl1.Update();
+            inicializar();
         }
     }
 }

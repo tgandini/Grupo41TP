@@ -34,10 +34,6 @@
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.noHayPropiedades = new System.Windows.Forms.Label();
-            this.fotoBox = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.eliminarFotoButton = new DevExpress.XtraEditors.SimpleButton();
-            this.agregarFotoButton = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -49,7 +45,6 @@
             this.coladminQueDioDeAltaProp = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfechaAlta = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            this.fotoBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
@@ -99,57 +94,13 @@
             this.noHayPropiedades.TabIndex = 37;
             this.noHayPropiedades.Text = "No hay propiedades guardadas";
             // 
-            // fotoBox
-            // 
-            this.fotoBox.Controls.Add(this.label3);
-            this.fotoBox.Controls.Add(this.eliminarFotoButton);
-            this.fotoBox.Controls.Add(this.agregarFotoButton);
-            this.fotoBox.Location = new System.Drawing.Point(742, 56);
-            this.fotoBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.fotoBox.Name = "fotoBox";
-            this.fotoBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.fotoBox.Size = new System.Drawing.Size(138, 245);
-            this.fotoBox.TabIndex = 38;
-            this.fotoBox.TabStop = false;
-            this.fotoBox.Text = "Fotos";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 114);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 26);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Fotos esperando \r\npara agregar";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // eliminarFotoButton
-            // 
-            this.eliminarFotoButton.Location = new System.Drawing.Point(5, 151);
-            this.eliminarFotoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.eliminarFotoButton.Name = "eliminarFotoButton";
-            this.eliminarFotoButton.Size = new System.Drawing.Size(128, 42);
-            this.eliminarFotoButton.TabIndex = 1;
-            this.eliminarFotoButton.Text = "Eliminar";
-            this.eliminarFotoButton.Click += new System.EventHandler(this.eliminarFotoButton_Click);
-            // 
-            // agregarFotoButton
-            // 
-            this.agregarFotoButton.Location = new System.Drawing.Point(5, 58);
-            this.agregarFotoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.agregarFotoButton.Name = "agregarFotoButton";
-            this.agregarFotoButton.Size = new System.Drawing.Size(128, 42);
-            this.agregarFotoButton.TabIndex = 0;
-            this.agregarFotoButton.Text = "Agregar";
-            this.agregarFotoButton.Click += new System.EventHandler(this.agregarFotoButton_Click);
-            // 
             // gridControl1
             // 
             this.gridControl1.DataSource = typeof(HSH_Desa_y_Test.ContextoDB.Propiedad);
             this.gridControl1.Location = new System.Drawing.Point(14, 52);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(722, 249);
+            this.gridControl1.Size = new System.Drawing.Size(852, 249);
             this.gridControl1.TabIndex = 39;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -246,7 +197,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gridControl1);
-            this.Controls.Add(this.fotoBox);
             this.Controls.Add(this.noHayPropiedades);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.simpleButton2);
@@ -255,8 +205,6 @@
             this.Name = "xfDarDeBajaPropiedad";
             this.Size = new System.Drawing.Size(883, 415);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            this.fotoBox.ResumeLayout(false);
-            this.fotoBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
@@ -270,10 +218,6 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Label noHayPropiedades;
-        private System.Windows.Forms.GroupBox fotoBox;
-        private DevExpress.XtraEditors.SimpleButton eliminarFotoButton;
-        private DevExpress.XtraEditors.SimpleButton agregarFotoButton;
-        private System.Windows.Forms.Label label3;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colid;

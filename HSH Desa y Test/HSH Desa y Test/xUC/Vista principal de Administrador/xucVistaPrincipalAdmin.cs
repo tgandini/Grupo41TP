@@ -78,9 +78,14 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
             
         }
 
-        internal void vuelveDeModificar()
+        internal void vuelveDeModificarUsuario()
         {
             this.xfDarDeBajaUsuario1.vuelveDeModificar();
+        }
+
+        internal void vuelveDeModificarPropiedad()
+        {
+            this.xfDarDeBajaPropiedad2.vuelveDeModificar();
         }
     }
 }

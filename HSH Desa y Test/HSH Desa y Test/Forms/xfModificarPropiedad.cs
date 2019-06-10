@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using HSH_Desa_y_Test.ContextoDB;
+using HSH_Desa_y_Test.Modelo_Expandido;
 
 namespace HSH_Desa_y_Test.Forms
 {
@@ -65,7 +66,9 @@ namespace HSH_Desa_y_Test.Forms
 
                 using (ContextoEntity conexion = new ContextoEntity())
                 {
-                    if(conexion.Propiedads.Any(p => mismaDir(p,propiedadAModificar)))
+                    var aux = conexion.Propiedads.Where(p => p.id != propiedadAModificar.id).ToList();
+
+                    if(mismaDir(aux,propiedadAModificar))
                     {
                         MessageBox.Show("La propiedad no puede tener una direccion completa (ubicacion + ciudad + provincia + pais) identica a una ya agregada.");
                         return;
@@ -78,6 +81,8 @@ namespace HSH_Desa_y_Test.Forms
                     }
                     conexion.Entry(propiedadAModificar).State = System.Data.Entity.EntityState.Modified;
                     conexion.SaveChanges();
+                    Sesion.vistaPrincipalDeAdmin.vuelveDeModificarPropiedad();
+                    this.Close();
                 }
             }
             else if (result == DialogResult.No)
@@ -101,15 +106,21 @@ namespace HSH_Desa_y_Test.Forms
             if (foto != null) label3.Visible = true;
         }
 
-        private bool mismaDir(Propiedad p1, Propiedad p2)
+        private bool mismaDir(List<Propiedad> listaPropiedades, Propiedad p2)
         {
             bool misma = false;
-            if (p1.id != p2.id)
-                if (p1.ubicaciòn == p2.ubicaciòn)
-                    if (p1.ciudad == p2.ciudad)
-                        if (p1.provincia == p2.provincia)
-                            if (p1.pais == p2.pais)
-                                misma = true;
+            Propiedad aux;
+            for (int i = 0; i < listaPropiedades.Count; i++)
+            {
+                aux = listaPropiedades.ElementAt(i);
+                if (aux.id != p2.id)
+                  if (aux.ubicaciòn == p2.ubicaciòn)
+                    if (aux.ciudad == p2.ciudad)
+                      if (aux.provincia == p2.provincia)
+                        if (aux.pais == p2.pais)
+                            misma = true;
+                if (misma) break;
+            }
             return misma;
         }
 
