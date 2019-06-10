@@ -37,7 +37,7 @@ namespace HSH_Desa_y_Test.ContextoDB
 
         internal static bool ValidarFechaVencimiento(string text)
         {
-            return (DateTime.ParseExact(text, "MM/yy", CultureInfo.InvariantCulture) < DateTime.Today);
+            return (DateTime.ParseExact(text, "MM/yy", CultureInfo.InvariantCulture) > DateTime.Today);
         }
     }
 }
