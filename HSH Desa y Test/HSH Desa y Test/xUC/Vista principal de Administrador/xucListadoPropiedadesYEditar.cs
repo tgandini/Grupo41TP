@@ -31,6 +31,8 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
     gridControl1.DataSource = dbContext.Propiedads.Local.ToBindingList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
         }
+
+        
         public void CargarDatos()
         {
             bindingPropiedad.DataSource = traerPropiedadesDeDb();            
@@ -52,6 +54,15 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
                 xUCDetallePropiedad1.inicializar(idProp);
             }
    
+        }
+
+        private void xucListadoPropiedadesYEditar_Load(object sender, EventArgs e)
+        {
+            if (gridView1.GetFocusedRow() != null)
+            {
+                int idProp = ((Propiedad)gridView1.GetFocusedRow()).id;
+                xUCDetallePropiedad1.inicializar(idProp);
+            }
         }
     }
 }

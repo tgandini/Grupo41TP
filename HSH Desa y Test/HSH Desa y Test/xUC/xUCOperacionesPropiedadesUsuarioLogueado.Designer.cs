@@ -53,7 +53,7 @@
             // 
             this.reservaDirectaLabel.AutoSize = true;
             this.reservaDirectaLabel.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.reservaDirectaLabel.Location = new System.Drawing.Point(520, 23);
+            this.reservaDirectaLabel.Location = new System.Drawing.Point(478, 23);
             this.reservaDirectaLabel.Name = "reservaDirectaLabel";
             this.reservaDirectaLabel.Size = new System.Drawing.Size(173, 21);
             this.reservaDirectaLabel.TabIndex = 1;
@@ -82,7 +82,7 @@
             // 
             this.reservaDirectaButton.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.reservaDirectaButton.Appearance.Options.UseFont = true;
-            this.reservaDirectaButton.Location = new System.Drawing.Point(614, 91);
+            this.reservaDirectaButton.Location = new System.Drawing.Point(524, 91);
             this.reservaDirectaButton.Name = "reservaDirectaButton";
             this.reservaDirectaButton.Size = new System.Drawing.Size(153, 75);
             this.reservaDirectaButton.TabIndex = 5;
@@ -93,7 +93,7 @@
             // 
             this.reservaDirectaComboBox.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.reservaDirectaComboBox.FormattingEnabled = true;
-            this.reservaDirectaComboBox.Location = new System.Drawing.Point(699, 23);
+            this.reservaDirectaComboBox.Location = new System.Drawing.Point(657, 20);
             this.reservaDirectaComboBox.Name = "reservaDirectaComboBox";
             this.reservaDirectaComboBox.Size = new System.Drawing.Size(121, 27);
             this.reservaDirectaComboBox.TabIndex = 6;
@@ -102,7 +102,7 @@
             // 
             this.precioReservaDirectaLabel.AutoSize = true;
             this.precioReservaDirectaLabel.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.precioReservaDirectaLabel.Location = new System.Drawing.Point(520, 56);
+            this.precioReservaDirectaLabel.Location = new System.Drawing.Point(478, 56);
             this.precioReservaDirectaLabel.Name = "precioReservaDirectaLabel";
             this.precioReservaDirectaLabel.Size = new System.Drawing.Size(144, 21);
             this.precioReservaDirectaLabel.TabIndex = 7;
@@ -112,7 +112,7 @@
             // 
             this.montoReservaDirectaLabel.AutoSize = true;
             this.montoReservaDirectaLabel.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.montoReservaDirectaLabel.Location = new System.Drawing.Point(695, 56);
+            this.montoReservaDirectaLabel.Location = new System.Drawing.Point(653, 56);
             this.montoReservaDirectaLabel.Name = "montoReservaDirectaLabel";
             this.montoReservaDirectaLabel.Size = new System.Drawing.Size(74, 21);
             this.montoReservaDirectaLabel.TabIndex = 8;
@@ -131,7 +131,7 @@
             this.Controls.Add(this.reservaDirectaLabel);
             this.Controls.Add(this.subastasLabel);
             this.Name = "xUCOperacionesPropiedadesUsuarioLogueado";
-            this.Size = new System.Drawing.Size(961, 204);
+            this.Size = new System.Drawing.Size(807, 204);
             ((System.ComponentModel.ISupportInitialize)(this.subastasActivasListBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

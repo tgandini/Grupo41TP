@@ -17,6 +17,7 @@ namespace HSH_Desa_y_Test.ContextoDB
             this.contraseña = Ppass;
             this.mail = Pmail;
             this.fecha_nacimiento = DateTime.Parse(PfechaNac);
+            this.fecha_registro = DateTime.Today;
             this.premium = false;
             this.token = 2;
             this.tarjetas = new List<tarjeta>();
