@@ -17,8 +17,6 @@ namespace HSH_Desa_y_Test.Forms
 {
     public partial class xfDarDeBajaPropiedad : DevExpress.XtraEditors.XtraUserControl
     {
-
-        ContextoEntity conec = new ContextoEntity();
         private List<byte[]> foto=null;
         public xfDarDeBajaPropiedad()
         {
@@ -61,8 +59,11 @@ namespace HSH_Desa_y_Test.Forms
         }
 
         private List<Propiedad> llenarTablaConPropiedades()
-        {       
+        {
+            using (ContextoEntity conec = new ContextoEntity())
+            {
                 return conec.Propiedads.ToList();
+            }
         }
 
         private void DarDeBaja_Click(object sender, EventArgs e)
@@ -72,18 +73,21 @@ namespace HSH_Desa_y_Test.Forms
             DialogResult result = MessageBox.Show(st, "Salir", MessageBoxButtons.OKCancel);
             if (result == DialogResult.OK)
             {
-                var propiedadaborrar = conec.Propiedads.Where(p => p.id == propiedadSeleccionado.id).First();
-                var fotito = conec.fotos.Where(p => p.idPropiedad == propiedadaborrar.id).ToList();
-                if (tieneReserva(propiedadaborrar.id))
+                using (ContextoEntity conec = new ContextoEntity())
                 {
-                    if (tieneSubasta(propiedadaborrar.id))
+                    var propiedadaborrar = conec.Propiedads.Where(p => p.id == propiedadSeleccionado.id).First();
+                    var fotito = conec.fotos.Where(p => p.idPropiedad == propiedadaborrar.id).ToList();
+                    if (tieneReserva(propiedadaborrar.id))
                     {
-                        conec.fotos.RemoveRange(fotito);
-                        conec.Propiedads.Remove(propiedadaborrar);
-                        conec.SaveChanges();
-                        bindingSource1.DataSource = llenarTablaConPropiedades();
-                        gridControl1.Update();
-                        inicializar();
+                        if (tieneSubasta(propiedadaborrar.id))
+                        {
+                            conec.fotos.RemoveRange(fotito);
+                            conec.Propiedads.Remove(propiedadaborrar);
+                            conec.SaveChanges();
+                            bindingSource1.DataSource = llenarTablaConPropiedades();
+                            gridControl1.Update();
+                            inicializar();
+                        }
                     }
                 }
             }
@@ -91,10 +95,12 @@ namespace HSH_Desa_y_Test.Forms
 
         private bool tieneSubasta(int idenPropiedad)
         {
-            var subi = conec.subastas.Where(p => p.id_propiedad_subastada == idenPropiedad).ToList();
-            if (subi.Count > 0)
+            using (ContextoEntity conec = new ContextoEntity())
             {
-             
+                var subi = conec.subastas.Where(p => p.id_propiedad_subastada == idenPropiedad).ToList();
+                if (subi.Count > 0)
+                {
+
                     DialogResult result = MessageBox.Show("Tiene subastas activas, desea darla de baja de todas formas?", "Borrar", MessageBoxButtons.OKCancel);
                     if (result == DialogResult.OK)
                     {
@@ -102,18 +108,20 @@ namespace HSH_Desa_y_Test.Forms
                         conec.SaveChanges();
                         return true;
                     }
-                   else return false;
+                    else return false;
                 }
+            }
             return true;
         }
 
         private bool tieneReserva(int idenPropiedad)
         {
-            
-            var subi = conec.ReservaDirectas.Where(p => p.idPropiedad == idenPropiedad).ToList();
-            if (subi.Count > 0)
+            using (ContextoEntity conec = new ContextoEntity())
             {
-              
+                var subi = conec.ReservaDirectas.Where(p => p.idPropiedad == idenPropiedad).ToList();
+                if (subi.Count > 0)
+                {
+
                     DialogResult result = MessageBox.Show("Tiene reservas pendientes, desea darla de baja de todas formas?", "Borrar", MessageBoxButtons.OKCancel);
                     if (result == DialogResult.OK)
                     {
@@ -121,8 +129,9 @@ namespace HSH_Desa_y_Test.Forms
                         conec.SaveChanges();
                         return true;
                     }
-                   else return false;
-                
+                    else return false;
+
+                }
             }
             return true;
         }
