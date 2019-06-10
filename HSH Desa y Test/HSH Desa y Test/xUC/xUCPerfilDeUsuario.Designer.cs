@@ -46,6 +46,8 @@
             this.eliminarTarjetaButton = new DevExpress.XtraEditors.SimpleButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.fechaRegistroControl = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -72,7 +74,7 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 9.7F);
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(86, 185);
+            this.labelControl3.Location = new System.Drawing.Point(85, 176);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(64, 19);
             this.labelControl3.TabIndex = 2;
@@ -82,7 +84,7 @@
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 9.7F);
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(86, 240);
+            this.labelControl4.Location = new System.Drawing.Point(86, 218);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(34, 19);
             this.labelControl4.TabIndex = 3;
@@ -92,7 +94,7 @@
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9.7F);
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(86, 280);
+            this.labelControl5.Location = new System.Drawing.Point(86, 257);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(152, 19);
             this.labelControl5.TabIndex = 4;
@@ -102,7 +104,7 @@
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 9.7F);
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(86, 327);
+            this.labelControl6.Location = new System.Drawing.Point(85, 302);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(150, 19);
             this.labelControl6.TabIndex = 5;
@@ -122,7 +124,7 @@
             // 
             this.apellidoControl.Appearance.Font = new System.Drawing.Font("Tahoma", 9.7F);
             this.apellidoControl.Appearance.Options.UseFont = true;
-            this.apellidoControl.Location = new System.Drawing.Point(363, 185);
+            this.apellidoControl.Location = new System.Drawing.Point(363, 176);
             this.apellidoControl.Name = "apellidoControl";
             this.apellidoControl.Size = new System.Drawing.Size(94, 19);
             this.apellidoControl.TabIndex = 7;
@@ -132,7 +134,7 @@
             // 
             this.mailControl.Appearance.Font = new System.Drawing.Font("Tahoma", 9.7F);
             this.mailControl.Appearance.Options.UseFont = true;
-            this.mailControl.Location = new System.Drawing.Point(363, 240);
+            this.mailControl.Location = new System.Drawing.Point(363, 218);
             this.mailControl.Name = "mailControl";
             this.mailControl.Size = new System.Drawing.Size(94, 19);
             this.mailControl.TabIndex = 8;
@@ -142,7 +144,7 @@
             // 
             this.fechaNacimientoControl.Appearance.Font = new System.Drawing.Font("Tahoma", 9.7F);
             this.fechaNacimientoControl.Appearance.Options.UseFont = true;
-            this.fechaNacimientoControl.Location = new System.Drawing.Point(363, 280);
+            this.fechaNacimientoControl.Location = new System.Drawing.Point(363, 257);
             this.fechaNacimientoControl.Name = "fechaNacimientoControl";
             this.fechaNacimientoControl.Size = new System.Drawing.Size(103, 19);
             this.fechaNacimientoControl.TabIndex = 9;
@@ -152,7 +154,7 @@
             // 
             this.tokenControl.Appearance.Font = new System.Drawing.Font("Tahoma", 9.7F);
             this.tokenControl.Appearance.Options.UseFont = true;
-            this.tokenControl.Location = new System.Drawing.Point(363, 327);
+            this.tokenControl.Location = new System.Drawing.Point(363, 302);
             this.tokenControl.Name = "tokenControl";
             this.tokenControl.Size = new System.Drawing.Size(103, 19);
             this.tokenControl.TabIndex = 10;
@@ -208,7 +210,7 @@
             // 
             this.comboBox1.Font = new System.Drawing.Font("Tahoma", 9.7F);
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(363, 383);
+            this.comboBox1.Location = new System.Drawing.Point(363, 380);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(251, 27);
             this.comboBox1.TabIndex = 17;
@@ -224,10 +226,32 @@
             this.simpleButton1.Text = "¡Quiero ser Premium!";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
+            // fechaRegistroControl
+            // 
+            this.fechaRegistroControl.Appearance.Font = new System.Drawing.Font("Tahoma", 9.7F);
+            this.fechaRegistroControl.Appearance.Options.UseFont = true;
+            this.fechaRegistroControl.Location = new System.Drawing.Point(363, 345);
+            this.fechaRegistroControl.Name = "fechaRegistroControl";
+            this.fechaRegistroControl.Size = new System.Drawing.Size(103, 19);
+            this.fechaRegistroControl.TabIndex = 19;
+            this.fechaRegistroControl.Text = "labelControl12";
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 9.7F);
+            this.labelControl9.Appearance.Options.UseFont = true;
+            this.labelControl9.Location = new System.Drawing.Point(86, 345);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(131, 19);
+            this.labelControl9.TabIndex = 20;
+            this.labelControl9.Text = "Fecha de Registro:";
+            // 
             // xUCPerfilDeUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelControl9);
+            this.Controls.Add(this.fechaRegistroControl);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.eliminarTarjetaButton);
@@ -273,5 +297,7 @@
         private DevExpress.XtraEditors.SimpleButton eliminarTarjetaButton;
         private System.Windows.Forms.ComboBox comboBox1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.LabelControl fechaRegistroControl;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
     }
 }

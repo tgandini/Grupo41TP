@@ -30,6 +30,7 @@ namespace HSH_Desa_y_Test.xUC
             mailControl.Text = Sesion.user.mail;
             fechaNacimientoControl.Text = Sesion.user.fecha_nacimiento.Date.ToString("dd/MM/yyyy");
             tokenControl.Text = Sesion.user.token.ToString();
+            fechaRegistroControl.Text = Sesion.user.fecha_registro.Date.ToString("dd/MM/yyyy");
             tar = llenarConTarjetas(Sesion.user.mail);
             List<string> numT = new List<string>();
             foreach (tarjeta num in tar)

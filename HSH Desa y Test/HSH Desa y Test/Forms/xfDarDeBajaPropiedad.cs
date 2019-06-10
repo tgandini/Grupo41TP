@@ -17,8 +17,6 @@ namespace HSH_Desa_y_Test.Forms
 {
     public partial class xfDarDeBajaPropiedad : DevExpress.XtraEditors.XtraUserControl
     {
-
-        ContextoEntity conec = new ContextoEntity();
         private List<byte[]> foto=null;
         public xfDarDeBajaPropiedad()
         {
@@ -45,17 +43,12 @@ namespace HSH_Desa_y_Test.Forms
                 gridView1.Columns.ColumnByFieldName("id").OptionsColumn.AllowEdit = false;
                 simpleButton2.Enabled = true;
                 simpleButton1.Enabled = true;
-                agregarFotoButton.Enabled = true;
-                eliminarFotoButton.Enabled = true;
             }
             else
             {
                 noHayPropiedades.Visible = true;
                 simpleButton1.Enabled = false;
                 simpleButton2.Enabled = false;
-                agregarFotoButton.Enabled = false;
-                eliminarFotoButton.Enabled = false;
-                label3.Visible = false;
                 foto = null;
             }
         }
@@ -65,7 +58,6 @@ namespace HSH_Desa_y_Test.Forms
             using (ContextoEntity conec = new ContextoEntity())
             {
                 return conec.Propiedads.ToList();
-
             }
         }
 
@@ -76,18 +68,21 @@ namespace HSH_Desa_y_Test.Forms
             DialogResult result = MessageBox.Show(st, "Salir", MessageBoxButtons.OKCancel);
             if (result == DialogResult.OK)
             {
-                var propiedadaborrar = conec.Propiedads.Where(p => p.id == propiedadSeleccionado.id).First();
-                var fotito = conec.fotos.Where(p => p.idPropiedad == propiedadaborrar.id).ToList();
-                if (tieneReserva(propiedadaborrar.id))
+                using (ContextoEntity conec = new ContextoEntity())
                 {
-                    if (tieneSubasta(propiedadaborrar.id))
+                    var propiedadaborrar = conec.Propiedads.Where(p => p.id == propiedadSeleccionado.id).First();
+                    var fotito = conec.fotos.Where(p => p.idPropiedad == propiedadaborrar.id).ToList();
+                    if (tieneReserva(propiedadaborrar.id))
                     {
-                        conec.fotos.RemoveRange(fotito);
-                        conec.Propiedads.Remove(propiedadaborrar);
-                        conec.SaveChanges();
-                        bindingSource1.DataSource = llenarTablaConPropiedades();
-                        gridControl1.Update();
-                        inicializar();
+                        if (tieneSubasta(propiedadaborrar.id))
+                        {
+                            conec.fotos.RemoveRange(fotito);
+                            conec.Propiedads.Remove(propiedadaborrar);
+                            conec.SaveChanges();
+                            bindingSource1.DataSource = llenarTablaConPropiedades();
+                            gridControl1.Update();
+                            inicializar();
+                        }
                     }
                 }
             }
@@ -95,10 +90,12 @@ namespace HSH_Desa_y_Test.Forms
 
         private bool tieneSubasta(int idenPropiedad)
         {
-            var subi = conec.subastas.Where(p => p.id_propiedad_subastada == idenPropiedad).ToList();
-            if (subi.Count > 0)
+            using (ContextoEntity conec = new ContextoEntity())
             {
-             
+                var subi = conec.subastas.Where(p => p.id_propiedad_subastada == idenPropiedad).ToList();
+                if (subi.Count > 0)
+                {
+
                     DialogResult result = MessageBox.Show("Tiene subastas activas, desea darla de baja de todas formas?", "Borrar", MessageBoxButtons.OKCancel);
                     if (result == DialogResult.OK)
                     {
@@ -106,18 +103,20 @@ namespace HSH_Desa_y_Test.Forms
                         conec.SaveChanges();
                         return true;
                     }
-                   else return false;
+                    else return false;
                 }
+            }
             return true;
         }
 
         private bool tieneReserva(int idenPropiedad)
         {
-            
-            var subi = conec.ReservaDirectas.Where(p => p.idPropiedad == idenPropiedad).ToList();
-            if (subi.Count > 0)
+            using (ContextoEntity conec = new ContextoEntity())
             {
-              
+                var subi = conec.ReservaDirectas.Where(p => p.idPropiedad == idenPropiedad).ToList();
+                if (subi.Count > 0)
+                {
+
                     DialogResult result = MessageBox.Show("Tiene reservas pendientes, desea darla de baja de todas formas?", "Borrar", MessageBoxButtons.OKCancel);
                     if (result == DialogResult.OK)
                     {
@@ -125,8 +124,9 @@ namespace HSH_Desa_y_Test.Forms
                         conec.SaveChanges();
                         return true;
                     }
-                   else return false;
-                
+                    else return false;
+
+                }
             }
             return true;
         }
@@ -138,27 +138,16 @@ namespace HSH_Desa_y_Test.Forms
                 modificarPropiedad.Show(); 
         }
 
-        private void agregarFotoButton_Click(object sender, EventArgs e)
-        {
-            using (xfAgregarImagenes agreg = new xfAgregarImagenes())
-            {
-                agreg.ShowDialog();
-                foto = agreg.GetMyResult();
-            }
-            if (foto != null) label3.Visible = true;
-        }
-
-        private void eliminarFotoButton_Click(object sender, EventArgs e)
-        {
-            Propiedad propiedadSeleccionado = (Propiedad)gridView1.GetFocusedRow();
-            xfEliminarFoto el = new xfEliminarFoto();
-            el.inicializar(propiedadSeleccionado.id);
-        }
-
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             if ((Propiedad)gridView1.GetFocusedRow() != null) simpleButton1.Enabled = true;
             else simpleButton1.Enabled = false;
+        }
+
+        public void vuelveDeModificar()
+        {
+            gridControl1.Update();
+            inicializar();
         }
     }
 }
