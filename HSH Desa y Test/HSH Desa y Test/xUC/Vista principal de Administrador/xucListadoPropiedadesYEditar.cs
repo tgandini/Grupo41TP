@@ -12,6 +12,7 @@ using System.Data.Entity;
 using HSH_Desa_y_Test.ContextoDB;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
+using HSH_Desa_y_Test.Modelo_Expandido;
 
 namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
 {
@@ -48,20 +49,22 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (gridView1.GetFocusedRow() != null)
+            if (gridView1.GetFocusedRow() != null && Sesion.user != null)
             {
                 int idProp = ((Propiedad)gridView1.GetFocusedRow()).id;
                 xUCDetallePropiedad1.inicializar(idProp);
+                this.xUCOperacionesPropiedadesUsuarioLogueado1.inicializar((Propiedad)gridView1.GetFocusedRow());
             }
    
         }
 
         private void xucListadoPropiedadesYEditar_Load(object sender, EventArgs e)
         {
-            if (gridView1.GetFocusedRow() != null)
+            if (gridView1.GetFocusedRow() != null && Sesion.user != null)
             {
                 int idProp = ((Propiedad)gridView1.GetFocusedRow()).id;
                 xUCDetallePropiedad1.inicializar(idProp);
+                this.xUCOperacionesPropiedadesUsuarioLogueado1.inicializar((Propiedad)gridView1.GetFocusedRow());
             }
         }
     }

@@ -38,6 +38,7 @@
             this.colubicaciòn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltipo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colhabitaciones = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.xUCOperacionesPropiedadesUsuarioLogueado1 = new HSH_Desa_y_Test.xUC.xUCOperacionesPropiedadesUsuarioLogueado();
             ((System.ComponentModel.ISupportInitialize)(this.bindingPropiedad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -134,10 +135,18 @@
             this.colhabitaciones.VisibleIndex = 4;
             this.colhabitaciones.Width = 51;
             // 
+            // xUCOperacionesPropiedadesUsuarioLogueado1
+            // 
+            this.xUCOperacionesPropiedadesUsuarioLogueado1.Location = new System.Drawing.Point(572, 362);
+            this.xUCOperacionesPropiedadesUsuarioLogueado1.Name = "xUCOperacionesPropiedadesUsuarioLogueado1";
+            this.xUCOperacionesPropiedadesUsuarioLogueado1.Size = new System.Drawing.Size(807, 204);
+            this.xUCOperacionesPropiedadesUsuarioLogueado1.TabIndex = 3;
+            // 
             // xucListadoPropiedadesYEditar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.xUCOperacionesPropiedadesUsuarioLogueado1);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.xUCDetallePropiedad1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -161,5 +170,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colubicaciòn;
         private DevExpress.XtraGrid.Columns.GridColumn coltipo;
         private DevExpress.XtraGrid.Columns.GridColumn colhabitaciones;
+        private xUCOperacionesPropiedadesUsuarioLogueado xUCOperacionesPropiedadesUsuarioLogueado1;
     }
 }
