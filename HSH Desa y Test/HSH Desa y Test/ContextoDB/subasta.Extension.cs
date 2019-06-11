@@ -4,18 +4,19 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HSH_Desa_y_Test.ContextoDB
 {
     public partial class subasta
     {
-        public subasta( int semana, String monto, DateTime fechaInicio)
+        public subasta( int semana, String monto, DateTime fechaInicio, int idDePropiedadParaSubastar)
         {
             this.semana_de_subasta = semana;
             this.monto_inicial = Convert.ToDecimal(monto);
             this.fecha_inicio = fechaInicio;
             this.fecha_fin = fechaInicio.AddDays(3);
-
+            this.id_propiedad_subastada = idDePropiedadParaSubastar;
         }
 
         public void crear()
@@ -61,6 +62,23 @@ namespace HSH_Desa_y_Test.ContextoDB
                     conec.SaveChanges();
                 }
                 return false;
+            }
+        }
+        public bool guardarEnBD()
+        {
+            using (ContextoEntity conec = new ContextoEntity())
+            {
+                try
+                {
+                    conec.subastas.Add(this);
+                    conec.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    MessageBox.Show("Hubo un error en el guardado de la base de datos");
+                    return false;
+                }
             }
         }
     }

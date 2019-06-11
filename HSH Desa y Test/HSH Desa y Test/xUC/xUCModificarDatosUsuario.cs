@@ -66,7 +66,7 @@ namespace HSH_Desa_y_Test.xUC
                     conexion.Entry(usuarioAModificar).State = System.Data.Entity.EntityState.Modified;
                     conexion.SaveChanges();
                 }
-                Sesion.vistaPrincipalDeAdmin.vuelveDeModificar();
+                Sesion.vistaPrincipalDeAdmin.vuelveDeModificarPropiedad();
                     this.Close();
                 
             }
