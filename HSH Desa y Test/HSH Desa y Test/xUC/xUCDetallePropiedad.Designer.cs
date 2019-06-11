@@ -38,7 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
-            this.xUCOperacionesPropiedadesUsuarioLogueado1 = new HSH_Desa_y_Test.xUC.xUCOperacionesPropiedadesUsuarioLogueado();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
             this.SuspendLayout();
@@ -147,23 +146,15 @@
             this.imageSlider1.TabIndex = 1;
             this.imageSlider1.Text = "imageSlider1";
             // 
-            // xUCOperacionesPropiedadesUsuarioLogueado1
-            // 
-            this.xUCOperacionesPropiedadesUsuarioLogueado1.Location = new System.Drawing.Point(0, 320);
-            this.xUCOperacionesPropiedadesUsuarioLogueado1.Name = "xUCOperacionesPropiedadesUsuarioLogueado1";
-            this.xUCOperacionesPropiedadesUsuarioLogueado1.Size = new System.Drawing.Size(961, 204);
-            this.xUCOperacionesPropiedadesUsuarioLogueado1.TabIndex = 2;
-            // 
             // xUCDetallePropiedad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.xUCOperacionesPropiedadesUsuarioLogueado1);
             this.Controls.Add(this.imageSlider1);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "xUCDetallePropiedad";
-            this.Size = new System.Drawing.Size(961, 527);
+            this.Size = new System.Drawing.Size(961, 318);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
@@ -183,6 +174,5 @@
         private DevExpress.XtraEditors.Controls.ImageSlider imageSlider1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private xUCOperacionesPropiedadesUsuarioLogueado xUCOperacionesPropiedadesUsuarioLogueado1;
     }
 }
