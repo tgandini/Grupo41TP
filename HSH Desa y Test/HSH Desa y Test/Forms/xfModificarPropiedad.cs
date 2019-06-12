@@ -16,7 +16,7 @@ namespace HSH_Desa_y_Test.Forms
     public partial class xfModificarPropiedad : DevExpress.XtraEditors.XtraForm
     {
         Propiedad propiedadAModificar = null;
-        private List<byte[]> foto = null;
+        private List<byte[]> fotos = null;
 
         public xfModificarPropiedad()
         {
@@ -79,6 +79,16 @@ namespace HSH_Desa_y_Test.Forms
                         MessageBox.Show("Ningun campo puede estar vacio.");
                         return;
                     }
+                    if (fotos != null)
+                    {
+                        label3.Visible = true;
+                        foreach (byte[] b in fotos)
+                        {
+                            foto ima = new foto(propiedadAModificar.id, b);
+                            conexion.fotos.Add(ima);
+                        }
+                    }
+                    fotos = null;
                     conexion.Entry(propiedadAModificar).State = System.Data.Entity.EntityState.Modified;
                     conexion.SaveChanges();
                     Sesion.vistaPrincipalDeAdmin.vuelveDeModificarPropiedad();
@@ -101,9 +111,9 @@ namespace HSH_Desa_y_Test.Forms
             using (xfAgregarImagenes agregarImagenes = new xfAgregarImagenes())
             {
                 agregarImagenes.ShowDialog();
-                foto = agregarImagenes.GetMyResult();
+                fotos = agregarImagenes.GetMyResult();
             }
-            if (foto != null) label3.Visible = true;
+            if (fotos != null) label3.Visible = true;             
         }
 
         private bool mismaDir(List<Propiedad> listaPropiedades, Propiedad p2)
