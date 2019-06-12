@@ -30,6 +30,7 @@
           <Property Name="fechaFin" Type="datetime" Nullable="false" />
           <Property Name="monto" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="semanaReservada" Type="int" Nullable="false" />
+          <Property Name="añoReservado" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Propiedad">
           <Key>
@@ -59,6 +60,7 @@
           <Property Name="semanaReservada" Type="int" Nullable="false" />
           <Property Name="fechaReservada" Type="datetime" Nullable="false" />
           <Property Name="monto" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="añoReservado" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="subasta">
           <Key>
@@ -70,6 +72,7 @@
           <Property Name="monto_inicial" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_propiedad_subastada" Type="int" Nullable="false" />
+          <Property Name="añoReservado" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tarjetas">
           <Key>
@@ -139,18 +142,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_tarjetas_Usuario">
-          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
-          <End Role="tarjetas" Type="Self.tarjetas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuario">
-              <PropertyRef Name="mail" />
-            </Principal>
-            <Dependent Role="tarjetas">
-              <PropertyRef Name="idPersona" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FkPersona">
           <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
           <End Role="usuarioParticipaEnSubasta" Type="Self.usuarioParticipaEnSubasta" Multiplicity="*" />
@@ -160,18 +151,6 @@
             </Principal>
             <Dependent Role="usuarioParticipaEnSubasta">
               <PropertyRef Name="idPersona" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FkPropiedad">
-          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="1" />
-          <End Role="HotSales" Type="Self.HotSales" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Propiedad">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="HotSales">
-              <PropertyRef Name="idPropiedad" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -199,42 +178,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FKUsuario">
-          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
-          <End Role="HotSales" Type="Self.HotSales" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuario">
-              <PropertyRef Name="mail" />
-            </Principal>
-            <Dependent Role="HotSales">
-              <PropertyRef Name="idUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FkUsuarioReserva">
-          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
-          <End Role="ReservaDirecta" Type="Self.ReservaDirecta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuario">
-              <PropertyRef Name="mail" />
-            </Principal>
-            <Dependent Role="ReservaDirecta">
-              <PropertyRef Name="idUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="idPropiedad">
-          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="1" />
-          <End Role="fotos" Type="Self.fotos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Propiedad">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="fotos">
-              <PropertyRef Name="idPropiedad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="ModeloStoreContainer">
           <EntitySet Name="admins" EntityType="Self.admins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="fotos" EntityType="Self.fotos" Schema="dbo" store:Type="Tables" />
@@ -257,17 +200,9 @@
             <End Role="admins" EntitySet="admins" />
             <End Role="Propiedad" EntitySet="Propiedad" />
           </AssociationSet>
-          <AssociationSet Name="FK_tarjetas_Usuario" Association="Self.FK_tarjetas_Usuario">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="tarjetas" EntitySet="tarjetas" />
-          </AssociationSet>
           <AssociationSet Name="FkPersona" Association="Self.FkPersona">
             <End Role="usuario" EntitySet="usuario" />
             <End Role="usuarioParticipaEnSubasta" EntitySet="usuarioParticipaEnSubasta" />
-          </AssociationSet>
-          <AssociationSet Name="FkPropiedad" Association="Self.FkPropiedad">
-            <End Role="Propiedad" EntitySet="Propiedad" />
-            <End Role="HotSales" EntitySet="HotSales" />
           </AssociationSet>
           <AssociationSet Name="FkPropReservaDirecta" Association="Self.FkPropReservaDirecta">
             <End Role="Propiedad" EntitySet="Propiedad" />
@@ -276,18 +211,6 @@
           <AssociationSet Name="FKSubasta" Association="Self.FKSubasta">
             <End Role="subasta" EntitySet="subasta" />
             <End Role="usuarioParticipaEnSubasta" EntitySet="usuarioParticipaEnSubasta" />
-          </AssociationSet>
-          <AssociationSet Name="FKUsuario" Association="Self.FKUsuario">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="HotSales" EntitySet="HotSales" />
-          </AssociationSet>
-          <AssociationSet Name="FkUsuarioReserva" Association="Self.FkUsuarioReserva">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="ReservaDirecta" EntitySet="ReservaDirecta" />
-          </AssociationSet>
-          <AssociationSet Name="idPropiedad" Association="Self.idPropiedad">
-            <End Role="Propiedad" EntitySet="Propiedad" />
-            <End Role="fotos" EntitySet="fotos" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -324,6 +247,7 @@
           <Property Name="semanaReservada" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Propiedad" Relationship="Self.FkPropiedad" FromRole="HotSales" ToRole="Propiedad" />
           <NavigationProperty Name="usuario" Relationship="Self.FKUsuario" FromRole="HotSales" ToRole="usuario" />
+          <Property Name="añoReservado" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Propiedad">
           <Key>
@@ -361,6 +285,7 @@
           <Property Name="monto" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <NavigationProperty Name="Propiedad" Relationship="Self.FkPropReservaDirecta" FromRole="ReservaDirecta" ToRole="Propiedad" />
           <NavigationProperty Name="usuario" Relationship="Self.FkUsuarioReserva" FromRole="ReservaDirecta" ToRole="usuario" />
+          <Property Name="añoReservado" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="subasta">
           <Key>
@@ -374,6 +299,7 @@
           <Property Name="id_propiedad_subastada" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Propiedad" Relationship="Self.fk_Propiedad_Subastada" FromRole="subasta" ToRole="Propiedad" />
           <NavigationProperty Name="usuarioParticipaEnSubastas" Relationship="Self.FKSubasta" FromRole="subasta" ToRole="usuarioParticipaEnSubasta" />
+          <Property Name="añoReservado" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="tarjeta">
           <Key>
@@ -626,6 +552,7 @@
           <EntitySetMapping Name="HotSales">
             <EntityTypeMapping TypeName="Modelo.HotSale">
               <MappingFragment StoreEntitySet="HotSales">
+                <ScalarProperty Name="añoReservado" ColumnName="añoReservado" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
                 <ScalarProperty Name="idPropiedad" ColumnName="idPropiedad" />
@@ -658,6 +585,7 @@
           <EntitySetMapping Name="ReservaDirectas">
             <EntityTypeMapping TypeName="Modelo.ReservaDirecta">
               <MappingFragment StoreEntitySet="ReservaDirecta">
+                <ScalarProperty Name="añoReservado" ColumnName="añoReservado" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
                 <ScalarProperty Name="idPropiedad" ColumnName="idPropiedad" />
@@ -670,6 +598,7 @@
           <EntitySetMapping Name="subastas">
             <EntityTypeMapping TypeName="Modelo.subasta">
               <MappingFragment StoreEntitySet="subasta">
+                <ScalarProperty Name="añoReservado" ColumnName="añoReservado" />
                 <ScalarProperty Name="semana_de_subasta" ColumnName="semana_de_subasta" />
                 <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
                 <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />

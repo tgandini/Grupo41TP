@@ -63,7 +63,7 @@ namespace HSH_Desa_y_Test.ContextoDB
             }
 
         }
-        internal bool estaLibre(int semana, int año)
+        internal bool EstaLibre(int semana, int año)
         {
             Propiedad propDeDb;
             using (ContextoEntity conec = new ContextoEntity())
@@ -75,17 +75,17 @@ namespace HSH_Desa_y_Test.ContextoDB
                     .Where(p => p.id == this.id).FirstOrDefault();
             }
             DateTime diaParaCheckear = Semanizador.LunesDeSemana(año, semana);
-            if (propDeDb.ReservaDirectas.Any(p=> p.fechaReservada == diaParaCheckear))
+            if (propDeDb.ReservaDirectas.Any(p=> p.semanaReservada == semana && p.añoReservado==año))
             {
                 //MessageBox.Show("Existe una reserva directa para la semana indicada");
                 return false;
             }
-            else if (propDeDb.subastas.Any(p=> p.semana_de_subasta==semana))
+            else if (propDeDb.subastas.Any(p=> p.semana_de_subasta== semana && p.añoReservado == año))
             {
                 //MessageBox.Show("Existe una subasta para la semana indicada");
                 return false;
             }
-            else if (propDeDb.HotSales.Any(p=> p.semanaReservada == semana))
+            else if (propDeDb.HotSales.Any(p=> p.semanaReservada == semana && p.añoReservado == año))
             {
                 //MessageBox.Show("Existe ya un hotsale para la semana indicada");
                 return false;
@@ -104,12 +104,12 @@ namespace HSH_Desa_y_Test.ContextoDB
             {
                 for (i = primeraSemana; i <= 52; i++)
                 {
-                    if (this.estaLibre(i, DateTime.Now.Year))
+                    if (this.EstaLibre(i, DateTime.Now.Year))
                         st.Add(string.Concat("Semana ", i, " de ", DateTime.Now.Year));
                 }
                 for (i = 1; i <= ultimaSemana; i++)
                 {
-                    if (this.estaLibre(i, DateTime.Now.Year + 1))
+                    if (this.EstaLibre(i, DateTime.Now.Year + 1))
                         st.Add(string.Concat("Semana ", i, " de ", DateTime.Now.Year + 1));
                 }
             }
@@ -119,7 +119,7 @@ namespace HSH_Desa_y_Test.ContextoDB
                 {
                     for (i = primeraSemana; i <= ultimaSemana; i++)
                     {
-                        if (this.estaLibre(i, DateTime.Now.Year))
+                        if (this.EstaLibre(i, DateTime.Now.Year))
                             st.Add(string.Concat("Semana ", i, " de ", DateTime.Now.Year));
                     }
                 }
@@ -127,7 +127,7 @@ namespace HSH_Desa_y_Test.ContextoDB
                 {
                     for (i = primeraSemana; i <= ultimaSemana; i++)
                     {
-                        if (this.estaLibre(i, DateTime.Now.Year + 1))
+                        if (this.EstaLibre(i, DateTime.Now.Year + 1))
                             st.Add(string.Concat("Semana ", i, " de ", DateTime.Now.Year + 1));
                     }
                 }

@@ -61,7 +61,7 @@ namespace HSH_Desa_y_Test.Forms
                     if (DateTime.Parse(maskedTextBox2.Text) >= (DateTime.Now))
                     {
                         DateTime fechaSemana = Semanizador.LunesDeSemana(int.Parse(comboBox2.SelectedItem.ToString()), int.Parse(numericUpDown1.Value.ToString()));                 
-                        if (st.estaLibre(decimal.ToInt32(numericUpDown1.Value), fechaSemana.Year))
+                        if (st.EstaLibre(decimal.ToInt32(numericUpDown1.Value), fechaSemana.Year))
                         {
                             if (fechaSemana > DateTime.Parse(maskedTextBox2.Text).AddMonths(6))
                             {
