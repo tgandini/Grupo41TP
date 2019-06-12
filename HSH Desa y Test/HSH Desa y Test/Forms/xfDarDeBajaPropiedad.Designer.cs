@@ -53,9 +53,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(221, 16);
+            this.label1.Location = new System.Drawing.Point(258, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(278, 33);
+            this.label1.Size = new System.Drawing.Size(347, 41);
             this.label1.TabIndex = 1;
             this.label1.Text = "Modificacion y Baja";
             // 
@@ -63,10 +63,10 @@
             // 
             this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 13F);
             this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.Location = new System.Drawing.Point(455, 357);
+            this.simpleButton2.Location = new System.Drawing.Point(531, 439);
             this.simpleButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(196, 49);
+            this.simpleButton2.Size = new System.Drawing.Size(229, 60);
             this.simpleButton2.TabIndex = 34;
             this.simpleButton2.Text = "Modificar Informacion";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
@@ -75,10 +75,10 @@
             // 
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 13F);
             this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(83, 357);
+            this.simpleButton1.Location = new System.Drawing.Point(97, 439);
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(196, 49);
+            this.simpleButton1.Size = new System.Drawing.Size(229, 60);
             this.simpleButton1.TabIndex = 35;
             this.simpleButton1.Text = "Dar de Baja";
             this.simpleButton1.Click += new System.EventHandler(this.DarDeBaja_Click);
@@ -88,19 +88,21 @@
             this.noHayPropiedades.AutoSize = true;
             this.noHayPropiedades.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Bold);
             this.noHayPropiedades.ForeColor = System.Drawing.Color.Red;
-            this.noHayPropiedades.Location = new System.Drawing.Point(66, 321);
+            this.noHayPropiedades.Location = new System.Drawing.Point(77, 395);
             this.noHayPropiedades.Name = "noHayPropiedades";
-            this.noHayPropiedades.Size = new System.Drawing.Size(238, 18);
+            this.noHayPropiedades.Size = new System.Drawing.Size(305, 23);
             this.noHayPropiedades.TabIndex = 37;
             this.noHayPropiedades.Text = "No hay propiedades guardadas";
             // 
             // gridControl1
             // 
             this.gridControl1.DataSource = typeof(HSH_Desa_y_Test.ContextoDB.Propiedad);
-            this.gridControl1.Location = new System.Drawing.Point(14, 52);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gridControl1.Location = new System.Drawing.Point(16, 64);
             this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(852, 249);
+            this.gridControl1.Size = new System.Drawing.Size(994, 306);
             this.gridControl1.TabIndex = 39;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -116,6 +118,7 @@
             this.colhabitaciones,
             this.coladminQueDioDeAltaProp,
             this.colfechaAlta});
+            this.gridView1.DetailHeight = 431;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -132,69 +135,85 @@
             // 
             this.colid.Caption = "Id";
             this.colid.FieldName = "id";
+            this.colid.MinWidth = 23;
             this.colid.Name = "colid";
             this.colid.Visible = true;
             this.colid.VisibleIndex = 0;
+            this.colid.Width = 87;
             // 
             // colnombre
             // 
             this.colnombre.Caption = "Nombre";
             this.colnombre.FieldName = "nombre";
+            this.colnombre.MinWidth = 23;
             this.colnombre.Name = "colnombre";
             this.colnombre.Visible = true;
             this.colnombre.VisibleIndex = 1;
+            this.colnombre.Width = 87;
             // 
             // colciudad
             // 
             this.colciudad.Caption = "Ciudad";
             this.colciudad.FieldName = "ciudad";
+            this.colciudad.MinWidth = 23;
             this.colciudad.Name = "colciudad";
             this.colciudad.Visible = true;
             this.colciudad.VisibleIndex = 3;
+            this.colciudad.Width = 87;
             // 
             // colubicaciòn
             // 
             this.colubicaciòn.Caption = "Ubicación";
             this.colubicaciòn.FieldName = "ubicaciòn";
+            this.colubicaciòn.MinWidth = 23;
             this.colubicaciòn.Name = "colubicaciòn";
             this.colubicaciòn.Visible = true;
             this.colubicaciòn.VisibleIndex = 2;
+            this.colubicaciòn.Width = 87;
             // 
             // coltipo
             // 
             this.coltipo.Caption = "Tipo";
             this.coltipo.FieldName = "tipo";
+            this.coltipo.MinWidth = 23;
             this.coltipo.Name = "coltipo";
             this.coltipo.Visible = true;
             this.coltipo.VisibleIndex = 5;
+            this.coltipo.Width = 87;
             // 
             // colhabitaciones
             // 
             this.colhabitaciones.Caption = "Habitaciones";
             this.colhabitaciones.FieldName = "habitaciones";
+            this.colhabitaciones.MinWidth = 23;
             this.colhabitaciones.Name = "colhabitaciones";
             this.colhabitaciones.Visible = true;
             this.colhabitaciones.VisibleIndex = 4;
+            this.colhabitaciones.Width = 87;
             // 
             // coladminQueDioDeAltaProp
             // 
             this.coladminQueDioDeAltaProp.Caption = "Admin alta";
             this.coladminQueDioDeAltaProp.FieldName = "adminQueDioDeAltaProp";
+            this.coladminQueDioDeAltaProp.MinWidth = 23;
             this.coladminQueDioDeAltaProp.Name = "coladminQueDioDeAltaProp";
             this.coladminQueDioDeAltaProp.Visible = true;
             this.coladminQueDioDeAltaProp.VisibleIndex = 6;
+            this.coladminQueDioDeAltaProp.Width = 87;
             // 
             // colfechaAlta
             // 
             this.colfechaAlta.Caption = "Fecha Alta";
             this.colfechaAlta.FieldName = "fechaAlta";
+            this.colfechaAlta.MinWidth = 23;
             this.colfechaAlta.Name = "colfechaAlta";
             this.colfechaAlta.Visible = true;
             this.colfechaAlta.VisibleIndex = 7;
+            this.colfechaAlta.Width = 87;
             // 
             // xfDarDeBajaPropiedad
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.noHayPropiedades);
@@ -203,7 +222,8 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "xfDarDeBajaPropiedad";
-            this.Size = new System.Drawing.Size(883, 415);
+            this.Size = new System.Drawing.Size(1030, 511);
+            this.Load += new System.EventHandler(this.xfDarDeBajaPropiedad_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

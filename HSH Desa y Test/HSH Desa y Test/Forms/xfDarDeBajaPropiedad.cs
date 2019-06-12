@@ -17,6 +17,7 @@ namespace HSH_Desa_y_Test.Forms
 {
     public partial class xfDarDeBajaPropiedad : DevExpress.XtraEditors.XtraUserControl
     {
+        private List<ReservaDirecta> res = null;
         private List<byte[]> foto=null;
         public xfDarDeBajaPropiedad()
         {
@@ -35,8 +36,8 @@ namespace HSH_Desa_y_Test.Forms
         public void inicializar()
         {
             bindingSource1.DataSource = llenarTablaConPropiedades();
+            gridControl1.DataSource = bindingSource1.DataSource;
             gridView1.OptionsBehavior.Editable = false;
-
             if (bindingSource1.Count >= 1)
             {
                 noHayPropiedades.Visible = false;
@@ -76,12 +77,26 @@ namespace HSH_Desa_y_Test.Forms
                     {
                         if (tieneSubasta(propiedadaborrar.id))
                         {
+                            if (res != null)
+                            {
+                                foreach(ReservaDirecta r in res)
+                                {
+                                    if(DateTime.Now.AddMonths(6) <= r.fechaReservada)
+                                    {
+                                        var us = conec.usuarios.Where(p => p.mail == r.idUsuario).First();
+                                        us.token++;
+                                    }
+                                    var re = conec.ReservaDirectas.Where(p=> p.id == r.id).First();
+                                    conec.ReservaDirectas.Remove(re);
+                                    conec.SaveChanges();
+                                }
+                                res = null;
+                            }
                             conec.fotos.RemoveRange(fotito);
                             conec.Propiedads.Remove(propiedadaborrar);
                             conec.SaveChanges();
-                            bindingSource1.DataSource = llenarTablaConPropiedades();
-                            gridControl1.Update();
                             inicializar();
+                            gridControl1.Update();
                         }
                     }
                 }
@@ -113,14 +128,12 @@ namespace HSH_Desa_y_Test.Forms
         {
             using (ContextoEntity conec = new ContextoEntity())
             {
-                var subi = conec.ReservaDirectas.Where(p => p.idPropiedad == idenPropiedad).ToList();
-                if (subi.Count > 0)
+                res = conec.ReservaDirectas.Where(p => p.idPropiedad == idenPropiedad).ToList();
+                if (res.Count > 0)
                 {
                     DialogResult result = MessageBox.Show("Tiene reservas pendientes, desea darla de baja de todas formas?", "Borrar", MessageBoxButtons.OKCancel);
                     if (result == DialogResult.OK)
-                    {
-                        conec.ReservaDirectas.RemoveRange(subi);
-                        conec.SaveChanges();
+                    {                        
                         return true;
                     }
                     else return false;
@@ -132,9 +145,32 @@ namespace HSH_Desa_y_Test.Forms
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-                Propiedad propiedadSeleccionada = (Propiedad)gridView1.GetFocusedRow();
+            Propiedad propiedadSeleccionada = (Propiedad)gridView1.GetFocusedRow();
+            List<subasta> subs;
+            bool b = true;
+            subasta act;
+            using (ContextoEntity conec = new ContextoEntity())
+            {
+               subs = conec.subastas.Where(p => p.id_propiedad_subastada == propiedadSeleccionada.id).ToList();
+                if (subs != null)
+                {
+                    foreach (subasta s in subs)
+                    {
+                        if (s.estaActiva())
+                        {
+                            b = false;
+                            act = s;
+                            MessageBox.Show(string.Format("La propiedad esta en subasata hasta {0}", act.fecha_inicio.AddDays(3).Date));
+                            break;
+                        }
+                    }
+                }
+            }
+            if (b)
+            {
                 xfModificarPropiedad modificarPropiedad = new xfModificarPropiedad(propiedadSeleccionada.id);
-                modificarPropiedad.Show(); 
+                modificarPropiedad.Show();
+            }
         }
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -146,6 +182,11 @@ namespace HSH_Desa_y_Test.Forms
         public void vuelveDeModificar()
         {
             gridControl1.Update();
+            inicializar();
+        }
+
+        private void xfDarDeBajaPropiedad_Load(object sender, EventArgs e)
+        {
             inicializar();
         }
     }
