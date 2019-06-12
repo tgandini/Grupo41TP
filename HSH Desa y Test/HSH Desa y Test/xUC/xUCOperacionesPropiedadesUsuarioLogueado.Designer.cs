@@ -53,7 +53,7 @@
             // 
             this.reservaDirectaLabel.AutoSize = true;
             this.reservaDirectaLabel.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.reservaDirectaLabel.Location = new System.Drawing.Point(478, 23);
+            this.reservaDirectaLabel.Location = new System.Drawing.Point(453, 23);
             this.reservaDirectaLabel.Name = "reservaDirectaLabel";
             this.reservaDirectaLabel.Size = new System.Drawing.Size(173, 21);
             this.reservaDirectaLabel.TabIndex = 1;
@@ -93,16 +93,16 @@
             // 
             this.reservaDirectaComboBox.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.reservaDirectaComboBox.FormattingEnabled = true;
-            this.reservaDirectaComboBox.Location = new System.Drawing.Point(657, 20);
+            this.reservaDirectaComboBox.Location = new System.Drawing.Point(632, 20);
             this.reservaDirectaComboBox.Name = "reservaDirectaComboBox";
-            this.reservaDirectaComboBox.Size = new System.Drawing.Size(121, 27);
+            this.reservaDirectaComboBox.Size = new System.Drawing.Size(172, 27);
             this.reservaDirectaComboBox.TabIndex = 6;
             // 
             // precioReservaDirectaLabel
             // 
             this.precioReservaDirectaLabel.AutoSize = true;
             this.precioReservaDirectaLabel.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.precioReservaDirectaLabel.Location = new System.Drawing.Point(478, 56);
+            this.precioReservaDirectaLabel.Location = new System.Drawing.Point(453, 56);
             this.precioReservaDirectaLabel.Name = "precioReservaDirectaLabel";
             this.precioReservaDirectaLabel.Size = new System.Drawing.Size(144, 21);
             this.precioReservaDirectaLabel.TabIndex = 7;
@@ -112,7 +112,7 @@
             // 
             this.montoReservaDirectaLabel.AutoSize = true;
             this.montoReservaDirectaLabel.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.montoReservaDirectaLabel.Location = new System.Drawing.Point(653, 56);
+            this.montoReservaDirectaLabel.Location = new System.Drawing.Point(628, 56);
             this.montoReservaDirectaLabel.Name = "montoReservaDirectaLabel";
             this.montoReservaDirectaLabel.Size = new System.Drawing.Size(74, 21);
             this.montoReservaDirectaLabel.TabIndex = 8;

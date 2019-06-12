@@ -60,14 +60,17 @@ namespace HSH_Desa_y_Test.Forms
                 {
                     if (DateTime.Parse(maskedTextBox2.Text) >= (DateTime.Now))
                     {
-                        DateTime fechaSemana = Semanizador.semanaSegunFechaInicio( DateTime.Now, int.Parse(numericUpDown1.Value.ToString()));                      
+                        DateTime fechaSemana = Semanizador.LunesDeSemana(int.Parse(comboBox2.SelectedItem.ToString()), int.Parse(numericUpDown1.Value.ToString()));                 
                         if (st.estaLibre(decimal.ToInt32(numericUpDown1.Value), fechaSemana.Year))
                         {
                             if (fechaSemana > DateTime.Parse(maskedTextBox2.Text).AddMonths(6))
                             {
-                                subasta nuevaSubasta = new subasta((int)numericUpDown1.Value, maskedTextBox1.AccessibilityObject.Value, DateTime.Parse(maskedTextBox2.AccessibilityObject.Value));
+                                subasta nuevaSubasta = new subasta((int)numericUpDown1.Value, maskedTextBox1.AccessibilityObject.Value, DateTime.Parse(maskedTextBox2.AccessibilityObject.Value), st.id);
+
                                 st.subastas.Add(nuevaSubasta);
-                                st.actualizarPropiedadEnBd();
+
+                                //ToDo: No se puede guardar la propiedad con la subasta adentro, ver de dar de alta solo la subasta
+                                nuevaSubasta.guardarEnBD();
                                 
                                 this.inicializar();
                                 MessageBox.Show("Todo OK!!!");

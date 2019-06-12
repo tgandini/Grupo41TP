@@ -65,11 +65,11 @@ namespace HSH_Desa_y_Test.xUC
                 {
                     using (ContextoEntity conec = new ContextoEntity())
                     {
-                        ReservaDirecta re = new ReservaDirecta(this.propi.id, Sesion.user.mail, this.propi.montoReserva, int.Parse(reservaDirectaComboBox.SelectedItem.ToString()));
+                        ReservaDirecta re = new ReservaDirecta(this.propi.id, Sesion.user.mail, this.propi.montoReserva, int.Parse(reservaDirectaComboBox.SelectedItem.ToString().GetCharsBetween("Semana ", " de")));
                         conec.ReservaDirectas.Add(re);
                         conec.SaveChanges();
                     }
-                    MessageBox.Show(string.Format("Se adjudico la reserva para la fecha {0}", Semanizador.semanaSegunFechaInicio(DateTime.Now, int.Parse(reservaDirectaComboBox.SelectedItem.ToString())).Date));
+                    MessageBox.Show(string.Format("Se adjudico la reserva para la fecha {0}", Semanizador.semanaSegunFechaInicio(DateTime.Now, int.Parse(reservaDirectaComboBox.SelectedItem.ToString().GetCharsBetween("Semana ", " de"))).Date));
                     this.inicializar(this.propi);
                 }
                 else MessageBox.Show("No tiene suficientes creditos");

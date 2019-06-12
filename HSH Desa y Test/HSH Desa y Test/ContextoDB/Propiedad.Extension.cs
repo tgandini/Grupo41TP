@@ -40,7 +40,7 @@ namespace HSH_Desa_y_Test.ContextoDB
                     MessageBox.Show("Error. Ya existe una propiedad con ese nombre");
                     return false;
                 }
-                else if (conec.Propiedads.Any(p=> p.ubicaciòn == this.ubicaciòn && p.ciudad==this.ciudad )) //No se guarda la prop xq existe otra en la misma dirección y misma ciudad
+                else if (this.existe()) //No se guarda la prop xq existe otra en la misma dirección y misma ciudad
                 {
                     MessageBox.Show("Error. Ya existe una propiedad en esa dirección");
                     return false;
@@ -148,6 +148,14 @@ namespace HSH_Desa_y_Test.ContextoDB
             catch
             {
                 return false;
+            }
+        }
+
+        public bool existe()
+        {
+            using (ContextoEntity conexion = new ContextoEntity())
+            {
+                return conexion.Propiedads.Any(p => p.ubicaciòn == this.ubicaciòn && p.ciudad == this.ciudad && p.provincia == this.provincia && p.pais == this.pais);
             }
         }
     }
