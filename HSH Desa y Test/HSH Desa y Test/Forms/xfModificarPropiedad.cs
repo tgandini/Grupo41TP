@@ -113,7 +113,6 @@ namespace HSH_Desa_y_Test.Forms
             for (int i = 0; i < listaPropiedades.Count; i++)
             {
                 aux = listaPropiedades.ElementAt(i);
-                if (aux.id != p2.id)
                   if (aux.ubicaciòn == p2.ubicaciòn)
                     if (aux.ciudad == p2.ciudad)
                       if (aux.provincia == p2.provincia)
@@ -124,6 +123,10 @@ namespace HSH_Desa_y_Test.Forms
             return misma;
         }
 
-
+        private void eliminarFotoButton_Click_1(object sender, EventArgs e)
+        {
+            xfEliminarFoto el = new xfEliminarFoto();
+            el.inicializar(propiedadAModificar.id);
+        }
     }
 }

@@ -250,6 +250,7 @@
             this.eliminarFotoButton.Size = new System.Drawing.Size(110, 34);
             this.eliminarFotoButton.TabIndex = 48;
             this.eliminarFotoButton.Text = "Eliminar";
+            this.eliminarFotoButton.Click += new System.EventHandler(this.eliminarFotoButton_Click_1);
             // 
             // agregarFotoButton
             // 

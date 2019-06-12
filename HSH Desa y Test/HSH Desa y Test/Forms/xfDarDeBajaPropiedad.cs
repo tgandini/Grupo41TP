@@ -116,7 +116,6 @@ namespace HSH_Desa_y_Test.Forms
                 var subi = conec.ReservaDirectas.Where(p => p.idPropiedad == idenPropiedad).ToList();
                 if (subi.Count > 0)
                 {
-
                     DialogResult result = MessageBox.Show("Tiene reservas pendientes, desea darla de baja de todas formas?", "Borrar", MessageBoxButtons.OKCancel);
                     if (result == DialogResult.OK)
                     {
