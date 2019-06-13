@@ -64,6 +64,8 @@ namespace HSH_Desa_y_Test.xUC
             ubicacionBox.Text = po.ubicaciòn;
             NombreBox.Text = po.nombre;
             ciudadBox.Text = po.ciudad;
+            provinciaBox.Text = po.provincia;
+            paisBox.Text = po.pais;
             if (usp != null) montoBox.Text = usp.monto.ToString();
             else montoBox.Text = s.monto_inicial.ToString();
         }

@@ -16,7 +16,8 @@ namespace HSH_Desa_y_Test.ContextoDB
             this.idUsuario = idUser;
             this.monto = precio;
             this.semanaReservada = semana;
-            this.fechaReservada = Semanizador.semanaSegunFechaInicio(DateTime.Now, semana);
+            this.fechaReservada = DateTime.Now;
+            this.añoReservado = Semanizador.semanaSegunFechaInicio(DateTime.Now, semana).Year;
         }
         public ReservaDirecta()
         {

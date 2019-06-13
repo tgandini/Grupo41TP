@@ -45,6 +45,10 @@
             this.NombreBox = new System.Windows.Forms.TextBox();
             this.ciudadBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.paisBox = new System.Windows.Forms.TextBox();
+            this.provinciaBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subastaSource)).BeginInit();
@@ -53,7 +57,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(758, 114);
+            this.label1.Location = new System.Drawing.Point(757, 89);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 17);
             this.label1.TabIndex = 4;
@@ -62,7 +66,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(758, 159);
+            this.label2.Location = new System.Drawing.Point(757, 131);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(131, 17);
             this.label2.TabIndex = 5;
@@ -71,7 +75,7 @@
             // ubicacionBox
             // 
             this.ubicacionBox.Enabled = false;
-            this.ubicacionBox.Location = new System.Drawing.Point(904, 159);
+            this.ubicacionBox.Location = new System.Drawing.Point(904, 128);
             this.ubicacionBox.Name = "ubicacionBox";
             this.ubicacionBox.Size = new System.Drawing.Size(184, 23);
             this.ubicacionBox.TabIndex = 6;
@@ -79,7 +83,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(758, 253);
+            this.label3.Location = new System.Drawing.Point(758, 288);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 17);
             this.label3.TabIndex = 7;
@@ -88,7 +92,7 @@
             // montoBox
             // 
             this.montoBox.Enabled = false;
-            this.montoBox.Location = new System.Drawing.Point(904, 250);
+            this.montoBox.Location = new System.Drawing.Point(904, 285);
             this.montoBox.Name = "montoBox";
             this.montoBox.Size = new System.Drawing.Size(184, 23);
             this.montoBox.TabIndex = 8;
@@ -97,7 +101,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(153, 15);
+            this.label4.Location = new System.Drawing.Point(262, 14);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(258, 29);
             this.label4.TabIndex = 9;
@@ -166,7 +170,7 @@
             // NombreBox
             // 
             this.NombreBox.Enabled = false;
-            this.NombreBox.Location = new System.Drawing.Point(904, 111);
+            this.NombreBox.Location = new System.Drawing.Point(904, 86);
             this.NombreBox.Name = "NombreBox";
             this.NombreBox.Size = new System.Drawing.Size(184, 23);
             this.NombreBox.TabIndex = 13;
@@ -174,7 +178,7 @@
             // ciudadBox
             // 
             this.ciudadBox.Enabled = false;
-            this.ciudadBox.Location = new System.Drawing.Point(904, 204);
+            this.ciudadBox.Location = new System.Drawing.Point(904, 169);
             this.ciudadBox.Name = "ciudadBox";
             this.ciudadBox.Size = new System.Drawing.Size(184, 23);
             this.ciudadBox.TabIndex = 14;
@@ -182,16 +186,54 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(758, 207);
+            this.label5.Location = new System.Drawing.Point(758, 172);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 17);
             this.label5.TabIndex = 15;
             this.label5.Text = "Ciudad";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(758, 212);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 17);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Provincia";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(758, 249);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(31, 17);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Pais";
+            // 
+            // paisBox
+            // 
+            this.paisBox.Enabled = false;
+            this.paisBox.Location = new System.Drawing.Point(904, 246);
+            this.paisBox.Name = "paisBox";
+            this.paisBox.Size = new System.Drawing.Size(184, 23);
+            this.paisBox.TabIndex = 18;
+            // 
+            // provinciaBox
+            // 
+            this.provinciaBox.Enabled = false;
+            this.provinciaBox.Location = new System.Drawing.Point(904, 209);
+            this.provinciaBox.Name = "provinciaBox";
+            this.provinciaBox.Size = new System.Drawing.Size(184, 23);
+            this.provinciaBox.TabIndex = 19;
+            // 
             // xUCCerrarSubasta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.provinciaBox);
+            this.Controls.Add(this.paisBox);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.ciudadBox);
             this.Controls.Add(this.NombreBox);
@@ -230,5 +272,9 @@
         private System.Windows.Forms.TextBox NombreBox;
         private System.Windows.Forms.TextBox ciudadBox;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox paisBox;
+        private System.Windows.Forms.TextBox provinciaBox;
     }
 }
