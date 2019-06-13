@@ -79,7 +79,10 @@ namespace HSH_Desa_y_Test.xUC
 
         private void cancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result = MessageBox.Show("Seguro que desea cancelar la modificacion de datos del usuario?", "Cambio de Datos de Usuario", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+                this.Close();
+            else return;
         }
     }
 }
