@@ -41,7 +41,9 @@ namespace HSH_Desa_y_Test.Forms
 
         private void cancelarButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result = MessageBox.Show("Quiere cancelar?", "Nueva Tarjeta", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+                this.Close();
         }
 
         private void aceptarButton_Click(object sender, EventArgs e)
@@ -69,6 +71,7 @@ namespace HSH_Desa_y_Test.Forms
                                 Sesion.vistaPrincipalUserLogueado.inicializarPerfil();
                                 this.Close();
                             }
+                            else MessageBox.Show("La tarjeta ya existe");
                         }
                         else
                         {
