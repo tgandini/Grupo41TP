@@ -32,6 +32,14 @@
           <Property Name="semanaReservada" Type="int" Nullable="false" />
           <Property Name="añoReservado" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="montosSubscripcion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="estandar" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="premium" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
         <EntityType Name="Propiedad">
           <Key>
             <PropertyRef Name="id" />
@@ -142,6 +150,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tarjetas_Usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="tarjetas" Type="Self.tarjetas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="mail" />
+            </Principal>
+            <Dependent Role="tarjetas">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FkPersona">
           <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
           <End Role="usuarioParticipaEnSubasta" Type="Self.usuarioParticipaEnSubasta" Multiplicity="*" />
@@ -151,6 +171,18 @@
             </Principal>
             <Dependent Role="usuarioParticipaEnSubasta">
               <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FkPropiedad">
+          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="1" />
+          <End Role="HotSales" Type="Self.HotSales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propiedad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="HotSales">
+              <PropertyRef Name="idPropiedad" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -178,10 +210,47 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FKUsuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="HotSales" Type="Self.HotSales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="mail" />
+            </Principal>
+            <Dependent Role="HotSales">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FkUsuarioReserva">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="ReservaDirecta" Type="Self.ReservaDirecta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="mail" />
+            </Principal>
+            <Dependent Role="ReservaDirecta">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idPropiedad">
+          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="1" />
+          <End Role="fotos" Type="Self.fotos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propiedad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fotos">
+              <PropertyRef Name="idPropiedad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ModeloStoreContainer">
           <EntitySet Name="admins" EntityType="Self.admins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="fotos" EntityType="Self.fotos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HotSales" EntityType="Self.HotSales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="montosSubscripcion" EntityType="Self.montosSubscripcion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Propiedad" EntityType="Self.Propiedad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReservaDirecta" EntityType="Self.ReservaDirecta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="subasta" EntityType="Self.subasta" Schema="dbo" store:Type="Tables" />
@@ -200,9 +269,17 @@
             <End Role="admins" EntitySet="admins" />
             <End Role="Propiedad" EntitySet="Propiedad" />
           </AssociationSet>
+          <AssociationSet Name="FK_tarjetas_Usuario" Association="Self.FK_tarjetas_Usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="tarjetas" EntitySet="tarjetas" />
+          </AssociationSet>
           <AssociationSet Name="FkPersona" Association="Self.FkPersona">
             <End Role="usuario" EntitySet="usuario" />
             <End Role="usuarioParticipaEnSubasta" EntitySet="usuarioParticipaEnSubasta" />
+          </AssociationSet>
+          <AssociationSet Name="FkPropiedad" Association="Self.FkPropiedad">
+            <End Role="Propiedad" EntitySet="Propiedad" />
+            <End Role="HotSales" EntitySet="HotSales" />
           </AssociationSet>
           <AssociationSet Name="FkPropReservaDirecta" Association="Self.FkPropReservaDirecta">
             <End Role="Propiedad" EntitySet="Propiedad" />
@@ -211,6 +288,18 @@
           <AssociationSet Name="FKSubasta" Association="Self.FKSubasta">
             <End Role="subasta" EntitySet="subasta" />
             <End Role="usuarioParticipaEnSubasta" EntitySet="usuarioParticipaEnSubasta" />
+          </AssociationSet>
+          <AssociationSet Name="FKUsuario" Association="Self.FKUsuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="HotSales" EntitySet="HotSales" />
+          </AssociationSet>
+          <AssociationSet Name="FkUsuarioReserva" Association="Self.FkUsuarioReserva">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="ReservaDirecta" EntitySet="ReservaDirecta" />
+          </AssociationSet>
+          <AssociationSet Name="idPropiedad" Association="Self.idPropiedad">
+            <End Role="Propiedad" EntitySet="Propiedad" />
+            <End Role="fotos" EntitySet="fotos" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -502,6 +591,7 @@
             <End Role="admin" EntitySet="admins" />
             <End Role="Propiedad" EntitySet="Propiedads" />
           </AssociationSet>
+          <EntitySet Name="montosSubscripcions" EntityType="Modelo.montosSubscripcion" />
         </EntityContainer>
         <Association Name="FK_adminDioDeAlta">
           <End Type="Modelo.admin" Role="admin" Multiplicity="1" />
@@ -527,6 +617,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="montosSubscripcion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="estandar" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="premium" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -640,6 +738,15 @@
                 <ScalarProperty Name="monto" ColumnName="monto" />
                 <ScalarProperty Name="idPersona" ColumnName="idPersona" />
                 <ScalarProperty Name="idSubasta" ColumnName="idSubasta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="montosSubscripcions">
+            <EntityTypeMapping TypeName="Modelo.montosSubscripcion">
+              <MappingFragment StoreEntitySet="montosSubscripcion">
+                <ScalarProperty Name="premium" ColumnName="premium" />
+                <ScalarProperty Name="estandar" ColumnName="estandar" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

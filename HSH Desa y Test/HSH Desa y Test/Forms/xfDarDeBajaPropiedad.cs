@@ -18,7 +18,6 @@ namespace HSH_Desa_y_Test.Forms
     public partial class xfDarDeBajaPropiedad : DevExpress.XtraEditors.XtraUserControl
     {
         private List<ReservaDirecta> res = null;
-        private List<byte[]> foto=null;
         public xfDarDeBajaPropiedad()
         {
             InitializeComponent();
@@ -50,7 +49,6 @@ namespace HSH_Desa_y_Test.Forms
                 noHayPropiedades.Visible = true;
                 simpleButton1.Enabled = false;
                 simpleButton2.Enabled = false;
-                foto = null;
             }
         }
 
