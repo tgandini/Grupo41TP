@@ -106,7 +106,7 @@ namespace HSH_Desa_y_Test.Forms
             using (ContextoEntity conec = new ContextoEntity())
             {
                 var subi = conec.subastas.Where(p => p.id_propiedad_subastada == idenPropiedad).ToList();
-                if (subi.Count > 0)
+                if (subi.Count() > 0)
                 {
 
                     DialogResult result = MessageBox.Show("Tiene subastas activas, desea darla de baja de todas formas?", "Borrar", MessageBoxButtons.OKCancel);
