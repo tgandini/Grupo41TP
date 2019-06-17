@@ -62,6 +62,7 @@ namespace HSH_Desa_y_Test.xUC
             if (result == DialogResult.Yes)
             {
                 Sesion.user = null;
+                Sesion.vistaPrincipalUserLogueado.ocultarFormsDerivados();
                 Sesion.getVistaPrincipal().instanciarSinUsuarioLogueado();
             }
             else if (result == DialogResult.No)
