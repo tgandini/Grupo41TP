@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="Modelo.ReservaDirecta" Width="1.5" PointX="14.875" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Modelo.subasta" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Modelo.tarjeta" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.usuario" Width="1.5" PointX="5.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.usuario" Width="1.5" PointX="1.25" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Modelo.usuarioParticipaEnSubasta" Width="1.5" PointX="5" PointY="2.625" IsExpanded="true" />
         <AssociationConnector Association="Modelo.idPropiedad" ManuallyRouted="false" />
         <AssociationConnector Association="Modelo.FkPropiedad" ManuallyRouted="false" />
