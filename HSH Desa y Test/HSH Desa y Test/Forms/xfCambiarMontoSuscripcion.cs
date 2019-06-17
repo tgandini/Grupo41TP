@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using HSH_Desa_y_Test.ContextoDB;
 
 namespace HSH_Desa_y_Test.Forms
 {
