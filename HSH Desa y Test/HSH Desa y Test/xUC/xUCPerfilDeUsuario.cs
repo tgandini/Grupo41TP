@@ -25,6 +25,7 @@ namespace HSH_Desa_y_Test.xUC
         public void inicializar()
         {
             if (!Sesion.hayUserLogueado()) Sesion.user = new usuario();
+            if (Sesion.user.premium == true) simpleButton1.Visible = false;  
             nombreControl.Text = Sesion.user.nombre;
             apellidoControl.Text = Sesion.user.apellido;
             mailControl.Text = Sesion.user.mail;
