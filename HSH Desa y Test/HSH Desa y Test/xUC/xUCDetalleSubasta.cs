@@ -33,11 +33,11 @@ namespace HSH_Desa_y_Test.xUC
             using (ContextoEntity conexion = new ContextoEntity())
             {
 
-                if (idsubasta == null || idsubasta < 0) //Se usa para traer las fotos de una subasta random
+                if (idsubasta == null || idsubasta < 0) //Se usa para traer una subasta random
                 {
                     muestra = conexion.subastas.Where(p => p.id == random.Next(0, conexion.subastas.Count() - 1)).First();
                 }
-                else //Tenemos ID de propiedad, vamos a buscar los datos de esa subasta
+                else //Tenemos ID de subasta, vamos a buscar los datos de esa subasta
                 {
                     muestra = conexion.subastas.Where(p => p.id == idsubasta & p.fecha_inicio < DateTime.Today).First();
                 }
@@ -58,19 +58,23 @@ namespace HSH_Desa_y_Test.xUC
 
         private void pujarButton_Click(object sender, EventArgs e)
         {
-            if ((textNuevaPuja.Text.Length > 0) && (decimal.Parse(textNuevaPuja.Text) > decimal.Parse(ultimaPuja.Text)) && (usuar.usuario.token > 0))
+            if ((textNuevaPuja.Text.Length > 0) && (decimal.Parse(textNuevaPuja.Text) > decimal.Parse(ultimaPuja.Text)))
             {
-                DialogResult result = MessageBox.Show("Confirma la puja?", "Puja", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
+                if (usuar.usuario.token > 0)
                 {
-                    usuarioParticipaEnSubasta nuevapuja = new usuarioParticipaEnSubasta(decimal.Parse(textNuevaPuja.Text), Sesion.user.mail, muestra.id);
-                    nuevapuja.crear();
-                    ultimaPuja.Text = textNuevaPuja.Text;
-                    textNuevaPuja.Text = "";
-                    pujarButton.Enabled = false;
+                    DialogResult result = MessageBox.Show("Confirma la puja?", "Puja", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        usuarioParticipaEnSubasta nuevapuja = new usuarioParticipaEnSubasta(decimal.Parse(textNuevaPuja.Text), Sesion.user.mail, muestra.id);
+                        nuevapuja.crear();
+                        ultimaPuja.Text = textNuevaPuja.Text;
+                        textNuevaPuja.Text = "";
+                        pujarButton.Enabled = false;
+                    }
                 }
+                else MessageBox.Show("No tiene creditos suficientes");
             }
-            else MessageBox.Show("Debe ingresar un monto valido");
+            else MessageBox.Show(string.Format("Debe ingresar un monto valido, debe superar {0}",ultimaPuja.Text));
         }
 
         private void textNuevaPuja_EditValueChanged(object sender, EventArgs e)

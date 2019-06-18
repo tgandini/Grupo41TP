@@ -73,20 +73,23 @@ namespace HSH_Desa_y_Test.xUC
         
         private void aceptarButton_Click(object sender, EventArgs e)
         {
-            DialogResult m = MessageBox.Show("Desea cerrar la subasta?", "Cerrar Subasta", MessageBoxButtons.YesNo);
-            if (m == DialogResult.Yes)
+            if (gridView1.DataRowCount > 0)
             {
-                s = (subasta)gridView1.GetFocusedRow();
-                s.fecha_fin = DateTime.Today;
-                using (ContextoEntity conec = new ContextoEntity())
+                DialogResult m = MessageBox.Show("Desea cerrar la subasta?", "Cerrar Subasta", MessageBoxButtons.YesNo);
+                if (m == DialogResult.Yes)
                 {
-                    var su = conec.subastas.Where(p => p.id == s.id).First();
-                    DbEntityEntry<subasta> ee = conec.Entry(su);
-                    ee.CurrentValues.SetValues(s);
-                    conec.SaveChanges();
+                    s = (subasta)gridView1.GetFocusedRow();
+                    s.fecha_fin = DateTime.Today;
+                    using (ContextoEntity conec = new ContextoEntity())
+                    {
+                        var su = conec.subastas.Where(p => p.id == s.id).First();
+                        DbEntityEntry<subasta> ee = conec.Entry(su);
+                        ee.CurrentValues.SetValues(s);
+                        conec.SaveChanges();
+                    }
+                    this.inicializar();
+                    MessageBox.Show("Se cerro la subasta");
                 }
-                this.inicializar();
-                MessageBox.Show("Se cerro la subasta");
             }
         }
 

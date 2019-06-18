@@ -49,6 +49,7 @@
             this.aceptarButton.Size = new System.Drawing.Size(109, 55);
             this.aceptarButton.TabIndex = 0;
             this.aceptarButton.Text = "Aceptar";
+            this.aceptarButton.Click += new System.EventHandler(this.aceptarButton_Click);
             // 
             // cancelarButton
             // 
@@ -59,6 +60,7 @@
             this.cancelarButton.Size = new System.Drawing.Size(127, 55);
             this.cancelarButton.TabIndex = 1;
             this.cancelarButton.Text = "Cancelar";
+            this.cancelarButton.Click += new System.EventHandler(this.cancelarButton_Click);
             // 
             // label1
             // 

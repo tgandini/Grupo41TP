@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupSubasta = new System.Windows.Forms.GroupBox();
+            this.nombreLabel = new System.Windows.Forms.Label();
+            this.ciudadLabel = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.ultimaPuja = new System.Windows.Forms.Label();
             this.semanaSubastadaConAño = new System.Windows.Forms.Label();
             this.ubicacionPropiedad = new System.Windows.Forms.Label();
@@ -39,10 +43,6 @@
             this.textNuevaPuja = new DevExpress.XtraEditors.TextEdit();
             this.label4 = new System.Windows.Forms.Label();
             this.pujarButton = new DevExpress.XtraEditors.SimpleButton();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.ciudadLabel = new System.Windows.Forms.Label();
-            this.nombreLabel = new System.Windows.Forms.Label();
             this.groupSubasta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textNuevaPuja.Properties)).BeginInit();
             this.SuspendLayout();
@@ -66,6 +66,42 @@
             this.groupSubasta.TabIndex = 0;
             this.groupSubasta.TabStop = false;
             this.groupSubasta.Text = "Detalles de la Subasta";
+            // 
+            // nombreLabel
+            // 
+            this.nombreLabel.AutoSize = true;
+            this.nombreLabel.Location = new System.Drawing.Point(213, 47);
+            this.nombreLabel.Name = "nombreLabel";
+            this.nombreLabel.Size = new System.Drawing.Size(54, 21);
+            this.nombreLabel.TabIndex = 7;
+            this.nombreLabel.Text = "label4";
+            // 
+            // ciudadLabel
+            // 
+            this.ciudadLabel.AutoSize = true;
+            this.ciudadLabel.Location = new System.Drawing.Point(213, 84);
+            this.ciudadLabel.Name = "ciudadLabel";
+            this.ciudadLabel.Size = new System.Drawing.Size(54, 21);
+            this.ciudadLabel.TabIndex = 6;
+            this.ciudadLabel.Text = "label4";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 47);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(166, 21);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Nmbre de Propiedad:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 84);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 21);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Ciudad:";
             // 
             // ultimaPuja
             // 
@@ -143,50 +179,14 @@
             // 
             // pujarButton
             // 
-            this.pujarButton.Appearance.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
+            this.pujarButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.pujarButton.Appearance.Options.UseFont = true;
             this.pujarButton.Location = new System.Drawing.Point(412, 219);
             this.pujarButton.Name = "pujarButton";
             this.pujarButton.Size = new System.Drawing.Size(215, 51);
             this.pujarButton.TabIndex = 3;
-            this.pujarButton.Text = "Pujar";
+            this.pujarButton.Text = "Confirmar Oferta";
             this.pujarButton.Click += new System.EventHandler(this.pujarButton_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 84);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 21);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Ciudad:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 47);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(166, 21);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Nmbre de Propiedad:";
-            // 
-            // ciudadLabel
-            // 
-            this.ciudadLabel.AutoSize = true;
-            this.ciudadLabel.Location = new System.Drawing.Point(213, 84);
-            this.ciudadLabel.Name = "ciudadLabel";
-            this.ciudadLabel.Size = new System.Drawing.Size(54, 21);
-            this.ciudadLabel.TabIndex = 6;
-            this.ciudadLabel.Text = "label4";
-            // 
-            // nombreLabel
-            // 
-            this.nombreLabel.AutoSize = true;
-            this.nombreLabel.Location = new System.Drawing.Point(213, 47);
-            this.nombreLabel.Name = "nombreLabel";
-            this.nombreLabel.Size = new System.Drawing.Size(54, 21);
-            this.nombreLabel.TabIndex = 7;
-            this.nombreLabel.Text = "label4";
             // 
             // xUCDetalleSubasta
             // 
