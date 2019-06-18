@@ -46,6 +46,11 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -59,6 +64,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             this.SuspendLayout();
             // 
             // dataLayoutControl1
@@ -68,11 +76,13 @@
             this.dataLayoutControl1.Controls.Add(this.altaUsuarioButton);
             this.dataLayoutControl1.Controls.Add(this.simpleButton1);
             this.dataLayoutControl1.Controls.Add(this.btnAltaPropiedad);
+            this.dataLayoutControl1.Controls.Add(this.simpleButton2);
+            this.dataLayoutControl1.Controls.Add(this.simpleButton3);
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.Location = new System.Drawing.Point(0, 0);
             this.dataLayoutControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
-            this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1108, 0, 812, 500);
+            this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(807, 329, 812, 500);
             this.dataLayoutControl1.Root = this.Root;
             this.dataLayoutControl1.Size = new System.Drawing.Size(1160, 71);
             this.dataLayoutControl1.TabIndex = 0;
@@ -85,7 +95,7 @@
             this.crearSubastaBtn.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.crearSubastaBtn.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.crearSubastaBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("crearSubastaBtn.ImageOptions.Image")));
-            this.crearSubastaBtn.Location = new System.Drawing.Point(769, 2);
+            this.crearSubastaBtn.Location = new System.Drawing.Point(615, 2);
             this.crearSubastaBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.crearSubastaBtn.Name = "crearSubastaBtn";
             this.crearSubastaBtn.Size = new System.Drawing.Size(168, 67);
@@ -101,7 +111,7 @@
             this.modificarBajaButton.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.modificarBajaButton.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.modificarBajaButton.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("modificarBajaButton.ImageOptions.Image")));
-            this.modificarBajaButton.Location = new System.Drawing.Point(576, 2);
+            this.modificarBajaButton.Location = new System.Drawing.Point(422, 2);
             this.modificarBajaButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.modificarBajaButton.Name = "modificarBajaButton";
             this.modificarBajaButton.Size = new System.Drawing.Size(167, 67);
@@ -117,7 +127,7 @@
             this.altaUsuarioButton.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.altaUsuarioButton.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.altaUsuarioButton.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("altaUsuarioButton.ImageOptions.Image")));
-            this.altaUsuarioButton.Location = new System.Drawing.Point(384, 2);
+            this.altaUsuarioButton.Location = new System.Drawing.Point(230, 2);
             this.altaUsuarioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.altaUsuarioButton.Name = "altaUsuarioButton";
             this.altaUsuarioButton.Size = new System.Drawing.Size(166, 67);
@@ -133,7 +143,7 @@
             this.simpleButton1.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.simpleButton1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(199, 2);
+            this.simpleButton1.Location = new System.Drawing.Point(45, 2);
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(171, 67);
@@ -148,7 +158,7 @@
             this.btnAltaPropiedad.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.btnAltaPropiedad.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.btnAltaPropiedad.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAltaPropiedad.ImageOptions.Image")));
-            this.btnAltaPropiedad.Location = new System.Drawing.Point(2, 2);
+            this.btnAltaPropiedad.Location = new System.Drawing.Point(-152, 2);
             this.btnAltaPropiedad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAltaPropiedad.Name = "btnAltaPropiedad";
             this.btnAltaPropiedad.Size = new System.Drawing.Size(171, 67);
@@ -171,10 +181,13 @@
             this.emptySpaceItem4,
             this.layoutControlItem4,
             this.layoutControlItem5,
-            this.emptySpaceItem5});
+            this.emptySpaceItem5,
+            this.layoutControlItem6,
+            this.layoutControlItem7,
+            this.emptySpaceItem6});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.Root.Size = new System.Drawing.Size(1160, 71);
+            this.Root.Size = new System.Drawing.Size(1303, 71);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -284,8 +297,62 @@
             this.emptySpaceItem5.AllowHotTrack = false;
             this.emptySpaceItem5.Location = new System.Drawing.Point(939, 0);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(221, 71);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(10, 71);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.simpleButton2.Location = new System.Drawing.Point(797, 2);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(168, 67);
+            this.simpleButton2.StyleController = this.dataLayoutControl1;
+            this.simpleButton2.TabIndex = 9;
+            this.simpleButton2.Text = "Cerrar Subasta";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.simpleButton2;
+            this.layoutControlItem6.Location = new System.Drawing.Point(949, 0);
+            this.layoutControlItem6.MaxSize = new System.Drawing.Size(172, 71);
+            this.layoutControlItem6.MinSize = new System.Drawing.Size(172, 71);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(172, 71);
+            this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextVisible = false;
+            // 
+            // emptySpaceItem6
+            // 
+            this.emptySpaceItem6.AllowHotTrack = false;
+            this.emptySpaceItem6.Location = new System.Drawing.Point(1121, 0);
+            this.emptySpaceItem6.Name = "emptySpaceItem6";
+            this.emptySpaceItem6.Size = new System.Drawing.Size(10, 71);
+            this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.ImageOptions.Image = global::HSH_Desa_y_Test.Properties.Resources.bosale_32x32;
+            this.simpleButton3.Location = new System.Drawing.Point(979, 2);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(168, 67);
+            this.simpleButton3.StyleController = this.dataLayoutControl1;
+            this.simpleButton3.TabIndex = 10;
+            this.simpleButton3.Text = "Modificar Tarifas";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.simpleButton3;
+            this.layoutControlItem7.Location = new System.Drawing.Point(1131, 0);
+            this.layoutControlItem7.MaxSize = new System.Drawing.Size(172, 71);
+            this.layoutControlItem7.MinSize = new System.Drawing.Size(172, 71);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(172, 71);
+            this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
             // 
             // xucComandosAdmin
             // 
@@ -308,6 +375,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -330,6 +400,11 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraEditors.SimpleButton crearSubastaBtn;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
     }
 }

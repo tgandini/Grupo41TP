@@ -18,7 +18,6 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
 {
     public partial class xucListadoPropiedadesYEditar : DevExpress.XtraEditors.XtraUserControl
     {
-        private ContextoEntity contexto = new ContextoEntity();
         public xucListadoPropiedadesYEditar()
         {
             InitializeComponent();
@@ -42,9 +41,10 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
 
         private object traerPropiedadesDeDb()
         {
-            
+            using (ContextoEntity contexto = new ContextoEntity())
+            {
                 return contexto.Propiedads.OrderBy(p => p.id).ToList();
-            
+            }
         }
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
