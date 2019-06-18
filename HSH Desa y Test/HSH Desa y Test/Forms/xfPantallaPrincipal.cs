@@ -82,7 +82,6 @@ namespace HSH_Desa_y_Test.Forms
 
             //traigo al frente la vista principal del User Logueado
             this.xucVistaPrincipalUsuario1.Visible = true;
-            this.xucVistaPrincipalUsuario1.renderizarListaPropiedades();
             this.xucVistaPrincipalUsuario1.BringToFront();
 
         }

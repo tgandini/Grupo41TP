@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.xUCPerfilDeUsuario1 = new HSH_Desa_y_Test.xUC.xUCPerfilDeUsuario();
             this.xucListadoPropiedadesYEditar1 = new HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador.xucListadoPropiedadesYEditar();
             this.xucComandosUserLogueado1 = new HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado_y_Deslogueado.xucComandosUserLogueado();
-            this.xUCPerfilDeUsuario1 = new HSH_Desa_y_Test.xUC.xUCPerfilDeUsuario();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
@@ -47,9 +47,16 @@
             this.panelControl1.Size = new System.Drawing.Size(1440, 729);
             this.panelControl1.TabIndex = 1;
             // 
+            // xUCPerfilDeUsuario1
+            // 
+            this.xUCPerfilDeUsuario1.Location = new System.Drawing.Point(228, 7);
+            this.xUCPerfilDeUsuario1.Name = "xUCPerfilDeUsuario1";
+            this.xUCPerfilDeUsuario1.Size = new System.Drawing.Size(857, 556);
+            this.xUCPerfilDeUsuario1.TabIndex = 1;
+            // 
             // xucListadoPropiedadesYEditar1
             // 
-            this.xucListadoPropiedadesYEditar1.Location = new System.Drawing.Point(7, 7);
+            this.xucListadoPropiedadesYEditar1.Location = new System.Drawing.Point(3, 5);
             this.xucListadoPropiedadesYEditar1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.xucListadoPropiedadesYEditar1.Name = "xucListadoPropiedadesYEditar1";
             this.xucListadoPropiedadesYEditar1.Size = new System.Drawing.Size(1427, 715);
@@ -62,13 +69,6 @@
             this.xucComandosUserLogueado1.Name = "xucComandosUserLogueado1";
             this.xucComandosUserLogueado1.Size = new System.Drawing.Size(1160, 71);
             this.xucComandosUserLogueado1.TabIndex = 0;
-            // 
-            // xUCPerfilDeUsuario1
-            // 
-            this.xUCPerfilDeUsuario1.Location = new System.Drawing.Point(228, 7);
-            this.xUCPerfilDeUsuario1.Name = "xUCPerfilDeUsuario1";
-            this.xUCPerfilDeUsuario1.Size = new System.Drawing.Size(857, 556);
-            this.xUCPerfilDeUsuario1.TabIndex = 1;
             // 
             // xucVistaPrincipalUsuario
             // 
