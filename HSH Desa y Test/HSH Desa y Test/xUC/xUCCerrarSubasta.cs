@@ -56,18 +56,21 @@ namespace HSH_Desa_y_Test.xUC
             Propiedad po;
             usuarioParticipaEnSubasta usp;
             s = (subasta)gridView1.GetFocusedRow();
-            using (ContextoEntity conec = new ContextoEntity())
+            if (s != null)
             {
-                po = conec.Propiedads.Where(p => p.id == s.id_propiedad_subastada).First();
-                usp = conec.usuarioParticipaEnSubastas.Where(p => p.idSubasta == s.id).LastOrDefault();
+                using (ContextoEntity conec = new ContextoEntity())
+                {
+                    po = conec.Propiedads.Where(p => p.id == s.id_propiedad_subastada).First();
+                    usp = conec.usuarioParticipaEnSubastas.Where(p => p.idSubasta == s.id).LastOrDefault();
+                }
+                ubicacionBox.Text = po.ubicaciòn;
+                NombreBox.Text = po.nombre;
+                ciudadBox.Text = po.ciudad;
+                provinciaBox.Text = po.provincia;
+                paisBox.Text = po.pais;
+                if (usp != null) montoBox.Text = usp.monto.ToString();
+                else montoBox.Text = s.monto_inicial.ToString();
             }
-            ubicacionBox.Text = po.ubicaciòn;
-            NombreBox.Text = po.nombre;
-            ciudadBox.Text = po.ciudad;
-            provinciaBox.Text = po.provincia;
-            paisBox.Text = po.pais;
-            if (usp != null) montoBox.Text = usp.monto.ToString();
-            else montoBox.Text = s.monto_inicial.ToString();
         }
 
         
