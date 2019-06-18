@@ -32,6 +32,7 @@
             this.xUCPerfilDeUsuario1 = new HSH_Desa_y_Test.xUC.xUCPerfilDeUsuario();
             this.xucListadoPropiedadesYEditar1 = new HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador.xucListadoPropiedadesYEditar();
             this.xucComandosUserLogueado1 = new HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado_y_Deslogueado.xucComandosUserLogueado();
+            this.xucListadoSubasta1 = new HSH_Desa_y_Test.xUC.xucListadoSubasta();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
@@ -39,6 +40,7 @@
             // panelControl1
             // 
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.xucListadoSubasta1);
             this.panelControl1.Controls.Add(this.xUCPerfilDeUsuario1);
             this.panelControl1.Controls.Add(this.xucListadoPropiedadesYEditar1);
             this.panelControl1.Location = new System.Drawing.Point(5, 84);
@@ -70,6 +72,13 @@
             this.xucComandosUserLogueado1.Size = new System.Drawing.Size(1160, 71);
             this.xucComandosUserLogueado1.TabIndex = 0;
             // 
+            // xucListadoSubasta1
+            // 
+            this.xucListadoSubasta1.Location = new System.Drawing.Point(4, 7);
+            this.xucListadoSubasta1.Name = "xucListadoSubasta1";
+            this.xucListadoSubasta1.Size = new System.Drawing.Size(1379, 730);
+            this.xucListadoSubasta1.TabIndex = 2;
+            // 
             // xucVistaPrincipalUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -91,5 +100,6 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private Vista_principal_de_Administrador.xucListadoPropiedadesYEditar xucListadoPropiedadesYEditar1;
         private xUCPerfilDeUsuario xUCPerfilDeUsuario1;
+        private xucListadoSubasta xucListadoSubasta1;
     }
 }

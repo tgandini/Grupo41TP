@@ -31,9 +31,9 @@ namespace HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado_y_Deslogueado
                 control.Visible = false;
                 control.SendToBack();
             }
-            this.xucListadoPropiedadesYEditar1.Visible = false;
-            this.xucListadoPropiedadesYEditar1.SendToBack();
-        }
+            this.xUCPerfilDeUsuario1.Visible = false;
+            this.xUCPerfilDeUsuario1.SendToBack();
+        }    
 
         internal void renderizarListaPropiedades()
         {
@@ -54,6 +54,14 @@ namespace HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado_y_Deslogueado
         public void inicializarPerfil()
         {
             this.xUCPerfilDeUsuario1.inicializar();
+        }
+
+        internal void renderizarListaSubastas()
+        {
+            this.ocultarFormsDerivados();
+            this.xucListadoSubasta1.inicializar();
+            this.xucListadoSubasta1.Visible = true;
+            this.xucListadoSubasta1.BringToFront();
         }
 
     }
