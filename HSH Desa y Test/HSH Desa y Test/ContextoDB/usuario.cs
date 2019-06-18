@@ -17,8 +17,6 @@ namespace HSH_Desa_y_Test.ContextoDB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public usuario()
         {
-            this.HotSales = new HashSet<HotSale>();
-            this.ReservaDirectas = new HashSet<ReservaDirecta>();
             this.tarjetas = new HashSet<tarjeta>();
             this.usuarioParticipaEnSubastas = new HashSet<usuarioParticipaEnSubasta>();
         }
@@ -32,10 +30,6 @@ namespace HSH_Desa_y_Test.ContextoDB
         public int token { get; set; }
         public System.DateTime fecha_registro { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HotSale> HotSales { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ReservaDirecta> ReservaDirectas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tarjeta> tarjetas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

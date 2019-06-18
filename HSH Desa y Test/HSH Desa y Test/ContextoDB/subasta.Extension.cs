@@ -46,23 +46,11 @@ namespace HSH_Desa_y_Test.ContextoDB
 
         public bool estaActiva()
         {
-            DateTime n = this.fecha_fin.AddDays(3);
-            if (n < DateTime.Today)
+            using (ContextoEntity conec = new ContextoEntity())
             {
-                return true;
+                return (this.fecha_inicio < DateTime.Now && this.fecha_fin > DateTime.Now);
             }
-            else
-            {
-                subasta su = this;
-                using (ContextoEntity conec = new ContextoEntity())
-                {
-                    DbEntityEntry<subasta> ee = conec.Entry(this);
-                    su.fecha_fin = DateTime.Today;
-                    ee.CurrentValues.SetValues(su);
-                    conec.SaveChanges();
-                }
-                return false;
-            }
+
         }
         public bool guardarEnBD()
         {

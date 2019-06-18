@@ -17,10 +17,10 @@ namespace HSH_Desa_y_Test.ContextoDB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Propiedad()
         {
-            this.fotos = new HashSet<foto>();
-            this.HotSales = new HashSet<HotSale>();
             this.subastas = new HashSet<subasta>();
             this.ReservaDirectas = new HashSet<ReservaDirecta>();
+            this.fotos = new HashSet<foto>();
+            this.HotSales = new HashSet<HotSale>();
         }
     
         public int id { get; set; }
@@ -33,19 +33,19 @@ namespace HSH_Desa_y_Test.ContextoDB
         public Nullable<System.DateTime> fechaBaja { get; set; }
         public string ciudad { get; set; }
         public string nombre { get; set; }
+        public string provincia { get; set; }
         public string pais { get; set; }
         public decimal montoReserva { get; set; }
-        public string provincia { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<foto> fotos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HotSale> HotSales { get; set; }
+        public virtual admin admin { get; set; }
+        public virtual admin admin1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<subasta> subastas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ReservaDirecta> ReservaDirectas { get; set; }
-        public virtual admin admin { get; set; }
-        public virtual admin admin1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<foto> fotos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HotSale> HotSales { get; set; }
     }
 }

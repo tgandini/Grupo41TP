@@ -23,6 +23,5 @@ namespace HSH_Desa_y_Test.ContextoDB
         public int añoReservado { get; set; }
     
         public virtual Propiedad Propiedad { get; set; }
-        public virtual usuario usuario { get; set; }
     }
 }

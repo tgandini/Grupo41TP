@@ -28,12 +28,12 @@ namespace HSH_Desa_y_Test.ContextoDB
         public virtual DbSet<admin> admins { get; set; }
         public virtual DbSet<foto> fotos { get; set; }
         public virtual DbSet<HotSale> HotSales { get; set; }
+        public virtual DbSet<montosSubscripcion> montosSubscripcions { get; set; }
         public virtual DbSet<Propiedad> Propiedads { get; set; }
         public virtual DbSet<ReservaDirecta> ReservaDirectas { get; set; }
         public virtual DbSet<subasta> subastas { get; set; }
         public virtual DbSet<tarjeta> tarjetas { get; set; }
         public virtual DbSet<usuario> usuarios { get; set; }
         public virtual DbSet<usuarioParticipaEnSubasta> usuarioParticipaEnSubastas { get; set; }
-        public virtual DbSet<montosSubscripcion> montosSubscripcions { get; set; }
     }
 }

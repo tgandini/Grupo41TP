@@ -4,28 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="efa2dfd9af68477dbdd0b8c779be79b2" Name="Diagram1" ZoomLevel="65">
-        <EntityTypeShape EntityType="Modelo.admin" Width="1.5" PointX="8.125" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.foto" Width="1.5" PointX="12.625" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.HotSale" Width="1.5" PointX="14.5" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.Propiedad" Width="1.5" PointX="9.875" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.ReservaDirecta" Width="1.5" PointX="14.875" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.subasta" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.tarjeta" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.usuario" Width="1.5" PointX="1.25" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Modelo.usuarioParticipaEnSubasta" Width="1.5" PointX="5" PointY="2.625" IsExpanded="true" />
-        <AssociationConnector Association="Modelo.idPropiedad" ManuallyRouted="false" />
-        <AssociationConnector Association="Modelo.FkPropiedad" ManuallyRouted="false" />
-        <AssociationConnector Association="Modelo.FKUsuario" ManuallyRouted="false" />
-        <AssociationConnector Association="Modelo.fk_Propiedad_Subastada" ManuallyRouted="false" />
-        <AssociationConnector Association="Modelo.FkPropReservaDirecta" ManuallyRouted="false" />
-        <AssociationConnector Association="Modelo.FkUsuarioReserva" ManuallyRouted="false" />
-        <AssociationConnector Association="Modelo.FKSubasta" ManuallyRouted="false" />
-        <AssociationConnector Association="Modelo.FK_tarjetas_Usuario" ManuallyRouted="false" />
-        <AssociationConnector Association="Modelo.FkPersona" ManuallyRouted="false" />
+      <Diagram DiagramId="efa2dfd9af68477dbdd0b8c779be79b2" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="Modelo.admin" Width="1.5" PointX="0.75" PointY="3.375" />
+        <EntityTypeShape EntityType="Modelo.foto" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Modelo.HotSale" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="Modelo.montosSubscripcion" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Modelo.Propiedad" Width="1.5" PointX="3" PointY="2" />
+        <EntityTypeShape EntityType="Modelo.ReservaDirecta" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="Modelo.subasta" Width="1.5" PointX="5.25" PointY="4.375" />
+        <EntityTypeShape EntityType="Modelo.tarjeta" Width="1.5" PointX="7.5" PointY="8.75" />
+        <EntityTypeShape EntityType="Modelo.usuario" Width="1.5" PointX="5.25" PointY="8.375" />
+        <EntityTypeShape EntityType="Modelo.usuarioParticipaEnSubasta" Width="1.5" PointX="7.5" PointY="4.75" />
         <AssociationConnector Association="Modelo.FK_adminDioDeAlta" />
         <AssociationConnector Association="Modelo.FK_adminDioDeBaja" />
-        <EntityTypeShape EntityType="Modelo.montosSubscripcion" Width="1.5" PointX="5.375" PointY="5.75" />
+        <AssociationConnector Association="Modelo.fk_Propiedad_Subastada" />
+        <AssociationConnector Association="Modelo.FkPropReservaDirecta" />
+        <AssociationConnector Association="Modelo.FKSubasta" />
+        <AssociationConnector Association="Modelo.fkTarjetasUsuario" />
+        <AssociationConnector Association="Modelo.FkPersona" />
+        <AssociationConnector Association="Modelo.fkPropiedadFotos" />
+        <AssociationConnector Association="Modelo.FkHotsalesProp" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
