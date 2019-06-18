@@ -62,7 +62,7 @@ namespace HSH_Desa_y_Test.xUC
         {
             if ((textNuevaPuja.Text.Length > 0) && (decimal.Parse(textNuevaPuja.Text) > decimal.Parse(ultimaPuja.Text)))
             {
-                if (usuar.usuario.token > 0)
+                if (Sesion.user.token > 0)
                 {
                     DialogResult result = MessageBox.Show("Confirma la puja?", "Puja", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
