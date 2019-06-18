@@ -42,6 +42,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.xUCCerrarSubasta1);
             this.panelControl1.Controls.Add(this.xfRegistrarceForm1);
             this.panelControl1.Controls.Add(this.xfDarDeBajaPropiedad2);
@@ -121,21 +122,21 @@
             // 
             // xucComandosAdmin1
             // 
-            this.xucComandosAdmin1.Location = new System.Drawing.Point(0, 4);
-            this.xucComandosAdmin1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.xucComandosAdmin1.Location = new System.Drawing.Point(4, 4);
+            this.xucComandosAdmin1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.xucComandosAdmin1.Name = "xucComandosAdmin1";
-            this.xucComandosAdmin1.Size = new System.Drawing.Size(1175, 71);
-            this.xucComandosAdmin1.TabIndex = 0;
+            this.xucComandosAdmin1.Size = new System.Drawing.Size(1397, 75);
+            this.xucComandosAdmin1.TabIndex = 2;
             // 
             // xucVistaPrincipalAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.xucComandosAdmin1);
+            this.Controls.Add(this.panelControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "xucVistaPrincipalAdmin";
-            this.Size = new System.Drawing.Size(1178, 816);
+            this.Size = new System.Drawing.Size(1414, 816);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -143,8 +144,6 @@
         }
 
         #endregion
-
-        private xucComandosAdmin xucComandosAdmin1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private Forms.xfDarDeAltaPropiedad xfDarDeAltaPropiedad1;
         private Forms.xfDarDeBajaPropiedad xfDarDeBajaPropiedad2;
@@ -152,5 +151,6 @@
         private xfRegistrarceForm xfRegistrarceForm1;
         private Forms.xfAltaSubasta xfAltaSubasta1;
         private xUCCerrarSubasta xUCCerrarSubasta1;
+        private xucComandosAdmin xucComandosAdmin1;
     }
 }
