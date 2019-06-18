@@ -92,8 +92,8 @@ namespace HSH_Desa_y_Test.Forms
             maskedTextBox1.Clear();
             maskedTextBox2.Clear();
             numericUpDown1.Value = 1;
-            comboBox1.SelectedIndex = 0;
-            comboBox2.SelectedIndex = 0;
+            if (comboBox1.Items.Count!=0) comboBox1.SelectedIndex = 0;
+            if (comboBox2.Items.Count!=0) comboBox2.SelectedIndex = 0;
         }
 
         private List<Propiedad> llenarConPropiedades()
