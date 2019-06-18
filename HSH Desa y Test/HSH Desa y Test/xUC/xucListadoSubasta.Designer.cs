@@ -81,7 +81,7 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 94;
+            this.gridColumn1.Width = 220;
             // 
             // colsemana_de_subasta
             // 
@@ -91,7 +91,7 @@
             this.colsemana_de_subasta.Name = "colsemana_de_subasta";
             this.colsemana_de_subasta.Visible = true;
             this.colsemana_de_subasta.VisibleIndex = 1;
-            this.colsemana_de_subasta.Width = 94;
+            this.colsemana_de_subasta.Width = 163;
             // 
             // colañoReservado
             // 
@@ -101,7 +101,7 @@
             this.colañoReservado.Name = "colañoReservado";
             this.colañoReservado.Visible = true;
             this.colañoReservado.VisibleIndex = 2;
-            this.colañoReservado.Width = 94;
+            this.colañoReservado.Width = 163;
             // 
             // xucListadoSubasta
             // 
