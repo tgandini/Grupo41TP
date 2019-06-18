@@ -33,6 +33,7 @@ namespace HSH_Desa_y_Test.xUC
                 reservaDirectaComboBox.DataSource = pro.semanasDisponibles();
                 precioReservaDirectaLabel.Enabled = true;
                 montoReservaDirectaLabel.Enabled = true;
+                montoReservaDirectaLabel.Text = pro.montoReserva.ToString(); 
             }
             else
             {
@@ -46,19 +47,20 @@ namespace HSH_Desa_y_Test.xUC
             var sub = subasta.llenarConSubasta(pro.id);
             if (sub != null)
             {
+                List<string> subastasActivas = new List<string>();
                 foreach (subasta s in sub)
                 {
-                    if (s.estaActiva())
-                        subastasActivasListBox.DataSource = string.Format("Semana {0} año {1}", s.semana_de_subasta, Semanizador.semanaSegunFechaInicio(s.fecha_inicio, s.semana_de_subasta).Year);
+                    if (s.estaActiva()) subastasActivas.Add(string.Format("Semana {0} año {1}", s.semana_de_subasta, Semanizador.semanaSegunFechaInicio(s.fecha_inicio, s.semana_de_subasta).Year));
                 }
-                if(subastasActivasListBox.ItemCount < 1) subastasActivasListBox.Text = "No hay subastas activas";
+                subastasActivasListBox.DataSource = subastasActivas;
+                if (subastasActivasListBox.ItemCount < 1) subastasActivasListBox.Text = "No hay subastas activas";
             }
             else subastasActivasListBox.Text = "No hay subastas activas";
         }
 
         private void reservaDirectaButton_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Quiere comfirmar la reserva?", "Reserva", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Quiere confirmar la reserva?", "Reserva", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 if (Sesion.user.token > 0)
@@ -76,10 +78,10 @@ namespace HSH_Desa_y_Test.xUC
             }
             else
             {
-                DialogResult resul = MessageBox.Show("Quiere cancelar la reserva?", "Reserva", MessageBoxButtons.OKCancel);
+                DialogResult resul = MessageBox.Show("Quiere cancelar la operacion?", "Reserva", MessageBoxButtons.OKCancel);
                 if (resul == DialogResult.OK)
                 {
-                    MessageBox.Show("No se realizo la reserva");
+                    MessageBox.Show("No se realizo la operacion de reserva");
                 }
             }
         }
