@@ -46,13 +46,16 @@ namespace HSH_Desa_y_Test.Forms
             {
                 DialogResult m = MessageBox.Show("Desea cambiar los valores?", "Cambiar montos", MessageBoxButtons.YesNo);
                 if (m == DialogResult.Yes)
-                {
-                    montosSubscripcion mo = new montosSubscripcion(decimal.Parse(estandarEdit.Text), decimal.Parse(premiumEdit.Text));
+                {                    
                     using (ContextoEntity conec = new ContextoEntity())
                     {
-                        conec.Entry(mo).State = System.Data.Entity.EntityState.Modified;
+                        var montos = conec.montosSubscripcions.First();
+                        montos.estandar = decimal.Parse(estandarEdit.Text);
+                        montos.premium = decimal.Parse(premiumEdit.Text);
+                        conec.Entry(montos).State = System.Data.Entity.EntityState.Modified;
                         conec.SaveChanges();
                         MessageBox.Show("Se cambiaron los montos");
+                        this.Close();
                     }
                 }
             }
