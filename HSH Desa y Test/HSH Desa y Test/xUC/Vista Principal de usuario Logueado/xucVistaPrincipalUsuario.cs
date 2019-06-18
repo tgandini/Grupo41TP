@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using HSH_Desa_y_Test.Modelo_Expandido;
+using HSH_Desa_y_Test.ContextoDB;
 
 namespace HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado_y_Deslogueado
 {
@@ -62,6 +63,14 @@ namespace HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado_y_Deslogueado
             this.xucListadoSubasta1.inicializar();
             this.xucListadoSubasta1.Visible = true;
             this.xucListadoSubasta1.BringToFront();
+        }
+
+        public void renderizarDetalleSubasta(subasta subastaActiva)
+        {
+            this.ocultarFormsDerivados();
+            this.xUCDetalleSubasta1.inicializar(subastaActiva.id);
+            this.xUCDetalleSubasta1.Visible = true;
+            this.xUCDetalleSubasta1.BringToFront();
         }
 
     }
