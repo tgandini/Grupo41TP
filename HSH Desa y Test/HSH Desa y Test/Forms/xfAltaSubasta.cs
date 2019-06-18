@@ -33,9 +33,11 @@ namespace HSH_Desa_y_Test.Forms
             iden.Clear();
             foreach (Propiedad casa in propie)
             {
-                iden.Add(string.Format("{0}, ubicada en Ciudad: {1}, dirección:{2}", casa.nombre, casa.ciudad, casa.ubicaciòn));
+                iden.Add(casa.nombre);
             }
+            iden.Sort();
             comboBox1.DataSource = iden;
+            
 
 
             //Checkeamos q no haya datos en el combobox de año
@@ -55,9 +57,9 @@ namespace HSH_Desa_y_Test.Forms
             Propiedad st = encontrarCual(comboBox1.AccessibilityObject.Value);
             if (st != null)
             {
-                DialogResult m = MessageBox.Show("Desea crear la subasta?","Crear Subasta", MessageBoxButtons.YesNo);
-                if (m == DialogResult.Yes)
-                {
+                //DialogResult m = MessageBox.Show("Desea crear la subasta?","Crear Subasta", MessageBoxButtons.YesNo);
+                //if (m == DialogResult.Yes)
+                //{
                     if (DateTime.Parse(maskedTextBox2.Text) >= (DateTime.Now))
                     {
                         DateTime fechaSemana = Semanizador.LunesDeSemana(int.Parse(comboBox2.SelectedItem.ToString()), int.Parse(numericUpDown1.Value.ToString()));                 
@@ -65,7 +67,7 @@ namespace HSH_Desa_y_Test.Forms
                         {
                             if (fechaSemana > DateTime.Parse(maskedTextBox2.Text).AddMonths(6))
                             {
-                                subasta nuevaSubasta = new subasta((int)numericUpDown1.Value, maskedTextBox1.AccessibilityObject.Value, DateTime.Parse(maskedTextBox2.AccessibilityObject.Value), st.id);
+                                subasta nuevaSubasta = new subasta((int)comboBox2.SelectedItem, (int)numericUpDown1.Value, maskedTextBox1.AccessibilityObject.Value, DateTime.Parse(maskedTextBox2.AccessibilityObject.Value), st.id);
 
                                 st.subastas.Add(nuevaSubasta);
 
@@ -73,14 +75,13 @@ namespace HSH_Desa_y_Test.Forms
                                 nuevaSubasta.guardarEnBD();
                                 
                                 this.inicializar();
-                                MessageBox.Show("Todo OK!!!");
+                                MessageBox.Show("Se creó la subasta con éxito");
                             }
                             else MessageBox.Show("La semana elegida debe superar en 6 meses la fecha de inicio");
-                        }
-                        else MessageBox.Show("La semana elegida no se encuentra disponible");
+                        }                       
                     }
                     else MessageBox.Show("La fecha de inicio es incorrecta");
-                }       
+                //}       
             }
             else MessageBox.Show("La propiedad elegida es errónea");
         }
@@ -89,6 +90,9 @@ namespace HSH_Desa_y_Test.Forms
         {
             maskedTextBox1.Clear();
             maskedTextBox2.Clear();
+            numericUpDown1.Value = 1;
+            comboBox1.SelectedIndex = 0;
+            comboBox2.SelectedIndex = 0;
         }
 
         private List<Propiedad> llenarConPropiedades()
@@ -105,13 +109,13 @@ namespace HSH_Desa_y_Test.Forms
 
         private Propiedad encontrarCual(string st)
         {
-            var nombreTrimmeado = st.Substring(0,st.IndexOf(",")) ?? string.Empty;
+            //var nombreTrimmeado = st.Substring(0,st.IndexOf(",")) ?? string.Empty;
             foreach (Propiedad casa in propie)
             {
-                if (casa.nombre == nombreTrimmeado)                
+                if (casa.nombre == st)                
                     return casa;                
             }
             return null;
-        }       
+        }
     }
 }

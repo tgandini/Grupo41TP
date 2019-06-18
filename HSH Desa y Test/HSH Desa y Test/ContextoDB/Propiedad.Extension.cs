@@ -77,17 +77,17 @@ namespace HSH_Desa_y_Test.ContextoDB
             DateTime diaParaCheckear = Semanizador.LunesDeSemana(año, semana);
             if (propDeDb.ReservaDirectas.Any(p=> p.semanaReservada == semana && p.añoReservado==año))
             {
-                //MessageBox.Show("Existe una reserva directa para la semana indicada");
+                MessageBox.Show(String.Format("La propiedad ya está reservada para la semana {0} del año {1}", semana, año), "La propiedad ya tiene una reserva");
                 return false;
             }
             else if (propDeDb.subastas.Any(p=> p.semana_de_subasta== semana && p.añoReservado == año))
             {
-                //MessageBox.Show("Existe una subasta para la semana indicada");
+                MessageBox.Show(String.Format("La propiedad ya tiene una subasta para la semana {0} del año {1}", semana, año), "La propiedad ya tiene una subasta");
                 return false;
             }
             else if (propDeDb.HotSales.Any(p=> p.semanaReservada == semana && p.añoReservado == año))
             {
-                //MessageBox.Show("Existe ya un hotsale para la semana indicada");
+                MessageBox.Show(String.Format("La propiedad ya tiene una reserva directa para la semana {0} del año {1}", semana, año), "La propiedad ya tiene una reserva");
                 return false;
             }
 

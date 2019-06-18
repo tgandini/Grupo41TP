@@ -10,13 +10,14 @@ namespace HSH_Desa_y_Test.ContextoDB
 {
     public partial class subasta
     {
-        public subasta( int semana, String monto, DateTime fechaInicio, int idDePropiedadParaSubastar)
+        public subasta( int año, int semana, String monto, DateTime fechaInicio, int idDePropiedadParaSubastar)
         {
             this.semana_de_subasta = semana;
             this.monto_inicial = Convert.ToDecimal(monto);
             this.fecha_inicio = fechaInicio;
             this.fecha_fin = fechaInicio.AddDays(3);
             this.id_propiedad_subastada = idDePropiedadParaSubastar;
+            this.añoReservado = año;
         }
 
         public void crear()
@@ -46,12 +47,9 @@ namespace HSH_Desa_y_Test.ContextoDB
 
         public bool estaActiva()
         {
-            using (ContextoEntity conec = new ContextoEntity())
-            {
-                return (this.fecha_inicio < DateTime.Now && this.fecha_fin > DateTime.Now);
-            }
-
+            return (this.fecha_inicio < DateTime.Now && this.fecha_fin > DateTime.Now);
         }
+        
         public bool guardarEnBD()
         {
             using (ContextoEntity conec = new ContextoEntity())
