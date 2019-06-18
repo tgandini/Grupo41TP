@@ -72,7 +72,7 @@ namespace HSH_Desa_y_Test.xUC
                 {
                     using (ContextoEntity conec = new ContextoEntity())
                     {
-                        ReservaDirecta re = new ReservaDirecta(this.propi.id, Sesion.user.mail, this.propi.montoReserva, int.Parse(reservaDirectaComboBox.SelectedItem.ToString().GetCharsBetween("Semana ", " de")));
+                        ReservaDirecta re = new ReservaDirecta(this.propi.id, Sesion.user.mail, this.propi.montoReserva, int.Parse(reservaDirectaComboBox.SelectedItem.ToString().GetCharsBetween("Semana ", " de")), int.Parse(reservaDirectaComboBox.SelectedItem.ToString().GetCharsBetween("de",".")));
                         conec.ReservaDirectas.Add(re);
                         conec.SaveChanges();
                     }

@@ -9,7 +9,7 @@ namespace HSH_Desa_y_Test.ContextoDB
 {
     public partial class ReservaDirecta
     {
-        public ReservaDirecta(int idPro, string idUser, decimal precio, int semana)
+        public ReservaDirecta(int idPro, string idUser, decimal precio, int semana, int yeara)
         {
             this.id = int.MaxValue;
             this.idPropiedad = idPro;
@@ -17,7 +17,7 @@ namespace HSH_Desa_y_Test.ContextoDB
             this.monto = precio;
             this.semanaReservada = semana;
             this.fechaReservada = DateTime.Now;
-            this.añoReservado = Semanizador.semanaSegunFechaInicio(DateTime.Now, semana).Year;
+            this.añoReservado = yeara;
         }
         public ReservaDirecta()
         {

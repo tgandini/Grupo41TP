@@ -105,12 +105,12 @@ namespace HSH_Desa_y_Test.ContextoDB
                 for (i = primeraSemana; i <= 52; i++)
                 {
                     if (this.EstaLibre(i, DateTime.Now.Year,false))
-                        st.Add(string.Concat("Semana ", i, " de ", DateTime.Now.Year));
+                        st.Add(string.Concat("Semana ", i, " de ", DateTime.Now.Year,"."));
                 }
                 for (i = 1; i <= ultimaSemana; i++)
                 {
                     if (this.EstaLibre(i, DateTime.Now.Year + 1,false))
-                        st.Add(string.Concat("Semana ", i, " de ", DateTime.Now.Year + 1));
+                        st.Add(string.Concat("Semana ", i, " de ", DateTime.Now.Year + 1,"."));
                 }
             }
             else
