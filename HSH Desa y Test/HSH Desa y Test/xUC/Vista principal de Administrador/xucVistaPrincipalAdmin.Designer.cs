@@ -29,18 +29,20 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.xfRegistrarceForm1 = new HSH_Desa_y_Test.xUC.xfRegistrarceForm();
+            this.xfDarDeBajaPropiedad2 = new HSH_Desa_y_Test.Forms.xfDarDeBajaPropiedad();
             this.xfAltaSubasta1 = new HSH_Desa_y_Test.Forms.xfAltaSubasta();
             this.xfDarDeAltaPropiedad1 = new HSH_Desa_y_Test.Forms.xfDarDeAltaPropiedad();
             this.xfDarDeBajaUsuario1 = new HSH_Desa_y_Test.Forms.xfDarDeBajaUsuario();
-            this.xfRegistrarceForm1 = new HSH_Desa_y_Test.xUC.xfRegistrarceForm();
-            this.xfDarDeBajaPropiedad2 = new HSH_Desa_y_Test.Forms.xfDarDeBajaPropiedad();
             this.xucComandosAdmin1 = new HSH_Desa_y_Test.xUC.xucComandosAdmin();
+            this.xUCCerrarSubasta1 = new HSH_Desa_y_Test.xUC.xUCCerrarSubasta();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.xUCCerrarSubasta1);
             this.panelControl1.Controls.Add(this.xfRegistrarceForm1);
             this.panelControl1.Controls.Add(this.xfDarDeBajaPropiedad2);
             this.panelControl1.Controls.Add(this.xfAltaSubasta1);
@@ -51,6 +53,27 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1171, 730);
             this.panelControl1.TabIndex = 1;
+            // 
+            // xfRegistrarceForm1
+            // 
+            this.xfRegistrarceForm1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.xfRegistrarceForm1.Location = new System.Drawing.Point(320, 35);
+            this.xfRegistrarceForm1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.xfRegistrarceForm1.Name = "xfRegistrarceForm1";
+            this.xfRegistrarceForm1.Size = new System.Drawing.Size(590, 569);
+            this.xfRegistrarceForm1.TabIndex = 4;
+            // 
+            // xfDarDeBajaPropiedad2
+            // 
+            this.xfDarDeBajaPropiedad2.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.xfDarDeBajaPropiedad2.Appearance.Options.UseBorderColor = true;
+            this.xfDarDeBajaPropiedad2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.xfDarDeBajaPropiedad2.Location = new System.Drawing.Point(70, 25);
+            this.xfDarDeBajaPropiedad2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.xfDarDeBajaPropiedad2.Name = "xfDarDeBajaPropiedad2";
+            this.xfDarDeBajaPropiedad2.Size = new System.Drawing.Size(1030, 512);
+            this.xfDarDeBajaPropiedad2.TabIndex = 2;
+            this.xfDarDeBajaPropiedad2.Visible = false;
             // 
             // xfAltaSubasta1
             // 
@@ -84,27 +107,6 @@
             this.xfDarDeBajaUsuario1.TabIndex = 3;
             this.xfDarDeBajaUsuario1.Visible = false;
             // 
-            // xfRegistrarceForm1
-            // 
-            this.xfRegistrarceForm1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xfRegistrarceForm1.Location = new System.Drawing.Point(320, 35);
-            this.xfRegistrarceForm1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.xfRegistrarceForm1.Name = "xfRegistrarceForm1";
-            this.xfRegistrarceForm1.Size = new System.Drawing.Size(590, 569);
-            this.xfRegistrarceForm1.TabIndex = 4;
-            // 
-            // xfDarDeBajaPropiedad2
-            // 
-            this.xfDarDeBajaPropiedad2.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.xfDarDeBajaPropiedad2.Appearance.Options.UseBorderColor = true;
-            this.xfDarDeBajaPropiedad2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xfDarDeBajaPropiedad2.Location = new System.Drawing.Point(70, 25);
-            this.xfDarDeBajaPropiedad2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.xfDarDeBajaPropiedad2.Name = "xfDarDeBajaPropiedad2";
-            this.xfDarDeBajaPropiedad2.Size = new System.Drawing.Size(1030, 512);
-            this.xfDarDeBajaPropiedad2.TabIndex = 2;
-            this.xfDarDeBajaPropiedad2.Visible = false;
-            // 
             // xucComandosAdmin1
             // 
             this.xucComandosAdmin1.Location = new System.Drawing.Point(0, 4);
@@ -112,6 +114,13 @@
             this.xucComandosAdmin1.Name = "xucComandosAdmin1";
             this.xucComandosAdmin1.Size = new System.Drawing.Size(1175, 71);
             this.xucComandosAdmin1.TabIndex = 0;
+            // 
+            // xUCCerrarSubasta1
+            // 
+            this.xUCCerrarSubasta1.Location = new System.Drawing.Point(20, 93);
+            this.xUCCerrarSubasta1.Name = "xUCCerrarSubasta1";
+            this.xUCCerrarSubasta1.Size = new System.Drawing.Size(1124, 435);
+            this.xUCCerrarSubasta1.TabIndex = 6;
             // 
             // xucVistaPrincipalAdmin
             // 
@@ -137,5 +146,6 @@
         private Forms.xfDarDeBajaUsuario xfDarDeBajaUsuario1;
         private xfRegistrarceForm xfRegistrarceForm1;
         private Forms.xfAltaSubasta xfAltaSubasta1;
+        private xUCCerrarSubasta xUCCerrarSubasta1;
     }
 }

@@ -66,6 +66,14 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
             this.xfAltaSubasta1.BringToFront();
         }
 
+        internal void renderizarCerrarSubasta()
+        {
+            this.ocultarFormsderivados();
+            this.xUCCerrarSubasta1.inicializar();
+            this.xUCCerrarSubasta1.Visible = true;
+            this.xUCCerrarSubasta1.BringToFront();
+        }
+
 
         internal void ocultarFormsderivados()
         {

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using HSH_Desa_y_Test.Modelo_Expandido;
+using HSH_Desa_y_Test.Forms;
 
 namespace HSH_Desa_y_Test.xUC
 {
@@ -47,12 +48,13 @@ namespace HSH_Desa_y_Test.xUC
 
         private void simpleButton3_Click(object sender, EventArgs e)
         {
-
+            xfCambiarMontoSuscripcion ms = new xfCambiarMontoSuscripcion();
+            ms.Show();
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-
+            Sesion.vistaPrincipalDeAdmin.renderizarCerrarSubasta();
         }
     }
 }
