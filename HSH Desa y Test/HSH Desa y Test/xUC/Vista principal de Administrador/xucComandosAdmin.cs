@@ -49,6 +49,7 @@ namespace HSH_Desa_y_Test.xUC
         private void simpleButton3_Click(object sender, EventArgs e)
         {
             xfCambiarMontoSuscripcion ms = new xfCambiarMontoSuscripcion();
+            ms.inicializar();
             ms.Show();
         }
 

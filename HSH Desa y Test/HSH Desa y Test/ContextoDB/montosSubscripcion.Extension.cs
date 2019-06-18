@@ -17,6 +17,7 @@ namespace HSH_Desa_y_Test.ContextoDB
         {
             this.estandar = es;
             this.premium = pre;
+            this.id = int.MaxValue;
         }
     }
 }

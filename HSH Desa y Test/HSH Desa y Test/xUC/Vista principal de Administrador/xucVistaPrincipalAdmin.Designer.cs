@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.xUCCerrarSubasta1 = new HSH_Desa_y_Test.xUC.xUCCerrarSubasta();
             this.xfRegistrarceForm1 = new HSH_Desa_y_Test.xUC.xfRegistrarceForm();
             this.xfDarDeBajaPropiedad2 = new HSH_Desa_y_Test.Forms.xfDarDeBajaPropiedad();
             this.xfAltaSubasta1 = new HSH_Desa_y_Test.Forms.xfAltaSubasta();
             this.xfDarDeAltaPropiedad1 = new HSH_Desa_y_Test.Forms.xfDarDeAltaPropiedad();
             this.xfDarDeBajaUsuario1 = new HSH_Desa_y_Test.Forms.xfDarDeBajaUsuario();
             this.xucComandosAdmin1 = new HSH_Desa_y_Test.xUC.xucComandosAdmin();
-            this.xUCCerrarSubasta1 = new HSH_Desa_y_Test.xUC.xUCCerrarSubasta();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
@@ -54,6 +54,15 @@
             this.panelControl1.Size = new System.Drawing.Size(1171, 730);
             this.panelControl1.TabIndex = 1;
             // 
+            // xUCCerrarSubasta1
+            // 
+            this.xUCCerrarSubasta1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.xUCCerrarSubasta1.Location = new System.Drawing.Point(20, 93);
+            this.xUCCerrarSubasta1.Name = "xUCCerrarSubasta1";
+            this.xUCCerrarSubasta1.Size = new System.Drawing.Size(1124, 435);
+            this.xUCCerrarSubasta1.TabIndex = 6;
+            this.xUCCerrarSubasta1.Visible = false;
+            // 
             // xfRegistrarceForm1
             // 
             this.xfRegistrarceForm1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -62,6 +71,7 @@
             this.xfRegistrarceForm1.Name = "xfRegistrarceForm1";
             this.xfRegistrarceForm1.Size = new System.Drawing.Size(590, 569);
             this.xfRegistrarceForm1.TabIndex = 4;
+            this.xfRegistrarceForm1.Visible = false;
             // 
             // xfDarDeBajaPropiedad2
             // 
@@ -77,11 +87,13 @@
             // 
             // xfAltaSubasta1
             // 
+            this.xfAltaSubasta1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.xfAltaSubasta1.Location = new System.Drawing.Point(70, 25);
             this.xfAltaSubasta1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.xfAltaSubasta1.Name = "xfAltaSubasta1";
             this.xfAltaSubasta1.Size = new System.Drawing.Size(891, 486);
             this.xfAltaSubasta1.TabIndex = 5;
+            this.xfAltaSubasta1.Visible = false;
             // 
             // xfDarDeAltaPropiedad1
             // 
@@ -114,13 +126,6 @@
             this.xucComandosAdmin1.Name = "xucComandosAdmin1";
             this.xucComandosAdmin1.Size = new System.Drawing.Size(1175, 71);
             this.xucComandosAdmin1.TabIndex = 0;
-            // 
-            // xUCCerrarSubasta1
-            // 
-            this.xUCCerrarSubasta1.Location = new System.Drawing.Point(20, 93);
-            this.xUCCerrarSubasta1.Name = "xUCCerrarSubasta1";
-            this.xUCCerrarSubasta1.Size = new System.Drawing.Size(1124, 435);
-            this.xUCCerrarSubasta1.TabIndex = 6;
             // 
             // xucVistaPrincipalAdmin
             // 

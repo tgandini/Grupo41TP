@@ -24,7 +24,7 @@ namespace HSH_Desa_y_Test.Forms
         {
             using (ContextoEntity conexion = new ContextoEntity())
             {
-               monto = conexion.montosSubscripcions.Last();
+               monto = conexion.montosSubscripcions.First();
             }
             estandarEdit.Text = monto.estandar.ToString();
             premiumEdit.Text = monto.premium.ToString();
@@ -49,7 +49,7 @@ namespace HSH_Desa_y_Test.Forms
                     montosSubscripcion mo = new montosSubscripcion(decimal.Parse(estandarEdit.Text), decimal.Parse(premiumEdit.Text));
                     using (ContextoEntity conec = new ContextoEntity())
                     {
-                        conec.montosSubscripcions.Add(mo);
+                        conec.Entry(mo).State = System.Data.Entity.EntityState.Modified;
                         conec.SaveChanges();
                         MessageBox.Show("Se cambiaron los montos");
                     }
