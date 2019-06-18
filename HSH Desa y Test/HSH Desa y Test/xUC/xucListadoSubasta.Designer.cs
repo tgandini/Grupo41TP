@@ -31,9 +31,9 @@
             this.xUCDetalleSubasta1 = new HSH_Desa_y_Test.xUC.xUCDetalleSubasta();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colfecha_inicio = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsemana_de_subasta = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colañoReservado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +59,7 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colfecha_inicio,
+            this.gridColumn1,
             this.colsemana_de_subasta,
             this.colañoReservado});
             this.gridView1.GridControl = this.gridControl1;
@@ -73,17 +73,9 @@
             this.gridView1.OptionsFind.ShowFindButton = false;
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
-            // colfecha_inicio
-            // 
-            this.colfecha_inicio.FieldName = "fecha_inicio";
-            this.colfecha_inicio.MinWidth = 25;
-            this.colfecha_inicio.Name = "colfecha_inicio";
-            this.colfecha_inicio.Visible = true;
-            this.colfecha_inicio.VisibleIndex = 0;
-            this.colfecha_inicio.Width = 94;
-            // 
             // colsemana_de_subasta
             // 
+            this.colsemana_de_subasta.Caption = "Semana subasta";
             this.colsemana_de_subasta.FieldName = "semana_de_subasta";
             this.colsemana_de_subasta.MinWidth = 25;
             this.colsemana_de_subasta.Name = "colsemana_de_subasta";
@@ -93,12 +85,22 @@
             // 
             // colañoReservado
             // 
+            this.colañoReservado.Caption = "Año subasta";
             this.colañoReservado.FieldName = "añoReservado";
             this.colañoReservado.MinWidth = 25;
             this.colañoReservado.Name = "colañoReservado";
             this.colañoReservado.Visible = true;
             this.colañoReservado.VisibleIndex = 2;
             this.colañoReservado.Width = 94;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Fecha y Hora de Cierre de Subasta";
+            this.gridColumn1.MinWidth = 25;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 94;
             // 
             // xucListadoSubasta
             // 
@@ -118,8 +120,8 @@
         private xUCDetalleSubasta xUCDetalleSubasta1;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colfecha_inicio;
         private DevExpress.XtraGrid.Columns.GridColumn colsemana_de_subasta;
         private DevExpress.XtraGrid.Columns.GridColumn colañoReservado;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }
