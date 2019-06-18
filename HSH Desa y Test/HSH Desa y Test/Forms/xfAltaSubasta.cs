@@ -79,7 +79,7 @@ namespace HSH_Desa_y_Test.Forms
                             }
                             else MessageBox.Show("La semana elegida debe superar en 6 meses la fecha de inicio");
                         }
-                         else MessageBox.Show("La propiedad se encuentra reservada o en una subasta activa");
+                      
                 }
                     else MessageBox.Show("La fecha de inicio es incorrecta");
                 //}       
