@@ -41,7 +41,7 @@ namespace HSH_Desa_y_Test.xUC
                 List<subasta> aborar = new List<subasta>();
                 foreach (subasta su in s)
                 {
-                    if (su.estaActiva())
+                    if (!su.estaActiva())
                     {
                         aborar.Add(su);
                     }

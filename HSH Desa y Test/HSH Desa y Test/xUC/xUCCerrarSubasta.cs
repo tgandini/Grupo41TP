@@ -61,7 +61,7 @@ namespace HSH_Desa_y_Test.xUC
                 using (ContextoEntity conec = new ContextoEntity())
                 {
                     po = conec.Propiedads.Where(p => p.id == s.id_propiedad_subastada).First();
-                    usp = conec.usuarioParticipaEnSubastas.Where(p => p.idSubasta == s.id).LastOrDefault();
+                    usp = conec.usuarioParticipaEnSubastas.Where(p => p.idSubasta == s.id).ToList().LastOrDefault();
                 }
                 ubicacionBox.Text = po.ubicaciòn;
                 NombreBox.Text = po.nombre;
