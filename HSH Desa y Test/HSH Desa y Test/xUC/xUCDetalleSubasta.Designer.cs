@@ -72,7 +72,7 @@
             this.groupSubasta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupSubasta.Name = "groupSubasta";
             this.groupSubasta.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupSubasta.Size = new System.Drawing.Size(320, 258);
+            this.groupSubasta.Size = new System.Drawing.Size(320, 264);
             this.groupSubasta.TabIndex = 0;
             this.groupSubasta.TabStop = false;
             this.groupSubasta.Text = "Detalles de la Subasta";
@@ -230,7 +230,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(176, 160);
+            this.label10.Location = new System.Drawing.Point(183, 160);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(49, 16);
             this.label10.TabIndex = 11;
@@ -246,7 +246,7 @@
             this.Controls.Add(this.groupSubasta);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "xUCDetalleSubasta";
-            this.Size = new System.Drawing.Size(630, 301);
+            this.Size = new System.Drawing.Size(630, 318);
             this.groupSubasta.ResumeLayout(false);
             this.groupSubasta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textNuevaPuja.Properties)).EndInit();

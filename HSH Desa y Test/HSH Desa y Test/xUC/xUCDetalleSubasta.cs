@@ -56,8 +56,6 @@ namespace HSH_Desa_y_Test.xUC
                 label10.Text = muestra.añoReservado.ToString();
                 label8.Text = muestra.fecha_fin.ToString();
 
-
-
             }
         }
 
