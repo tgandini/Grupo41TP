@@ -24,7 +24,6 @@ namespace HSH_Desa_y_Test.xUC
             InitializeComponent();
 
         }
-
         public void inicializar(int? idsubasta)
         {
             Random random = new Random();
@@ -39,12 +38,13 @@ namespace HSH_Desa_y_Test.xUC
                 }
                 else //Tenemos ID de subasta, vamos a buscar los datos de esa subasta
                 {
-                    muestra = conexion.subastas.Where(p => p.id == idsubasta & p.fecha_inicio < DateTime.Today).First();
+                    muestra = conexion.subastas.Where(p => p.id == idsubasta).First();
                 }
-               
-                //Busca los datos para mostrar en los label
-                var casa = conexion.Propiedads.Where(p => p.id == muestra.id_propiedad_subastada).First();
-                usuar = conexion.usuarioParticipaEnSubastas.Where(p => p.idSubasta == muestra.id).LastOrDefault();
+
+                //Busca los datos del q va ganando en la subasta para mostrar en los label
+
+                var casa = conexion.Propiedads.Where(p => p.id == muestra.id_propiedad_subastada).FirstOrDefault();
+                usuar = conexion.usuarioParticipaEnSubastas.Where(p => p.idSubasta == muestra.id).ToList().LastOrDefault();
 
                 //Seteo los label a cada cosa
                 nombreLabel.Text = casa.nombre;
@@ -53,6 +53,8 @@ namespace HSH_Desa_y_Test.xUC
                 if (usuar != null) ultimaPuja.Text = usuar.monto.ToString();
                 else ultimaPuja.Text = muestra.monto_inicial.ToString();
                 semanaSubastadaConAño.Text = string.Concat("Semana ", muestra.semana_de_subasta);
+
+
             }
         }
 
@@ -74,7 +76,7 @@ namespace HSH_Desa_y_Test.xUC
                 }
                 else MessageBox.Show("No tiene creditos suficientes");
             }
-            else MessageBox.Show(string.Format("Debe ingresar un monto valido, debe superar {0}",ultimaPuja.Text));
+            else MessageBox.Show(string.Format("Debe ingresar un monto valido, debe superar {0}", ultimaPuja.Text));
         }
 
         private void textNuevaPuja_EditValueChanged(object sender, EventArgs e)

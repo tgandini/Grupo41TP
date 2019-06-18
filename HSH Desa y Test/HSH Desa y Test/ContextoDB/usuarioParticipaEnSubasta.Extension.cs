@@ -8,6 +8,10 @@ namespace HSH_Desa_y_Test.ContextoDB
 {
     public partial class usuarioParticipaEnSubasta
     {
+        public usuarioParticipaEnSubasta()
+        {
+
+        }
         public usuarioParticipaEnSubasta(decimal NMonto, string mailUsuario, int subasta)
         {
             this.id = int.MaxValue;
