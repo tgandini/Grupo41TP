@@ -18,6 +18,7 @@ namespace HSH_Desa_y_Test.Forms
         public xfCambiarMontoSuscripcion()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         public void inicializar()
