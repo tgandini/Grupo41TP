@@ -53,6 +53,9 @@ namespace HSH_Desa_y_Test.xUC
                 if (usuar != null) ultimaPuja.Text = usuar.monto.ToString();
                 else ultimaPuja.Text = muestra.monto_inicial.ToString();
                 semanaSubastadaConAño.Text = string.Concat("Semana ", muestra.semana_de_subasta);
+                label10.Text = muestra.añoReservado.ToString();
+                label8.Text = muestra.fecha_fin.ToString();
+
 
 
             }

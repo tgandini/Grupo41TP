@@ -43,12 +43,20 @@
             this.textNuevaPuja = new DevExpress.XtraEditors.TextEdit();
             this.label4 = new System.Windows.Forms.Label();
             this.pujarButton = new DevExpress.XtraEditors.SimpleButton();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupSubasta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textNuevaPuja.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupSubasta
             // 
+            this.groupSubasta.Controls.Add(this.label10);
+            this.groupSubasta.Controls.Add(this.label9);
+            this.groupSubasta.Controls.Add(this.label8);
+            this.groupSubasta.Controls.Add(this.label7);
             this.groupSubasta.Controls.Add(this.nombreLabel);
             this.groupSubasta.Controls.Add(this.ciudadLabel);
             this.groupSubasta.Controls.Add(this.label6);
@@ -64,7 +72,7 @@
             this.groupSubasta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupSubasta.Name = "groupSubasta";
             this.groupSubasta.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupSubasta.Size = new System.Drawing.Size(260, 210);
+            this.groupSubasta.Size = new System.Drawing.Size(320, 258);
             this.groupSubasta.TabIndex = 0;
             this.groupSubasta.TabStop = false;
             this.groupSubasta.Text = "Detalles de la Subasta";
@@ -108,7 +116,7 @@
             // ultimaPuja
             // 
             this.ultimaPuja.AutoSize = true;
-            this.ultimaPuja.Location = new System.Drawing.Point(183, 161);
+            this.ultimaPuja.Location = new System.Drawing.Point(183, 190);
             this.ultimaPuja.Name = "ultimaPuja";
             this.ultimaPuja.Size = new System.Drawing.Size(42, 16);
             this.ultimaPuja.TabIndex = 2;
@@ -135,7 +143,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 161);
+            this.label3.Location = new System.Drawing.Point(5, 190);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 16);
             this.label3.TabIndex = 2;
@@ -161,7 +169,7 @@
             // 
             // textNuevaPuja
             // 
-            this.textNuevaPuja.Location = new System.Drawing.Point(436, 113);
+            this.textNuevaPuja.Location = new System.Drawing.Point(467, 136);
             this.textNuevaPuja.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textNuevaPuja.Name = "textNuevaPuja";
             this.textNuevaPuja.Properties.Mask.EditMask = "f";
@@ -174,7 +182,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label4.Location = new System.Drawing.Point(321, 112);
+            this.label4.Location = new System.Drawing.Point(352, 135);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 17);
             this.label4.TabIndex = 2;
@@ -184,13 +192,49 @@
             // 
             this.pujarButton.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.pujarButton.Appearance.Options.UseFont = true;
-            this.pujarButton.Location = new System.Drawing.Point(353, 178);
+            this.pujarButton.Location = new System.Drawing.Point(384, 201);
             this.pujarButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pujarButton.Name = "pujarButton";
             this.pujarButton.Size = new System.Drawing.Size(184, 41);
             this.pujarButton.TabIndex = 3;
             this.pujarButton.Text = "Confirmar Oferta";
             this.pujarButton.Click += new System.EventHandler(this.pujarButton_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(5, 224);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(104, 16);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Fecha de Cierre:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(183, 224);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(42, 16);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "label8";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(5, 160);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(104, 16);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Año de Semana:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(176, 160);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 16);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "label10";
             // 
             // xUCDetalleSubasta
             // 
@@ -202,7 +246,7 @@
             this.Controls.Add(this.groupSubasta);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "xUCDetalleSubasta";
-            this.Size = new System.Drawing.Size(591, 277);
+            this.Size = new System.Drawing.Size(630, 301);
             this.groupSubasta.ResumeLayout(false);
             this.groupSubasta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textNuevaPuja.Properties)).EndInit();
@@ -228,5 +272,9 @@
         private System.Windows.Forms.Label ciudadLabel;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
     }
 }
