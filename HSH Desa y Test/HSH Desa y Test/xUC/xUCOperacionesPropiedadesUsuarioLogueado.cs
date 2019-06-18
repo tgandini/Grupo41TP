@@ -16,6 +16,7 @@ namespace HSH_Desa_y_Test.xUC
     public partial class xUCOperacionesPropiedadesUsuarioLogueado : DevExpress.XtraEditors.XtraUserControl
     {
         private Propiedad propi;
+        List<subasta> subActivas = new List<subasta>();
         public xUCOperacionesPropiedadesUsuarioLogueado()
         {
             InitializeComponent();
@@ -50,7 +51,11 @@ namespace HSH_Desa_y_Test.xUC
                 List<string> subastasActivas = new List<string>();
                 foreach (subasta s in sub)
                 {
-                    if (s.estaActiva()) subastasActivas.Add(string.Format("Semana {0} año {1}", s.semana_de_subasta, Semanizador.semanaSegunFechaInicio(s.fecha_inicio, s.semana_de_subasta).Year));
+                    if (s.estaActiva())
+                    {
+                        subastasActivas.Add(string.Format("Semana {0} año {1}", s.semana_de_subasta, Semanizador.semanaSegunFechaInicio(s.fecha_inicio, s.semana_de_subasta).Year));
+                        subActivas.Add(s);
+                    }
                 }
                 subastasActivasListBox.DataSource = subastasActivas;
                 if (subastasActivasListBox.ItemCount < 1) subastasActivasListBox.Text = "No hay subastas activas";
@@ -84,6 +89,11 @@ namespace HSH_Desa_y_Test.xUC
                     MessageBox.Show("No se realizo la operacion de reserva");
                 }
             }
+        }
+
+        private void linkSubastaButton_Click(object sender, EventArgs e)
+        {
+            Sesion.vistaPrincipalUserLogueado.renderizarDetalleSubasta(subActivas.ElementAt(subastasActivasListBox.SelectedIndex));
         }
     }
 }
