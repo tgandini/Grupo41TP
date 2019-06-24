@@ -18,6 +18,8 @@ namespace HSH_Desa_y_Test.xUC
     public partial class xUCModificarDatosUsuario : DevExpress.XtraEditors.XtraForm
     {
         usuario usuarioAModificar = null;
+        public delegate void modificarUsuarioEventHandler();
+        public event modificarUsuarioEventHandler seModificoUsuario;
 
         public xUCModificarDatosUsuario(string mailUsuario)
         {
@@ -67,9 +69,11 @@ namespace HSH_Desa_y_Test.xUC
                     conexion.Entry(usuarioAModificar).State = System.Data.Entity.EntityState.Modified;
                     conexion.SaveChanges();
                 }
-                Sesion.vistaPrincipalDeAdmin.vuelveDeModificarUsuario();
-                    this.Close();
-                
+                Sesion.user = this.usuarioAModificar;
+                //Sesion.vistaPrincipalDeAdmin.vuelveDeModificarUsuario();
+                if (seModificoUsuario != null) seModificoUsuario();
+                this.Close();
+
             }
             else if (result == DialogResult.No)
             {
