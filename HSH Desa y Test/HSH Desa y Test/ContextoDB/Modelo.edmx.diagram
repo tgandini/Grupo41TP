@@ -24,6 +24,12 @@
         <AssociationConnector Association="Modelo.FkPersona" />
         <AssociationConnector Association="Modelo.fkPropiedadFotos" />
         <AssociationConnector Association="Modelo.FkHotsalesProp" />
+        <EntityTypeShape EntityType="Modelo.ganadorDeSubasta" Width="1.5" PointX="9.75" PointY="7" />
+        <AssociationConnector Association="Modelo.FkPujaGanadora" />
+        <AssociationConnector Association="Modelo.FkSubastaGanada" />
+        <AssociationConnector Association="Modelo.FkUsuarioGanador" />
+        <AssociationConnector Association="Modelo.FKUsuario" />
+        <AssociationConnector Association="Modelo.FkUsuarioReserva" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

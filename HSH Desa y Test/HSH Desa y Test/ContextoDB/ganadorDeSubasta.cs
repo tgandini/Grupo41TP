@@ -12,18 +12,15 @@ namespace HSH_Desa_y_Test.ContextoDB
     using System;
     using System.Collections.Generic;
     
-    public partial class HotSale
+    public partial class ganadorDeSubasta
     {
         public int id { get; set; }
         public string idUsuario { get; set; }
-        public int idPropiedad { get; set; }
-        public System.DateTime fechaInicio { get; set; }
-        public System.DateTime fechaFin { get; set; }
-        public decimal monto { get; set; }
-        public int semanaReservada { get; set; }
-        public int añoReservado { get; set; }
+        public int idSubasta { get; set; }
+        public int idPujaEnSubasta { get; set; }
     
-        public virtual Propiedad Propiedad { get; set; }
+        public virtual usuarioParticipaEnSubasta usuarioParticipaEnSubasta { get; set; }
+        public virtual subasta subasta { get; set; }
         public virtual usuario usuario { get; set; }
     }
 }

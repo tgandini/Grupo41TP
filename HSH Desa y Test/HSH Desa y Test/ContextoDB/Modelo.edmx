@@ -19,6 +19,15 @@
           <Property Name="idPropiedad" Type="int" Nullable="false" />
           <Property Name="foto" Type="image" Nullable="false" />
         </EntityType>
+        <EntityType Name="ganadorDeSubasta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUsuario" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="idSubasta" Type="int" Nullable="false" />
+          <Property Name="idPujaEnSubasta" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="HotSales">
           <Key>
             <PropertyRef Name="id" />
@@ -150,15 +159,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FkHotsalesProp">
-          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="1" />
-          <End Role="HotSales" Type="Self.HotSales" Multiplicity="*" />
+        <Association Name="FK_tarjetas_Usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="tarjetas" Type="Self.tarjetas" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Propiedad">
-              <PropertyRef Name="id" />
+            <Principal Role="usuario">
+              <PropertyRef Name="mail" />
             </Principal>
-            <Dependent Role="HotSales">
-              <PropertyRef Name="idPropiedad" />
+            <Dependent Role="tarjetas">
+              <PropertyRef Name="idPersona" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -174,14 +183,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fkPropiedadFotos">
+        <Association Name="FkPropiedad">
           <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="1" />
-          <End Role="fotos" Type="Self.fotos" Multiplicity="*" />
+          <End Role="HotSales" Type="Self.HotSales" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Propiedad">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="fotos">
+            <Dependent Role="HotSales">
               <PropertyRef Name="idPropiedad" />
             </Dependent>
           </ReferentialConstraint>
@@ -198,6 +207,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FkPujaGanadora">
+          <End Role="usuarioParticipaEnSubasta" Type="Self.usuarioParticipaEnSubasta" Multiplicity="1" />
+          <End Role="ganadorDeSubasta" Type="Self.ganadorDeSubasta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarioParticipaEnSubasta">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ganadorDeSubasta">
+              <PropertyRef Name="idPujaEnSubasta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FKSubasta">
           <End Role="subasta" Type="Self.subasta" Multiplicity="1" />
           <End Role="usuarioParticipaEnSubasta" Type="Self.usuarioParticipaEnSubasta" Multiplicity="*" />
@@ -210,21 +231,70 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fkTarjetasUsuario">
+        <Association Name="FkSubastaGanada">
+          <End Role="subasta" Type="Self.subasta" Multiplicity="1" />
+          <End Role="ganadorDeSubasta" Type="Self.ganadorDeSubasta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subasta">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ganadorDeSubasta">
+              <PropertyRef Name="idSubasta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKUsuario">
           <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
-          <End Role="tarjetas" Type="Self.tarjetas" Multiplicity="*" />
+          <End Role="HotSales" Type="Self.HotSales" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="usuario">
               <PropertyRef Name="mail" />
             </Principal>
-            <Dependent Role="tarjetas">
-              <PropertyRef Name="idPersona" />
+            <Dependent Role="HotSales">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FkUsuarioGanador">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="ganadorDeSubasta" Type="Self.ganadorDeSubasta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="mail" />
+            </Principal>
+            <Dependent Role="ganadorDeSubasta">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FkUsuarioReserva">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="ReservaDirecta" Type="Self.ReservaDirecta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="mail" />
+            </Principal>
+            <Dependent Role="ReservaDirecta">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idPropiedad">
+          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="1" />
+          <End Role="fotos" Type="Self.fotos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propiedad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fotos">
+              <PropertyRef Name="idPropiedad" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ModeloStoreContainer">
           <EntitySet Name="admins" EntityType="Self.admins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="fotos" EntityType="Self.fotos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ganadorDeSubasta" EntityType="Self.ganadorDeSubasta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HotSales" EntityType="Self.HotSales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="montosSubscripcion" EntityType="Self.montosSubscripcion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Propiedad" EntityType="Self.Propiedad" Schema="dbo" store:Type="Tables" />
@@ -245,29 +315,49 @@
             <End Role="admins" EntitySet="admins" />
             <End Role="Propiedad" EntitySet="Propiedad" />
           </AssociationSet>
-          <AssociationSet Name="FkHotsalesProp" Association="Self.FkHotsalesProp">
-            <End Role="Propiedad" EntitySet="Propiedad" />
-            <End Role="HotSales" EntitySet="HotSales" />
+          <AssociationSet Name="FK_tarjetas_Usuario" Association="Self.FK_tarjetas_Usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="tarjetas" EntitySet="tarjetas" />
           </AssociationSet>
           <AssociationSet Name="FkPersona" Association="Self.FkPersona">
             <End Role="usuario" EntitySet="usuario" />
             <End Role="usuarioParticipaEnSubasta" EntitySet="usuarioParticipaEnSubasta" />
           </AssociationSet>
-          <AssociationSet Name="fkPropiedadFotos" Association="Self.fkPropiedadFotos">
+          <AssociationSet Name="FkPropiedad" Association="Self.FkPropiedad">
             <End Role="Propiedad" EntitySet="Propiedad" />
-            <End Role="fotos" EntitySet="fotos" />
+            <End Role="HotSales" EntitySet="HotSales" />
           </AssociationSet>
           <AssociationSet Name="FkPropReservaDirecta" Association="Self.FkPropReservaDirecta">
             <End Role="Propiedad" EntitySet="Propiedad" />
             <End Role="ReservaDirecta" EntitySet="ReservaDirecta" />
           </AssociationSet>
+          <AssociationSet Name="FkPujaGanadora" Association="Self.FkPujaGanadora">
+            <End Role="usuarioParticipaEnSubasta" EntitySet="usuarioParticipaEnSubasta" />
+            <End Role="ganadorDeSubasta" EntitySet="ganadorDeSubasta" />
+          </AssociationSet>
           <AssociationSet Name="FKSubasta" Association="Self.FKSubasta">
             <End Role="subasta" EntitySet="subasta" />
             <End Role="usuarioParticipaEnSubasta" EntitySet="usuarioParticipaEnSubasta" />
           </AssociationSet>
-          <AssociationSet Name="fkTarjetasUsuario" Association="Self.fkTarjetasUsuario">
+          <AssociationSet Name="FkSubastaGanada" Association="Self.FkSubastaGanada">
+            <End Role="subasta" EntitySet="subasta" />
+            <End Role="ganadorDeSubasta" EntitySet="ganadorDeSubasta" />
+          </AssociationSet>
+          <AssociationSet Name="FKUsuario" Association="Self.FKUsuario">
             <End Role="usuario" EntitySet="usuario" />
-            <End Role="tarjetas" EntitySet="tarjetas" />
+            <End Role="HotSales" EntitySet="HotSales" />
+          </AssociationSet>
+          <AssociationSet Name="FkUsuarioGanador" Association="Self.FkUsuarioGanador">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="ganadorDeSubasta" EntitySet="ganadorDeSubasta" />
+          </AssociationSet>
+          <AssociationSet Name="FkUsuarioReserva" Association="Self.FkUsuarioReserva">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="ReservaDirecta" EntitySet="ReservaDirecta" />
+          </AssociationSet>
+          <AssociationSet Name="idPropiedad" Association="Self.idPropiedad">
+            <End Role="Propiedad" EntitySet="Propiedad" />
+            <End Role="fotos" EntitySet="fotos" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -321,6 +411,27 @@
             <End Role="Propiedad" EntitySet="Propiedads" />
             <End Role="HotSale" EntitySet="HotSales" />
           </AssociationSet>
+          <EntitySet Name="ganadorDeSubastas" EntityType="Modelo.ganadorDeSubasta" />
+          <AssociationSet Name="FkPujaGanadora" Association="Modelo.FkPujaGanadora">
+            <End Role="usuarioParticipaEnSubasta" EntitySet="usuarioParticipaEnSubastas" />
+            <End Role="ganadorDeSubasta" EntitySet="ganadorDeSubastas" />
+          </AssociationSet>
+          <AssociationSet Name="FkSubastaGanada" Association="Modelo.FkSubastaGanada">
+            <End Role="subasta" EntitySet="subastas" />
+            <End Role="ganadorDeSubasta" EntitySet="ganadorDeSubastas" />
+          </AssociationSet>
+          <AssociationSet Name="FkUsuarioGanador" Association="Modelo.FkUsuarioGanador">
+            <End Role="usuario" EntitySet="usuarios" />
+            <End Role="ganadorDeSubasta" EntitySet="ganadorDeSubastas" />
+          </AssociationSet>
+          <AssociationSet Name="FKUsuario" Association="Modelo.FKUsuario">
+            <End Role="usuario" EntitySet="usuarios" />
+            <End Role="HotSale" EntitySet="HotSales" />
+          </AssociationSet>
+          <AssociationSet Name="FkUsuarioReserva" Association="Modelo.FkUsuarioReserva">
+            <End Role="usuario" EntitySet="usuarios" />
+            <End Role="ReservaDirecta" EntitySet="ReservaDirectas" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="admin">
           <Key>
@@ -352,6 +463,7 @@
           <Property Name="semanaReservada" Type="Int32" Nullable="false" />
           <Property Name="añoReservado" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Propiedad" Relationship="Modelo.FkHotsalesProp" FromRole="HotSale" ToRole="Propiedad" />
+          <NavigationProperty Name="usuario" Relationship="Modelo.FKUsuario" FromRole="HotSale" ToRole="usuario" />
         </EntityType>
         <EntityType Name="montosSubscripcion">
           <Key>
@@ -397,6 +509,7 @@
           <Property Name="monto" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="añoReservado" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Propiedad" Relationship="Modelo.FkPropReservaDirecta" FromRole="ReservaDirecta" ToRole="Propiedad" />
+          <NavigationProperty Name="usuario" Relationship="Modelo.FkUsuarioReserva" FromRole="ReservaDirecta" ToRole="usuario" />
         </EntityType>
         <EntityType Name="subasta">
           <Key>
@@ -411,6 +524,7 @@
           <Property Name="añoReservado" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Propiedad" Relationship="Modelo.fk_Propiedad_Subastada" FromRole="subasta" ToRole="Propiedad" />
           <NavigationProperty Name="usuarioParticipaEnSubastas" Relationship="Modelo.FKSubasta" FromRole="subasta" ToRole="usuarioParticipaEnSubasta" />
+          <NavigationProperty Name="ganadorDeSubastas" Relationship="Modelo.FkSubastaGanada" FromRole="subasta" ToRole="ganadorDeSubasta" />
         </EntityType>
         <EntityType Name="tarjeta">
           <Key>
@@ -437,6 +551,9 @@
           <Property Name="fecha_registro" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="tarjetas" Relationship="Modelo.fkTarjetasUsuario" FromRole="usuario" ToRole="tarjeta" />
           <NavigationProperty Name="usuarioParticipaEnSubastas" Relationship="Modelo.FkPersona" FromRole="usuario" ToRole="usuarioParticipaEnSubasta" />
+          <NavigationProperty Name="ganadorDeSubastas" Relationship="Modelo.FkUsuarioGanador" FromRole="usuario" ToRole="ganadorDeSubasta" />
+          <NavigationProperty Name="HotSales" Relationship="Modelo.FKUsuario" FromRole="usuario" ToRole="HotSale" />
+          <NavigationProperty Name="ReservaDirectas" Relationship="Modelo.FkUsuarioReserva" FromRole="usuario" ToRole="ReservaDirecta" />
         </EntityType>
         <EntityType Name="usuarioParticipaEnSubasta">
           <Key>
@@ -448,6 +565,7 @@
           <Property Name="idSubasta" Type="Int32" Nullable="false" />
           <NavigationProperty Name="subasta" Relationship="Modelo.FKSubasta" FromRole="usuarioParticipaEnSubasta" ToRole="subasta" />
           <NavigationProperty Name="usuario" Relationship="Modelo.FkPersona" FromRole="usuarioParticipaEnSubasta" ToRole="usuario" />
+          <NavigationProperty Name="ganadorDeSubastas" Relationship="Modelo.FkPujaGanadora" FromRole="usuarioParticipaEnSubasta" ToRole="ganadorDeSubasta" />
         </EntityType>
         <Association Name="FK_adminDioDeAlta">
           <End Type="Modelo.admin" Role="admin" Multiplicity="1" />
@@ -554,6 +672,78 @@
             </Principal>
             <Dependent Role="HotSale">
               <PropertyRef Name="idPropiedad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ganadorDeSubasta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUsuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="idSubasta" Type="Int32" Nullable="false" />
+          <Property Name="idPujaEnSubasta" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="usuarioParticipaEnSubasta" Relationship="Modelo.FkPujaGanadora" FromRole="ganadorDeSubasta" ToRole="usuarioParticipaEnSubasta" />
+          <NavigationProperty Name="subasta" Relationship="Modelo.FkSubastaGanada" FromRole="ganadorDeSubasta" ToRole="subasta" />
+          <NavigationProperty Name="usuario" Relationship="Modelo.FkUsuarioGanador" FromRole="ganadorDeSubasta" ToRole="usuario" />
+        </EntityType>
+        <Association Name="FkPujaGanadora">
+          <End Type="Modelo.usuarioParticipaEnSubasta" Role="usuarioParticipaEnSubasta" Multiplicity="1" />
+          <End Type="Modelo.ganadorDeSubasta" Role="ganadorDeSubasta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarioParticipaEnSubasta">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ganadorDeSubasta">
+              <PropertyRef Name="idPujaEnSubasta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FkSubastaGanada">
+          <End Type="Modelo.subasta" Role="subasta" Multiplicity="1" />
+          <End Type="Modelo.ganadorDeSubasta" Role="ganadorDeSubasta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subasta">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ganadorDeSubasta">
+              <PropertyRef Name="idSubasta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FkUsuarioGanador">
+          <End Type="Modelo.usuario" Role="usuario" Multiplicity="1" />
+          <End Type="Modelo.ganadorDeSubasta" Role="ganadorDeSubasta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="mail" />
+            </Principal>
+            <Dependent Role="ganadorDeSubasta">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKUsuario">
+          <End Type="Modelo.usuario" Role="usuario" Multiplicity="1" />
+          <End Type="Modelo.HotSale" Role="HotSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="mail" />
+            </Principal>
+            <Dependent Role="HotSale">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FkUsuarioReserva">
+          <End Type="Modelo.usuario" Role="usuario" Multiplicity="1" />
+          <End Type="Modelo.ReservaDirecta" Role="ReservaDirecta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="mail" />
+            </Principal>
+            <Dependent Role="ReservaDirecta">
+              <PropertyRef Name="idUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -678,6 +868,16 @@
                 <ScalarProperty Name="idSubasta" ColumnName="idSubasta" />
                 <ScalarProperty Name="idPersona" ColumnName="idPersona" />
                 <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ganadorDeSubastas">
+            <EntityTypeMapping TypeName="Modelo.ganadorDeSubasta">
+              <MappingFragment StoreEntitySet="ganadorDeSubasta">
+                <ScalarProperty Name="idPujaEnSubasta" ColumnName="idPujaEnSubasta" />
+                <ScalarProperty Name="idSubasta" ColumnName="idSubasta" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
