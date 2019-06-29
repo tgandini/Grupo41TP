@@ -76,8 +76,8 @@ namespace HSH_Desa_y_Test.xUC
                         {
                             ReservaDirecta re = new ReservaDirecta(this.propi.id, Sesion.user.mail, this.propi.montoReserva, int.Parse(reservaDirectaComboBox.SelectedItem.ToString().GetCharsBetween("Semana ", " de")), int.Parse(reservaDirectaComboBox.SelectedItem.ToString().GetCharsBetween("de", ".")));
                             conec.ReservaDirectas.Add(re);
-                            Sesion.user.token = Sesion.user.token - 1;
                             conec.SaveChanges();
+                            Sesion.user.restarCredito();
                         }
                         MessageBox.Show(string.Format("Se adjudico la reserva para la fecha {0}", Semanizador.semanaSegunFechaInicio(DateTime.Now, int.Parse(reservaDirectaComboBox.SelectedItem.ToString().GetCharsBetween("Semana ", " de"))).Date));
                         this.inicializar(this.propi);

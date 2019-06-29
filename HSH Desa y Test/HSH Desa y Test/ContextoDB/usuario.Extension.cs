@@ -66,5 +66,15 @@ namespace HSH_Desa_y_Test.ContextoDB
             }
 
         }
+
+        public void restarCredito()
+        {
+            using (ContextoEntity conec = new ContextoEntity())
+            {
+                this.token--;
+                conec.Entry(this).State = System.Data.Entity.EntityState.Modified;
+                conec.SaveChanges();
+            }
+        }
     }
 }
