@@ -18,7 +18,8 @@ namespace HSH_Desa_y_Test.Forms
 {
     public partial class xfAltaSubasta : DevExpress.XtraEditors.XtraUserControl
     {
-        private List<Propiedad> propie;        
+        private List<Propiedad> propie;
+        private List<string> semanas = new List<string>();
         public xfAltaSubasta()
         {
             InitializeComponent();
@@ -27,7 +28,7 @@ namespace HSH_Desa_y_Test.Forms
 
         public void inicializar()
         {
-            
+
             propie = llenarConPropiedades();
             List<string> iden = new List<string>();
             iden.Clear();
@@ -39,7 +40,6 @@ namespace HSH_Desa_y_Test.Forms
             comboBox1.DataSource = iden;
             
 
-
             //Checkeamos q no haya datos en el combobox de año
             if (comboBox2.Items.Count == 0)
             {
@@ -49,7 +49,9 @@ namespace HSH_Desa_y_Test.Forms
                 }
                 comboBox2.SelectedIndex = 0;
             }
-            
+
+            llenarConSubastas(this, null);
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -62,12 +64,12 @@ namespace HSH_Desa_y_Test.Forms
                 //{
                     if (DateTime.Parse(maskedTextBox2.Text) >= (DateTime.Now))
                     {
-                        DateTime fechaSemana = Semanizador.LunesDeSemana(int.Parse(comboBox2.SelectedItem.ToString()), int.Parse(numericUpDown1.Value.ToString()));                 
-                        if (st.EstaLibre(decimal.ToInt32(numericUpDown1.Value), fechaSemana.Year,true))
+                    int numeroSemana = comboBox3.SelectedIndex + 1;               
+                        if (st.EstaLibre(numeroSemana, (int)comboBox2.SelectedItem, true))
                         {
-                            if (fechaSemana > DateTime.Parse(maskedTextBox2.Text).AddMonths(6))
+                            if (Semanizador.LunesDeSemana((int)comboBox2.SelectedItem,numeroSemana) > DateTime.Parse(maskedTextBox2.Text).AddMonths(6))
                             {
-                                subasta nuevaSubasta = new subasta((int)comboBox2.SelectedItem, (int)numericUpDown1.Value, maskedTextBox1.AccessibilityObject.Value, DateTime.Parse(maskedTextBox2.AccessibilityObject.Value), st.id);
+                                subasta nuevaSubasta = new subasta((int)comboBox2.SelectedItem, numeroSemana, maskedTextBox1.AccessibilityObject.Value, DateTime.Parse(maskedTextBox2.AccessibilityObject.Value), st.id);
 
                                 st.subastas.Add(nuevaSubasta);
 
@@ -91,7 +93,7 @@ namespace HSH_Desa_y_Test.Forms
         {
             maskedTextBox1.Clear();
             maskedTextBox2.Clear();
-            numericUpDown1.Value = 1;
+            comboBox3.SelectedIndex = 0;
             if (comboBox1.Items.Count!=0) comboBox1.SelectedIndex = 0;
             if (comboBox2.Items.Count!=0) comboBox2.SelectedIndex = 0;
         }
@@ -106,6 +108,15 @@ namespace HSH_Desa_y_Test.Forms
                     .Include(p=>p.ReservaDirectas)
                     .ToList();
             }
+        }
+
+        private void llenarConSubastas(object sender, EventArgs e)
+        {
+            semanas.Clear();
+            for (int i = 1; i <= 52; i++) semanas.Add(string.Concat(i.ToString(), Semanizador.LunesDeSemana((int)comboBox2.SelectedItem, i).ToString(" - (dd/MM/yyyy)")));
+            comboBox3.DataSource = null;
+            comboBox3.DataSource = semanas;
+            comboBox3.SelectedIndex = 0;
         }
 
         private Propiedad encontrarCual(string st)

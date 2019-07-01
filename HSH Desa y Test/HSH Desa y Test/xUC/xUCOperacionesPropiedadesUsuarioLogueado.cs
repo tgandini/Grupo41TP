@@ -53,7 +53,7 @@ namespace HSH_Desa_y_Test.xUC
                 {
                     if (s.estaActiva())
                     {
-                        subastasActivas.Add(string.Format("Semana {0} año {1}", s.semana_de_subasta, Semanizador.semanaSegunFechaInicio(s.fecha_inicio, s.semana_de_subasta).Year));
+                        subastasActivas.Add(string.Format(Semanizador.LunesDeSemana(Semanizador.semanaSegunFechaInicio(s.fecha_inicio, s.semana_de_subasta).Year,s.semana_de_subasta).ToString("dd/MM/yyyy")));
                         subActivas.Add(s);
                     }
                 }
@@ -70,16 +70,17 @@ namespace HSH_Desa_y_Test.xUC
             {
                 if (Sesion.user.token > 0)
                 {
-                    if (this.propi.EstaLibre(int.Parse(reservaDirectaComboBox.SelectedItem.ToString().GetCharsBetween("Semana ", " de")), int.Parse(reservaDirectaComboBox.SelectedItem.ToString().GetCharsBetween("de", ".")), true))
+                    DateTime semanaAReservar = DateTime.Parse(reservaDirectaComboBox.SelectedItem.ToString());
+                    if (this.propi.EstaLibre(Semanizador.getSemanaDelAño(semanaAReservar), semanaAReservar.Year, true))
                     {
                         using (ContextoEntity conec = new ContextoEntity())
                         {
-                            ReservaDirecta re = new ReservaDirecta(this.propi.id, Sesion.user.mail, this.propi.montoReserva, int.Parse(reservaDirectaComboBox.SelectedItem.ToString().GetCharsBetween("Semana ", " de")), int.Parse(reservaDirectaComboBox.SelectedItem.ToString().GetCharsBetween("de", ".")));
+                            ReservaDirecta re = new ReservaDirecta(this.propi.id, Sesion.user.mail, this.propi.montoReserva, Semanizador.getSemanaDelAño(semanaAReservar), semanaAReservar.Year);
                             conec.ReservaDirectas.Add(re);
                             conec.SaveChanges();
                             Sesion.user.restarCredito();
                         }
-                        MessageBox.Show(string.Format("Se adjudico la reserva para la fecha {0}", Semanizador.semanaSegunFechaInicio(DateTime.Now, int.Parse(reservaDirectaComboBox.SelectedItem.ToString().GetCharsBetween("Semana ", " de"))).Date));
+                        MessageBox.Show(string.Format("Se adjudico la reserva para la fecha {0}", semanaAReservar.ToString("dd/MM/yyyy")));
                         this.inicializar(this.propi);
                     }
                 }
