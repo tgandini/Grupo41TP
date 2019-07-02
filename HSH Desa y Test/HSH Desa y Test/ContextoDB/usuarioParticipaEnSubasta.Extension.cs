@@ -22,6 +22,7 @@ namespace HSH_Desa_y_Test.ContextoDB
             using (ContextoEntity conec = new ContextoEntity())
             {
                 conec.usuarioParticipaEnSubastas.Add(this);
+                conec.SaveChanges();
             }
         }
     }
