@@ -81,6 +81,7 @@ namespace HSH_Desa_y_Test.Forms
             this.xUCToolBarLogueado1.BringToFront();
 
             //traigo al frente la vista principal del User Logueado
+            this.xucVistaPrincipalUsuario1.inicializar();
             this.xucVistaPrincipalUsuario1.Visible = true;
             this.xucVistaPrincipalUsuario1.BringToFront();
 

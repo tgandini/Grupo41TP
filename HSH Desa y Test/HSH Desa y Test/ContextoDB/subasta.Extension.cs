@@ -10,7 +10,21 @@ namespace HSH_Desa_y_Test.ContextoDB
 {
     public partial class subasta
     {
-        public subasta( int año, int semana, String monto, DateTime fechaInicio, int idDePropiedadParaSubastar)
+        #region Propiedades
+        public usuario ganador
+        {
+            get
+            {
+                using (ContextoEntity conec = new ContextoEntity())
+                {
+                    var usuarioTestEnSubasta = this.usuarioParticipaEnSubastas.OrderByDescending(q => q.monto).FirstOrDefault();
+                    return conec.usuarios.Where(p => p.mail == this.usuarioParticipaEnSubastas.OrderByDescending(q => q.monto).FirstOrDefault().idPersona).FirstOrDefault();
+                }
+            }
+        }
+
+        #endregion
+        public subasta(int año, int semana, String monto, DateTime fechaInicio, int idDePropiedadParaSubastar)
         {
             this.semana_de_subasta = semana;
             this.monto_inicial = Convert.ToDecimal(monto);
@@ -41,7 +55,7 @@ namespace HSH_Desa_y_Test.ContextoDB
         {
             using (ContextoEntity conec = new ContextoEntity())
             {
-                return conec.subastas.Where(p=> p.id_propiedad_subastada == idProp).ToList();
+                return conec.subastas.Where(p => p.id_propiedad_subastada == idProp).ToList();
             }
         }
 
@@ -49,7 +63,7 @@ namespace HSH_Desa_y_Test.ContextoDB
         {
             return (this.fecha_inicio < DateTime.Now && this.fecha_fin > DateTime.Now);
         }
-        
+
         public bool guardarEnBD()
         {
             using (ContextoEntity conec = new ContextoEntity())
@@ -66,6 +80,10 @@ namespace HSH_Desa_y_Test.ContextoDB
                     return false;
                 }
             }
+        }
+        public bool tieneGanador()
+        {
+            return ganador != null;
         }
     }
 }

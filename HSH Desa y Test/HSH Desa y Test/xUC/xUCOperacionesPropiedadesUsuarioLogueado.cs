@@ -34,7 +34,7 @@ namespace HSH_Desa_y_Test.xUC
                 reservaDirectaComboBox.DataSource = pro.semanasDisponibles();
                 precioReservaDirectaLabel.Enabled = true;
                 montoReservaDirectaLabel.Enabled = true;
-                montoReservaDirectaLabel.Text = pro.montoReserva.ToString(); 
+                montoReservaDirectaLabel.Text = pro.montoReserva.ToString();
             }
             else
             {
@@ -53,7 +53,7 @@ namespace HSH_Desa_y_Test.xUC
                 {
                     if (s.estaActiva())
                     {
-                        subastasActivas.Add(string.Format(Semanizador.LunesDeSemana(Semanizador.semanaSegunFechaInicio(s.fecha_inicio, s.semana_de_subasta).Year,s.semana_de_subasta).ToString("dd/MM/yyyy")));
+                        subastasActivas.Add(string.Format(Semanizador.LunesDeSemana(Semanizador.semanaSegunFechaInicio(s.fecha_inicio, s.semana_de_subasta).Year, s.semana_de_subasta).ToString("dd/MM/yyyy")));
                         subActivas.Add(s);
                     }
                 }
@@ -98,7 +98,11 @@ namespace HSH_Desa_y_Test.xUC
 
         private void linkSubastaButton_Click(object sender, EventArgs e)
         {
-            Sesion.vistaPrincipalUserLogueado.renderizarDetalleSubasta(subActivas.ElementAt(subastasActivasListBox.SelectedIndex));
+            if (subastasActivasListBox.SelectedIndex != -1)
+            {
+                Sesion.vistaPrincipalUserLogueado.renderizarDetalleSubasta(subActivas.ElementAt(subastasActivasListBox.SelectedIndex));
+            }
+            else MessageBox.Show("No se seleccionó ninguna subasta para mostrar");
         }
     }
 }

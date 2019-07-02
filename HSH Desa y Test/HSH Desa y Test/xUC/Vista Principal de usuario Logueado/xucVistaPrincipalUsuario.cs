@@ -24,6 +24,7 @@ namespace HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado_y_Deslogueado
         {
             Sesion.vistaPrincipalUserLogueado = this;
             this.ocultarFormsDerivados();
+            this.xucListadoPropiedadesYEditar1.verificarBotonReservaDirecta();
         }
         internal void ocultarFormsDerivados()
         {
@@ -34,14 +35,15 @@ namespace HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado_y_Deslogueado
             }
             this.xUCPerfilDeUsuario1.Visible = false;
             this.xUCPerfilDeUsuario1.SendToBack();
-        }    
+        }
 
         internal void renderizarListaPropiedades()
         {
             this.ocultarFormsDerivados();
+            //todo: ver si esta linea soluciona lo de reserva directa
             this.xucListadoPropiedadesYEditar1.Visible = true;
             this.xucListadoPropiedadesYEditar1.BringToFront();
-
+            
         }
 
         internal void renderizarPerfilDeUsuario()

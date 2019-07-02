@@ -58,6 +58,10 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
    
         }
 
+        public void verificarBotonReservaDirecta ()
+        {
+            this.xucListadoPropiedadesYEditar_Load(this, new EventArgs());
+        }
         private void xucListadoPropiedadesYEditar_Load(object sender, EventArgs e)
         {
             if (gridView1.GetFocusedRow() != null && Sesion.user != null)

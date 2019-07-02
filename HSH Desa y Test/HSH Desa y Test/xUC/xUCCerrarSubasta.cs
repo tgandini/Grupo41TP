@@ -61,7 +61,7 @@ namespace HSH_Desa_y_Test.xUC
                 using (ContextoEntity conec = new ContextoEntity())
                 {
                     po = conec.Propiedads.Where(p => p.id == s.id_propiedad_subastada).First();
-                    usp = conec.usuarioParticipaEnSubastas.Where(p => p.idSubasta == s.id).ToList().LastOrDefault();
+                    usp = conec.usuarioParticipaEnSubastas.Where(p => p.idSubasta == s.id).OrderByDescending(p=>p.monto).ToList().FirstOrDefault();
                 }
                 ubicacionBox.Text = po.ubicaciòn;
                 NombreBox.Text = po.nombre;
@@ -89,8 +89,9 @@ namespace HSH_Desa_y_Test.xUC
                         DbEntityEntry<subasta> ee = conec.Entry(su);
                         ee.CurrentValues.SetValues(s);
                         conec.SaveChanges();
+                        var pruebaSub = su.ganador;
                     }
-                    this.inicializar();
+                    this.inicializar();                    
                     MessageBox.Show("Se cerro la subasta");
                 }
             }
