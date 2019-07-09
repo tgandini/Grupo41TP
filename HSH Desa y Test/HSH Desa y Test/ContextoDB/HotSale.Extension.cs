@@ -8,11 +8,11 @@ namespace HSH_Desa_y_Test.ContextoDB
 {
     public partial class HotSale
     {
-        public HotSale(DateTime inicio, DateTime fin, decimal precio, int semana, int año, Propiedad prop)
+        public HotSale(DateTime inicio, DateTime fin, string precio, int semana, int año, Propiedad prop)
         {
             this.fechaInicio = inicio;
             this.fechaFin = fin;
-            this.monto = precio;
+            this.monto = decimal.Parse(precio);
             this.semanaReservada = semana;
             this.añoReservado = año;
             this.id = int.MaxValue;
@@ -24,11 +24,11 @@ namespace HSH_Desa_y_Test.ContextoDB
             }
         }
 
-        public HotSale(DateTime inicio, DateTime fin, decimal precio, int semana, int año, Propiedad prop, usuario user)
+        public HotSale(DateTime inicio, DateTime fin, string precio, int semana, int año, Propiedad prop, usuario user)
         {
             this.fechaInicio = inicio;
             this.fechaFin = fin;
-            this.monto = precio;
+            this.monto = decimal.Parse(precio);
             this.semanaReservada = semana;
             this.añoReservado = año;
             this.id = int.MaxValue;
