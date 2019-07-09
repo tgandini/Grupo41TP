@@ -28,6 +28,7 @@ namespace HSH_Desa_y_Test.xUC
             provinciaLabel.Text = prop.provincia;
             paisLabel.Text = prop.pais;
             fechaLabel.Text = Semanizador.LunesDeSemana(hot.añoReservado, hot.semanaReservada).Date.ToString();
+            montoLabel.Text = hot.monto.ToString();
         }
     }
 }

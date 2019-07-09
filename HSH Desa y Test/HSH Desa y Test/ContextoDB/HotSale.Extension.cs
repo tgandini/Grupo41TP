@@ -17,5 +17,10 @@ namespace HSH_Desa_y_Test.ContextoDB
             this.añoReservado = año;
             this.id = int.MaxValue;
         }
+
+        public HotSale()
+        {
+
+        }
     }
 }

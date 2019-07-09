@@ -43,6 +43,7 @@
             this.paisLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.provinciaLabel = new System.Windows.Forms.Label();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,7 +158,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(407, 288);
+            this.groupBox1.Size = new System.Drawing.Size(487, 288);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles";
@@ -198,10 +199,21 @@
             this.provinciaLabel.TabIndex = 4;
             this.provinciaLabel.Text = "label6";
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 10.5F, System.Drawing.FontStyle.Bold);
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.Location = new System.Drawing.Point(576, 135);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(245, 57);
+            this.simpleButton1.TabIndex = 4;
+            this.simpleButton1.Text = "simpleButton1";
+            // 
             // xUCDetalleHotsale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.groupBox1);
             this.Name = "xUCDetalleHotsale";
             this.Size = new System.Drawing.Size(961, 318);
@@ -228,5 +240,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label provinciaLabel;
         private System.Windows.Forms.Label label5;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }
