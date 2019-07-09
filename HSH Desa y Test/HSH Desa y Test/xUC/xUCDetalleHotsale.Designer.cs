@@ -39,13 +39,17 @@
             this.label9 = new System.Windows.Forms.Label();
             this.fechaLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.paisLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.provinciaLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 53);
+            this.label1.Location = new System.Drawing.Point(8, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 21);
             this.label1.TabIndex = 0;
@@ -54,7 +58,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 123);
+            this.label2.Location = new System.Drawing.Point(9, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 21);
             this.label2.TabIndex = 1;
@@ -63,7 +67,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 197);
+            this.label3.Location = new System.Drawing.Point(9, 240);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 21);
             this.label3.TabIndex = 2;
@@ -71,7 +75,7 @@
             // 
             // nombreLabel
             // 
-            this.nombreLabel.Location = new System.Drawing.Point(131, 52);
+            this.nombreLabel.Location = new System.Drawing.Point(131, 41);
             this.nombreLabel.Name = "nombreLabel";
             this.nombreLabel.Size = new System.Drawing.Size(454, 20);
             this.nombreLabel.TabIndex = 3;
@@ -80,7 +84,7 @@
             // 
             // ubicacionLabel
             // 
-            this.ubicacionLabel.Location = new System.Drawing.Point(131, 122);
+            this.ubicacionLabel.Location = new System.Drawing.Point(131, 107);
             this.ubicacionLabel.Name = "ubicacionLabel";
             this.ubicacionLabel.Size = new System.Drawing.Size(447, 20);
             this.ubicacionLabel.TabIndex = 4;
@@ -89,7 +93,7 @@
             // 
             // montoLabel
             // 
-            this.montoLabel.Location = new System.Drawing.Point(131, 196);
+            this.montoLabel.Location = new System.Drawing.Point(128, 239);
             this.montoLabel.Name = "montoLabel";
             this.montoLabel.Size = new System.Drawing.Size(450, 20);
             this.montoLabel.TabIndex = 5;
@@ -99,7 +103,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 86);
+            this.label8.Location = new System.Drawing.Point(8, 75);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(66, 21);
             this.label8.TabIndex = 6;
@@ -107,7 +111,7 @@
             // 
             // ciudadLabel
             // 
-            this.ciudadLabel.Location = new System.Drawing.Point(131, 85);
+            this.ciudadLabel.Location = new System.Drawing.Point(131, 74);
             this.ciudadLabel.Name = "ciudadLabel";
             this.ciudadLabel.Size = new System.Drawing.Size(447, 20);
             this.ciudadLabel.TabIndex = 7;
@@ -117,7 +121,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 159);
+            this.label9.Location = new System.Drawing.Point(11, 209);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 21);
             this.label9.TabIndex = 8;
@@ -125,7 +129,7 @@
             // 
             // fechaLabel
             // 
-            this.fechaLabel.Location = new System.Drawing.Point(131, 158);
+            this.fechaLabel.Location = new System.Drawing.Point(131, 208);
             this.fechaLabel.Name = "fechaLabel";
             this.fechaLabel.Size = new System.Drawing.Size(447, 20);
             this.fechaLabel.TabIndex = 9;
@@ -134,6 +138,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.provinciaLabel);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.paisLabel);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.fechaLabel);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.ciudadLabel);
@@ -149,10 +157,46 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(407, 244);
+            this.groupBox1.Size = new System.Drawing.Size(407, 288);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 178);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 21);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Pais:";
+            // 
+            // paisLabel
+            // 
+            this.paisLabel.AutoSize = true;
+            this.paisLabel.Location = new System.Drawing.Point(128, 178);
+            this.paisLabel.Name = "paisLabel";
+            this.paisLabel.Size = new System.Drawing.Size(54, 21);
+            this.paisLabel.TabIndex = 4;
+            this.paisLabel.Text = "label5";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 145);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 21);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Provincia:";
+            // 
+            // provinciaLabel
+            // 
+            this.provinciaLabel.AutoSize = true;
+            this.provinciaLabel.Location = new System.Drawing.Point(128, 145);
+            this.provinciaLabel.Name = "provinciaLabel";
+            this.provinciaLabel.Size = new System.Drawing.Size(54, 21);
+            this.provinciaLabel.TabIndex = 4;
+            this.provinciaLabel.Text = "label6";
             // 
             // xUCDetalleHotsale
             // 
@@ -180,5 +224,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label fechaLabel;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label paisLabel;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label provinciaLabel;
+        private System.Windows.Forms.Label label5;
     }
 }

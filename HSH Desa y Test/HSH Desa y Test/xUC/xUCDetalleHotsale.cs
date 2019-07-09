@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using HSH_Desa_y_Test.ContextoDB;
+using HSH_Desa_y_Test.Modelo_Expandido;
 
 namespace HSH_Desa_y_Test.xUC
 {
@@ -23,6 +24,10 @@ namespace HSH_Desa_y_Test.xUC
         {
             nombreLabel.Text = prop.nombre;
             ciudadLabel.Text = prop.ciudad;
+            ubicacionLabel.Text = prop.ubicaciòn;
+            provinciaLabel.Text = prop.provincia;
+            paisLabel.Text = prop.pais;
+            fechaLabel.Text = Semanizador.LunesDeSemana(hot.añoReservado, hot.semanaReservada).Date.ToString();
         }
     }
 }
