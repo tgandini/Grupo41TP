@@ -57,5 +57,10 @@ namespace HSH_Desa_y_Test.xUC
         {
             Sesion.vistaPrincipalDeAdmin.renderizarCerrarSubasta();
         }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            Sesion.vistaPrincipalDeAdmin.renderizarCrearHotSale();
+        }
     }
 }
