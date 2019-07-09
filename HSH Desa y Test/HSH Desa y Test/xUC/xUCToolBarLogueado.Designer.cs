@@ -34,6 +34,7 @@
             this.Admin = new System.Windows.Forms.Button();
             this.labelUserLogueado = new DevExpress.XtraEditors.LabelControl();
             this.anchorAcercaDeNosotros = new System.Windows.Forms.LinkLabel();
+            this.cambiarTarifasButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,6 +92,17 @@
             this.anchorAcercaDeNosotros.Text = "Acerca de nosotros";
             this.anchorAcercaDeNosotros.Click += new System.EventHandler(this.ClickAcercaNosotros);
             // 
+            // cambiarTarifasButton
+            // 
+            this.cambiarTarifasButton.Location = new System.Drawing.Point(564, 33);
+            this.cambiarTarifasButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cambiarTarifasButton.Name = "cambiarTarifasButton";
+            this.cambiarTarifasButton.Size = new System.Drawing.Size(140, 53);
+            this.cambiarTarifasButton.TabIndex = 5;
+            this.cambiarTarifasButton.Text = "Cambiar Tarifas";
+            this.cambiarTarifasButton.UseVisualStyleBackColor = true;
+            this.cambiarTarifasButton.Click += new System.EventHandler(this.cambiarTarifasButton_Click);
+            // 
             // xUCToolBarLogueado
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -101,6 +113,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Controls.Add(this.cambiarTarifasButton);
             this.Controls.Add(this.anchorAcercaDeNosotros);
             this.Controls.Add(this.labelUserLogueado);
             this.Controls.Add(this.Admin);
@@ -122,5 +135,6 @@
         private System.Windows.Forms.Button Admin;
         private DevExpress.XtraEditors.LabelControl labelUserLogueado;
         private System.Windows.Forms.LinkLabel anchorAcercaDeNosotros;
+        private System.Windows.Forms.Button cambiarTarifasButton;
     }
 }
