@@ -9,6 +9,10 @@ namespace HSH_Desa_y_Test.ContextoDB
 {
     public partial class admin
     {
+        public admin(string tok)
+        {
+            this.token = tok;
+        }
 
         public static admin traerDeDb(string tokenParam)
         {
