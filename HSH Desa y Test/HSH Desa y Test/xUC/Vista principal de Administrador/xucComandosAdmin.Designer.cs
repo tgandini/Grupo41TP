@@ -37,6 +37,7 @@
             this.btnAltaPropiedad = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -52,7 +53,6 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem8 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
@@ -99,7 +99,7 @@
             this.crearSubastaBtn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.crearSubastaBtn.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.crearSubastaBtn.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.crearSubastaBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("crearSubastaBtn.ImageOptions.Image")));
+            this.crearSubastaBtn.ImageOptions.Image = global::HSH_Desa_y_Test.Properties.Resources.bosale_32x32;
             this.crearSubastaBtn.Location = new System.Drawing.Point(678, 2);
             this.crearSubastaBtn.Name = "crearSubastaBtn";
             this.crearSubastaBtn.Size = new System.Drawing.Size(146, 57);
@@ -181,15 +181,27 @@
             // 
             // simpleButton3
             // 
-            this.simpleButton3.ImageOptions.Image = global::HSH_Desa_y_Test.Properties.Resources.bosale_32x32;
+            this.simpleButton3.ImageOptions.Image = global::HSH_Desa_y_Test.Properties.Resources.buy_32x32;
             this.simpleButton3.Location = new System.Drawing.Point(1016, 2);
             this.simpleButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(146, 57);
             this.simpleButton3.StyleController = this.dataLayoutControl1;
             this.simpleButton3.TabIndex = 10;
-            this.simpleButton3.Text = "Modificar Tarifas";
+            this.simpleButton3.Text = "Cerrar Hotsale";
             this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
+            // 
+            // simpleButton4
+            // 
+            this.simpleButton4.ImageOptions.Image = global::HSH_Desa_y_Test.Properties.Resources.buy_32x32;
+            this.simpleButton4.Location = new System.Drawing.Point(1185, 2);
+            this.simpleButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.simpleButton4.Name = "simpleButton4";
+            this.simpleButton4.Size = new System.Drawing.Size(146, 57);
+            this.simpleButton4.StyleController = this.dataLayoutControl1;
+            this.simpleButton4.TabIndex = 11;
+            this.simpleButton4.Text = "Crear Hotsale";
+            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
             // Root
             // 
@@ -374,18 +386,6 @@
             this.emptySpaceItem8.Name = "emptySpaceItem8";
             this.emptySpaceItem8.Size = new System.Drawing.Size(19, 61);
             this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.ImageOptions.Image = global::HSH_Desa_y_Test.Properties.Resources.buy_32x32;
-            this.simpleButton4.Location = new System.Drawing.Point(1185, 2);
-            this.simpleButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(146, 57);
-            this.simpleButton4.StyleController = this.dataLayoutControl1;
-            this.simpleButton4.TabIndex = 11;
-            this.simpleButton4.Text = "Crear Hotsale";
-            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
             // layoutControlItem8
             // 
