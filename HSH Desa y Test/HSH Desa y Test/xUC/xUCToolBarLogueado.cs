@@ -73,7 +73,7 @@ namespace HSH_Desa_y_Test.xUC
 
         private void Admin_Click(object sender, EventArgs e)
         {
-
+            new xfCrearAdmin().Show();
         }
 
         #endregion

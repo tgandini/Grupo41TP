@@ -42,17 +42,19 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 70);
+            this.pictureBox1.Size = new System.Drawing.Size(117, 86);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // CerrarSesion
             // 
-            this.CerrarSesion.Location = new System.Drawing.Point(791, 27);
+            this.CerrarSesion.Location = new System.Drawing.Point(923, 33);
+            this.CerrarSesion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CerrarSesion.Name = "CerrarSesion";
-            this.CerrarSesion.Size = new System.Drawing.Size(120, 43);
+            this.CerrarSesion.Size = new System.Drawing.Size(140, 53);
             this.CerrarSesion.TabIndex = 1;
             this.CerrarSesion.Text = "Cerrar Sesion";
             this.CerrarSesion.UseVisualStyleBackColor = true;
@@ -60,28 +62,30 @@
             // 
             // Admin
             // 
-            this.Admin.Location = new System.Drawing.Point(639, 27);
+            this.Admin.Location = new System.Drawing.Point(745, 33);
+            this.Admin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Admin.Name = "Admin";
-            this.Admin.Size = new System.Drawing.Size(120, 43);
+            this.Admin.Size = new System.Drawing.Size(140, 53);
             this.Admin.TabIndex = 2;
-            this.Admin.Text = "Opciones Admin";
+            this.Admin.Text = "Crear Administrador";
             this.Admin.UseVisualStyleBackColor = true;
             this.Admin.Click += new System.EventHandler(this.Admin_Click);
             // 
             // labelUserLogueado
             // 
-            this.labelUserLogueado.Location = new System.Drawing.Point(119, 27);
+            this.labelUserLogueado.Location = new System.Drawing.Point(139, 33);
+            this.labelUserLogueado.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelUserLogueado.Name = "labelUserLogueado";
-            this.labelUserLogueado.Size = new System.Drawing.Size(93, 13);
+            this.labelUserLogueado.Size = new System.Drawing.Size(111, 16);
             this.labelUserLogueado.TabIndex = 3;
             this.labelUserLogueado.Text = "Usuario Logueado: ";
             // 
             // anchorAcercaDeNosotros
             // 
             this.anchorAcercaDeNosotros.AutoSize = true;
-            this.anchorAcercaDeNosotros.Location = new System.Drawing.Point(720, 0);
+            this.anchorAcercaDeNosotros.Location = new System.Drawing.Point(840, 0);
             this.anchorAcercaDeNosotros.Name = "anchorAcercaDeNosotros";
-            this.anchorAcercaDeNosotros.Size = new System.Drawing.Size(100, 13);
+            this.anchorAcercaDeNosotros.Size = new System.Drawing.Size(126, 17);
             this.anchorAcercaDeNosotros.TabIndex = 4;
             this.anchorAcercaDeNosotros.TabStop = true;
             this.anchorAcercaDeNosotros.Text = "Acerca de nosotros";
@@ -93,7 +97,7 @@
             this.Appearance.BorderColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseBorderColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -102,8 +106,9 @@
             this.Controls.Add(this.Admin);
             this.Controls.Add(this.CerrarSesion);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "xUCToolBarLogueado";
-            this.Size = new System.Drawing.Size(914, 73);
+            this.Size = new System.Drawing.Size(1066, 90);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

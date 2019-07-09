@@ -31,11 +31,12 @@ namespace HSH_Desa_y_Test.Forms
                     admin adm = new admin(textEdit1.Text);
                     using (ContextoEntity conexion = new ContextoEntity())
                     {
-                        if (conexion.admins.Any(p => p.token == adm.token))
+                        if (!conexion.admins.Any(p => p.token == adm.token))
                         {
                             conexion.admins.Add(adm);
                             conexion.SaveChanges();
                             MessageBox.Show(string.Format("Se creo el Administrador {0}", adm.token));
+                            this.Close();
                         }
                         else MessageBox.Show("Ya esta en uso el token");
                     }
