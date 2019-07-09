@@ -34,6 +34,7 @@
             this.xUCPerfilDeUsuario1 = new HSH_Desa_y_Test.xUC.xUCPerfilDeUsuario();
             this.xucListadoPropiedadesYEditar1 = new HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador.xucListadoPropiedadesYEditar();
             this.xucComandosUserLogueado1 = new HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado_y_Deslogueado.xucComandosUserLogueado();
+            this.xUCListadoHotSale1 = new HSH_Desa_y_Test.xUC.xUCListadoHotSale();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
@@ -41,6 +42,7 @@
             // panelControl1
             // 
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.xUCListadoHotSale1);
             this.panelControl1.Controls.Add(this.xUCDetalleSubasta1);
             this.panelControl1.Controls.Add(this.xucListadoSubasta1);
             this.panelControl1.Controls.Add(this.xUCPerfilDeUsuario1);
@@ -94,6 +96,13 @@
             this.xucComandosUserLogueado1.Size = new System.Drawing.Size(1160, 71);
             this.xucComandosUserLogueado1.TabIndex = 0;
             // 
+            // xUCListadoHotSale1
+            // 
+            this.xUCListadoHotSale1.Location = new System.Drawing.Point(4, 7);
+            this.xUCListadoHotSale1.Name = "xUCListadoHotSale1";
+            this.xUCListadoHotSale1.Size = new System.Drawing.Size(1426, 704);
+            this.xUCListadoHotSale1.TabIndex = 4;
+            // 
             // xucVistaPrincipalUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -117,5 +126,6 @@
         private xUCPerfilDeUsuario xUCPerfilDeUsuario1;
         private xucListadoSubasta xucListadoSubasta1;
         private xUCDetalleSubasta xUCDetalleSubasta1;
+        private xUCListadoHotSale xUCListadoHotSale1;
     }
 }

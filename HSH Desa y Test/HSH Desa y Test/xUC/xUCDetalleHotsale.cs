@@ -23,6 +23,8 @@ namespace HSH_Desa_y_Test.xUC
 
         public void inicializar(HotSale hots, Propiedad prop)
         {
+            if (Sesion.user != null) simpleButton1.Visible = true;
+            else simpleButton1.Visible = false;
             hot = hots;
             nombreLabel.Text = prop.nombre;
             ciudadLabel.Text = prop.ciudad;
@@ -38,10 +40,17 @@ namespace HSH_Desa_y_Test.xUC
             DialogResult result = MessageBox.Show("Quiere realizar la comprar?", "Comprar HotSale", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                if(hot.idUsuario != null)
+                if (hot.idUsuario == null)
                 {
-
+                    using (ContextoEntity conexion = new ContextoEntity())
+                    {
+                        hot.idUsuario= Sesion.user.mail;
+                        conexion.Entry(hot).State = System.Data.Entity.EntityState.Modified;
+                        conexion.SaveChanges();
+                    }
+                    MessageBox.Show("Se Realizo la compra con exito");
                 }
+                else MessageBox.Show("Ya no se encuentra a la venta");
             }
         }
     }

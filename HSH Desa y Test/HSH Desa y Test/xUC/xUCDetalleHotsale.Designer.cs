@@ -39,10 +39,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.fechaLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.paisLabel = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.provinciaLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.paisLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -158,37 +158,10 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(487, 288);
+            this.groupBox1.Size = new System.Drawing.Size(413, 288);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 178);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 21);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Pais:";
-            // 
-            // paisLabel
-            // 
-            this.paisLabel.AutoSize = true;
-            this.paisLabel.Location = new System.Drawing.Point(128, 178);
-            this.paisLabel.Name = "paisLabel";
-            this.paisLabel.Size = new System.Drawing.Size(54, 21);
-            this.paisLabel.TabIndex = 4;
-            this.paisLabel.Text = "label5";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 145);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 21);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Provincia:";
             // 
             // provinciaLabel
             // 
@@ -199,11 +172,38 @@
             this.provinciaLabel.TabIndex = 4;
             this.provinciaLabel.Text = "label6";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 145);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 21);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Provincia:";
+            // 
+            // paisLabel
+            // 
+            this.paisLabel.AutoSize = true;
+            this.paisLabel.Location = new System.Drawing.Point(128, 178);
+            this.paisLabel.Name = "paisLabel";
+            this.paisLabel.Size = new System.Drawing.Size(54, 21);
+            this.paisLabel.TabIndex = 4;
+            this.paisLabel.Text = "label5";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 178);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 21);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Pais:";
+            // 
             // simpleButton1
             // 
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 10.5F, System.Drawing.FontStyle.Bold);
             this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(576, 135);
+            this.simpleButton1.Location = new System.Drawing.Point(482, 135);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(245, 57);
             this.simpleButton1.TabIndex = 4;
