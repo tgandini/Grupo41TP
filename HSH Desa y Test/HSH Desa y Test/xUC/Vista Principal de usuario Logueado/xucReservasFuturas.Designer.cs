@@ -41,14 +41,14 @@
             this.colsemanaReserva = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colañoReserva = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltipoReserva = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnCancelarReserva = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.reservaFuturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.btnCancelarReserva = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservaFuturaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridView1
@@ -62,12 +62,15 @@
             this.btnCancelarReserva});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsFind.AlwaysVisible = true;
             this.gridView1.OptionsFind.FindDelay = 300;
             this.gridView1.OptionsFind.FindMode = DevExpress.XtraEditors.FindMode.Always;
             this.gridView1.OptionsFind.FindNullPrompt = "Introduzca para Filtrar";
             this.gridView1.OptionsFind.ShowCloseButton = false;
             this.gridView1.OptionsFind.ShowFindButton = false;
+            this.gridView1.OptionsPrint.AutoWidth = false;
+            this.gridView1.OptionsView.ColumnAutoWidth = false;
             // 
             // colnombrePropiedad
             // 
@@ -91,7 +94,7 @@
             this.colsemanaReserva.Name = "colsemanaReserva";
             this.colsemanaReserva.Visible = true;
             this.colsemanaReserva.VisibleIndex = 2;
-            this.colsemanaReserva.Width = 82;
+            this.colsemanaReserva.Width = 97;
             // 
             // colañoReserva
             // 
@@ -99,7 +102,7 @@
             this.colañoReserva.Name = "colañoReserva";
             this.colañoReserva.Visible = true;
             this.colañoReserva.VisibleIndex = 3;
-            this.colañoReserva.Width = 65;
+            this.colañoReserva.Width = 89;
             // 
             // coltipoReserva
             // 
@@ -107,7 +110,29 @@
             this.coltipoReserva.Name = "coltipoReserva";
             this.coltipoReserva.Visible = true;
             this.coltipoReserva.VisibleIndex = 4;
-            this.coltipoReserva.Width = 331;
+            this.coltipoReserva.Width = 173;
+            // 
+            // btnCancelarReserva
+            // 
+            this.btnCancelarReserva.Caption = "Cancelar Reserva";
+            this.btnCancelarReserva.ColumnEdit = this.repositoryItemButtonEdit1;
+            this.btnCancelarReserva.FieldName = "btnCancelarReserva";
+            this.btnCancelarReserva.Name = "btnCancelarReserva";
+            this.btnCancelarReserva.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
+            this.btnCancelarReserva.ShowUnboundExpressionMenu = true;
+            this.btnCancelarReserva.UnboundType = DevExpress.Data.UnboundColumnType.Object;
+            this.btnCancelarReserva.Visible = true;
+            this.btnCancelarReserva.VisibleIndex = 5;
+            this.btnCancelarReserva.Width = 109;
+            // 
+            // repositoryItemButtonEdit1
+            // 
+            this.repositoryItemButtonEdit1.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repositoryItemButtonEdit1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             // 
             // gridControl1
             // 
@@ -127,28 +152,6 @@
             // 
             this.reservaFuturaBindingSource.DataSource = typeof(HSH_Desa_y_Test.Modelo_Expandido.ReservaFutura);
             // 
-            // repositoryItemButtonEdit1
-            // 
-            this.repositoryItemButtonEdit1.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
-            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.repositoryItemButtonEdit1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
-            // 
-            // btnCancelarReserva
-            // 
-            this.btnCancelarReserva.Caption = "Cancelar Reserva";
-            this.btnCancelarReserva.ColumnEdit = this.repositoryItemButtonEdit1;
-            this.btnCancelarReserva.FieldName = "btnCancelarReserva";
-            this.btnCancelarReserva.Name = "btnCancelarReserva";
-            this.btnCancelarReserva.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
-            this.btnCancelarReserva.ShowUnboundExpressionMenu = true;
-            this.btnCancelarReserva.UnboundType = DevExpress.Data.UnboundColumnType.Object;
-            this.btnCancelarReserva.Visible = true;
-            this.btnCancelarReserva.VisibleIndex = 5;
-            this.btnCancelarReserva.Width = 98;
-            // 
             // xucReservasFuturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,9 +160,9 @@
             this.Name = "xucReservasFuturas";
             this.Size = new System.Drawing.Size(835, 366);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservaFuturaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }

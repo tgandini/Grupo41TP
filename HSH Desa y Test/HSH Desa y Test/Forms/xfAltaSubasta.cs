@@ -64,8 +64,9 @@ namespace HSH_Desa_y_Test.Forms
                 //{
                     if (DateTime.Parse(maskedTextBox2.Text).CompareTo(DateTime.Now) >= 0)
                     {
-                        int numeroSemana = Int32.Parse(comboBox3.SelectedText.GetCharsBefore(" - "));
-                        if (st.EstaLibre(numeroSemana, (int)comboBox2.SelectedItem, true))
+                    //toDo: verificar si funciona sin estoint numeroSemana = Int32.Parse(comboBox3.SelectedText.GetCharsBefore(" - "));
+                    int numeroSemana = Int32.Parse(comboBox3.Text.GetCharsBefore(" - "));
+                    if (st.EstaLibre(numeroSemana, (int)comboBox2.SelectedItem, true))
                         {
                             if (Semanizador.LunesDeSemana((int)comboBox2.SelectedItem,numeroSemana).CompareTo(DateTime.Parse(maskedTextBox2.Text).AddMonths(6)) >= 0)
                             {

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.xucReservasFuturas1 = new HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado.xucReservasFuturas();
             this.xUCListadoHotSale1 = new HSH_Desa_y_Test.xUC.xUCListadoHotSale();
             this.xUCDetalleSubasta1 = new HSH_Desa_y_Test.xUC.xUCDetalleSubasta();
             this.xucListadoSubasta1 = new HSH_Desa_y_Test.xUC.xucListadoSubasta();
             this.xUCPerfilDeUsuario1 = new HSH_Desa_y_Test.xUC.xUCPerfilDeUsuario();
             this.xucListadoPropiedadesYEditar1 = new HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador.xucListadoPropiedadesYEditar();
             this.xucComandosUserLogueado1 = new HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado_y_Deslogueado.xucComandosUserLogueado();
-            this.xucReservasFuturas1 = new HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado.xucReservasFuturas();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +53,13 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1234, 592);
             this.panelControl1.TabIndex = 1;
+            // 
+            // xucReservasFuturas1
+            // 
+            this.xucReservasFuturas1.Location = new System.Drawing.Point(214, 6);
+            this.xucReservasFuturas1.Name = "xucReservasFuturas1";
+            this.xucReservasFuturas1.Size = new System.Drawing.Size(739, 487);
+            this.xucReservasFuturas1.TabIndex = 5;
             // 
             // xUCListadoHotSale1
             // 
@@ -104,13 +111,6 @@
             this.xucComandosUserLogueado1.Name = "xucComandosUserLogueado1";
             this.xucComandosUserLogueado1.Size = new System.Drawing.Size(994, 58);
             this.xucComandosUserLogueado1.TabIndex = 0;
-            // 
-            // xucReservasFuturas1
-            // 
-            this.xucReservasFuturas1.Location = new System.Drawing.Point(354, 6);
-            this.xucReservasFuturas1.Name = "xucReservasFuturas1";
-            this.xucReservasFuturas1.Size = new System.Drawing.Size(552, 487);
-            this.xucReservasFuturas1.TabIndex = 5;
             // 
             // xucVistaPrincipalUsuario
             // 

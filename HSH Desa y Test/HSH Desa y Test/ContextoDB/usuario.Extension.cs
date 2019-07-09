@@ -98,30 +98,33 @@ namespace HSH_Desa_y_Test.ContextoDB
                           .Include("ReservaDirectas.Propiedad")
                           .Include("HotSales.Propiedad")
                           .Include("ganadorDeSubastas.subasta.Propiedad")
+                          .Include("ganadorDeSubastas.usuarioParticipaEnSubasta")
                           .Where(p => p.mail == this.mail)
                       .First();
                 }
+
                 foreach (ReservaDirecta res in usuarioConLasReservas.ReservaDirectas)
                 {
                     if (res.esFutura())
                     {
-                        listaReservasParaDevolver.Add(new ReservaFutura(res.Propiedad, res.monto, res.semanaReservada, res.añoReservado, "Reserva Directa",res.id));
+                        listaReservasParaDevolver.Add(new ReservaFutura(res.Propiedad, res.monto, res.semanaReservada, res.añoReservado, "Reserva Directa", res.id));
                     }
                 }
                 foreach (HotSale hts in usuarioConLasReservas.HotSales)
                 {
                     if (hts.esFutura())
                     {
-                        listaReservasParaDevolver.Add(new ReservaFutura(hts.Propiedad, hts.monto, hts.semanaReservada, hts.añoReservado, "Hot Sale",hts.id));
+                        listaReservasParaDevolver.Add(new ReservaFutura(hts.Propiedad, hts.monto, hts.semanaReservada, hts.añoReservado, "Hot Sale", hts.id));
                     }
                 }
                 foreach (ganadorDeSubasta su in usuarioConLasReservas.ganadorDeSubastas)
                 {
                     if (su.subasta.esFutura())
                     {
-                        listaReservasParaDevolver.Add(new ReservaFutura(su.subasta.Propiedad, su.usuarioParticipaEnSubasta.monto, su.subasta.semana_de_subasta, su.subasta.añoReservado, "Subasta Ganada",su.id));
+                        listaReservasParaDevolver.Add(new ReservaFutura(su.subasta.Propiedad, su.usuarioParticipaEnSubasta.monto, su.subasta.semana_de_subasta, su.subasta.añoReservado, "Subasta Ganada", su.id));
                     }
                 }
+                if (listaReservasParaDevolver != null) listaReservasParaDevolver = listaReservasParaDevolver.OrderBy(p => p.añoReserva).ThenBy(p => p.semanaReserva).ToList();
                 return listaReservasParaDevolver;
             }
         }
