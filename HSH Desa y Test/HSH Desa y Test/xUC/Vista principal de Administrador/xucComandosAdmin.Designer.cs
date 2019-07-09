@@ -89,7 +89,7 @@
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(507, 168, 812, 500);
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(1334, 61);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(1333, 61);
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
@@ -213,7 +213,7 @@
             this.layoutControlItem8});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.Root.Size = new System.Drawing.Size(1334, 61);
+            this.Root.Size = new System.Drawing.Size(1333, 61);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -372,13 +372,13 @@
             this.emptySpaceItem8.AllowHotTrack = false;
             this.emptySpaceItem8.Location = new System.Drawing.Point(1164, 0);
             this.emptySpaceItem8.Name = "emptySpaceItem8";
-            this.emptySpaceItem8.Size = new System.Drawing.Size(20, 61);
+            this.emptySpaceItem8.Size = new System.Drawing.Size(19, 61);
             this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
             // 
             // simpleButton4
             // 
             this.simpleButton4.ImageOptions.Image = global::HSH_Desa_y_Test.Properties.Resources.buy_32x32;
-            this.simpleButton4.Location = new System.Drawing.Point(1186, 2);
+            this.simpleButton4.Location = new System.Drawing.Point(1185, 2);
             this.simpleButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.Size = new System.Drawing.Size(146, 57);
@@ -389,8 +389,9 @@
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.simpleButton4;
-            this.layoutControlItem8.Location = new System.Drawing.Point(1184, 0);
-            this.layoutControlItem8.MinSize = new System.Drawing.Size(79, 26);
+            this.layoutControlItem8.Location = new System.Drawing.Point(1183, 0);
+            this.layoutControlItem8.MaxSize = new System.Drawing.Size(150, 61);
+            this.layoutControlItem8.MinSize = new System.Drawing.Size(150, 61);
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.Size = new System.Drawing.Size(150, 61);
             this.layoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
@@ -403,7 +404,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dataLayoutControl1);
             this.Name = "xucComandosAdmin";
-            this.Size = new System.Drawing.Size(1334, 61);
+            this.Size = new System.Drawing.Size(1333, 61);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
