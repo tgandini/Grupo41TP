@@ -103,6 +103,16 @@ namespace HSH_Desa_y_Test.Forms
             this.xucVistaPrincipalAdmin1.Visible = true;
             this.xucVistaPrincipalAdmin1.BringToFront();
         }
+
+        internal void renderizarHot()
+        {
+            this.xucVistaPrincipalDeslogueado1.renderizarHotSale();
+        }
+
+        internal void renderizarProp()
+        {
+            this.xucVistaPrincipalDeslogueado1.renderizarPropiedad2();
+        }
     }
     
 }

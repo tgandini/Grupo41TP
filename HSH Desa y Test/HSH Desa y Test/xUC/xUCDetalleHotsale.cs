@@ -35,6 +35,34 @@ namespace HSH_Desa_y_Test.xUC
             montoLabel.Text = hot.monto.ToString();
         }
 
+        public void inicializar()
+        {
+            Random random = new Random();
+            HotSale[] aux;
+            List<HotSale> aux2=new List<HotSale>();
+            Propiedad p;
+            using (ContextoEntity conexion = new ContextoEntity())
+            {
+                aux = conexion.HotSales.ToArray();
+            }
+            foreach(HotSale r in aux)
+            {
+                if (r.fechaInicio >= DateTime.Now && r.fechaFin < DateTime.Now && r.idUsuario == null) aux2.Add(r);
+            }
+            if (aux2.Count() > 0)
+            {
+                aux = aux2.ToArray();
+                hot = aux[random.Next(0, aux.Length - 1)];
+                using (ContextoEntity conexion = new ContextoEntity())
+                {
+                    p = conexion.Propiedads.Where(t => t.id == hot.idPropiedad).First();
+                }
+                Sesion.vistaPrincipal.renderizarHot();
+                this.inicializar(hot, p);
+            }
+            else Sesion.vistaPrincipal.renderizarProp();
+        }
+
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Quiere realizar la comprar?", "Comprar HotSale", MessageBoxButtons.YesNo);
