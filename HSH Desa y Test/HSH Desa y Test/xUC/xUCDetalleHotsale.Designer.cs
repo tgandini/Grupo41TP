@@ -207,7 +207,8 @@
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(245, 57);
             this.simpleButton1.TabIndex = 4;
-            this.simpleButton1.Text = "simpleButton1";
+            this.simpleButton1.Text = "Comprar HotSale";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // xUCDetalleHotsale
             // 
