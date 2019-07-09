@@ -29,26 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xucReservasFuturas));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colnombrePropiedad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmontoReserva = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsemanaReserva = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colañoReserva = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltipoReserva = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnCancelarReserva = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.reservaFuturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservaFuturaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridView1
@@ -59,7 +54,7 @@
             this.colsemanaReserva,
             this.colañoReserva,
             this.coltipoReserva,
-            this.btnCancelarReserva});
+            this.gridColumn1});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -71,6 +66,7 @@
             this.gridView1.OptionsFind.ShowFindButton = false;
             this.gridView1.OptionsPrint.AutoWidth = false;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
+            this.gridView1.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.clickEnCelda);
             // 
             // colnombrePropiedad
             // 
@@ -112,28 +108,6 @@
             this.coltipoReserva.VisibleIndex = 4;
             this.coltipoReserva.Width = 173;
             // 
-            // btnCancelarReserva
-            // 
-            this.btnCancelarReserva.Caption = "Cancelar Reserva";
-            this.btnCancelarReserva.ColumnEdit = this.repositoryItemButtonEdit1;
-            this.btnCancelarReserva.FieldName = "btnCancelarReserva";
-            this.btnCancelarReserva.Name = "btnCancelarReserva";
-            this.btnCancelarReserva.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
-            this.btnCancelarReserva.ShowUnboundExpressionMenu = true;
-            this.btnCancelarReserva.UnboundType = DevExpress.Data.UnboundColumnType.Object;
-            this.btnCancelarReserva.Visible = true;
-            this.btnCancelarReserva.VisibleIndex = 5;
-            this.btnCancelarReserva.Width = 109;
-            // 
-            // repositoryItemButtonEdit1
-            // 
-            this.repositoryItemButtonEdit1.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
-            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.repositoryItemButtonEdit1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
-            // 
             // gridControl1
             // 
             this.gridControl1.DataSource = this.reservaFuturaBindingSource;
@@ -152,6 +126,28 @@
             // 
             this.reservaFuturaBindingSource.DataSource = typeof(HSH_Desa_y_Test.Modelo_Expandido.ReservaFutura);
             // 
+            // repositoryItemButtonEdit1
+            // 
+            this.repositoryItemButtonEdit1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit1.Appearance.Image")));
+            this.repositoryItemButtonEdit1.Appearance.Options.UseImage = true;
+            this.repositoryItemButtonEdit1.AutoHeight = false;
+            this.repositoryItemButtonEdit1.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.repositoryItemButtonEdit1.ContextImageOptions.AllowChangeAnimation = DevExpress.Utils.DefaultBoolean.True;
+            this.repositoryItemButtonEdit1.ContextImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit1.ContextImageOptions.Image")));
+            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
+            this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Cancelar Reserva";
+            this.gridColumn1.ColumnEdit = this.repositoryItemButtonEdit1;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.ShowUnboundExpressionMenu = true;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 5;
+            this.gridColumn1.Width = 107;
+            // 
             // xucReservasFuturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,9 +156,9 @@
             this.Name = "xucReservasFuturas";
             this.Size = new System.Drawing.Size(835, 366);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservaFuturaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -176,7 +172,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colsemanaReserva;
         private DevExpress.XtraGrid.Columns.GridColumn colañoReserva;
         private DevExpress.XtraGrid.Columns.GridColumn coltipoReserva;
-        private DevExpress.XtraGrid.Columns.GridColumn btnCancelarReserva;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }

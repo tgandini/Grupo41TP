@@ -23,5 +23,17 @@ namespace HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado
             this.reservaFuturaBindingSource.DataSource = Sesion.user.ReservasFuturas;
             this.gridControl1.Refresh();
         }
+        private void clickEnCelda(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
+        {
+            if (e.Column.Caption=="Cancelar Reserva")
+            {
+                DialogResult dialogResult = MessageBox.Show("¿Desea cancelar la reserva seleccionada?", "Cancelar Reserva", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    var asd = gridView1.GetFocusedRow();
+                }
+                
+            }
+        }
     }
 }

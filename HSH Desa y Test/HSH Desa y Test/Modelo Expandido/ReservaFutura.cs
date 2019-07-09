@@ -14,7 +14,7 @@ namespace HSH_Desa_y_Test.Modelo_Expandido
         public int semanaReserva { get; set; }
         public int añoReserva { get; set; }
         public string tipoReserva { get; set; }
-        int idReserva;
+        public int idReserva { get; }
         public ReservaFutura()
         {
 
