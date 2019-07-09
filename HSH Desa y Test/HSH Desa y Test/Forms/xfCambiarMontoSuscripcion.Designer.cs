@@ -138,7 +138,6 @@
             this.Controls.Add(this.cancelarButton);
             this.Controls.Add(this.aceptarButton);
             this.Name = "xfCambiarMontoSuscripcion";
-            this.Text = "xfCambiarMontoSuscripcion";
             ((System.ComponentModel.ISupportInitialize)(this.estandarEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.premiumEdit.Properties)).EndInit();
             this.ResumeLayout(false);

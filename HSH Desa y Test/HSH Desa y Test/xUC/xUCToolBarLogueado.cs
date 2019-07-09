@@ -23,8 +23,16 @@ namespace HSH_Desa_y_Test.xUC
         public xUCToolBarLogueado(bool logueoComoAdmin)
         {
             InitializeComponent();
-            if (Sesion.admin != null) Admin.Visible = true;
-            else Admin.Visible = false;
+            if (Sesion.admin != null)
+            {
+                cambiarTarifasButton.Visible = true;
+                Admin.Visible = true;
+            }
+            else
+            {
+                Admin.Visible = false;
+                cambiarTarifasButton.Visible = false;
+            }
             if (Sesion.user != null)
             {                
                 labelUserLogueado.Text = labelUserLogueado.Text + Sesion.user.nombre + " " + Sesion.user.apellido;
@@ -73,7 +81,7 @@ namespace HSH_Desa_y_Test.xUC
 
         private void Admin_Click(object sender, EventArgs e)
         {
-
+            new xfCrearAdmin().Show();
         }
 
         #endregion
@@ -81,6 +89,13 @@ namespace HSH_Desa_y_Test.xUC
         private void ClickAcercaNosotros(object sender, EventArgs e)
         {
             new xfPantallaContacto().ShowDialog();
+        }
+
+        private void cambiarTarifasButton_Click(object sender, EventArgs e)
+        {
+            xfCambiarMontoSuscripcion ms = new xfCambiarMontoSuscripcion();
+            ms.inicializar();
+            ms.Show();
         }
     }
 }

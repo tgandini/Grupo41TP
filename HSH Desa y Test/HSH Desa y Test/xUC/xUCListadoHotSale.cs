@@ -35,7 +35,7 @@ namespace HSH_Desa_y_Test.xUC
             List<HotSale> ok= new List<HotSale>();
             foreach(HotSale r in hot)
             {
-                if (r.fechaInicio >= DateTime.Now && r.fechaFin < DateTime.Now && r.idUsuario==null) ok.Add(r);
+                if (r.fechaInicio <= DateTime.Now && r.fechaFin >= DateTime.Now && r.idUsuario==null) ok.Add(r);
             }
             gridControl1.DataSource = ok;
             if (gridView1.RowCount > 0)

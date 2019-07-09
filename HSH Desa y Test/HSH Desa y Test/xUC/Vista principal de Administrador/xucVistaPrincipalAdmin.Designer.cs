@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.xUCCrearHotsale1 = new HSH_Desa_y_Test.xUC.xUCCrearHotsale();
             this.xUCCerrarSubasta1 = new HSH_Desa_y_Test.xUC.xUCCerrarSubasta();
             this.xfRegistrarceForm1 = new HSH_Desa_y_Test.xUC.xfRegistrarceForm();
             this.xfDarDeBajaPropiedad2 = new HSH_Desa_y_Test.Forms.xfDarDeBajaPropiedad();
@@ -43,6 +44,7 @@
             // panelControl1
             // 
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.xUCCrearHotsale1);
             this.panelControl1.Controls.Add(this.xUCCerrarSubasta1);
             this.panelControl1.Controls.Add(this.xfRegistrarceForm1);
             this.panelControl1.Controls.Add(this.xfDarDeBajaPropiedad2);
@@ -53,6 +55,14 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1004, 593);
             this.panelControl1.TabIndex = 1;
+            // 
+            // xUCCrearHotsale1
+            // 
+            this.xUCCrearHotsale1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.xUCCrearHotsale1.Location = new System.Drawing.Point(77, 20);
+            this.xUCCrearHotsale1.Name = "xUCCrearHotsale1";
+            this.xUCCrearHotsale1.Size = new System.Drawing.Size(594, 335);
+            this.xUCCrearHotsale1.TabIndex = 7;
             // 
             // xUCCerrarSubasta1
             // 
@@ -149,5 +159,6 @@
         private Forms.xfAltaSubasta xfAltaSubasta1;
         private xUCCerrarSubasta xUCCerrarSubasta1;
         private xucComandosAdmin xucComandosAdmin1;
+        private xUCCrearHotsale xUCCrearHotsale1;
     }
 }
