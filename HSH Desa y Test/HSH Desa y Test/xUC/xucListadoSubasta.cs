@@ -24,6 +24,8 @@ namespace HSH_Desa_y_Test.xUC
         public void inicializar()
         {
             gridControl1.DataSource = this.traerSubastasBD();
+            if (gridView1.RowCount > 0) xUCDetalleSubasta1.Visible = false;
+            else xUCDetalleSubasta1.Visible = true;
             /*gridView1.SelectRow(3);
             subasta sus = (subasta)gridView1.GetFocusedRow();
             this.xUCDetalleSubasta1.inicializar(sus.id);*/
