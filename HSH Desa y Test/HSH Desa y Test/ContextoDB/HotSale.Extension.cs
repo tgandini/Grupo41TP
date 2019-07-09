@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HSH_Desa_y_Test.ContextoDB
 {
@@ -51,6 +52,24 @@ namespace HSH_Desa_y_Test.ContextoDB
             using (ContextoEntity conec = new ContextoEntity())
             {
                 return conec.HotSales.ToList();
+            }
+        }
+
+        public bool guardarEnBD()
+        {
+            using (ContextoEntity conec = new ContextoEntity())
+            {
+                try
+                {
+                    conec.HotSales.Add(this);
+                    conec.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    MessageBox.Show("Hubo un error en el guardado de la base de datos");
+                    return false;
+                }
             }
         }
     }

@@ -14,21 +14,21 @@ using HSH_Desa_y_Test.Modelo_Expandido;
 using System.Data.Entity;
 
 
-namespace HSH_Desa_y_Test.Forms
+namespace HSH_Desa_y_Test.xUC
 {
-    public partial class xfAltaSubasta : DevExpress.XtraEditors.XtraUserControl
+    public partial class xUCCrearHotsale : DevExpress.XtraEditors.XtraUserControl
     {
         private List<Propiedad> propie;
         private List<string> semanas = new List<string>();
-        public xfAltaSubasta()
+        public xUCCrearHotsale()
         {
             InitializeComponent();
-           
         }
 
         public void inicializar()
         {
-
+            maskedTextBox1.Clear();
+            maskedTextBox2.Clear();
             propie = llenarConPropiedades();
             List<string> iden = new List<string>();
             iden.Clear();
@@ -38,7 +38,7 @@ namespace HSH_Desa_y_Test.Forms
             }
             iden.Sort();
             comboBox1.DataSource = iden;
-            
+
 
             //Checkeamos q no haya datos en el combobox de año
             if (comboBox2.Items.Count == 0)
@@ -50,43 +50,41 @@ namespace HSH_Desa_y_Test.Forms
                 comboBox2.SelectedIndex = 0;
             }
 
-            llenarConSubastas(this, null);
+            llenarConSemanas(this, null);
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Propiedad st = encontrarCual(comboBox1.AccessibilityObject.Value);
-            if (st != null)
+            DialogResult m = MessageBox.Show("Desea crear la subasta?", "Crear Subasta", MessageBoxButtons.YesNo);
+            if (m == DialogResult.Yes)
             {
-                //DialogResult m = MessageBox.Show("Desea crear la subasta?","Crear Subasta", MessageBoxButtons.YesNo);
-                //if (m == DialogResult.Yes)
-                //{
+                if (st!=null)
+                {
                     if (DateTime.Parse(maskedTextBox2.Text).CompareTo(DateTime.Now) >= 0)
                     {
-                        int numeroSemana = Int32.Parse(comboBox3.SelectedText.GetCharsBefore(" - "));
+                        int numeroSemana = Int32.Parse(comboBox3.SelectedItem.ToString().GetCharsBefore(" - "));
                         if (st.EstaLibre(numeroSemana, (int)comboBox2.SelectedItem, true))
                         {
-                            if (Semanizador.LunesDeSemana((int)comboBox2.SelectedItem,numeroSemana).CompareTo(DateTime.Parse(maskedTextBox2.Text).AddMonths(6)) >= 0)
+                            if (Semanizador.LunesDeSemana((int)comboBox2.SelectedItem, numeroSemana).CompareTo(DateTime.Parse(maskedTextBox2.Text).AddDays(7)) > 0)
                             {
-                                subasta nuevaSubasta = new subasta((int)comboBox2.SelectedItem, numeroSemana, maskedTextBox1.AccessibilityObject.Value, DateTime.Parse(maskedTextBox2.AccessibilityObject.Value), st.id);
+                                HotSale nuevoHotSale = new HotSale(DateTime.Parse(maskedTextBox2.Text), DateTime.Parse(maskedTextBox2.Text).AddDays(7), maskedTextBox1.AccessibilityObject.Value, numeroSemana, (int)comboBox2.SelectedItem, st);
 
-                                st.subastas.Add(nuevaSubasta);
+                                st.HotSales.Add(nuevoHotSale);
 
-                                //ToDo: No se puede guardar la propiedad con la subasta adentro, ver de dar de alta solo la subasta
-                                nuevaSubasta.guardarEnBD();
-                                
+                                nuevoHotSale.guardarEnBD();
+
                                 this.inicializar();
-                                MessageBox.Show("Se creó la subasta con éxito");
+                                MessageBox.Show("Se creó el hotsale con éxito");
                             }
-                            else MessageBox.Show("La semana elegida debe superar en 6 meses la fecha de inicio");
+                            else MessageBox.Show("La semana elegida debe superar la fecha de fin de hotsale, la cual es 7 dias a partir de la fecha de inicio.");
                         }
-                      
-                }
+                    }
                     else MessageBox.Show("La fecha de inicio es incorrecta");
-                //}       
+                }
+                else MessageBox.Show("La propiedad elegida es errónea");
             }
-            else MessageBox.Show("La propiedad elegida es errónea");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -94,8 +92,8 @@ namespace HSH_Desa_y_Test.Forms
             maskedTextBox1.Clear();
             maskedTextBox2.Clear();
             comboBox3.SelectedIndex = 0;
-            if (comboBox1.Items.Count!=0) comboBox1.SelectedIndex = 0;
-            if (comboBox2.Items.Count!=0) comboBox2.SelectedIndex = 0;
+            if (comboBox1.Items.Count != 0) comboBox1.SelectedIndex = 0;
+            if (comboBox2.Items.Count != 0) comboBox2.SelectedIndex = 0;
         }
 
         private List<Propiedad> llenarConPropiedades()
@@ -103,14 +101,14 @@ namespace HSH_Desa_y_Test.Forms
             using (ContextoEntity conec = new ContextoEntity())
             {
                 return conec.Propiedads
-                    .Include(p=> p.subastas)
-                    .Include(p=> p.HotSales)
-                    .Include(p=>p.ReservaDirectas)
+                    .Include(p => p.subastas)
+                    .Include(p => p.HotSales)
+                    .Include(p => p.ReservaDirectas)
                     .ToList();
             }
         }
 
-        private void llenarConSubastas(object sender, EventArgs e)
+        private void llenarConSemanas(object sender, EventArgs e)
         {
             semanas.Clear();
             for (int i = 1; i <= 52; i++)
@@ -128,10 +126,11 @@ namespace HSH_Desa_y_Test.Forms
             //var nombreTrimmeado = st.Substring(0,st.IndexOf(",")) ?? string.Empty;
             foreach (Propiedad casa in propie)
             {
-                if (casa.nombre == st)                
-                    return casa;                
+                if (casa.nombre == st)
+                    return casa;
             }
             return null;
         }
     }
 }
+

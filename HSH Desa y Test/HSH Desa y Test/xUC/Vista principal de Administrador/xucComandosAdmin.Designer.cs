@@ -385,6 +385,7 @@
             this.simpleButton4.StyleController = this.dataLayoutControl1;
             this.simpleButton4.TabIndex = 11;
             this.simpleButton4.Text = "Crear Hotsale";
+            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
             // layoutControlItem8
             // 

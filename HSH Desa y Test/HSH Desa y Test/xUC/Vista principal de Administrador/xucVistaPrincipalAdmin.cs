@@ -74,6 +74,13 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
             this.xUCCerrarSubasta1.BringToFront();
         }
 
+        internal void renderizarCrearHotSale()
+        {
+            this.ocultarFormsderivados();
+            this.xUCCrearHotsale1.inicializar();
+            this.xUCCrearHotsale1.Visible = true;
+            this.xUCCrearHotsale1.BringToFront();
+        }
 
         internal void ocultarFormsderivados()
         {
