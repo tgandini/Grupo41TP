@@ -99,7 +99,7 @@
             this.cambiarTarifasButton.Name = "cambiarTarifasButton";
             this.cambiarTarifasButton.Size = new System.Drawing.Size(140, 53);
             this.cambiarTarifasButton.TabIndex = 5;
-            this.cambiarTarifasButton.Text = "Cambiar Tarifas";
+            this.cambiarTarifasButton.Text = "Modificar Tarifas";
             this.cambiarTarifasButton.UseVisualStyleBackColor = true;
             this.cambiarTarifasButton.Click += new System.EventHandler(this.cambiarTarifasButton_Click);
             // 
