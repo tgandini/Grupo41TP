@@ -28,8 +28,8 @@ namespace HSH_Desa_y_Test.xUC
             // Call the LoadAsync method to asynchronously get the data for the given DbSet from the database.
             dbContext.subastas.LoadAsync().ContinueWith(loadTask =>
             {
-    // Bind data to control when loading complete
-    gridControl1.DataSource = dbContext.subastas.Local.ToBindingList();
+                // Bind data to control when loading complete
+                gridControl1.DataSource = dbContext.subastas.Local.ToBindingList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
         }
 
@@ -41,7 +41,7 @@ namespace HSH_Desa_y_Test.xUC
             iden = new List<subasta>();
             foreach (subasta s in subi)
             {
-                if(s.estaActiva()) iden.Add(s);
+                if (s.estaActiva()) iden.Add(s);
             }
             subastaSource.DataSource = iden;
             gridControl1.DataSource = subastaSource.DataSource;
@@ -49,7 +49,7 @@ namespace HSH_Desa_y_Test.xUC
             gridView1.OptionsBehavior.Editable = false;
         }
 
-        
+
 
         private void subastaBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -61,7 +61,7 @@ namespace HSH_Desa_y_Test.xUC
                 using (ContextoEntity conec = new ContextoEntity())
                 {
                     po = conec.Propiedads.Where(p => p.id == s.id_propiedad_subastada).First();
-                    usp = conec.usuarioParticipaEnSubastas.Where(p => p.idSubasta == s.id).OrderByDescending(p=>p.monto).ToList().FirstOrDefault();
+                    usp = conec.usuarioParticipaEnSubastas.Where(p => p.idSubasta == s.id).OrderByDescending(p => p.monto).ToList().FirstOrDefault();
                 }
                 ubicacionBox.Text = po.ubicaciòn;
                 NombreBox.Text = po.nombre;
@@ -73,7 +73,7 @@ namespace HSH_Desa_y_Test.xUC
             }
         }
 
-        
+
         private void aceptarButton_Click(object sender, EventArgs e)
         {
             if (gridView1.DataRowCount > 0)
@@ -88,11 +88,11 @@ namespace HSH_Desa_y_Test.xUC
                         var su = conec.subastas.Where(p => p.id == s.id).First();
                         DbEntityEntry<subasta> ee = conec.Entry(su);
                         ee.CurrentValues.SetValues(s);
+                        su.cerrar();
                         conec.SaveChanges();
-                        var pruebaSub = su.ganador;
                     }
-                    this.inicializar();                    
-                    MessageBox.Show("Se cerro la subasta");
+                    this.inicializar();
+
                 }
             }
         }

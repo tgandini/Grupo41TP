@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,11 +70,18 @@ namespace HSH_Desa_y_Test.ContextoDB
 
         public void restarCredito()
         {
+            this.token--;
+            using (ContextoEntity con = new ContextoEntity())
+            {
+                con.Entry(this).State = EntityState.Modified;
+                con.SaveChanges();
+            }
+        }
+        public static usuario getUsuarioFromId(string mailP)
+        {
             using (ContextoEntity conec = new ContextoEntity())
             {
-                this.token--;
-                conec.Entry(this).State = System.Data.Entity.EntityState.Modified;
-                conec.SaveChanges();
+                return conec.usuarios.Where(p => p.mail == mailP).FirstOrDefault();
             }
         }
     }
