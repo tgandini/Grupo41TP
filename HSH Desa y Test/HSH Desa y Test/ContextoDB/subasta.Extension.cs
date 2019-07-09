@@ -11,18 +11,7 @@ namespace HSH_Desa_y_Test.ContextoDB
     public partial class subasta
     {
         #region Propiedades
-        public usuario ganador
-        {
-            get
-            {
-                using (ContextoEntity conec = new ContextoEntity())
-                {
-                    var usuarioTestEnSubasta = this.usuarioParticipaEnSubastas.OrderByDescending(q => q.monto).FirstOrDefault();
-                    return conec.usuarios.Where(p => p.mail == this.usuarioParticipaEnSubastas.OrderByDescending(q => q.monto).FirstOrDefault().idPersona).FirstOrDefault();
-                }
-            }
-        }
-
+        //ToDo: Ver si se necesita saber el usuario que ganó la subasta       
         #endregion
         public subasta(int año, int semana, String monto, DateTime fechaInicio, int idDePropiedadParaSubastar)
         {
@@ -42,7 +31,6 @@ namespace HSH_Desa_y_Test.ContextoDB
                 conec.SaveChanges();
             }
         }
-
         public static List<subasta> llenarConSubasta()
         {
             using (ContextoEntity conec = new ContextoEntity())
@@ -81,9 +69,48 @@ namespace HSH_Desa_y_Test.ContextoDB
                 }
             }
         }
+        public usuarioParticipaEnSubasta encontrarGanador()
+        {
+            using (ContextoEntity conec = new ContextoEntity())
+            {
+                var candidatos = this.usuarioParticipaEnSubastas.OrderByDescending(q => q.monto).ToArray();
+                for (int i = 0; i < candidatos.Length; i++)
+                {
+                    if (usuario.getUsuarioFromId(candidatos[i].idPersona).token > 0)
+                    {
+                        return candidatos[i];
+                    }
+                }
+                return null;
+
+            }
+        }
         public bool tieneGanador()
         {
-            return ganador != null;
+            return encontrarGanador() != null;
+        }
+        public void cerrar()
+        {
+            var pujaGanadora = encontrarGanador();
+            if (pujaGanadora != null)
+            {
+                using (ContextoEntity conec = new ContextoEntity())
+                {
+
+                    conec.ganadorDeSubastas.Add(new ganadorDeSubasta(pujaGanadora.idPersona, this.id, pujaGanadora.id));
+                    var usuarioGanador = conec.usuarios.Where(p => p.mail == pujaGanadora.idPersona).First();
+                    usuarioGanador.token--;
+                    conec.Entry(usuarioGanador).State = System.Data.Entity.EntityState.Modified;
+                    MessageBox.Show(String.Format("Se cerró la subasta\nGanador de la subasta: {0}\nMonto ganador: {1}", usuarioGanador.mail, pujaGanadora.monto));
+                    conec.SaveChanges();
+                }
+               
+
+            }
+            else
+            {
+                MessageBox.Show(String.Format("Se cerró la subasta\nNo hubo ganadores"));
+            }
         }
     }
 }

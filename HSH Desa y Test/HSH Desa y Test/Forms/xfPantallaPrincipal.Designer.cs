@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.xucVistaPrincipalDeslogueado1 = new HSH_Desa_y_Test.xUC.Vista_principal_de_Deslogueado.xucVistaPrincipalDeslogueado();
             this.xucVistaPrincipalAdmin1 = new HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador.xucVistaPrincipalAdmin();
+            this.xucVistaPrincipalDeslogueado1 = new HSH_Desa_y_Test.xUC.Vista_principal_de_Deslogueado.xucVistaPrincipalDeslogueado();
             this.xUCtoolbardeslogueado1 = new HSH_Desa_y_Test.xUC.xUCtoolbardeslogueado();
             this.xUCToolBarLogueado1 = new HSH_Desa_y_Test.xUC.xUCToolBarLogueado();
             this.xucVistaPrincipalUsuario1 = new HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado_y_Deslogueado.xucVistaPrincipalUsuario();
@@ -47,28 +47,27 @@
             this.panelControl1.Controls.Add(this.xucVistaPrincipalUsuario1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1498, 930);
+            this.panelControl1.Size = new System.Drawing.Size(1376, 678);
             this.panelControl1.TabIndex = 0;
+            // 
+            // xucVistaPrincipalAdmin1
+            // 
+            this.xucVistaPrincipalAdmin1.Location = new System.Drawing.Point(2, 80);
+            this.xucVistaPrincipalAdmin1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.xucVistaPrincipalAdmin1.Name = "xucVistaPrincipalAdmin1";
+            this.xucVistaPrincipalAdmin1.Size = new System.Drawing.Size(1374, 644);
+            this.xucVistaPrincipalAdmin1.TabIndex = 2;
             // 
             // xucVistaPrincipalDeslogueado1
             // 
             this.xucVistaPrincipalDeslogueado1.AutoSize = true;
             this.xucVistaPrincipalDeslogueado1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.xucVistaPrincipalDeslogueado1.Location = new System.Drawing.Point(7, 101);
-            this.xucVistaPrincipalDeslogueado1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.xucVistaPrincipalDeslogueado1.Location = new System.Drawing.Point(6, 82);
+            this.xucVistaPrincipalDeslogueado1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.xucVistaPrincipalDeslogueado1.Name = "xucVistaPrincipalDeslogueado1";
-            this.xucVistaPrincipalDeslogueado1.Size = new System.Drawing.Size(788, 741);
+            this.xucVistaPrincipalDeslogueado1.Size = new System.Drawing.Size(676, 601);
             this.xucVistaPrincipalDeslogueado1.TabIndex = 4;
-            // 
-            // xucVistaPrincipalAdmin1
-            // 
-            this.xucVistaPrincipalAdmin1.Location = new System.Drawing.Point(2, 98);
-            this.xucVistaPrincipalAdmin1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.xucVistaPrincipalAdmin1.Name = "xucVistaPrincipalAdmin1";
-            this.xucVistaPrincipalAdmin1.Size = new System.Drawing.Size(1387, 793);
-            this.xucVistaPrincipalAdmin1.TabIndex = 2;
             // 
             // xUCtoolbardeslogueado1
             // 
@@ -80,7 +79,7 @@
             this.xUCtoolbardeslogueado1.Location = new System.Drawing.Point(2, 2);
             this.xUCtoolbardeslogueado1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xUCtoolbardeslogueado1.Name = "xUCtoolbardeslogueado1";
-            this.xUCtoolbardeslogueado1.Size = new System.Drawing.Size(1494, 90);
+            this.xUCtoolbardeslogueado1.Size = new System.Drawing.Size(1372, 73);
             this.xUCtoolbardeslogueado1.TabIndex = 0;
             // 
             // xUCToolBarLogueado1
@@ -90,27 +89,26 @@
             this.xUCToolBarLogueado1.AutoSize = true;
             this.xUCToolBarLogueado1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.xUCToolBarLogueado1.Location = new System.Drawing.Point(2, 2);
-            this.xUCToolBarLogueado1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.xUCToolBarLogueado1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.xUCToolBarLogueado1.Name = "xUCToolBarLogueado1";
-            this.xUCToolBarLogueado1.Size = new System.Drawing.Size(1066, 90);
+            this.xUCToolBarLogueado1.Size = new System.Drawing.Size(914, 73);
             this.xUCToolBarLogueado1.TabIndex = 1;
             this.xUCToolBarLogueado1.Visible = false;
             // 
             // xucVistaPrincipalUsuario1
             // 
-            this.xucVistaPrincipalUsuario1.Location = new System.Drawing.Point(2, 98);
-            this.xucVistaPrincipalUsuario1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.xucVistaPrincipalUsuario1.Location = new System.Drawing.Point(2, 80);
+            this.xucVistaPrincipalUsuario1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.xucVistaPrincipalUsuario1.Name = "xucVistaPrincipalUsuario1";
-            this.xucVistaPrincipalUsuario1.Size = new System.Drawing.Size(1448, 826);
+            this.xucVistaPrincipalUsuario1.Size = new System.Drawing.Size(1241, 671);
             this.xucVistaPrincipalUsuario1.TabIndex = 3;
             // 
             // xfPantallaPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1498, 930);
+            this.ClientSize = new System.Drawing.Size(1376, 678);
             this.Controls.Add(this.panelControl1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "xfPantallaPrincipal";
             this.Text = "Home Switch Home";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
