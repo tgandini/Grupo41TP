@@ -90,7 +90,6 @@
             this.Controls.Add(this.cancelarButton);
             this.Controls.Add(this.agregarButton);
             this.Name = "xfCrearAdmin";
-            this.Text = "xfCrearAdmin";
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
