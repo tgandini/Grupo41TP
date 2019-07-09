@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HSH_Desa_y_Test.Modelo_Expandido;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,10 @@ namespace HSH_Desa_y_Test.ContextoDB
 {
     public partial class HotSale
     {
+        public int getId()
+        {
+            return this.id;
+        }
         public HotSale(DateTime inicio, DateTime fin, decimal precio, int semana, int año, Propiedad prop)
         {
             this.fechaInicio = inicio;
@@ -52,6 +57,12 @@ namespace HSH_Desa_y_Test.ContextoDB
             {
                 return conec.HotSales.ToList();
             }
+        }
+        public bool esFutura()
+        {
+            if (this.añoReservado > DateTime.Today.Year) return true;
+            else if (this.añoReservado == DateTime.Today.Year && this.semanaReservada > Semanizador.getSemanaDelAño(DateTime.Today)) return true;
+            else return false;
         }
     }
 }

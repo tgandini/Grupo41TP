@@ -38,5 +38,10 @@ namespace HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado_y_Deslogueado
         {
             Sesion.vistaPrincipalUserLogueado.renderizarListaHotSale();
         }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            Sesion.vistaPrincipalUserLogueado.renderizarListaReservasFuturas();
+        }
     }
 }

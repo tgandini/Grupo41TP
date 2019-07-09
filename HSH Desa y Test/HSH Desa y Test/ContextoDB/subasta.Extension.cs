@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HSH_Desa_y_Test.Modelo_Expandido;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -111,6 +112,12 @@ namespace HSH_Desa_y_Test.ContextoDB
             {
                 MessageBox.Show(String.Format("Se cerró la subasta\nNo hubo ganadores"));
             }
+        }
+        public bool esFutura()
+        {
+            if (this.añoReservado > DateTime.Today.Year) return true;
+            else if (this.añoReservado == DateTime.Today.Year && this.semana_de_subasta > Semanizador.getSemanaDelAño(DateTime.Today)) return true;
+            else return false;
         }
     }
 }

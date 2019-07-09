@@ -9,6 +9,11 @@ namespace HSH_Desa_y_Test.ContextoDB
 {
     public partial class ReservaDirecta
     {
+        public int getId()
+        {
+            return this.id;
+        }
+
         public ReservaDirecta(int idPro, string idUser, decimal precio, int semana, int yeara)
         {
             this.id = int.MaxValue;
@@ -23,5 +28,12 @@ namespace HSH_Desa_y_Test.ContextoDB
         {
 
         }
+        public bool esFutura()
+        {
+            if (this.añoReservado > DateTime.Today.Year) return true;
+            else if (this.añoReservado == DateTime.Today.Year && this.semanaReservada > Semanizador.getSemanaDelAño(DateTime.Today)) return true;
+            else return false;
+        }
+
     }
 }
