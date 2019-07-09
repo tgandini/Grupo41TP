@@ -37,6 +37,7 @@ namespace HSH_Desa_y_Test.xUC
 
         public void inicializar()
         {
+            HotSale h;
             Random random = new Random();
             HotSale[] aux;
             List<HotSale> aux2=new List<HotSale>();
@@ -47,18 +48,18 @@ namespace HSH_Desa_y_Test.xUC
             }
             foreach(HotSale r in aux)
             {
-                if (r.fechaInicio >= DateTime.Now && r.fechaFin < DateTime.Now && r.idUsuario == null) aux2.Add(r);
+                if (r.fechaInicio <= DateTime.Now && r.fechaFin >= DateTime.Now && r.idUsuario == null) aux2.Add(r);
             }
             if (aux2.Count() > 0)
             {
                 aux = aux2.ToArray();
-                hot = aux[random.Next(0, aux.Length - 1)];
+                h = aux[random.Next(0, aux.Length - 1)];
                 using (ContextoEntity conexion = new ContextoEntity())
                 {
-                    p = conexion.Propiedads.Where(t => t.id == hot.idPropiedad).First();
+                    p = conexion.Propiedads.Where(t => t.id == h.idPropiedad).First();
                 }
                 Sesion.vistaPrincipal.renderizarHot();
-                this.inicializar(hot, p);
+                this.inicializar(h, p);
             }
             else Sesion.vistaPrincipal.renderizarProp();
         }
@@ -77,6 +78,7 @@ namespace HSH_Desa_y_Test.xUC
                         conexion.SaveChanges();
                     }
                     MessageBox.Show("Se Realizo la compra con exito");
+                    Sesion.vistaPrincipalUserLogueado.inicializarHotSale();
                 }
                 else MessageBox.Show("Ya no se encuentra a la venta");
             }
