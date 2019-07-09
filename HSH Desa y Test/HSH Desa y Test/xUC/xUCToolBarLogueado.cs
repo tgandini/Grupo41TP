@@ -51,13 +51,14 @@ namespace HSH_Desa_y_Test.xUC
         {
             this.labelUserLogueado.Text = string.Format("Usuario logueado: {0}", Sesion.user.mail);
             this.Admin.Visible = false;
+            this.cambiarTarifasButton.Visible = false;
         }
 
         internal void CargarLabelConAdmin()
         {
             this.labelUserLogueado.Text = string.Format("Logueado como Administrador");
             this.Admin.Visible = true;
-
+            this.cambiarTarifasButton.Visible = true;
         }
         #endregion
 
