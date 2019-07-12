@@ -1,4 +1,5 @@
 ﻿using HSH_Desa_y_Test.Modelo_Expandido;
+using HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,6 +59,13 @@ namespace HSH_Desa_y_Test.ContextoDB
                 return conec.HotSales.ToList();
             }
         }
+        public static HotSale getOneById(int idP)
+        {
+            using (ContextoEntity conec = new ContextoEntity())
+            {
+                return conec.HotSales.Where(p=>p.id== idP).First();
+            }
+        }
         public bool esFutura()
         {
             if (this.añoReservado > DateTime.Today.Year) return true;
@@ -81,6 +89,25 @@ namespace HSH_Desa_y_Test.ContextoDB
                     return false;
                 }
             }
+        }
+        public void cancelarGanador(xucReservasFuturas UcQueLoLlama)
+        {
+            try
+            {
+                using (ContextoEntity conec = new ContextoEntity())
+                {
+                    this.idUsuario = null;
+                    conec.Entry(this).State = System.Data.Entity.EntityState.Modified;
+                    conec.SaveChanges();
+                    UcQueLoLlama.inicializar();
+                    MessageBox.Show("Se canceló el hotsale con éxito");
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+                
         }
     }
 }
