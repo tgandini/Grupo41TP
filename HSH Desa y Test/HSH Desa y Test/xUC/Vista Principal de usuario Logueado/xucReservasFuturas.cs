@@ -30,7 +30,7 @@ namespace HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado
                 DialogResult dialogResult = MessageBox.Show("¿Desea cancelar la reserva seleccionada?", "Cancelar Reserva", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    var asd = gridView1.GetFocusedRow();
+                    ReservaFutura tuplaElegida = gridView1.GetFocusedRow() as ReservaFutura;                   
                 }
                 
             }
