@@ -35,6 +35,7 @@
             this.colsemanaReservada = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPropiedad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xUCDetalleHotsale1 = new HSH_Desa_y_Test.xUC.xUCDetalleHotsale();
+            this.colañoReservado = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +59,7 @@
             this.colfechaInicio,
             this.colmonto,
             this.colsemanaReservada,
+            this.colañoReservado,
             this.colPropiedad});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
@@ -93,12 +95,13 @@
             // 
             // colsemanaReservada
             // 
+            this.colsemanaReservada.Caption = "Semana de Reserva";
             this.colsemanaReservada.FieldName = "semanaReservada";
             this.colsemanaReservada.MinWidth = 24;
             this.colsemanaReservada.Name = "colsemanaReservada";
             this.colsemanaReservada.OptionsEditForm.Caption = "Semana Reservada";
             this.colsemanaReservada.Visible = true;
-            this.colsemanaReservada.VisibleIndex = 2;
+            this.colsemanaReservada.VisibleIndex = 3;
             this.colsemanaReservada.Width = 94;
             // 
             // colPropiedad
@@ -108,7 +111,7 @@
             this.colPropiedad.Name = "colPropiedad";
             this.colPropiedad.OptionsEditForm.Caption = "Nombre Propiedad";
             this.colPropiedad.Visible = true;
-            this.colPropiedad.VisibleIndex = 3;
+            this.colPropiedad.VisibleIndex = 4;
             this.colPropiedad.Width = 94;
             // 
             // xUCDetalleHotsale1
@@ -118,6 +121,16 @@
             this.xUCDetalleHotsale1.Name = "xUCDetalleHotsale1";
             this.xUCDetalleHotsale1.Size = new System.Drawing.Size(799, 318);
             this.xUCDetalleHotsale1.TabIndex = 1;
+            // 
+            // colañoReservado
+            // 
+            this.colañoReservado.Caption = "Año de Reserva";
+            this.colañoReservado.FieldName = "añoReservado";
+            this.colañoReservado.MinWidth = 25;
+            this.colañoReservado.Name = "colañoReservado";
+            this.colañoReservado.Visible = true;
+            this.colañoReservado.VisibleIndex = 2;
+            this.colañoReservado.Width = 94;
             // 
             // xUCListadoHotSale
             // 
@@ -143,5 +156,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colsemanaReservada;
         private DevExpress.XtraGrid.Columns.GridColumn colPropiedad;
         private xUCDetalleHotsale xUCDetalleHotsale1;
+        private DevExpress.XtraGrid.Columns.GridColumn colañoReservado;
     }
 }
