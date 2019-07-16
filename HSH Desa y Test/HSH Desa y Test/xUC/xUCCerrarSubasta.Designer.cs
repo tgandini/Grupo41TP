@@ -57,55 +57,55 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(649, 72);
+            this.label1.Location = new System.Drawing.Point(757, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 13);
+            this.label1.Size = new System.Drawing.Size(141, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "Nombre de Propiedad";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(649, 106);
+            this.label2.Location = new System.Drawing.Point(757, 130);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 13);
+            this.label2.Size = new System.Drawing.Size(131, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "Ubicacion Propiedad";
             // 
             // ubicacionBox
             // 
             this.ubicacionBox.Enabled = false;
-            this.ubicacionBox.Location = new System.Drawing.Point(775, 104);
+            this.ubicacionBox.Location = new System.Drawing.Point(904, 128);
             this.ubicacionBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ubicacionBox.Name = "ubicacionBox";
-            this.ubicacionBox.Size = new System.Drawing.Size(158, 21);
+            this.ubicacionBox.Size = new System.Drawing.Size(184, 23);
             this.ubicacionBox.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(650, 234);
+            this.label3.Location = new System.Drawing.Point(758, 288);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.Size = new System.Drawing.Size(76, 17);
             this.label3.TabIndex = 7;
             this.label3.Text = "Ultima Puja";
             // 
             // montoBox
             // 
             this.montoBox.Enabled = false;
-            this.montoBox.Location = new System.Drawing.Point(775, 232);
+            this.montoBox.Location = new System.Drawing.Point(904, 286);
             this.montoBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.montoBox.Name = "montoBox";
-            this.montoBox.Size = new System.Drawing.Size(158, 21);
+            this.montoBox.Size = new System.Drawing.Size(184, 23);
             this.montoBox.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(326, 13);
+            this.label4.Location = new System.Drawing.Point(380, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(151, 23);
+            this.label4.Size = new System.Drawing.Size(189, 29);
             this.label4.TabIndex = 9;
             this.label4.Text = "Cerrar Subasta";
             // 
@@ -113,10 +113,10 @@
             // 
             this.aceptarButton.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.aceptarButton.Appearance.Options.UseFont = true;
-            this.aceptarButton.Location = new System.Drawing.Point(756, 289);
+            this.aceptarButton.Location = new System.Drawing.Point(882, 356);
             this.aceptarButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.aceptarButton.Name = "aceptarButton";
-            this.aceptarButton.Size = new System.Drawing.Size(137, 54);
+            this.aceptarButton.Size = new System.Drawing.Size(160, 66);
             this.aceptarButton.TabIndex = 10;
             this.aceptarButton.Text = "Cerrar Subasta";
             this.aceptarButton.Click += new System.EventHandler(this.aceptarButton_Click);
@@ -125,11 +125,11 @@
             // 
             this.gridControl1.DataSource = typeof(HSH_Desa_y_Test.ContextoDB.subasta);
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gridControl1.Location = new System.Drawing.Point(9, 72);
+            this.gridControl1.Location = new System.Drawing.Point(10, 89);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(635, 271);
+            this.gridControl1.Size = new System.Drawing.Size(741, 334);
             this.gridControl1.TabIndex = 12;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -141,104 +141,104 @@
             this.colfecha_inicio,
             this.colmonto_inicial,
             this.colsemana_de_subasta});
-            this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.subastaBox_SelectedIndexChanged);
             // 
             // colfecha_inicio
             // 
             this.colfecha_inicio.FieldName = "fecha_inicio";
-            this.colfecha_inicio.MinWidth = 21;
+            this.colfecha_inicio.MinWidth = 24;
             this.colfecha_inicio.Name = "colfecha_inicio";
             this.colfecha_inicio.Visible = true;
             this.colfecha_inicio.VisibleIndex = 0;
-            this.colfecha_inicio.Width = 81;
+            this.colfecha_inicio.Width = 94;
             // 
             // colmonto_inicial
             // 
             this.colmonto_inicial.FieldName = "monto_inicial";
-            this.colmonto_inicial.MinWidth = 21;
+            this.colmonto_inicial.MinWidth = 24;
             this.colmonto_inicial.Name = "colmonto_inicial";
             this.colmonto_inicial.Visible = true;
             this.colmonto_inicial.VisibleIndex = 1;
-            this.colmonto_inicial.Width = 81;
+            this.colmonto_inicial.Width = 94;
             // 
             // colsemana_de_subasta
             // 
             this.colsemana_de_subasta.FieldName = "semana_de_subasta";
-            this.colsemana_de_subasta.MinWidth = 21;
+            this.colsemana_de_subasta.MinWidth = 24;
             this.colsemana_de_subasta.Name = "colsemana_de_subasta";
             this.colsemana_de_subasta.Visible = true;
             this.colsemana_de_subasta.VisibleIndex = 2;
-            this.colsemana_de_subasta.Width = 81;
+            this.colsemana_de_subasta.Width = 94;
             // 
             // NombreBox
             // 
             this.NombreBox.Enabled = false;
-            this.NombreBox.Location = new System.Drawing.Point(775, 70);
+            this.NombreBox.Location = new System.Drawing.Point(904, 86);
             this.NombreBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NombreBox.Name = "NombreBox";
-            this.NombreBox.Size = new System.Drawing.Size(158, 21);
+            this.NombreBox.Size = new System.Drawing.Size(184, 23);
             this.NombreBox.TabIndex = 13;
             // 
             // ciudadBox
             // 
             this.ciudadBox.Enabled = false;
-            this.ciudadBox.Location = new System.Drawing.Point(775, 137);
+            this.ciudadBox.Location = new System.Drawing.Point(904, 169);
             this.ciudadBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ciudadBox.Name = "ciudadBox";
-            this.ciudadBox.Size = new System.Drawing.Size(158, 21);
+            this.ciudadBox.Size = new System.Drawing.Size(184, 23);
             this.ciudadBox.TabIndex = 14;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(650, 140);
+            this.label5.Location = new System.Drawing.Point(758, 172);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.Size = new System.Drawing.Size(50, 17);
             this.label5.TabIndex = 15;
             this.label5.Text = "Ciudad";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(650, 172);
+            this.label6.Location = new System.Drawing.Point(758, 212);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 13);
+            this.label6.Size = new System.Drawing.Size(63, 17);
             this.label6.TabIndex = 16;
             this.label6.Text = "Provincia";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(650, 202);
+            this.label7.Location = new System.Drawing.Point(758, 249);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(26, 13);
+            this.label7.Size = new System.Drawing.Size(31, 17);
             this.label7.TabIndex = 17;
             this.label7.Text = "Pais";
             // 
             // paisBox
             // 
             this.paisBox.Enabled = false;
-            this.paisBox.Location = new System.Drawing.Point(775, 200);
+            this.paisBox.Location = new System.Drawing.Point(904, 246);
             this.paisBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.paisBox.Name = "paisBox";
-            this.paisBox.Size = new System.Drawing.Size(158, 21);
+            this.paisBox.Size = new System.Drawing.Size(184, 23);
             this.paisBox.TabIndex = 18;
             // 
             // provinciaBox
             // 
             this.provinciaBox.Enabled = false;
-            this.provinciaBox.Location = new System.Drawing.Point(775, 170);
+            this.provinciaBox.Location = new System.Drawing.Point(904, 209);
             this.provinciaBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.provinciaBox.Name = "provinciaBox";
-            this.provinciaBox.Size = new System.Drawing.Size(158, 21);
+            this.provinciaBox.Size = new System.Drawing.Size(184, 23);
             this.provinciaBox.TabIndex = 19;
             // 
             // xUCCerrarSubasta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.provinciaBox);
             this.Controls.Add(this.paisBox);
@@ -257,7 +257,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "xUCCerrarSubasta";
-            this.Size = new System.Drawing.Size(963, 353);
+            this.Size = new System.Drawing.Size(1123, 434);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subastaSource)).EndInit();

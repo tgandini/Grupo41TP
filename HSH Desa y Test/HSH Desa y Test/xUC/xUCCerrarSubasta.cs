@@ -43,19 +43,17 @@ namespace HSH_Desa_y_Test.xUC
             {
                 if (s.estaActiva()) iden.Add(s);
             }
-            subastaSource.DataSource = iden;
-            gridControl1.DataSource = subastaSource.DataSource;
+            gridControl1.DataSource = iden;
             gridControl1.Update();
             gridView1.OptionsBehavior.Editable = false;
+            s = iden.First();
+            this.vistaDetalle();
         }
 
-
-
-        private void subastaBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void vistaDetalle()
         {
             Propiedad po;
             usuarioParticipaEnSubasta usp;
-            s = (subasta)gridView1.GetFocusedRow();
             if (s != null)
             {
                 using (ContextoEntity conec = new ContextoEntity())
@@ -71,6 +69,12 @@ namespace HSH_Desa_y_Test.xUC
                 if (usp != null) montoBox.Text = usp.monto.ToString();
                 else montoBox.Text = s.monto_inicial.ToString();
             }
+        }
+
+        private void subastaBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            s = (subasta)gridView1.GetFocusedRow();
+            this.vistaDetalle();
         }
 
 
@@ -105,5 +109,10 @@ namespace HSH_Desa_y_Test.xUC
             ciudadBox.Text = "";
         }
 
+        private void subastaBox_SelectedIndexChanged(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            s = (subasta)gridView1.GetFocusedRow();
+            this.vistaDetalle();
+        }
     }
 }

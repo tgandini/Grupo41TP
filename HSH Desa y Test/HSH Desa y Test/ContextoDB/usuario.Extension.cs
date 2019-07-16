@@ -78,6 +78,12 @@ namespace HSH_Desa_y_Test.ContextoDB
                 con.SaveChanges();
             }
         }
+
+        public void agregarCredito()
+        {
+            this.token++;
+        }
+
         public static usuario getUsuarioFromId(string mailP)
         {
             using (ContextoEntity conec = new ContextoEntity())

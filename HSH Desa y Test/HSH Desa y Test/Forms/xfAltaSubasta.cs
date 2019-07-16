@@ -59,33 +59,35 @@ namespace HSH_Desa_y_Test.Forms
             Propiedad st = encontrarCual(comboBox1.AccessibilityObject.Value);
             if (st != null)
             {
+                DateTime d;
                 //DialogResult m = MessageBox.Show("Desea crear la subasta?","Crear Subasta", MessageBoxButtons.YesNo);
-                //if (m == DialogResult.Yes)
-                //{
-                    if (DateTime.Parse(maskedTextBox2.Text).CompareTo(DateTime.Now) >= 0)
+                if (DateTime.TryParse(maskedTextBox2.AccessibilityObject.Value, out d))
+                {
+                    if (d.CompareTo(DateTime.Now) >= 0)
                     {
-                    //toDo: verificar si funciona sin estoint numeroSemana = Int32.Parse(comboBox3.SelectedText.GetCharsBefore(" - "));
-                    int numeroSemana = Int32.Parse(comboBox3.Text.GetCharsBefore(" - "));
-                    if (st.EstaLibre(numeroSemana, (int)comboBox2.SelectedItem, true))
+                        //toDo: verificar si funciona sin estoint numeroSemana = Int32.Parse(comboBox3.SelectedText.GetCharsBefore(" - "));
+                        int numeroSemana = Int32.Parse(comboBox3.Text.GetCharsBefore(" - "));
+                        if (st.EstaLibre(numeroSemana, (int)comboBox2.SelectedItem, true))
                         {
-                            if (Semanizador.LunesDeSemana((int)comboBox2.SelectedItem,numeroSemana).CompareTo(DateTime.Parse(maskedTextBox2.Text).AddMonths(6)) >= 0)
+                            if (Semanizador.LunesDeSemana((int)comboBox2.SelectedItem, numeroSemana).CompareTo(DateTime.Parse(maskedTextBox2.Text).AddMonths(6)) >= 0)
                             {
-                                subasta nuevaSubasta = new subasta((int)comboBox2.SelectedItem, numeroSemana, maskedTextBox1.AccessibilityObject.Value, DateTime.Parse(maskedTextBox2.AccessibilityObject.Value), st.id);
+                                subasta nuevaSubasta = new subasta((int)comboBox2.SelectedItem, numeroSemana, maskedTextBox1.AccessibilityObject.Value, d, st.id);
 
                                 st.subastas.Add(nuevaSubasta);
 
                                 //ToDo: No se puede guardar la propiedad con la subasta adentro, ver de dar de alta solo la subasta
                                 nuevaSubasta.guardarEnBD();
-                                
+
                                 this.inicializar();
                                 MessageBox.Show("Se creó la subasta con éxito");
                             }
                             else MessageBox.Show("La semana elegida debe superar en 6 meses la fecha de inicio");
                         }
-                      
-                }
+
+                    }
                     else MessageBox.Show("La fecha de inicio es incorrecta");
-                //}       
+                }
+                else MessageBox.Show("La fecha es invalida");
             }
             else MessageBox.Show("La propiedad elegida es errónea");
         }

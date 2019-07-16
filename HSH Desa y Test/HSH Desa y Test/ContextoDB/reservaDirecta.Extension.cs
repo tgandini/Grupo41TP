@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.Entity;
+using HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado;
+using HSH_Desa_y_Test.Modelo_Expandido;
 
 namespace HSH_Desa_y_Test.ContextoDB
 {
@@ -35,5 +39,38 @@ namespace HSH_Desa_y_Test.ContextoDB
             else return false;
         }
 
+        public static ReservaDirecta getOneById(int idP)
+        {
+            using (ContextoEntity conec = new ContextoEntity())
+            {
+                return conec.ReservaDirectas
+                    .Include(a => a.usuario)
+                    .Where(p => p.id == idP).First();
+            }
+        }
+
+        public void cancelarGanador(xucReservasFuturas UcQueLoLlama)
+        {
+            try
+            {
+                using (ContextoEntity conec = new ContextoEntity())
+                {
+                    if (Semanizador.LunesDeSemana(this.añoReservado, this.semanaReservada) >= DateTime.Now.AddMonths(6))
+                    {
+                        this.usuario.agregarCredito();
+                        conec.Entry(this.usuario).State = System.Data.Entity.EntityState.Modified;
+                    }
+                    conec.ReservaDirectas.Remove(this);
+                    conec.SaveChanges();
+                    UcQueLoLlama.inicializar();
+                    MessageBox.Show("Se canceló la reserva con éxito");
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
     }
 }

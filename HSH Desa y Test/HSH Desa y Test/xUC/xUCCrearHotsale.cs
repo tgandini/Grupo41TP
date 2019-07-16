@@ -57,31 +57,36 @@ namespace HSH_Desa_y_Test.xUC
         private void button2_Click(object sender, EventArgs e)
         {
             Propiedad st = encontrarCual(comboBox1.AccessibilityObject.Value);
-            DialogResult m = MessageBox.Show("Desea crear la subasta?", "Crear Subasta", MessageBoxButtons.YesNo);
+            DialogResult m = MessageBox.Show("Desea crear el Hotsale?", "Crear Hotsale", MessageBoxButtons.YesNo);
             if (m == DialogResult.Yes)
             {
                 if (st!=null)
                 {
-                    if (DateTime.Parse(maskedTextBox2.Text).CompareTo(DateTime.Now) >= 0)
+                    DateTime d;
+                    if (DateTime.TryParse(maskedTextBox2.Text, out d))
                     {
-                        int numeroSemana = Int32.Parse(comboBox3.SelectedItem.ToString().GetCharsBefore(" - "));
-                        if (st.EstaLibre(numeroSemana, (int)comboBox2.SelectedItem, true))
+                        if (d.CompareTo(DateTime.Now) >= 0)
                         {
-                            if (Semanizador.LunesDeSemana((int)comboBox2.SelectedItem, numeroSemana).CompareTo(DateTime.Parse(maskedTextBox2.Text).AddDays(7)) > 0)
+                            int numeroSemana = Int32.Parse(comboBox3.SelectedItem.ToString().GetCharsBefore(" - "));
+                            if (st.EstaLibre(numeroSemana, (int)comboBox2.SelectedItem, true))
                             {
-                                HotSale nuevoHotSale = new HotSale(DateTime.Parse(maskedTextBox2.Text), DateTime.Parse(maskedTextBox2.Text).AddDays(7), maskedTextBox1.AccessibilityObject.Value, numeroSemana, (int)comboBox2.SelectedItem, st);
+                                if (Semanizador.LunesDeSemana((int)comboBox2.SelectedItem, numeroSemana).CompareTo(DateTime.Parse(maskedTextBox2.Text).AddDays(7)) > 0)
+                                {
+                                    HotSale nuevoHotSale = new HotSale(d, d.AddDays(7), maskedTextBox1.AccessibilityObject.Value, numeroSemana, (int)comboBox2.SelectedItem, st);
 
-                                st.HotSales.Add(nuevoHotSale);
+                                    st.HotSales.Add(nuevoHotSale);
 
-                                nuevoHotSale.guardarEnBD();
+                                    nuevoHotSale.guardarEnBD();
 
-                                this.inicializar();
-                                MessageBox.Show("Se creó el hotsale con éxito");
+                                    this.inicializar();
+                                    MessageBox.Show("Se creó el hotsale con éxito");
+                                }
+                                else MessageBox.Show("La semana elegida debe superar la fecha de fin de hotsale, la cual es 7 dias a partir de la fecha de inicio.");
                             }
-                            else MessageBox.Show("La semana elegida debe superar la fecha de fin de hotsale, la cual es 7 dias a partir de la fecha de inicio.");
                         }
+                        else MessageBox.Show("La fecha de inicio es incorrecta");
                     }
-                    else MessageBox.Show("La fecha de inicio es incorrecta");
+                    else MessageBox.Show("No es una fecha valida");
                 }
                 else MessageBox.Show("La propiedad elegida es errónea");
             }
