@@ -16,11 +16,14 @@ namespace HSH_Desa_y_Test.ContextoDB
         public int getId()
         {
             return this.id;
-        }        public HotSale(DateTime inicio, DateTime fin, string precio, int semana, int año, Propiedad prop)
+        }
+        public HotSale(DateTime inicio, DateTime fin, string precio, int semana, int año, Propiedad prop)
         {
             this.fechaInicio = inicio;
             this.fechaFin = fin;
-            this.monto = decimal.Parse(precio);
+            decimal numParseado;
+            decimal.TryParse(precio, out numParseado);
+            this.monto = numParseado;
             this.semanaReservada = semana;
             this.añoReservado = año;
             this.id = int.MaxValue;
@@ -57,7 +60,7 @@ namespace HSH_Desa_y_Test.ContextoDB
         {
             using (ContextoEntity conec = new ContextoEntity())
             {
-                return conec.HotSales.Where(p=> p.idPropiedad == proid).ToList();
+                return conec.HotSales.Where(p => p.idPropiedad == proid).ToList();
             }
         }
 
@@ -65,7 +68,7 @@ namespace HSH_Desa_y_Test.ContextoDB
         {
             using (ContextoEntity conec = new ContextoEntity())
             {
-                return conec.HotSales.Where(p=>p.id== idP).First();
+                return conec.HotSales.Where(p => p.id == idP).First();
             }
         }
         public bool esFutura()
@@ -109,7 +112,6 @@ namespace HSH_Desa_y_Test.ContextoDB
             {
                 throw e;
             }
-                
         }
     }
 }
