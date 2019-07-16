@@ -60,7 +60,7 @@ namespace HSH_Desa_y_Test.xUC
             DialogResult m = MessageBox.Show("Desea crear el Hotsale?", "Crear Hotsale", MessageBoxButtons.YesNo);
             if (m == DialogResult.Yes)
             {
-                if (st!=null)
+                if (st != null)
                 {
                     DateTime d;
                     if (DateTime.TryParse(maskedTextBox2.Text, out d))
@@ -81,7 +81,7 @@ namespace HSH_Desa_y_Test.xUC
                                     this.inicializar();
                                     MessageBox.Show("Se creó el hotsale con éxito");
                                 }
-                                else MessageBox.Show("La semana elegida debe superar la fecha de fin de hotsale, la cual es 7 dias a partir de la fecha de inicio.");
+                                else MessageBox.Show("Debe existir al menos 7 días de diferencia entre la fecha de inicio y la semana elegida");
                             }
                         }
                         else MessageBox.Show("La fecha de inicio es incorrecta");
