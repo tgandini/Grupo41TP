@@ -46,7 +46,7 @@ namespace HSH_Desa_y_Test.xUC
             gridControl1.DataSource = iden;
             gridControl1.Update();
             gridView1.OptionsBehavior.Editable = false;
-            s = iden.First();
+            s = iden.FirstOrDefault();
             this.vistaDetalle();
         }
 
@@ -110,6 +110,12 @@ namespace HSH_Desa_y_Test.xUC
         }
 
         private void subastaBox_SelectedIndexChanged(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            s = (subasta)gridView1.GetFocusedRow();
+            this.vistaDetalle();
+        }
+
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             s = (subasta)gridView1.GetFocusedRow();
             this.vistaDetalle();

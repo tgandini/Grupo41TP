@@ -100,6 +100,7 @@ namespace HSH_Desa_y_Test.Forms
             this.xUCToolBarLogueado1.BringToFront();
 
             //traigo al frente la vista principal del administrador
+            this.xucVistaPrincipalAdmin1.inicializar();
             this.xucVistaPrincipalAdmin1.Visible = true;
             this.xucVistaPrincipalAdmin1.BringToFront();
         }
