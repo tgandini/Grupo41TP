@@ -68,12 +68,14 @@ namespace HSH_Desa_y_Test.xUC
         private void gridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             HotSale h = (HotSale)gridView1.GetFocusedRow();
-            this.xUCDetalleHotsale1.inicializar(h, h.Propiedad);
+            if (h != null)
+                this.xUCDetalleHotsale1.inicializar(h, h.Propiedad);
         }
 
         private void gridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             HotSale h = (HotSale)gridView1.GetFocusedRow();
+            if(h != null)
             this.xUCDetalleHotsale1.inicializar(h, h.Propiedad);
         }
     }

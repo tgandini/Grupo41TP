@@ -112,13 +112,15 @@ namespace HSH_Desa_y_Test.xUC
         private void subastaBox_SelectedIndexChanged(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             s = (subasta)gridView1.GetFocusedRow();
-            this.vistaDetalle();
+            if (s != null)
+                this.vistaDetalle();
         }
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             s = (subasta)gridView1.GetFocusedRow();
-            this.vistaDetalle();
+            if (s != null)
+                this.vistaDetalle();
         }
     }
 }

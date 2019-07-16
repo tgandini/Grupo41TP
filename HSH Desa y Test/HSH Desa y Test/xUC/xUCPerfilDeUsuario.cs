@@ -25,6 +25,13 @@ namespace HSH_Desa_y_Test.xUC
         public void inicializar()
         {
             if (!Sesion.hayUserLogueado()) Sesion.user = new usuario();
+            else
+            {
+                using (ContextoEntity conec = new ContextoEntity())
+                {
+                    Sesion.user = conec.usuarios.Where(p => p.mail == Sesion.user.mail).FirstOrDefault();
+                }
+            }
             if (Sesion.user.premium == true) simpleButton1.Visible = false;
             else simpleButton1.Visible = true;
             nombreControl.Text = Sesion.user.nombre;
