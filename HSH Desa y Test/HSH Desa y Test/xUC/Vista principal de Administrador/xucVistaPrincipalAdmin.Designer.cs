@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.xUCListadoHotSale1 = new HSH_Desa_y_Test.xUC.xUCListadoHotSale();
             this.xUCCrearHotsale1 = new HSH_Desa_y_Test.xUC.xUCCrearHotsale();
             this.xUCCerrarSubasta1 = new HSH_Desa_y_Test.xUC.xUCCerrarSubasta();
             this.xfRegistrarceForm1 = new HSH_Desa_y_Test.xUC.xfRegistrarceForm();
@@ -44,6 +45,7 @@
             // panelControl1
             // 
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.xUCListadoHotSale1);
             this.panelControl1.Controls.Add(this.xUCCrearHotsale1);
             this.panelControl1.Controls.Add(this.xUCCerrarSubasta1);
             this.panelControl1.Controls.Add(this.xfRegistrarceForm1);
@@ -55,6 +57,14 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1004, 593);
             this.panelControl1.TabIndex = 1;
+            // 
+            // xUCListadoHotSale1
+            // 
+            this.xUCListadoHotSale1.Location = new System.Drawing.Point(0, 20);
+            this.xUCListadoHotSale1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.xUCListadoHotSale1.Name = "xUCListadoHotSale1";
+            this.xUCListadoHotSale1.Size = new System.Drawing.Size(1182, 571);
+            this.xUCListadoHotSale1.TabIndex = 8;
             // 
             // xUCCrearHotsale1
             // 
@@ -133,7 +143,7 @@
             // 
             this.xucComandosAdmin1.Location = new System.Drawing.Point(3, 3);
             this.xucComandosAdmin1.Name = "xucComandosAdmin1";
-            this.xucComandosAdmin1.Size = new System.Drawing.Size(1333, 78);
+            this.xucComandosAdmin1.Size = new System.Drawing.Size(1334, 75);
             this.xucComandosAdmin1.TabIndex = 2;
             // 
             // xucVistaPrincipalAdmin
@@ -160,5 +170,6 @@
         private xUCCerrarSubasta xUCCerrarSubasta1;
         private xucComandosAdmin xucComandosAdmin1;
         private xUCCrearHotsale xUCCrearHotsale1;
+        private xUCListadoHotSale xUCListadoHotSale1;
     }
 }
