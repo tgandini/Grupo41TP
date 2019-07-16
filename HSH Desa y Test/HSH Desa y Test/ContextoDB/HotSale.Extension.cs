@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Entity;
+
 
 namespace HSH_Desa_y_Test.ContextoDB
 {
@@ -47,7 +49,7 @@ namespace HSH_Desa_y_Test.ContextoDB
         {
             using (ContextoEntity conec = new ContextoEntity())
             {
-                return conec.HotSales.ToList();
+                return conec.HotSales.Include(p => p.Propiedad).ToList();
             }
         }
 

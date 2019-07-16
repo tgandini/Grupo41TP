@@ -60,5 +60,10 @@ namespace HSH_Desa_y_Test.xUC
         {
             Sesion.vistaPrincipalDeAdmin.renderizarCrearHotSale();
         }
+
+        private void simpleButton3_Click_1(object sender, EventArgs e)
+        {
+            Sesion.vistaPrincipalDeAdmin.renderizarListadoHotSales();
+        }
     }
 }

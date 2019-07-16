@@ -99,7 +99,7 @@
             // 
             // colPropiedad
             // 
-            this.colPropiedad.FieldName = "Nombre";
+            this.colPropiedad.FieldName = "Propiedad.nombre";
             this.colPropiedad.MinWidth = 21;
             this.colPropiedad.Name = "colPropiedad";
             this.colPropiedad.Visible = true;

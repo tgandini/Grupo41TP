@@ -29,7 +29,25 @@ namespace HSH_Desa_y_Test.xUC
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
         }
 
-        public void inicializar()
+        public void inicializarAdmin()
+        {
+            List<HotSale> hot = HotSale.traerDeDB();
+            List<HotSale> ok = new List<HotSale>();
+            foreach (HotSale r in hot)
+            {
+                if (r.idUsuario == null) ok.Add(r);
+            }
+            gridControl1.DataSource = ok;
+            if (gridView1.RowCount > 0)
+            {
+                xUCDetalleHotsale1.Visible = true;
+                HotSale h = (HotSale)gridView1.GetFocusedRow();
+                xUCDetalleHotsale1.inicializar(h, h.Propiedad);
+            }
+            else xUCDetalleHotsale1.Visible = false;
+        }
+
+    public void inicializar()
         {
             List<HotSale> hot = HotSale.traerDeDB();
             List<HotSale> ok= new List<HotSale>();
@@ -42,12 +60,7 @@ namespace HSH_Desa_y_Test.xUC
             {
                 xUCDetalleHotsale1.Visible = true;
                 HotSale h = (HotSale)gridView1.GetFocusedRow();
-                Propiedad prop;
-                using (ContextoEntity conec = new ContextoEntity())
-                {
-                    prop = conec.Propiedads.Where(p => p.id == h.idPropiedad).First();
-                }
-                xUCDetalleHotsale1.inicializar(h, prop);
+                xUCDetalleHotsale1.inicializar(h, h.Propiedad);
             }
             else xUCDetalleHotsale1.Visible = false;
         }

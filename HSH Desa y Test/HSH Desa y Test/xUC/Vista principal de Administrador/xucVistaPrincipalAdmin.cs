@@ -102,5 +102,13 @@ namespace HSH_Desa_y_Test.xUC.Vista_principal_de_Administrador
         {
             this.xfDarDeBajaPropiedad2.vuelveDeModificar();
         }
+
+        internal void renderizarListadoHotSales()
+        {
+            this.ocultarFormsderivados();
+            this.xUCListadoHotSale1.inicializarAdmin();
+            this.xUCListadoHotSale1.Visible = true;
+            this.xUCListadoHotSale1.BringToFront();
+        }
     }
 }
