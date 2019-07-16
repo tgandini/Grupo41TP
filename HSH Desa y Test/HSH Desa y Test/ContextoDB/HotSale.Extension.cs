@@ -24,10 +24,6 @@ namespace HSH_Desa_y_Test.ContextoDB
             this.id = int.MaxValue;
             this.idUsuario = null;
             this.idPropiedad = prop.id;
-            using (ContextoEntity conec = new ContextoEntity())
-            {
-                this.Propiedad = conec.Propiedads.Where(p => p.id == prop.id).First();
-            }
         }
 
         public HotSale(DateTime inicio, DateTime fin, string precio, int semana, int año, Propiedad prop, usuario user)
@@ -39,11 +35,6 @@ namespace HSH_Desa_y_Test.ContextoDB
             this.añoReservado = año;
             this.id = int.MaxValue;
             this.idUsuario = user.mail;
-            using (ContextoEntity conec = new ContextoEntity())
-            {
-                this.Propiedad = conec.Propiedads.Where(p => p.id == prop.id).First();
-                this.usuario = conec.usuarios.Where(p => p.mail == user.mail).First();
-            }
             this.idPropiedad = prop.id;
         }
 
