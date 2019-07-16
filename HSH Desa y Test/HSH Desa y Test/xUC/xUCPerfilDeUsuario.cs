@@ -71,7 +71,7 @@ namespace HSH_Desa_y_Test.xUC
                 {
                     using (ContextoEntity conec = new ContextoEntity())
                     {
-                        conec.tarjetas.Remove(conec.tarjetas.Where(p => p.numero == comboBox1.SelectedItem.ToString()).First());
+                        conec.tarjetas.Remove(conec.tarjetas.Where(p => p.numero == comboBox1.SelectedValue.ToString()).First());
                         conec.SaveChanges();
                     }
                     this.inicializar();
