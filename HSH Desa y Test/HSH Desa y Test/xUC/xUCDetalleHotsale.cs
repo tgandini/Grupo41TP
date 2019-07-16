@@ -35,6 +35,25 @@ namespace HSH_Desa_y_Test.xUC
             montoLabel.Text = hot.monto.ToString();
         }
 
+        public void inicializar(HotSale hots)
+        {
+            if (Sesion.user != null) simpleButton1.Visible = true;
+            else simpleButton1.Visible = false;
+            hot = hots;
+            Propiedad prop;
+            using (ContextoEntity conexion = new ContextoEntity())
+            {
+                prop = conexion.Propiedads.Where(p=> p.id == hot.idPropiedad).First();
+            }
+            nombreLabel.Text = prop.nombre;
+            ciudadLabel.Text = prop.ciudad;
+            ubicacionLabel.Text = prop.ubicaciòn;
+            provinciaLabel.Text = prop.provincia;
+            paisLabel.Text = prop.pais;
+            fechaLabel.Text = Semanizador.LunesDeSemana(hot.añoReservado, hot.semanaReservada).Date.ToString();
+            montoLabel.Text = hot.monto.ToString();
+        }
+
         public void inicializar()
         {
             HotSale h;

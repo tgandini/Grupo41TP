@@ -87,7 +87,7 @@ namespace HSH_Desa_y_Test.ContextoDB
             }
             else if (propDeDb.HotSales.Any(p=> p.semanaReservada == semana && p.añoReservado == año))
             {
-                if (saltarMensajes) MessageBox.Show(String.Format("La propiedad ya tiene una reserva directa para la semana {0} del año {1}", semana, año), "La propiedad ya tiene una reserva");
+                if (saltarMensajes) MessageBox.Show(String.Format("La propiedad ya tiene un HotSale reservado para la semana {0} del año {1}", semana, año), "La propiedad ya tiene una reserva");
                 return false;
             }
 

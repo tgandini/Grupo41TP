@@ -59,6 +59,15 @@ namespace HSH_Desa_y_Test.ContextoDB
                 return conec.HotSales.ToList();
             }
         }
+
+        public static List<HotSale> traerDeDB(int proid)
+        {
+            using (ContextoEntity conec = new ContextoEntity())
+            {
+                return conec.HotSales.Where(p=> p.idPropiedad == proid).ToList();
+            }
+        }
+
         public static HotSale getOneById(int idP)
         {
             using (ContextoEntity conec = new ContextoEntity())

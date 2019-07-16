@@ -98,5 +98,13 @@ namespace HSH_Desa_y_Test.xUC
             ms.inicializar();
             ms.Show();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (Sesion.hayAdminLogueado())
+                Sesion.vistaPrincipalDeAdmin.ocultarFormsderivados();
+            else
+                Sesion.vistaPrincipalUserLogueado.ocultarFormsDerivados();
+        }
     }
 }

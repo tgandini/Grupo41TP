@@ -17,6 +17,7 @@ namespace HSH_Desa_y_Test.xUC
     {
         private Propiedad propi;
         List<subasta> subActivas = new List<subasta>();
+        List<HotSale> hotActivos = new List<HotSale>();
         public xUCOperacionesPropiedadesUsuarioLogueado()
         {
             InitializeComponent();
@@ -61,6 +62,23 @@ namespace HSH_Desa_y_Test.xUC
                 if (subastasActivasListBox.ItemCount < 1) subastasActivasListBox.Text = "No hay subastas activas";
             }
             else subastasActivasListBox.Text = "No hay subastas activas";
+
+            var hot = HotSale.traerDeDB(pro.id);
+            if(hot != null)
+            {
+                List<string> hotsaleActivos = new List<string>();
+                foreach(HotSale h in hot)
+                {
+                    if(h.fechaInicio <= DateTime.Now && h.fechaFin >= DateTime.Now)
+                    {
+                        hotsaleActivos.Add(string.Format(Semanizador.LunesDeSemana(h.añoReservado, h.semanaReservada).ToString("dd/MM/yyyy")));
+                        hotActivos.Add(h);
+                    }
+                }
+                hotsaleBox.DataSource = hotsaleActivos;
+                if (hotsaleBox.ItemCount < 1) hotsaleBox.Text = "No hay hotsales activos";
+            }
+            else hotsaleBox.Text = "No hay hotsales activos";
         }
 
         private void reservaDirectaButton_Click(object sender, EventArgs e)
@@ -103,6 +121,15 @@ namespace HSH_Desa_y_Test.xUC
                 Sesion.vistaPrincipalUserLogueado.renderizarDetalleSubasta(subActivas.ElementAt(subastasActivasListBox.SelectedIndex));
             }
             else MessageBox.Show("No se seleccionó ninguna subasta para mostrar");
+        }
+
+        private void linkHotsaleButton_Click(object sender, EventArgs e)
+        {
+            if (hotsaleBox.SelectedIndex != -1)
+            {
+                Sesion.vistaPrincipalUserLogueado.renderizarDetalleHotsale(hotActivos.ElementAt(hotsaleBox.SelectedIndex));
+            }
+            else MessageBox.Show("No se seleccionó ningun hotsale para mostrar");
         }
     }
 }

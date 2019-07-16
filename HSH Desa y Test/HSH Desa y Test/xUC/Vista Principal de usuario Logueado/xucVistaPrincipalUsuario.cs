@@ -93,5 +93,12 @@ namespace HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado_y_Deslogueado
             this.xucReservasFuturas1.BringToFront();
         }
 
+        internal void renderizarDetalleHotsale(HotSale hot)
+        {
+            this.ocultarFormsDerivados();
+            this.xUCDetalleHotsale1.inicializar(hot);
+            this.xUCDetalleHotsale1.Visible = true;
+            this.xUCDetalleHotsale1.BringToFront();
+        }
     }
 }

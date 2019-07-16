@@ -138,8 +138,9 @@
             // xUCOperacionesPropiedadesUsuarioLogueado1
             // 
             this.xUCOperacionesPropiedadesUsuarioLogueado1.Location = new System.Drawing.Point(572, 362);
+            this.xUCOperacionesPropiedadesUsuarioLogueado1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xUCOperacionesPropiedadesUsuarioLogueado1.Name = "xUCOperacionesPropiedadesUsuarioLogueado1";
-            this.xUCOperacionesPropiedadesUsuarioLogueado1.Size = new System.Drawing.Size(807, 204);
+            this.xUCOperacionesPropiedadesUsuarioLogueado1.Size = new System.Drawing.Size(807, 318);
             this.xUCOperacionesPropiedadesUsuarioLogueado1.TabIndex = 3;
             // 
             // xucListadoPropiedadesYEditar

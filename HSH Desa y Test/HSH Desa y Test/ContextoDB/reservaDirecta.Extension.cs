@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
 using HSH_Desa_y_Test.xUC.Vista_Principal_de_usuario_Logueado;
-using HSH_Desa_y_Test.Modelo_Expandido;
 
 namespace HSH_Desa_y_Test.ContextoDB
 {
@@ -59,15 +58,21 @@ namespace HSH_Desa_y_Test.ContextoDB
                     {
                         this.usuario.agregarCredito();
                         conec.Entry(this.usuario).State = System.Data.Entity.EntityState.Modified;
-                    }
-                    conec.ReservaDirectas.Remove(this);
+                        
+
+                        }
+                        
+                    
+                    //conec.ReservaDirectas.Remove(ReservaDirecta.getOneById(this.id));
+                    conec.Entry(this).State = System.Data.Entity.EntityState.Deleted;
                     conec.SaveChanges();
-                    UcQueLoLlama.inicializar();
-                    MessageBox.Show("Se canceló la reserva con éxito");
                 }
+                UcQueLoLlama.inicializar();
+                MessageBox.Show("Se canceló la reserva con éxito");
             }
             catch (Exception e)
             {
+                MessageBox.Show("Hubo un error en la cancelación de la reserva");
                 throw e;
             }
 

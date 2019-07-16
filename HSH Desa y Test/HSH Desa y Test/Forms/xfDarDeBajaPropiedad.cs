@@ -18,6 +18,7 @@ namespace HSH_Desa_y_Test.Forms
     public partial class xfDarDeBajaPropiedad : DevExpress.XtraEditors.XtraUserControl
     {
         private List<ReservaDirecta> res = null;
+        private List<HotSale> hot = null;
         public xfDarDeBajaPropiedad()
         {
             InitializeComponent();
@@ -71,7 +72,7 @@ namespace HSH_Desa_y_Test.Forms
                 {
                     var propiedadaborrar = conec.Propiedads.Where(p => p.id == propiedadSeleccionado.id).First();
                     var fotito = conec.fotos.Where(p => p.idPropiedad == propiedadaborrar.id).ToList();
-                    if (tieneReserva(propiedadaborrar.id))
+                    if (tieneReserva(propiedadaborrar.id) && tieneHotsale(propiedadaborrar.id))
                     {
                         if (tieneSubasta(propiedadaborrar.id))
                         {
@@ -83,12 +84,29 @@ namespace HSH_Desa_y_Test.Forms
                                     {
                                         var us = conec.usuarios.Where(p => p.mail == r.idUsuario).First();
                                         us.token++;
+                                        conec.Entry(us).State = System.Data.Entity.EntityState.Modified;
                                     }
                                     var re = conec.ReservaDirectas.Where(p=> p.id == r.id).First();
                                     conec.ReservaDirectas.Remove(re);
                                     conec.SaveChanges();
                                 }
                                 res = null;
+                            }
+                            if (hot != null)
+                            {
+                                foreach (HotSale r in hot)
+                                {
+                                    if (DateTime.Now.AddMonths(6) <= Semanizador.LunesDeSemana(r.añoReservado,r.semanaReservada) && r.idUsuario != null)
+                                    {
+                                        var us = conec.usuarios.Where(p => p.mail == r.idUsuario).First();
+                                        us.token++;
+                                        conec.Entry(us).State = System.Data.Entity.EntityState.Modified;
+                                    }
+                                    var re = conec.HotSales.Where(p => p.id == r.id).First();
+                                    conec.HotSales.Remove(re);
+                                    conec.SaveChanges();
+                                }
+                                hot = null;
                             }
                             conec.fotos.RemoveRange(fotito);
                             conec.Propiedads.Remove(propiedadaborrar);
@@ -132,6 +150,25 @@ namespace HSH_Desa_y_Test.Forms
                     DialogResult result = MessageBox.Show("Tiene reservas pendientes, desea darla de baja de todas formas?", "Borrar", MessageBoxButtons.OKCancel);
                     if (result == DialogResult.OK)
                     {                        
+                        return true;
+                    }
+                    else return false;
+
+                }
+            }
+            return true;
+        }
+
+        private bool tieneHotsale(int idenPropiedad)
+        {
+            using (ContextoEntity conec = new ContextoEntity())
+            {
+                hot = conec.HotSales.Where(p => p.idPropiedad == idenPropiedad).ToList();
+                if (hot.Count > 0)
+                {
+                    DialogResult result = MessageBox.Show("Tiene HotSales pendientes, desea darla de baja de todas formas?", "Borrar", MessageBoxButtons.OKCancel);
+                    if (result == DialogResult.OK)
+                    {
                         return true;
                     }
                     else return false;
